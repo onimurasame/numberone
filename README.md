@@ -524,8 +524,9 @@ This repository includes complete GitHub governance, security automation, and **
 - **GitHub Pages Interactive Docs + Archify Deployment**: [`.github/workflows/pages.yml`](./.github/workflows/pages.yml)
 - **CodeQL SAST Analysis**: [`.github/workflows/codeql.yml`](./.github/workflows/codeql.yml)
 - **Supply-Chain Dependency & License Review**: [`.github/workflows/dependency-review.yml`](./.github/workflows/dependency-review.yml) & [`.github/dependabot.yml`](./.github/dependabot.yml)
+- **Dependabot PR Triage, Provenance & Batch Merge Automation**: [`.github/workflows/dependabot-triage.yml`](./.github/workflows/dependabot-triage.yml), [`scripts/verify-workflows.mjs`](./scripts/verify-workflows.mjs), and [`scripts/pr-automation.mjs`](./scripts/pr-automation.mjs) automatically verify SHA pins, `github/codeql-action/*` lockstep, commit signatures, upstream tag-to-SHA provenance, and Pages bundle integrity while keeping final CODEOWNERS approval manual (`npm run verify:workflows`, `npm run pr:triage`, `npm run pr:merge`).
 - **Signed Provenance Releases**: [`.github/workflows/release.yml`](./.github/workflows/release.yml)
-- **Automated Repository Provisioner**: [`scripts/configure-github.sh`](./scripts/configure-github.sh) configures public visibility, GitHub Pages (`build_type: workflow`), Issues, Discussions, Projects v2 Scrum board, 18 labels, milestones, Dependabot/Secret Scanning, and Default Branch Rulesets:
+- **Automated Repository Provisioner**: [`scripts/configure-github.sh`](./scripts/configure-github.sh) configures public visibility, GitHub Pages (`build_type: workflow`), Issues, Discussions, Projects v2 Scrum board, 21 labels, milestones, Dependabot/Secret Scanning, and Default Branch Rulesets:
 
 ```bash
 # Preview all GitHub API provisioning operations
@@ -533,6 +534,13 @@ This repository includes complete GitHub governance, security automation, and **
 
 # Apply live once repository is created/pushed
 ./scripts/configure-github.sh --repo onimurasame/numberone
+
+# Verify workflow SHA pins, CodeQL lockstep & Pages bundle locally
+npm run verify:workflows
+
+# Dry-run Dependabot PR policy triage, or approve & squash-merge all green eligible PRs
+npm run pr:triage
+npm run pr:merge
 ```
 
 ---

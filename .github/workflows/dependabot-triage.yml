@@ -1,0 +1,63 @@
+name: Dependabot PR Triage & Provenance Gate
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: dependabot-triage-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  triage:
+    name: Dependabot Policy & Provenance Triage
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout trusted default branch scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22.22.x'
+
+      - name: Fetch verified Dependabot PR metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Evaluate policy, commit signatures & action tag provenance
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          DEP_ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
+          DEP_UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          DEP_TYPE: ${{ steps.metadata.outputs.dependency-type }}
+          DEP_NAMES: ${{ steps.metadata.outputs.dependency-names }}
+          DEP_MAINTAINER_CHANGES: ${{ steps.metadata.outputs.maintainer-changes }}
+        run: |
+          set -euo pipefail
+          node scripts/pr-automation.mjs triage-pr \
+            --repo "$TARGET_REPO" \
+            --pr "$PR_NUMBER" \
+            --ecosystem "$DEP_ECOSYSTEM" \
+            --update-type "$DEP_UPDATE_TYPE" \
+            --dependency-type "$DEP_TYPE" \
+            --dependency-names "$DEP_NAMES" \
+            --maintainer-changes "$DEP_MAINTAINER_CHANGES" \
+            --verify-remote-tags \
+            --sync-labels \
+            --post-comment

@@ -168,6 +168,9 @@ LABELS=(
   "documentation|0075ca|Documentation, Glossary, Code Reference, or Archify artifacts"
   "dependencies|0366d6|Automated dependency updates"
   "github-actions|000000|CI/CD and GitHub Actions workflows"
+  "npm|cb3837|npm package dependency updates"
+  "automerge-eligible|0e8a16|Dependabot PR passed policy & provenance checks; ready for CODEOWNER approval and squash-merge"
+  "manual-review-required|d93f0b|PR requires explicit manual review before merge"
 )
 
 for entry in "${LABELS[@]}"; do
