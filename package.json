@@ -17,7 +17,8 @@
     "README.md",
     "CHANGELOG.md",
     "SECURITY.md",
-    "LICENSE"
+    "LICENSE",
+    "NOTICE"
   ],
   "bin": {
     "numberone": "dist/cli.js",
@@ -57,7 +58,7 @@
     "infrastructure",
     "harness-agnostic"
   ],
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "engines": {
     "node": ">=22.0.0"
   },

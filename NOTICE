@@ -1,0 +1,48 @@
+Number One (n1) — Harness-agnostic, event-sourced authoritative workspace
+curator and System of Record (SoR) with BMAD Party Mode Bridge Crew.
+
+Copyright (C) 2026 Raul Astudillo and Number One Contributors
+https://github.com/onimurasame/numberone
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program in the LICENSE file.  If not, see
+<https://www.gnu.org/licenses/>.
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+Scope Clarification
+-------------------
+Running Number One (`n1`) as a CLI, watcher daemon, container, CI step, or
+MCP server against a workspace does NOT relicense or impose AGPL-3.0 terms
+on the user's own repository, source code, documentation, or `.numberone/`
+workspace event logs. The GNU AGPL-3.0-or-later terms apply solely to
+Number One itself, derivative works based on Number One, and modified
+versions of Number One made available to users over a computer network
+(Section 13 of the GNU AGPL v3.0).
+
+Historical License Transition
+-----------------------------
+Commits up through b8e8d39a8f929088f75f49ad010f835a2129bb99 (prior to the
+AGPL-3.0-or-later transition) were originally published under the MIT License
+and remain available under their original terms. All commits, packages,
+container images, and releases from this transition forward are licensed
+under the GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later).
+
+Third-Party Notices
+-------------------
+Third-party dependencies and generated documentation assets retain their
+respective licenses:
+- `zod` (runtime dependency): MIT License.
+- Generated Archify interactive documentation viewers under `docs/site/archify/`
+  and `docs/assets/archify/`: Apache License 2.0 and embedded third-party
+  notices preserved inside each generated artifact.

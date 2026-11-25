@@ -9,11 +9,11 @@ RUN npm run build
 FROM node:22.22-alpine3.24@sha256:e58326d0d441090181ac150dc2078d3e2cf6a0d42e809aebba3ef5880935ffdd AS runtime
 LABEL org.opencontainers.image.title="Number One (n1)" \
       org.opencontainers.image.description="Harness-agnostic event-sourced authoritative workspace curator and System of Record" \
-      org.opencontainers.image.licenses="MIT"
+      org.opencontainers.image.licenses="AGPL-3.0-or-later"
 WORKDIR /app
 ENV NODE_ENV=production
 RUN apk add --no-cache tini git
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json LICENSE NOTICE ./
 RUN npm ci --omit=dev --ignore-scripts \
     && npm cache clean --force \
     && rm -rf /root/.npm \

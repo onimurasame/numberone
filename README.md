@@ -5,7 +5,7 @@
 [![CI](https://github.com/onimurasame/numberone/actions/workflows/ci.yml/badge.svg)](https://github.com/onimurasame/numberone/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/onimurasame/numberone/actions/workflows/codeql.yml/badge.svg)](https://github.com/onimurasame/numberone/actions/workflows/codeql.yml)
 [![Deploy Docs & Archify](https://github.com/onimurasame/numberone/actions/workflows/pages.yml/badge.svg)](https://onimurasame.github.io/numberone/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-059669.svg)](./LICENSE)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-059669.svg)](./LICENSE)
 [![Node.js >= 22](https://img.shields.io/badge/Node.js-%3E%3D22.0.0-d97706.svg)](./package.json)
 
 > **Interactive Documentation & Archify Architecture Portal (GitHub Pages):**  
@@ -539,4 +539,10 @@ This repository includes complete GitHub governance, security automation, and **
 
 ## License
 
-Released under the [MIT License](./LICENSE).
+Copyright (C) 2026 Raul Astudillo and Number One Contributors.
+
+Released under the **[GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`)](./LICENSE)** — see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
+
+- **Strong Copyleft & Network Protection**: Number One is genuinely Free and Open Source Software (OSI- and FSF-approved). Any distributed derivative work **and** any modified version offered to users over a network — including cloud coding platforms, hosted MCP services, or SaaS deployments (Section 13) — must remain free and open source under `AGPL-3.0-or-later` with complete corresponding source code, explicit patent grants (Section 11), and anti-Tivoization protections (Section 6).
+- **Your Workspace Stays Yours**: Running `n1` as a CLI, watcher daemon, container, CI check, or MCP server against your own repository does **not** relicense your workspace, source code, or `.numberone/` logs.
+- **Historical Transition**: Commits prior to the AGPL-3.0-or-later transition remain available under their original MIT License terms; see [`NOTICE`](./NOTICE).
