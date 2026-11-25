@@ -1,0 +1,31 @@
+name: Feature / Harness / Persistence Proposal
+description: Propose a new capability, AI harness integration, or Scrum persistence enhancement.
+title: "[Feature]: "
+labels: ["n1:managed", "n1:kind:story"]
+body:
+  - type: dropdown
+    id: owner_officer
+    attributes:
+      label: Primary Bridge Crew Domain
+      options:
+        - System of Record (Core Stream / Replay / Authority)
+        - Engineering Officer (Runtime / Containers / Observability)
+        - Security Officer (AppSec / Supply Chain / Secret Hygiene)
+        - Bridge Officer (CI/CD / Release Automation / Rollback)
+        - Harness & Persistence Ecosystem
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What workflow gap or institutional-memory failure does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Proposed Event / CLI / MCP Contract
+      description: Describe how this preserves replay determinism, zero-theatrics verification, and `.numberone/` fallback integrity.
+    validations:
+      required: true

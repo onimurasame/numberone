@@ -1,0 +1,38 @@
+name: Officer KPI Evolution Proposal
+description: Propose an empirically verified KnowledgePractice for the Engineering, Security, or Bridge Officer.
+title: "[Evolution]: "
+labels: ["n1:managed", "n1:lesson"]
+body:
+  - type: dropdown
+    id: officer
+    attributes:
+      label: Target Officer
+      options:
+        - engineering (runtime_readiness_score)
+        - security (security_posture_score)
+        - bridge (continuous_delivery_score)
+    validations:
+      required: true
+  - type: input
+    id: practice_id
+    attributes:
+      label: Practice ID & Standard Reference
+      placeholder: "sec-gha-zizmor-check (OWASP CI/CD-SEC-4 / SLSA v1.0)"
+    validations:
+      required: true
+  - type: textarea
+    id: matcher
+    attributes:
+      label: Safe Linear-Time Practice Matcher JSON
+      description: Paste the `KnowledgePractice` JSON (`fileGlob`, `contentRegex`, `missingFile`, `requiredContentRegex`). Note that nested quantifiers / backreferences are rejected by `validateRegexSafety`.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Counterfactual Replay Proof (`VerificationSample[]`)
+      description: Provide positive (compliant) and negative (violating) virtual workspace samples proving `delta > 0` on the officer's main KPI.
+      render: json
+    validations:
+      required: true

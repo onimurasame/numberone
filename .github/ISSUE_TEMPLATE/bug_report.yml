@@ -1,0 +1,53 @@
+name: Bug / Crash Report
+description: Report a deterministic bug, stream integrity issue, harness incompatibility, or crash in Number One.
+title: "[Bug]: "
+labels: ["n1:managed", "n1:kind:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue. Please strip any credentials before pasting logs (note that `n1` automatically redacts known token formats inside `.numberone/`).
+  - type: dropdown
+    id: subsystem
+    attributes:
+      label: Affected Subsystem
+      options:
+        - Core Stream / Replay / Authority Engine
+        - Distributed Persistence (Directory / GitHub / Jira)
+        - Watchers / Daemon / Git Hooks / Transcript Ingestor
+        - Bridge Crew / BMAD Party Mode / KPI Evolution
+        - MCP Server / Harness Shims
+        - Container / On-Premises Runtime
+        - Documentation / Archify Artifacts / GitHub Pages
+    validations:
+      required: true
+  - type: input
+    id: harness
+    attributes:
+      label: AI Harness & OS Environment
+      description: e.g. Claude Code 1.x / Cursor / Codex CLI / Generic CLI on Ubuntu 24.04 (Node v22.22.0)
+      placeholder: "Cursor + Node v22.22.0 on Linux x86_64"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Deterministic Reproduction Steps
+      description: Minimal commands or MCP requests that trigger the defect.
+      placeholder: |
+        1. Run `n1 attach .`
+        2. Run `n1 verify --json`
+        3. Observe output...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. Actual Behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Output of `n1 doctor --json` and `n1 verify --local-only --json`
+      render: json

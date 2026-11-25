@@ -1,0 +1,10 @@
+# Default owners for everything in the repository
+* @onimurasame
+
+# Core event-sourced System of Record & security primitives
+/src/core/ @onimurasame
+/src/utils/ @onimurasame
+/src/crew/security-officer.ts @onimurasame
+/.github/workflows/ @onimurasame
+/Dockerfile @onimurasame
+/SECURITY.md @onimurasame
