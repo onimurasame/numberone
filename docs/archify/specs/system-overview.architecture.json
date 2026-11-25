@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Number One (n1) — Authoritative System of Record Architecture",
+    "subtitle": "Click any subsystem for its Semantic Passport, pinned TypeScript source, or Ctrl+click to drill down into child diagrams",
+    "locale": "en",
+    "output": "docs/site/archify/system-overview.html",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "layout": {
+    "mode": "auto"
+  },
+  "components": [
+    {
+      "id": "harnesses",
+      "type": "external",
+      "label": "AI Harnesses & Humans",
+      "sublabel": "24+ IDEs, CLIs & Shell",
+      "tag": "L4 Session",
+      "explanation": "External AI coding harnesses (Claude Code, Codex CLI, Cursor, Windsurf, Antigravity, Copilot, Cline, Zed, Aider, etc.) and human operators interacting via MCP stdio, CLI commands, filesystem saves, or Git operations.",
+      "sources": [
+        { "path": "src/harness/shims.ts", "line": 80, "end_line": 149, "label": "installHarnessShims" },
+        { "path": "src/cli.ts", "line": 325, "end_line": 410, "label": "runCli" }
+      ],
+      "drilldowns": [
+        { "href": "mcp-arbitration-sequence.html", "label": "MCP Arbitration Sequence", "diagram_type": "sequence" },
+        { "href": "repository-capability-tree.html?from=system-overview.html", "label": "Capability & Module Tree" }
+      ]
+    },
+    {
+      "id": "ingress",
+      "type": "frontend",
+      "label": "MCP & Watcher Ingress",
+      "sublabel": "Stdio JSON-RPC + Hooks",
+      "tag": "L4 Boundary",
+      "explanation": "Zero-port stdio JSON-RPC 2.0 MCP server, real-time debounced filesystem watcher, non-clobbering Git hooks, watched command runner, and multi-format transcript ingestor.",
+      "sources": [
+        { "path": "src/harness/mcp-server.ts", "line": 261, "end_line": 340, "label": "NumberOneMcpServer" },
+        { "path": "src/watchers/fs-watcher.ts", "line": 57, "end_line": 135, "label": "WorkspaceFsWatcher" },
+        { "path": "src/watchers/command-runner.ts", "line": 156, "end_line": 230, "label": "runWatchedCommand" }
+      ],
+      "drilldowns": [
+        { "href": "mcp-arbitration-sequence.html", "label": "MCP Stdio Request Sequence", "diagram_type": "sequence" },
+        { "href": "crash-to-lesson-timeline.html?from=system-overview.html", "label": "Crash-to-Lesson Timeline" }
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "NumberOneAgent",
+      "sublabel": "Authoritative Orchestrator",
+      "tag": "Facade",
+      "explanation": "Central workspace curator uniting the StreamStore, ReplayEngine, AuthorityEngine, LessonEngine, PartyModeOrchestrator, KnowledgeEvolutionEngine, and PersistenceFabric.",
+      "sources": [
+        { "path": "src/harness/number-one.ts", "line": 69, "end_line": 158, "label": "NumberOneAgent" }
+      ],
+      "drilldowns": [
+        { "href": "core-classes.html?from=system-overview.html", "label": "Core TypeScript Class Model" },
+        { "href": "party-sync-waterfall.html?from=system-overview.html", "label": "Execution Timing Waterfall" }
+      ]
+    },
+    {
+      "id": "authority",
+      "type": "security",
+      "label": "Authority & Lesson Engine",
+      "sublabel": "L1-L4 Precedence Gate",
+      "tag": "SoR Authority",
+      "explanation": "Enforces L1-L4 precedence (Stream Invariants > Directives > Officer Gates & Verified Lessons > Session Context) using affirmative-clause parsing and ReDoS-safe pattern matching.",
+      "sources": [
+        { "path": "src/core/authority-engine.ts", "line": 206, "end_line": 310, "label": "AuthorityEngine" },
+        { "path": "src/core/lesson-engine.ts", "line": 70, "end_line": 165, "label": "LessonEngine" }
+      ],
+      "drilldowns": [
+        { "href": "mcp-arbitration-sequence.html", "label": "Arbitration Protocol", "diagram_type": "sequence" },
+        { "href": "crash-to-lesson-timeline.html?from=system-overview.html", "label": "Auto-Lesson Correlation" }
+      ]
+    },
+    {
+      "id": "crew",
+      "type": "backend",
+      "label": "BMAD Bridge Crew",
+      "sublabel": "Eng + Sec + Bridge + KPI",
+      "tag": "Party Mode",
+      "explanation": "Three-officer roundtable (Engineering, Security, Bridge) executing Round 1 telemetry audits, Round 2 peer challenge verification, and KPI-gated KnowledgeEvolutionEngine updates.",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 309, "end_line": 420, "label": "PartyModeOrchestrator" },
+        { "path": "src/crew/evolution-engine.ts", "line": 80, "end_line": 190, "label": "KnowledgeEvolutionEngine" }
+      ],
+      "drilldowns": [
+        { "href": "bmad-party-workflow.html", "label": "BMAD Party Mode Workflow", "diagram_type": "workflow" },
+        { "href": "directive-evolution-lifecycle.html", "label": "KPI Evolution Lifecycle", "diagram_type": "lifecycle" }
+      ]
+    },
+    {
+      "id": "stream",
+      "type": "database",
+      "label": "StreamStore (.numberone)",
+      "sublabel": "SHA-256 JSONL + CAS Blobs",
+      "tag": "L1 Truth",
+      "explanation": "Append-only JSONL event log (0o600) with canonical JSON SHA-256 hash chaining, ULID ordering, linear-time secret redaction, fsync durability, and content-addressed fallback blobs.",
+      "sources": [
+        { "path": "src/core/stream-store.ts", "line": 388, "end_line": 460, "label": "StreamStore.append" },
+        { "path": "src/utils/redactor.ts", "line": 157, "end_line": 218, "label": "redactSecrets" }
+      ],
+      "drilldowns": [
+        { "href": "sor-data-model-erd.html?from=system-overview.html", "label": "Physical Data Model ERD" },
+        { "href": "stream-sync-dataflow.html", "label": "Stream & Redaction Dataflow", "diagram_type": "dataflow" }
+      ]
+    },
+    {
+      "id": "replay",
+      "type": "backend",
+      "label": "Replay & Documentary",
+      "sublabel": "Pure Fold + Digest Cache",
+      "tag": "Deterministic",
+      "explanation": "Reconstructs WorkspaceProjection deterministically from event #1 (or time-travels by seq/timestamp) and verifies cached state.json against canonical snapshotDigest.",
+      "sources": [
+        { "path": "src/core/replay-engine.ts", "line": 177, "end_line": 255, "label": "applyEventToProjection" },
+        { "path": "src/core/documentary.ts", "line": 27, "end_line": 120, "label": "buildWorkspaceDocumentary" }
+      ],
+      "drilldowns": [
+        { "href": "sor-data-model-erd.html?from=system-overview.html", "label": "Projection Entities ERD" },
+        { "href": "crash-to-lesson-timeline.html?from=system-overview.html", "label": "Documentary Timeline" }
+      ]
+    },
+    {
+      "id": "fabric",
+      "type": "messagebus",
+      "label": "PersistenceFabric",
+      "sublabel": "Sync Ledger + SSRF Guard",
+      "tag": "Distributed",
+      "explanation": "Bidirectional Scrum synchronization coordinator pushing and pulling work items while preserving oversized or unsupported fields in .numberone fallback blobs.",
+      "sources": [
+        { "path": "src/persistence/fabric.ts", "line": 81, "end_line": 175, "label": "PersistenceFabric.syncPush" },
+        { "path": "src/utils/http.ts", "line": 55, "end_line": 159, "label": "validateHttpUrl" }
+      ],
+      "drilldowns": [
+        { "href": "stream-sync-dataflow.html", "label": "Distributed Sync Dataflow", "diagram_type": "dataflow" },
+        { "href": "sor-data-model-erd.html?from=system-overview.html", "label": "Sync Ledger Data Model ERD" }
+      ]
+    },
+    {
+      "id": "remotes",
+      "type": "cloud",
+      "label": "Scrum Backends",
+      "sublabel": "Directory / GitHub / Jira",
+      "tag": "Mirrors",
+      "explanation": "External Scrum persistence targets: air-gapped Git-worktree/NFS Directory boards, GitHub Issues + Projects v2 GraphQL, and Jira REST v3 + Agile Sprints.",
+      "sources": [
+        { "path": "src/persistence/directory-adapter.ts", "line": 67, "end_line": 155, "label": "DirectoryPersistenceAdapter" },
+        { "path": "src/persistence/github-adapter.ts", "line": 175, "end_line": 265, "label": "GitHubPersistenceAdapter" },
+        { "path": "src/persistence/jira-adapter.ts", "line": 173, "end_line": 255, "label": "JiraPersistenceAdapter" }
+      ],
+      "drilldowns": [
+        { "href": "stream-sync-dataflow.html", "label": "Distributed Scrum Dataflow", "diagram_type": "dataflow" },
+        { "href": "party-sync-waterfall.html?from=system-overview.html", "label": "Sync Latency Waterfall" }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Attached Workspace Boundary",
+      "wraps": ["ingress", "agent", "authority", "crew", "stream", "replay", "fabric"]
+    },
+    {
+      "kind": "security-group",
+      "label": "L1-L3 Authoritative SoR Core (.numberone 0o700)",
+      "wraps": ["authority", "stream", "replay"]
+    }
+  ],
+  "connections": [
+    { "id": "harness-to-ingress", "from": "harnesses", "to": "ingress", "label": "stdio MCP / CLI / FS", "variant": "emphasis" },
+    { "id": "ingress-to-agent", "from": "ingress", "to": "agent", "label": "validated calls", "variant": "emphasis" },
+    { "id": "agent-to-authority", "from": "agent", "to": "authority", "label": "arbitrate & consult", "variant": "security" },
+    { "id": "agent-to-crew", "from": "agent", "to": "crew", "label": "convene & evolve", "variant": "default" },
+    { "id": "agent-to-stream", "from": "agent", "to": "stream", "label": "append + fsync", "variant": "emphasis" },
+    { "id": "crew-to-stream", "from": "crew", "to": "stream", "label": "opinions, KPIs & vetoes", "variant": "security" },
+    { "id": "stream-to-replay", "from": "stream", "to": "replay", "label": "JSONL events", "variant": "default" },
+    { "id": "replay-to-authority", "from": "replay", "to": "authority", "label": "WorkspaceProjection", "variant": "default" },
+    { "id": "stream-to-fabric", "from": "stream", "to": "fabric", "label": "unsynced events", "variant": "dashed" },
+    { "id": "fabric-to-remotes", "from": "fabric", "to": "remotes", "label": "HTTPS / POSIX sync", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "L1 System of Record",
+      "items": [
+        "47 atomic event types chained by canonical JSON SHA-256 hashes",
+        "Deterministic replay rebuilds exact state and verifies snapshotDigest",
+        "Linear-time secret redaction runs before any byte touches disk"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "BMAD Bridge Crew",
+      "items": [
+        "Engineering, Security, and Bridge Officers audit live workspace telemetry",
+        "Round 2 peer challenges are verified against concrete check evidence",
+        "Knowledge updates require proven positive KPI delta > 0"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Distributed Integrity",
+      "items": [
+        "Directory, GitHub Projects v2, and Jira stay synced via ledger hashes",
+        "Unsupported or oversized artifacts stay intact in .numberone fallback blobs",
+        "Every outbound request enforces SSRF and origin-scoped token checks"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "title": "Number One — Multi-View System Choreography",
+  "preset": "signal-flow",
+  "views": [
+    {
+      "id": "overview",
+      "type": "architecture",
+      "input": "system-overview.architecture.json",
+      "callouts": {
+        "stream": { "text": "SHA-256 Hash Chain + CAS", "tone": "accent" },
+        "authority": { "text": "L1-L4 Precedence Gate", "tone": "added" }
+      }
+    },
+    {
+      "id": "party",
+      "type": "workflow",
+      "input": "bmad-party-workflow.workflow.json",
+      "callouts": {
+        "challenges": { "text": "Round 2 Evidence Check", "tone": "accent" },
+        "directive": { "text": "Auto L2 Veto Block", "tone": "modified" }
+      }
+    },
+    {
+      "id": "dataflow",
+      "type": "dataflow",
+      "input": "stream-sync-dataflow.dataflow.json",
+      "callouts": {
+        "redactor": { "text": "O(n) Token Redaction", "tone": "accent" },
+        "saas_boards": { "text": "GitHub v2 + Jira ADF", "tone": "added" }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "view": "overview",
+      "title": "1. Attach Authoritative Curator to Any Workspace",
+      "body": "AI harnesses and human operators connect through stdio MCP, Git hooks, and live filesystem sensors into NumberOneAgent.",
+      "focus": ["harnesses", "ingress", "agent", "authority"],
+      "trace": { "edges": ["harness-to-ingress", "ingress-to-agent", "agent-to-authority"], "action": "trace" },
+      "detail": {
+        "title": "AuthorityEngine.PRECEDENCE (L1-L4)",
+        "nodes": ["authority"],
+        "path": "src/core/authority-engine.ts",
+        "lines": [210, 226],
+        "highlight": [211, 212, 213, 214]
+      }
+    },
+    {
+      "view": "party",
+      "transition": {
+        "from": "overview",
+        "shared": [
+          { "id": "crew", "targetId": "audit", "label": "Specialist Officers", "subtitle": "Eng + Sec + Bridge" },
+          { "id": "stream", "targetId": "kpi_log", "label": "SoR Stream", "subtitle": "KPI + Opinion Log" }
+        ]
+      },
+      "title": "2. Convene 3-Round BMAD Party Mode Roundtable",
+      "body": "Officers score real workspace telemetry, resolve peer challenges against check evidence, and emit consensus or a blocking L2 veto.",
+      "focus": ["convene", "audit", "challenges", "correlate", "gate", "consensus"],
+      "trace": { "edges": ["e1", "e3", "e4", "e5", "e6"], "action": "trace" },
+      "metrics": [
+        { "node": "audit", "label": "Security KPI", "before": "72", "after": "100" },
+        { "node": "consensus", "label": "Delivery KPI", "before": "68", "after": "100" }
+      ],
+      "detail": {
+        "title": "resolvePeerChallenges (Round 2)",
+        "nodes": ["challenges"],
+        "path": "src/crew/party-mode.ts",
+        "lines": [85, 102],
+        "highlight": [85, 86, 87]
+      }
+    },
+    {
+      "view": "dataflow",
+      "transition": {
+        "from": "party",
+        "shared": [
+          { "id": "kpi_log", "targetId": "jsonl", "label": "events.jsonl", "subtitle": "Append-Only SoR" }
+        ]
+      },
+      "title": "3. Redact Secrets & Synchronize Distributed Scrum",
+      "body": "Every stream event is scrubbed in linear time, stored with content-addressed blobs, and mirrored to Directory, GitHub Projects v2, and Jira.",
+      "focus": ["redactor", "jsonl", "blobs", "sync_bus", "dir_board", "saas_boards"],
+      "trace": { "edges": ["f3", "f6", "f8"], "action": "trace" },
+      "detail": {
+        "title": "redactSecrets (O(n) Scrubber)",
+        "nodes": ["redactor"],
+        "path": "src/utils/redactor.ts",
+        "lines": [157, 174],
+        "highlight": [157, 172]
+      }
+    }
+  ]
+}

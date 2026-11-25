@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "Number One (.numberone) — Physical Stream & Projection Data Model",
+    "locale": "en",
+    "output": "docs/site/archify/sor-data-model-erd.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "gapY": 42,
+    "gapX": 74
+  },
+  "entities": [
+    {
+      "id": "stream_events",
+      "label": "stream_events",
+      "tag": "stream",
+      "row": 0,
+      "col": 0,
+      "sources": [
+        { "path": "src/core/types.ts", "line": 120, "end_line": 141, "label": "StreamEventSchema" }
+      ],
+      "attributes": [
+        { "name": "id", "type": "ulid(26)", "key": "pk" },
+        { "name": "seq", "type": "bigint", "key": "uk" },
+        { "name": "timestamp", "type": "iso8601" },
+        { "name": "type", "type": "event_type(47)" },
+        { "name": "actor_id", "type": "varchar(120)" },
+        { "name": "harness", "type": "varchar(64)" },
+        { "name": "prev_hash", "type": "char(64)" },
+        { "name": "hash", "type": "char(64)", "key": "uk" }
+      ]
+    },
+    {
+      "id": "fallback_blobs",
+      "label": "fallback_blobs",
+      "tag": "stream",
+      "row": 1,
+      "col": 0,
+      "sources": [
+        { "path": "src/core/types.ts", "line": 86, "end_line": 95, "label": "BlobRefSchema" }
+      ],
+      "attributes": [
+        { "name": "sha256", "type": "char(64)", "key": "pk" },
+        { "name": "event_id", "type": "ulid(26)", "key": "fk", "references": "stream_events.id" },
+        { "name": "blob_key", "type": "varchar(80)" },
+        { "name": "uri", "type": "varchar(96)", "key": "uk" },
+        { "name": "size_bytes", "type": "bigint" },
+        { "name": "content_type", "type": "varchar(64)" }
+      ]
+    },
+    {
+      "id": "lessons",
+      "label": "lessons",
+      "tag": "memory",
+      "row": 0,
+      "col": 1,
+      "sources": [
+        { "path": "src/core/types.ts", "line": 164, "end_line": 183, "label": "LessonRecord" }
+      ],
+      "attributes": [
+        { "name": "id", "type": "ulid(26)", "key": "pk" },
+        { "name": "event_id", "type": "ulid(26)", "key": "fk", "references": "stream_events.id" },
+        { "name": "title", "type": "varchar(180)" },
+        { "name": "root_cause", "type": "text" },
+        { "name": "prevention_rule", "type": "text" },
+        { "name": "severity", "type": "varchar(16)" },
+        { "name": "verified", "type": "boolean" }
+      ]
+    },
+    {
+      "id": "directives",
+      "label": "directives",
+      "tag": "memory",
+      "row": 1,
+      "col": 1,
+      "sources": [
+        { "path": "src/core/types.ts", "line": 202, "end_line": 219, "label": "DirectiveRecord" }
+      ],
+      "attributes": [
+        { "name": "id", "type": "ulid(26)", "key": "pk" },
+        { "name": "event_id", "type": "ulid(26)", "key": "fk", "references": "stream_events.id" },
+        { "name": "title", "type": "varchar(180)" },
+        { "name": "severity", "type": "varchar(16)" },
+        { "name": "issued_by", "type": "varchar(24)" },
+        { "name": "active", "type": "boolean" }
+      ]
+    },
+    {
+      "id": "issues",
+      "label": "issues",
+      "tag": "scrum",
+      "row": 0,
+      "col": 2,
+      "sources": [
+        { "path": "src/core/types.ts", "line": 221, "end_line": 239, "label": "IssueRecord" }
+      ],
+      "attributes": [
+        { "name": "id", "type": "ulid(26)", "key": "pk" },
+        { "name": "event_id", "type": "ulid(26)", "key": "fk", "references": "stream_events.id" },
+        { "name": "kind", "type": "varchar(16)" },
+        { "name": "status", "type": "varchar(16)" },
+        { "name": "priority", "type": "varchar(16)" },
+        { "name": "owner_officer", "type": "varchar(16)" }
+      ]
+    },
+    {
+      "id": "sync_ledger",
+      "label": "sync_ledger",
+      "tag": "scrum",
+      "row": 1,
+      "col": 2,
+      "sources": [
+        { "path": "src/persistence/types.ts", "line": 3, "end_line": 21, "label": "SyncLedger" }
+      ],
+      "attributes": [
+        { "name": "ledger_key", "type": "varchar(128)", "key": "pk" },
+        { "name": "event_id", "type": "ulid(26)", "key": "fk", "references": "stream_events.id" },
+        { "name": "backend", "type": "varchar(16)" },
+        { "name": "external_id", "type": "varchar(96)" },
+        { "name": "synced_hash", "type": "char(64)" }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "blob_event",
+      "from": "fallback_blobs",
+      "to": "stream_events",
+      "label": "attached to",
+      "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one"
+    },
+    {
+      "id": "lesson_event",
+      "from": "lessons",
+      "to": "stream_events",
+      "label": "projected from",
+      "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one"
+    },
+    {
+      "id": "directive_event",
+      "from": "directives",
+      "to": "stream_events",
+      "label": "issued by",
+      "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one"
+    },
+    {
+      "id": "issue_event",
+      "from": "issues",
+      "to": "stream_events",
+      "label": "opened by",
+      "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one"
+    },
+    {
+      "id": "ledger_event",
+      "from": "sync_ledger",
+      "to": "stream_events",
+      "label": "mirrors",
+      "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one",
+      "identifying": false
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Stream Column (Immutable Truth)",
+      "items": [
+        "stream_events is the single append-only source of truth keyed by ULID and monotonic seq",
+        "fallback_blobs stores content-addressed artifacts referenced via n1://fallback/<sha256>"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Memory & Scrum Columns (Derived & Mirrored)",
+      "items": [
+        "lessons, directives, and issues are pure deterministic folds of stream_events",
+        "sync_ledger maps local ULIDs to Directory, GitHub Projects v2, and Jira IDs without mutating hashes"
+      ]
+    }
+  ]
+}

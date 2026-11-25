@@ -1,0 +1,3904 @@
+{
+  "schema_version": 1,
+  "repository": {
+    "revision": null,
+    "baseRevision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7",
+    "sourceKind": "working-tree",
+    "root": ".",
+    "url": "https://github.com/onimurasame/numberone.git",
+    "language": "ts",
+    "adapter": "typescript@5.9.3",
+    "adapterRevision": 30,
+    "snapshotId": "f56c8468f4b8928828b1bf1ba1229085cdfc31209546d2799ea33ad309a45e7e"
+  },
+  "rules": [
+    "coupling/import-cycle",
+    "coupling/cycle",
+    "coupling/hub",
+    "coupling/concentration",
+    "coupling/internal-leak",
+    "complexity/function"
+  ],
+  "summary": {
+    "errors": 0,
+    "warnings": 30,
+    "info": 28,
+    "suppressed": 0
+  },
+  "analysis": {
+    "analyzer": {
+      "name": "@archify/code-analysis",
+      "version": "0.1.0-dev.1"
+    },
+    "language": "ts",
+    "adapter": "typescript@5.9.3",
+    "adapterRevision": 30,
+    "configDigest": "84c732a1362d2dc09714b5416b0a47b9ea8b8f9c6cfe5e33473d4b4868eb4aac",
+    "ruleVersions": {
+      "complexity/function": 1,
+      "coupling/concentration": 1,
+      "coupling/cycle": 2,
+      "coupling/hub": 1,
+      "coupling/import-cycle": 3,
+      "coupling/internal-leak": 1
+    },
+    "tsProjects": [
+      {
+        "config": "tsconfig.json",
+        "optionsDigest": "a01eb23960428e7f04337386db94b554b6148339e30f78dce67128f95fcf0bbd",
+        "selectionDigest": "22dff8abf25bcf98fb9f1fd16ac38b743edd4fa7a8146ff0f681a9441cd8d5ab",
+        "files": [
+          "src/cli.ts",
+          "src/core/authority-engine.ts",
+          "src/core/documentary.ts",
+          "src/core/hash.ts",
+          "src/core/lesson-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/core/types.ts",
+          "src/core/ulid.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/harness/shims.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts",
+          "src/utils/diff.ts",
+          "src/utils/fs-helpers.ts",
+          "src/utils/http.ts",
+          "src/utils/ignore.ts",
+          "src/utils/lock.ts",
+          "src/utils/redactor.ts",
+          "src/utils/safe-regex.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "members": [
+          "src/cli.ts",
+          "src/core/authority-engine.ts",
+          "src/core/documentary.ts",
+          "src/core/hash.ts",
+          "src/core/lesson-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/core/types.ts",
+          "src/core/ulid.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/harness/shims.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts",
+          "src/utils/diff.ts",
+          "src/utils/fs-helpers.ts",
+          "src/utils/http.ts",
+          "src/utils/ignore.ts",
+          "src/utils/lock.ts",
+          "src/utils/redactor.ts",
+          "src/utils/safe-regex.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "sdkIndex": 0,
+        "sdkVersion": "5.9.3"
+      },
+      {
+        "config": null,
+        "optionsDigest": "9167281fd736d5b33fbf5d47ebaf96e43bc05c1e45b269faf80a3020c23a13fd",
+        "files": [
+          "tests/crew-and-party-mode.test.ts",
+          "tests/e2e-cli.test.ts",
+          "tests/evolution-engine.test.ts",
+          "tests/lessons-and-authority.test.ts",
+          "tests/mcp-server.test.ts",
+          "tests/persistence-fabric.test.ts",
+          "tests/production-hardening.test.ts",
+          "tests/stream-and-replay.test.ts",
+          "tests/watchers-and-ingestors.test.ts",
+          "vitest.config.ts"
+        ],
+        "members": [
+          "src/cli.ts",
+          "src/core/authority-engine.ts",
+          "src/core/documentary.ts",
+          "src/core/hash.ts",
+          "src/core/lesson-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/core/types.ts",
+          "src/core/ulid.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/harness/shims.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts",
+          "src/utils/diff.ts",
+          "src/utils/fs-helpers.ts",
+          "src/utils/http.ts",
+          "src/utils/ignore.ts",
+          "src/utils/lock.ts",
+          "src/utils/redactor.ts",
+          "src/utils/safe-regex.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts",
+          "tests/crew-and-party-mode.test.ts",
+          "tests/e2e-cli.test.ts",
+          "tests/evolution-engine.test.ts",
+          "tests/lessons-and-authority.test.ts",
+          "tests/mcp-server.test.ts",
+          "tests/persistence-fabric.test.ts",
+          "tests/production-hardening.test.ts",
+          "tests/stream-and-replay.test.ts",
+          "tests/watchers-and-ingestors.test.ts",
+          "vitest.config.ts"
+        ],
+        "sdkIndex": 0,
+        "sdkVersion": "5.9.3"
+      }
+    ],
+    "tsSdks": [
+      {
+        "version": "5.9.3",
+        "source": "bundled",
+        "status": "fallback",
+        "packagePath": null
+      }
+    ],
+    "coverage": {
+      "files": 38,
+      "excludedRoles": [
+        "generated",
+        "test"
+      ],
+      "parseErrors": []
+    }
+  },
+  "diagnostics": [
+    {
+      "id": "COMP-2bc9d72d237c",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "executeCliCommand in src/cli.ts has cyclomatic complexity 189 (694 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/cli.ts",
+        "function": "executeCliCommand",
+        "line": 346,
+        "endLine": 1039
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 189,
+        "nesting": 4,
+        "deepestLine": 869,
+        "length": 694
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts"
+        ],
+        "lines": [
+          346,
+          1039
+        ],
+        "sha256": "109f4b4df29d3a253590582c23841a2f12631e961c5cb19f95836797ae3b7840"
+      }
+    },
+    {
+      "id": "COMP-02ca4cc379ee",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "parseCliArgs in src/cli.ts has cyclomatic complexity 17 and nesting depth 5 (58 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/cli.ts",
+        "function": "parseCliArgs",
+        "line": 104,
+        "endLine": 161
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 17,
+        "nesting": 5,
+        "deepestLine": 141,
+        "length": 58
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts"
+        ],
+        "lines": [
+          104,
+          161
+        ],
+        "sha256": "3f61e602a847f0b4a74c4222904c429a9c53d0a16520e8a1a098e2173c3736de"
+      }
+    },
+    {
+      "id": "COMP-84859beb3a1c",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "AuthorityEngine.arbitrate in src/core/authority-engine.ts has cyclomatic complexity 44 (184 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/authority-engine.ts",
+        "function": "AuthorityEngine.arbitrate",
+        "line": 222,
+        "endLine": 405
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 44,
+        "nesting": 5,
+        "deepestLine": 279,
+        "length": 184
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/authority-engine.ts"
+        ],
+        "lines": [
+          222,
+          405
+        ],
+        "sha256": "db972514114f81af5529c6216c0f816abed3b018b09760c98ddbbdc8c9c29e75"
+      }
+    },
+    {
+      "id": "COMP-5c54eac5387a",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "AuthorityEngine.compileAuthoritativeBrief in src/core/authority-engine.ts has cyclomatic complexity 22 (77 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/authority-engine.ts",
+        "function": "AuthorityEngine.compileAuthoritativeBrief",
+        "line": 445,
+        "endLine": 521
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 22,
+        "nesting": 3,
+        "deepestLine": 470,
+        "length": 77
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/authority-engine.ts"
+        ],
+        "lines": [
+          445,
+          521
+        ],
+        "sha256": "d940fafd9177a462eddbf8e35c9046bd921e9b2c52a1d67e50998358fd02774e"
+      }
+    },
+    {
+      "id": "COMP-7800280afeb5",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "extractAffirmativeClauses in src/core/authority-engine.ts has nesting depth 5 (33 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/authority-engine.ts",
+        "function": "extractAffirmativeClauses",
+        "line": 85,
+        "endLine": 117
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 7,
+        "nesting": 5,
+        "deepestLine": 106,
+        "length": 33
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/authority-engine.ts"
+        ],
+        "lines": [
+          85,
+          117
+        ],
+        "sha256": "f5ac3af2abd9a808558773f94a605f37354eb12e8635f62bb64af4312afb8b11"
+      }
+    },
+    {
+      "id": "COMP-2298b0a2ed8f",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "buildWorkspaceDocumentary in src/core/documentary.ts has cyclomatic complexity 22 (103 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/documentary.ts",
+        "function": "buildWorkspaceDocumentary",
+        "line": 27,
+        "endLine": 129
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 22,
+        "nesting": 3,
+        "deepestLine": 99,
+        "length": 103
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/documentary.ts"
+        ],
+        "lines": [
+          27,
+          129
+        ],
+        "sha256": "8ba9499b2806465d18e32662308bb6df884c6ad55c62900d286e691f37b50faa"
+      }
+    },
+    {
+      "id": "COMP-48d9843bf1e0",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "serializeCanonical in src/core/hash.ts has cyclomatic complexity 19 (44 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/hash.ts",
+        "function": "serializeCanonical",
+        "line": 5,
+        "endLine": 48
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 19,
+        "nesting": 2,
+        "deepestLine": 12,
+        "length": 44
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/hash.ts"
+        ],
+        "lines": [
+          5,
+          48
+        ],
+        "sha256": "3b6c97ace22a3abea1eff84907a5b537a5709311263c6ecd129a61b60734b34d"
+      }
+    },
+    {
+      "id": "COMP-773668abc29e",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "LessonEngine.detectFailureToFixCorrelation in src/core/lesson-engine.ts has cyclomatic complexity 25 (78 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/lesson-engine.ts",
+        "function": "LessonEngine.detectFailureToFixCorrelation",
+        "line": 203,
+        "endLine": 280
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 25,
+        "nesting": 2,
+        "deepestLine": 218,
+        "length": 78
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/lesson-engine.ts"
+        ],
+        "lines": [
+          203,
+          280
+        ],
+        "sha256": "a1b1e888c4962b25d8fcdf618e16eb0c7dc1faa2bc28f6db18115a2aceed0981"
+      }
+    },
+    {
+      "id": "COMP-cfdbf47ec69c",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "LessonEngine.findRelevantLessons in src/core/lesson-engine.ts has cyclomatic complexity 34 (86 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/lesson-engine.ts",
+        "function": "LessonEngine.findRelevantLessons",
+        "line": 80,
+        "endLine": 165
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 34,
+        "nesting": 5,
+        "deepestLine": 143,
+        "length": 86
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/lesson-engine.ts"
+        ],
+        "lines": [
+          80,
+          165
+        ],
+        "sha256": "fb665837aa27e9e5a5d47241009025ec45518f7cda496c1d1ee28d1096bbbc59"
+      }
+    },
+    {
+      "id": "COMP-5268ced97a26",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "applyEventToProjection in src/core/replay-engine.ts has cyclomatic complexity 211 (628 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/replay-engine.ts",
+        "function": "applyEventToProjection",
+        "line": 177,
+        "endLine": 804
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 211,
+        "nesting": 5,
+        "deepestLine": 204,
+        "length": 628
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/replay-engine.ts"
+        ],
+        "lines": [
+          177,
+          804
+        ],
+        "sha256": "3774cf106affe2d37c8eff523f55ebe925fcac1816e7aa3cdc7e8295df483c74"
+      }
+    },
+    {
+      "id": "COMP-d15bc8c28001",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "StreamStore.init in src/core/stream-store.ts has cyclomatic complexity 27 (51 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/stream-store.ts",
+        "function": "StreamStore.init",
+        "line": 254,
+        "endLine": 304
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 27,
+        "nesting": 1,
+        "deepestLine": 297,
+        "length": 51
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/stream-store.ts"
+        ],
+        "lines": [
+          254,
+          304
+        ],
+        "sha256": "71c8550d303c2656d4bcde714f9911ecaeb6d5a3d893d2240c6b1baca4549468"
+      }
+    },
+    {
+      "id": "COMP-185acb8154e9",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "StreamStore.query in src/core/stream-store.ts has cyclomatic complexity 49 (62 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/stream-store.ts",
+        "function": "StreamStore.query",
+        "line": 535,
+        "endLine": 596
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 49,
+        "nesting": 2,
+        "deepestLine": 541,
+        "length": 62
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/stream-store.ts"
+        ],
+        "lines": [
+          535,
+          596
+        ],
+        "sha256": "4f9cf9098184050e4bdaf9bc64864ae6fbd653134bc27c69d0c1c17cbaf371c0"
+      }
+    },
+    {
+      "id": "COMP-096978ceaeb7",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "StreamStore.resolveAuthoritativeHeadLocked in src/core/stream-store.ts has cyclomatic complexity 18 (91 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/stream-store.ts",
+        "function": "StreamStore.resolveAuthoritativeHeadLocked",
+        "line": 162,
+        "endLine": 252
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 18,
+        "nesting": 3,
+        "deepestLine": 218,
+        "length": 91
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/stream-store.ts"
+        ],
+        "lines": [
+          162,
+          252
+        ],
+        "sha256": "22c180903a7a23c88448e1f2b10196a7627fd5cb8fe03769c93feeabe5f4a5ee"
+      }
+    },
+    {
+      "id": "COMP-4311cb657739",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "StreamStore.verifyIntegrity in src/core/stream-store.ts has cyclomatic complexity 27 (115 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/core/stream-store.ts",
+        "function": "StreamStore.verifyIntegrity",
+        "line": 615,
+        "endLine": 729
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 27,
+        "nesting": 4,
+        "deepestLine": 682,
+        "length": 115
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/stream-store.ts"
+        ],
+        "lines": [
+          615,
+          729
+        ],
+        "sha256": "61060bd9746ce5b96d4ad2dfa40a1143dc5e4b2d6efb15aff9820910b7b0ec8a"
+      }
+    },
+    {
+      "id": "COMP-f89d747f34ba",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "evaluatePracticeMatcherOnVirtualFiles in src/crew/base-officer.ts has cyclomatic complexity 19 (78 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/base-officer.ts",
+        "function": "evaluatePracticeMatcherOnVirtualFiles",
+        "line": 37,
+        "endLine": 114
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 19,
+        "nesting": 3,
+        "deepestLine": 95,
+        "length": 78
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/base-officer.ts"
+        ],
+        "lines": [
+          37,
+          114
+        ],
+        "sha256": "2f048e6b39289e12225320584a65c4e9feb5e51f606f7bf0f0738204dcbe5340"
+      }
+    },
+    {
+      "id": "COMP-444b7358b0aa",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "BridgeOfficer.assess in src/crew/bridge-officer.ts has cyclomatic complexity 68 (362 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/bridge-officer.ts",
+        "function": "BridgeOfficer.assess",
+        "line": 92,
+        "endLine": 453
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 68,
+        "nesting": 3,
+        "deepestLine": 150,
+        "length": 362
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/bridge-officer.ts"
+        ],
+        "lines": [
+          92,
+          453
+        ],
+        "sha256": "93111071e6e916bb2fc44487ab509272bb8fb3aebd33a7332e3081da9195c8dd"
+      }
+    },
+    {
+      "id": "COMP-b0066ece9d1b",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "EngineeringOfficer.assess in src/crew/engineering-officer.ts has cyclomatic complexity 67 (386 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/engineering-officer.ts",
+        "function": "EngineeringOfficer.assess",
+        "line": 103,
+        "endLine": 488
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 67,
+        "nesting": 4,
+        "deepestLine": 130,
+        "length": 386
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/engineering-officer.ts"
+        ],
+        "lines": [
+          103,
+          488
+        ],
+        "sha256": "1072e3c1ad55d7847995cc77988930af67a0720fd858436372aa38c6924fb22f"
+      }
+    },
+    {
+      "id": "COMP-95de6f1ba627",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "KnowledgeEvolutionEngine.proposeUpdate in src/crew/evolution-engine.ts has cyclomatic complexity 68 (357 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/evolution-engine.ts",
+        "function": "KnowledgeEvolutionEngine.proposeUpdate",
+        "line": 98,
+        "endLine": 454
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 68,
+        "nesting": 5,
+        "deepestLine": 234,
+        "length": 357
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/evolution-engine.ts"
+        ],
+        "lines": [
+          98,
+          454
+        ],
+        "sha256": "11c0195a3935d1f466779e789a28954279cd5a1af9ec48ad4814445d38e4edd9"
+      }
+    },
+    {
+      "id": "COMP-75dac33e7d99",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "PluggableLlmProvider.complete in src/crew/llm-provider.ts has cyclomatic complexity 19 (95 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/llm-provider.ts",
+        "function": "PluggableLlmProvider.complete",
+        "line": 58,
+        "endLine": 152
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 19,
+        "nesting": 3,
+        "deepestLine": 85,
+        "length": 95
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/llm-provider.ts"
+        ],
+        "lines": [
+          58,
+          152
+        ],
+        "sha256": "223e5b034005c42591a9d4ba4302c6a7773364b2cf20d77ab684498590233170"
+      }
+    },
+    {
+      "id": "COMP-2046e8a1e175",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "PartyModeOrchestrator.buildRankedRemediationPlan in src/crew/party-mode.ts has cyclomatic complexity 28 (122 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/party-mode.ts",
+        "function": "PartyModeOrchestrator.buildRankedRemediationPlan",
+        "line": 834,
+        "endLine": 955
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 28,
+        "nesting": 5,
+        "deepestLine": 900,
+        "length": 122
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/party-mode.ts"
+        ],
+        "lines": [
+          834,
+          955
+        ],
+        "sha256": "6e1c6e8687ce3f17a86f4411d1ac7c44605b0ee5a97cf456364d64de7204086f"
+      }
+    },
+    {
+      "id": "COMP-71359b9b97d6",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "PartyModeOrchestrator.convene in src/crew/party-mode.ts has cyclomatic complexity 53 (470 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/party-mode.ts",
+        "function": "PartyModeOrchestrator.convene",
+        "line": 363,
+        "endLine": 832
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 53,
+        "nesting": 3,
+        "deepestLine": 750,
+        "length": 470
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/party-mode.ts"
+        ],
+        "lines": [
+          363,
+          832
+        ],
+        "sha256": "27821ac7df15d1f7b0b099746fe6924242ff523fa1943aa032e65e6270f6136d"
+      }
+    },
+    {
+      "id": "COMP-460f2d4447ba",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "resolveSinglePeerChallenge in src/crew/party-mode.ts has cyclomatic complexity 30 (172 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/party-mode.ts",
+        "function": "resolveSinglePeerChallenge",
+        "line": 128,
+        "endLine": 299
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 30,
+        "nesting": 3,
+        "deepestLine": 139,
+        "length": 172
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/party-mode.ts"
+        ],
+        "lines": [
+          128,
+          299
+        ],
+        "sha256": "6bb1976267308dfbd7f174fdf0353c86236b9e077f2e7da31e68adec3552cfd1"
+      }
+    },
+    {
+      "id": "COMP-6b1298585bec",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "SecurityOfficer.assess in src/crew/security-officer.ts has cyclomatic complexity 71 (484 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/crew/security-officer.ts",
+        "function": "SecurityOfficer.assess",
+        "line": 279,
+        "endLine": 762
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 71,
+        "nesting": 4,
+        "deepestLine": 336,
+        "length": 484
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/crew/security-officer.ts"
+        ],
+        "lines": [
+          279,
+          762
+        ],
+        "sha256": "ccb09076fa8e7c119bfe6fd289a5b66f5fa915640b8d975836880cb72c978726"
+      }
+    },
+    {
+      "id": "COMP-0eccba427dbe",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "NumberOneMcpServer.dispatchTool in src/harness/mcp-server.ts has cyclomatic complexity 75 (148 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/harness/mcp-server.ts",
+        "function": "NumberOneMcpServer.dispatchTool",
+        "line": 388,
+        "endLine": 535
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 75,
+        "nesting": 2,
+        "deepestLine": 427,
+        "length": 148
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/harness/mcp-server.ts"
+        ],
+        "lines": [
+          388,
+          535
+        ],
+        "sha256": "7ff2bc94267e6b10445b73774f8982160ac406633733fac1f723b7caabce8770"
+      }
+    },
+    {
+      "id": "COMP-9359050b640b",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "NumberOneMcpServer.handleRequest in src/harness/mcp-server.ts has cyclomatic complexity 21 (97 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/harness/mcp-server.ts",
+        "function": "NumberOneMcpServer.handleRequest",
+        "line": 268,
+        "endLine": 364
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 21,
+        "nesting": 2,
+        "deepestLine": 289,
+        "length": 97
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/harness/mcp-server.ts"
+        ],
+        "lines": [
+          268,
+          364
+        ],
+        "sha256": "513ec8949bbf7a5fd21338669b4a1093b758e5110e5d55a3cb20b871d3985129"
+      }
+    },
+    {
+      "id": "COMP-350bcee220e8",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "DirectoryPersistenceAdapter.pushEvent in src/persistence/directory-adapter.ts has cyclomatic complexity 53 (167 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/directory-adapter.ts",
+        "function": "DirectoryPersistenceAdapter.pushEvent",
+        "line": 143,
+        "endLine": 309
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 53,
+        "nesting": 3,
+        "deepestLine": 198,
+        "length": 167
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/directory-adapter.ts"
+        ],
+        "lines": [
+          143,
+          309
+        ],
+        "sha256": "695d29c3a39e1d5daa59ce9a82bfe96ff42bbaea18daeb5cbc7e0c67bd033a9a"
+      }
+    },
+    {
+      "id": "COMP-9fcbe39e47d7",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "PersistenceFabric.syncPull in src/persistence/fabric.ts has cyclomatic complexity 33 (148 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/fabric.ts",
+        "function": "PersistenceFabric.syncPull",
+        "line": 235,
+        "endLine": 382
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 33,
+        "nesting": 5,
+        "deepestLine": 289,
+        "length": 148
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/fabric.ts"
+        ],
+        "lines": [
+          235,
+          382
+        ],
+        "sha256": "30130a639a78fb4ba08663db6d146a6061320bb5e3eb80ecb38712d91d3cbfc0"
+      }
+    },
+    {
+      "id": "COMP-d3e2136b7298",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "PersistenceFabric.syncPush in src/persistence/fabric.ts has cyclomatic complexity 30 (153 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/fabric.ts",
+        "function": "PersistenceFabric.syncPush",
+        "line": 81,
+        "endLine": 233
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 30,
+        "nesting": 5,
+        "deepestLine": 177,
+        "length": 153
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/fabric.ts"
+        ],
+        "lines": [
+          81,
+          233
+        ],
+        "sha256": "3eb71d4e0c3a8ed3ebd4c2fd0c366a99c5eee1b84f0718169c71477134be4c9c"
+      }
+    },
+    {
+      "id": "COMP-f77034071811",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "GitHubPersistenceAdapter.pushEvent in src/persistence/github-adapter.ts has cyclomatic complexity 39 (126 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/github-adapter.ts",
+        "function": "GitHubPersistenceAdapter.pushEvent",
+        "line": 382,
+        "endLine": 507
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 39,
+        "nesting": 3,
+        "deepestLine": 436,
+        "length": 126
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/github-adapter.ts"
+        ],
+        "lines": [
+          382,
+          507
+        ],
+        "sha256": "bcfd40c300fbd5d93ff1df5ce223c85495f5e591205f9f937353400e24af29e7"
+      }
+    },
+    {
+      "id": "COMP-9e068a632697",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "JiraPersistenceAdapter.ensureTaxonomy in src/persistence/jira-adapter.ts has cyclomatic complexity 17 (51 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/jira-adapter.ts",
+        "function": "JiraPersistenceAdapter.ensureTaxonomy",
+        "line": 231,
+        "endLine": 281
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 17,
+        "nesting": 4,
+        "deepestLine": 271,
+        "length": 51
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/jira-adapter.ts"
+        ],
+        "lines": [
+          231,
+          281
+        ],
+        "sha256": "12b1f38cbfebc336e1d0fa5a890864371900f21d696405e50fc92fb97d111ed7"
+      }
+    },
+    {
+      "id": "COMP-6c8edf4a825d",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "JiraPersistenceAdapter.pullExternalEvents in src/persistence/jira-adapter.ts has cyclomatic complexity 17 (73 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/jira-adapter.ts",
+        "function": "JiraPersistenceAdapter.pullExternalEvents",
+        "line": 493,
+        "endLine": 565
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 17,
+        "nesting": 4,
+        "deepestLine": 526,
+        "length": 73
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/jira-adapter.ts"
+        ],
+        "lines": [
+          493,
+          565
+        ],
+        "sha256": "f692ca5c4b757435da5bc1ae0a21300414c43115d3671f83fc11e35a2f4de09f"
+      }
+    },
+    {
+      "id": "COMP-246e849f63a6",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "JiraPersistenceAdapter.pushEvent in src/persistence/jira-adapter.ts has cyclomatic complexity 38 (145 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/persistence/jira-adapter.ts",
+        "function": "JiraPersistenceAdapter.pushEvent",
+        "line": 347,
+        "endLine": 491
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 38,
+        "nesting": 2,
+        "deepestLine": 399,
+        "length": 145
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/persistence/jira-adapter.ts"
+        ],
+        "lines": [
+          347,
+          491
+        ],
+        "sha256": "36c821279c4e586c721669290956b07dfc92da0da285f7d13a2e795808e40d9b"
+      }
+    },
+    {
+      "id": "COMP-72002f65963b",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "computeUnifiedDiff in src/utils/diff.ts has cyclomatic complexity 26 (110 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/diff.ts",
+        "function": "computeUnifiedDiff",
+        "line": 12,
+        "endLine": 121
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 26,
+        "nesting": 4,
+        "deepestLine": 61,
+        "length": 110
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/diff.ts"
+        ],
+        "lines": [
+          12,
+          121
+        ],
+        "sha256": "4cbbf7921a5e8cf264742c4718339e421390f0e3f2aebde6c4ccbfab0e2feeef"
+      }
+    },
+    {
+      "id": "COMP-34ff8b6359ec",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "isPrivateOrReservedIp in src/utils/http.ts has cyclomatic complexity 27 (33 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/http.ts",
+        "function": "isPrivateOrReservedIp",
+        "line": 21,
+        "endLine": 53
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 27,
+        "nesting": 2,
+        "deepestLine": 27,
+        "length": 33
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/http.ts"
+        ],
+        "lines": [
+          21,
+          53
+        ],
+        "sha256": "15bf5785faeecc8290546d11e99d0313cf75ec271e88b2cd1a55c1f04b7691c0"
+      }
+    },
+    {
+      "id": "COMP-d58f4ff1ab52",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "resilientFetch in src/utils/http.ts has cyclomatic complexity 17 (50 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/http.ts",
+        "function": "resilientFetch",
+        "line": 207,
+        "endLine": 256
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 17,
+        "nesting": 3,
+        "deepestLine": 236,
+        "length": 50
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/http.ts"
+        ],
+        "lines": [
+          207,
+          256
+        ],
+        "sha256": "a1053cc0b4c8140a5c32f124604c4295d964daae0c0b83af19716d59bc3aab24"
+      }
+    },
+    {
+      "id": "COMP-b686cf3cfb8c",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "validateHttpUrl in src/utils/http.ts has cyclomatic complexity 16 (39 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/http.ts",
+        "function": "validateHttpUrl",
+        "line": 55,
+        "endLine": 93
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 16,
+        "nesting": 2,
+        "deepestLine": 81,
+        "length": 39
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/http.ts"
+        ],
+        "lines": [
+          55,
+          93
+        ],
+        "sha256": "381fa23f187dd893f56828d7ebfb32898e3a1d03c5252f6583c46c968a774cf0"
+      }
+    },
+    {
+      "id": "COMP-490c2a28da7d",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "isLockStale in src/utils/lock.ts has cyclomatic complexity 17 (51 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/lock.ts",
+        "function": "isLockStale",
+        "line": 60,
+        "endLine": 110
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 17,
+        "nesting": 2,
+        "deepestLine": 71,
+        "length": 51
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/lock.ts"
+        ],
+        "lines": [
+          60,
+          110
+        ],
+        "sha256": "73ec4327269a7e783da5dbf850c22ac041362e98efc52097f955bad12ce49493"
+      }
+    },
+    {
+      "id": "COMP-83e7eba68c5f",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "tryAcquireLockOnce in src/utils/lock.ts has nesting depth 6 (77 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/lock.ts",
+        "function": "tryAcquireLockOnce",
+        "line": 168,
+        "endLine": 244
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 20,
+        "nesting": 6,
+        "deepestLine": 216,
+        "length": 77
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/lock.ts"
+        ],
+        "lines": [
+          168,
+          244
+        ],
+        "sha256": "27ac0999aad9413ecad27dd2eee788055b44e6c6db5308c2ff594dc3df5e3f48"
+      }
+    },
+    {
+      "id": "COMP-1afb3ef85b48",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "matchGlobLinear in src/utils/safe-regex.ts has cyclomatic complexity 39 (94 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/safe-regex.ts",
+        "function": "matchGlobLinear",
+        "line": 164,
+        "endLine": 257
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 39,
+        "nesting": 4,
+        "deepestLine": 186,
+        "length": 94
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/safe-regex.ts"
+        ],
+        "lines": [
+          164,
+          257
+        ],
+        "sha256": "8ff1df105e28a6a227494434229f00f9c141ecd2f67b8b9d78cf19984c3a048f"
+      }
+    },
+    {
+      "id": "COMP-0d16e777e36d",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "validateRegexSafety in src/utils/safe-regex.ts has cyclomatic complexity 48 (117 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/utils/safe-regex.ts",
+        "function": "validateRegexSafety",
+        "line": 24,
+        "endLine": 140
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 48,
+        "nesting": 3,
+        "deepestLine": 72,
+        "length": 117
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/safe-regex.ts"
+        ],
+        "lines": [
+          24,
+          140
+        ],
+        "sha256": "df294228300f8f3220bb8b2e6926952b86901733682e88e6becec11bca2a2608"
+      }
+    },
+    {
+      "id": "COMP-468543582cde",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "runWatchedCommand in src/watchers/command-runner.ts has cyclomatic complexity 43 (196 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/command-runner.ts",
+        "function": "runWatchedCommand",
+        "line": 156,
+        "endLine": 351
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 43,
+        "nesting": 2,
+        "deepestLine": 318,
+        "length": 196
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/command-runner.ts"
+        ],
+        "lines": [
+          156,
+          351
+        ],
+        "sha256": "537b37e8b6d4bd72a228e3279e4de7c4064a18af572d3aeb10e6f52e46995561"
+      }
+    },
+    {
+      "id": "COMP-54693cefc75f",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "WorkspaceFsWatcher.emitFileEvent in src/watchers/fs-watcher.ts has cyclomatic complexity 19 (98 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/fs-watcher.ts",
+        "function": "WorkspaceFsWatcher.emitFileEvent",
+        "line": 512,
+        "endLine": 609
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 19,
+        "nesting": 3,
+        "deepestLine": 537,
+        "length": 98
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/fs-watcher.ts"
+        ],
+        "lines": [
+          512,
+          609
+        ],
+        "sha256": "9a8e6b02c924ad531186cb34d5721a51e49f2a8c9567e54c4bc303963ca41ebb"
+      }
+    },
+    {
+      "id": "COMP-091d4d638e3e",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "WorkspaceFsWatcher.flushPending in src/watchers/fs-watcher.ts has cyclomatic complexity 16 (67 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/fs-watcher.ts",
+        "function": "WorkspaceFsWatcher.flushPending",
+        "line": 409,
+        "endLine": 475
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 16,
+        "nesting": 2,
+        "deepestLine": 419,
+        "length": 67
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/fs-watcher.ts"
+        ],
+        "lines": [
+          409,
+          475
+        ],
+        "sha256": "cfb754ee5cf69df21c9b4fcac2e3d69c90060185e165ce673aecac22388a902f"
+      }
+    },
+    {
+      "id": "COMP-26ba2a535374",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "WorkspaceFsWatcher.reconcileOfflineChanges in src/watchers/fs-watcher.ts has cyclomatic complexity 21 (84 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/fs-watcher.ts",
+        "function": "WorkspaceFsWatcher.reconcileOfflineChanges",
+        "line": 189,
+        "endLine": 272
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 21,
+        "nesting": 3,
+        "deepestLine": 229,
+        "length": 84
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/fs-watcher.ts"
+        ],
+        "lines": [
+          189,
+          272
+        ],
+        "sha256": "65b329df66fc6d2a4651adc16ab6611a40e6ff15ff372f7a2ad25c4091b306a9"
+      }
+    },
+    {
+      "id": "COMP-52e855de4b7e",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "WorkspaceFsWatcher.watchDirectoryRecursive in src/watchers/fs-watcher.ts has cyclomatic complexity 23 (64 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/fs-watcher.ts",
+        "function": "WorkspaceFsWatcher.watchDirectoryRecursive",
+        "line": 328,
+        "endLine": 391
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 23,
+        "nesting": 3,
+        "deepestLine": 368,
+        "length": 64
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/fs-watcher.ts"
+        ],
+        "lines": [
+          328,
+          391
+        ],
+        "sha256": "ab6010a07e8f986c5796f7e5ea3f4f8d7e3aa6f92ee7982d54d590980218b6a2"
+      }
+    },
+    {
+      "id": "COMP-1e44c1551e2f",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "importGitHistory in src/watchers/git-hooks.ts has cyclomatic complexity 15 (56 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/git-hooks.ts",
+        "function": "importGitHistory",
+        "line": 245,
+        "endLine": 300
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 15,
+        "nesting": 2,
+        "deepestLine": 269,
+        "length": 56
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/git-hooks.ts"
+        ],
+        "lines": [
+          245,
+          300
+        ],
+        "sha256": "58da9a885d83f047625e2ef4be7b1c61b6f73e23aac9b15a7c751c71f709bd2c"
+      }
+    },
+    {
+      "id": "COMP-db87d8031101",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "installGitHooks in src/watchers/git-hooks.ts has cyclomatic complexity 18 (76 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/git-hooks.ts",
+        "function": "installGitHooks",
+        "line": 64,
+        "endLine": 139
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 18,
+        "nesting": 3,
+        "deepestLine": 103,
+        "length": 76
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/git-hooks.ts"
+        ],
+        "lines": [
+          64,
+          139
+        ],
+        "sha256": "a3c15c5313c99a825f865ce0ffcaa98e4c0c9950d2fc75c65190000b19c124b8"
+      }
+    },
+    {
+      "id": "COMP-0f20ce789869",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "recordGitHookEvent in src/watchers/git-hooks.ts has cyclomatic complexity 26 (97 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/git-hooks.ts",
+        "function": "recordGitHookEvent",
+        "line": 144,
+        "endLine": 240
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 26,
+        "nesting": 2,
+        "deepestLine": 190,
+        "length": 97
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/git-hooks.ts"
+        ],
+        "lines": [
+          144,
+          240
+        ],
+        "sha256": "03f4a201df5adec31ba5edee7a0f0760d7559fa275498d2d18ed5edba5dc17e0"
+      }
+    },
+    {
+      "id": "COMP-4acf3ca0b3fb",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "ingestTranscriptFile in src/watchers/transcript-ingestor.ts has cyclomatic complexity 42 (248 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/transcript-ingestor.ts",
+        "function": "ingestTranscriptFile",
+        "line": 89,
+        "endLine": 336
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 25,
+          "nesting": 6
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 42,
+        "nesting": 4,
+        "deepestLine": 128,
+        "length": 248
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "lines": [
+          89,
+          336
+        ],
+        "sha256": "81906c85e5104beaabc3e8cd24b37586f7ce8dbe3574c9576650fdd402cc33bf"
+      }
+    },
+    {
+      "id": "COMP-e153c2039ab6",
+      "code": "complexity/function",
+      "dimension": "complexity",
+      "severity": "info",
+      "confidence": 1,
+      "message": "parseJsonTranscriptObjects in src/watchers/transcript-ingestor.ts has cyclomatic complexity 19 (42 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+      "subject": {
+        "file": "src/watchers/transcript-ingestor.ts",
+        "function": "parseJsonTranscriptObjects",
+        "line": 41,
+        "endLine": 82
+      },
+      "evidence": {
+        "threshold": {
+          "complexity": 15,
+          "nesting": 5
+        },
+        "thresholds": {
+          "info": {
+            "complexity": 15,
+            "nesting": 5
+          },
+          "warning": {
+            "complexity": 25,
+            "nesting": 6
+          }
+        },
+        "complexity": 19,
+        "nesting": 3,
+        "deepestLine": 47,
+        "length": 42
+      },
+      "supportedFixes": [
+        "start at the deepest nested block: extract it into a named helper with its own tests",
+        "replace long if/elif chains on one value with a lookup table or dispatch",
+        "return early for edge cases so the main path is not nested",
+        "if the branching is inherent, raise the threshold in the analysis config rather than splitting artificially"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "lines": [
+          41,
+          82
+        ],
+        "sha256": "2779ef4bdf61c9d791d432dd33c6b6ab3f9bbfd02db8e3873b53e892921ada39"
+      }
+    },
+    {
+      "id": "COUP-ef47d5bb12bf",
+      "code": "coupling/concentration",
+      "dimension": "coupling",
+      "severity": "warning",
+      "confidence": 1,
+      "message": "src/core: 5 of the other 6 modules depend on it directly or through other modules (83%). This is a static fact about where the project is concentrated, not proof that the module should be split.",
+      "subject": {
+        "module": "src-core"
+      },
+      "evidence": {
+        "reasons": [
+          "reach"
+        ],
+        "reach": {
+          "dependents": 5,
+          "direct": 5,
+          "dependencies": 1,
+          "modules": 6,
+          "share": 0.83,
+          "sample": [
+            "src",
+            "src-crew",
+            "src-harness",
+            "src-persistence",
+            "src-watchers"
+          ]
+        },
+        "threshold": {
+          "reachShare": 0.5,
+          "sizeShare": 0.4,
+          "minModules": 6
+        }
+      },
+      "supportedFixes": [
+        "keep what dependents use small and stable: every change to it has to be checked against all of them",
+        "check whether most dependents need everything in it; a part only one or two modules use can live next to them",
+        "if this concentration is intended (a shared kernel, one cohesive responsibility), accept the finding with that reason"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/core/authority-engine.ts",
+          "src/core/documentary.ts",
+          "src/core/hash.ts",
+          "src/core/lesson-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/core/types.ts",
+          "src/core/ulid.ts"
+        ],
+        "sha256": "bbc617037c58958f9ae3d4ad2cf0ef86ed125079f14648ec4199c178ec624d7b"
+      }
+    },
+    {
+      "id": "COUP-eba13517c3c1",
+      "code": "coupling/concentration",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/utils: 6 of the other 6 modules depend on it directly or through other modules (100%). It depends on no other module, the usual shape of a shared kernel: keep it small and stable.",
+      "subject": {
+        "module": "src-utils"
+      },
+      "evidence": {
+        "reasons": [
+          "reach"
+        ],
+        "reach": {
+          "dependents": 6,
+          "direct": 6,
+          "dependencies": 0,
+          "modules": 6,
+          "share": 1,
+          "sample": [
+            "src",
+            "src-core",
+            "src-crew",
+            "src-harness",
+            "src-persistence",
+            "src-watchers"
+          ]
+        },
+        "threshold": {
+          "reachShare": 0.5,
+          "sizeShare": 0.4,
+          "minModules": 6
+        }
+      },
+      "supportedFixes": [
+        "keep what dependents use small and stable: every change to it has to be checked against all of them",
+        "check whether most dependents need everything in it; a part only one or two modules use can live next to them",
+        "if this concentration is intended (a shared kernel, one cohesive responsibility), accept the finding with that reason"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/utils/diff.ts",
+          "src/utils/fs-helpers.ts",
+          "src/utils/http.ts",
+          "src/utils/ignore.ts",
+          "src/utils/lock.ts",
+          "src/utils/redactor.ts",
+          "src/utils/safe-regex.ts"
+        ],
+        "sha256": "07d07c3f74f0e4eee0e57d653fc0dac8fee2126145ef66b902cde1d78cdf3bfc"
+      }
+    },
+    {
+      "id": "COUP-5a8cbd5368ab",
+      "code": "coupling/internal-leak",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/core has no entry file: 5 modules import 8 of its 8 files directly (48 imports).",
+      "subject": {
+        "module": "src-core"
+      },
+      "evidence": {
+        "entries": [],
+        "entrySource": "none",
+        "internalFiles": [
+          "src/core/authority-engine.ts",
+          "src/core/documentary.ts",
+          "src/core/hash.ts",
+          "src/core/lesson-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/core/types.ts",
+          "src/core/ulid.ts"
+        ],
+        "moduleFiles": 8,
+        "consumers": [
+          "src",
+          "src-crew",
+          "src-harness",
+          "src-persistence",
+          "src-watchers"
+        ],
+        "viaEntry": 0,
+        "totalImports": 48,
+        "files": [
+          "src/cli.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "imports": [
+          {
+            "file": "src/cli.ts",
+            "line": 6,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/base-officer.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/bridge-officer.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/engineering-officer.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/evolution-engine.ts",
+            "line": 3,
+            "to": "src/core/replay-engine.ts"
+          },
+          {
+            "file": "src/crew/evolution-engine.ts",
+            "line": 4,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/crew/evolution-engine.ts",
+            "line": 5,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/llm-provider.ts",
+            "line": 1,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/party-mode.ts",
+            "line": 1,
+            "to": "src/core/lesson-engine.ts"
+          },
+          {
+            "file": "src/crew/party-mode.ts",
+            "line": 2,
+            "to": "src/core/replay-engine.ts"
+          },
+          {
+            "file": "src/crew/party-mode.ts",
+            "line": 3,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/crew/party-mode.ts",
+            "line": 4,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/party-mode.ts",
+            "line": 5,
+            "to": "src/core/ulid.ts"
+          },
+          {
+            "file": "src/crew/security-officer.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/crew/types.ts",
+            "line": 1,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/harness/mcp-server.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 2,
+            "to": "src/core/authority-engine.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 7,
+            "to": "src/core/documentary.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 8,
+            "to": "src/core/lesson-engine.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 9,
+            "to": "src/core/replay-engine.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 10,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 11,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 18,
+            "to": "src/core/ulid.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 3,
+            "to": "src/core/ulid.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 4,
+            "to": "src/core/hash.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 5,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 6,
+            "to": "src/core/replay-engine.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 7,
+            "to": "src/core/lesson-engine.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 8,
+            "to": "src/core/authority-engine.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 9,
+            "to": "src/core/documentary.ts"
+          },
+          {
+            "file": "src/persistence/directory-adapter.ts",
+            "line": 3,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/persistence/fabric.ts",
+            "line": 2,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/persistence/fabric.ts",
+            "line": 3,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/persistence/github-adapter.ts",
+            "line": 2,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/persistence/jira-adapter.ts",
+            "line": 1,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/persistence/types.ts",
+            "line": 1,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/watchers/command-runner.ts",
+            "line": 3,
+            "to": "src/core/lesson-engine.ts"
+          },
+          {
+            "file": "src/watchers/command-runner.ts",
+            "line": 4,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/watchers/command-runner.ts",
+            "line": 5,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/watchers/daemon.ts",
+            "line": 4,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 3,
+            "to": "src/core/hash.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 4,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 5,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/watchers/git-hooks.ts",
+            "line": 5,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/watchers/git-hooks.ts",
+            "line": 6,
+            "to": "src/core/types.ts"
+          },
+          {
+            "file": "src/watchers/transcript-ingestor.ts",
+            "line": 2,
+            "to": "src/core/stream-store.ts"
+          },
+          {
+            "file": "src/watchers/transcript-ingestor.ts",
+            "line": 3,
+            "to": "src/core/types.ts"
+          }
+        ],
+        "threshold": {
+          "minFiles": 3
+        }
+      },
+      "supportedFixes": [
+        "add an entry file to src/core that re-exports what other modules use, and import from it",
+        "if deep imports are the project convention, set rules.coupling.internalLeak.entries or ignore the rule in the analysis config"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts",
+          "src/core/authority-engine.ts",
+          "src/core/documentary.ts",
+          "src/core/hash.ts",
+          "src/core/lesson-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/core/types.ts",
+          "src/core/ulid.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "sha256": "d1078fbdf2e92da52dd0323ba36a7b213e08c82007b1f075193ae4b1cd9405a1"
+      }
+    },
+    {
+      "id": "COUP-ee589dacf7d5",
+      "code": "coupling/internal-leak",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/crew has no entry file: 2 modules import 8 of its 8 files directly (13 imports).",
+      "subject": {
+        "module": "src-crew"
+      },
+      "evidence": {
+        "entries": [],
+        "entrySource": "none",
+        "internalFiles": [
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts"
+        ],
+        "moduleFiles": 8,
+        "consumers": [
+          "src",
+          "src-harness"
+        ],
+        "viaEntry": 0,
+        "totalImports": 13,
+        "files": [
+          "src/cli.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/index.ts"
+        ],
+        "imports": [
+          {
+            "file": "src/cli.ts",
+            "line": 7,
+            "to": "src/crew/types.ts"
+          },
+          {
+            "file": "src/harness/mcp-server.ts",
+            "line": 3,
+            "to": "src/crew/types.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 19,
+            "to": "src/crew/evolution-engine.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 20,
+            "to": "src/crew/party-mode.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 21,
+            "to": "src/crew/types.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 26,
+            "to": "src/crew/types.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 27,
+            "to": "src/crew/llm-provider.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 28,
+            "to": "src/crew/base-officer.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 29,
+            "to": "src/crew/engineering-officer.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 30,
+            "to": "src/crew/security-officer.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 31,
+            "to": "src/crew/bridge-officer.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 32,
+            "to": "src/crew/party-mode.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 33,
+            "to": "src/crew/evolution-engine.ts"
+          }
+        ],
+        "threshold": {
+          "minFiles": 3
+        }
+      },
+      "supportedFixes": [
+        "add an entry file to src/crew that re-exports what other modules use, and import from it",
+        "if deep imports are the project convention, set rules.coupling.internalLeak.entries or ignore the rule in the analysis config"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/party-mode.ts",
+          "src/crew/security-officer.ts",
+          "src/crew/types.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/index.ts"
+        ],
+        "sha256": "8c721af39783d9deedf279e7169983b24cc2adaa49b93ad7b971ebd61594b079"
+      }
+    },
+    {
+      "id": "COUP-435fda841488",
+      "code": "coupling/internal-leak",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/harness has no entry file: 1 module imports 3 of its 3 files directly (6 imports).",
+      "subject": {
+        "module": "src-harness"
+      },
+      "evidence": {
+        "entries": [],
+        "entrySource": "none",
+        "internalFiles": [
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/harness/shims.ts"
+        ],
+        "moduleFiles": 3,
+        "consumers": [
+          "src"
+        ],
+        "viaEntry": 0,
+        "totalImports": 6,
+        "files": [
+          "src/cli.ts",
+          "src/index.ts"
+        ],
+        "imports": [
+          {
+            "file": "src/cli.ts",
+            "line": 8,
+            "to": "src/harness/mcp-server.ts"
+          },
+          {
+            "file": "src/cli.ts",
+            "line": 9,
+            "to": "src/harness/number-one.ts"
+          },
+          {
+            "file": "src/cli.ts",
+            "line": 10,
+            "to": "src/harness/shims.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 36,
+            "to": "src/harness/shims.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 37,
+            "to": "src/harness/number-one.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 38,
+            "to": "src/harness/mcp-server.ts"
+          }
+        ],
+        "threshold": {
+          "minFiles": 3
+        }
+      },
+      "supportedFixes": [
+        "add an entry file to src/harness that re-exports what other modules use, and import from it",
+        "if deep imports are the project convention, set rules.coupling.internalLeak.entries or ignore the rule in the analysis config"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/number-one.ts",
+          "src/harness/shims.ts",
+          "src/index.ts"
+        ],
+        "sha256": "4b63360fbd43a054cb863558dd72ae37778e46f08e40b5cc644ad1072d15372f"
+      }
+    },
+    {
+      "id": "COUP-33d9bef04336",
+      "code": "coupling/internal-leak",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/persistence has no entry file: 2 modules import 5 of its 5 files directly (7 imports).",
+      "subject": {
+        "module": "src-persistence"
+      },
+      "evidence": {
+        "entries": [],
+        "entrySource": "none",
+        "internalFiles": [
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts"
+        ],
+        "moduleFiles": 5,
+        "consumers": [
+          "src",
+          "src-harness"
+        ],
+        "viaEntry": 0,
+        "totalImports": 7,
+        "files": [
+          "src/harness/number-one.ts",
+          "src/index.ts"
+        ],
+        "imports": [
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 29,
+            "to": "src/persistence/fabric.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 30,
+            "to": "src/persistence/types.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 12,
+            "to": "src/persistence/types.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 13,
+            "to": "src/persistence/directory-adapter.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 14,
+            "to": "src/persistence/github-adapter.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 15,
+            "to": "src/persistence/jira-adapter.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 16,
+            "to": "src/persistence/fabric.ts"
+          }
+        ],
+        "threshold": {
+          "minFiles": 3
+        }
+      },
+      "supportedFixes": [
+        "add an entry file to src/persistence that re-exports what other modules use, and import from it",
+        "if deep imports are the project convention, set rules.coupling.internalLeak.entries or ignore the rule in the analysis config"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/harness/number-one.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/persistence/types.ts"
+        ],
+        "sha256": "2b981ce64ae3e13e72ddf2285d8408e4fccceb409ca617f18eba6997aee33c7f"
+      }
+    },
+    {
+      "id": "COUP-b290c756353b",
+      "code": "coupling/internal-leak",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/utils has no entry file: 6 modules import 7 of its 7 files directly (44 imports).",
+      "subject": {
+        "module": "src-utils"
+      },
+      "evidence": {
+        "entries": [],
+        "entrySource": "none",
+        "internalFiles": [
+          "src/utils/diff.ts",
+          "src/utils/fs-helpers.ts",
+          "src/utils/http.ts",
+          "src/utils/ignore.ts",
+          "src/utils/lock.ts",
+          "src/utils/redactor.ts",
+          "src/utils/safe-regex.ts"
+        ],
+        "moduleFiles": 7,
+        "consumers": [
+          "src",
+          "src-core",
+          "src-crew",
+          "src-harness",
+          "src-persistence",
+          "src-watchers"
+        ],
+        "viaEntry": 0,
+        "totalImports": 44,
+        "files": [
+          "src/cli.ts",
+          "src/core/authority-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/security-officer.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/shims.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "imports": [
+          {
+            "file": "src/cli.ts",
+            "line": 11,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/cli.ts",
+            "line": 12,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/core/authority-engine.ts",
+            "line": 10,
+            "to": "src/utils/safe-regex.ts"
+          },
+          {
+            "file": "src/core/replay-engine.ts",
+            "line": 15,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/core/replay-engine.ts",
+            "line": 16,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/core/stream-store.ts",
+            "line": 14,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/core/stream-store.ts",
+            "line": 22,
+            "to": "src/utils/lock.ts"
+          },
+          {
+            "file": "src/core/stream-store.ts",
+            "line": 23,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/crew/base-officer.ts",
+            "line": 3,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/crew/base-officer.ts",
+            "line": 4,
+            "to": "src/utils/ignore.ts"
+          },
+          {
+            "file": "src/crew/base-officer.ts",
+            "line": 5,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/crew/base-officer.ts",
+            "line": 6,
+            "to": "src/utils/safe-regex.ts"
+          },
+          {
+            "file": "src/crew/bridge-officer.ts",
+            "line": 3,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/crew/engineering-officer.ts",
+            "line": 3,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/crew/evolution-engine.ts",
+            "line": 6,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/crew/evolution-engine.ts",
+            "line": 7,
+            "to": "src/utils/safe-regex.ts"
+          },
+          {
+            "file": "src/crew/llm-provider.ts",
+            "line": 2,
+            "to": "src/utils/http.ts"
+          },
+          {
+            "file": "src/crew/llm-provider.ts",
+            "line": 7,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/crew/security-officer.ts",
+            "line": 3,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/crew/security-officer.ts",
+            "line": 4,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/harness/mcp-server.ts",
+            "line": 4,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/harness/shims.ts",
+            "line": 4,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 41,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 42,
+            "to": "src/utils/safe-regex.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 43,
+            "to": "src/utils/http.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 44,
+            "to": "src/utils/lock.ts"
+          },
+          {
+            "file": "src/persistence/directory-adapter.ts",
+            "line": 4,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/persistence/directory-adapter.ts",
+            "line": 10,
+            "to": "src/utils/lock.ts"
+          },
+          {
+            "file": "src/persistence/fabric.ts",
+            "line": 4,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/persistence/fabric.ts",
+            "line": 5,
+            "to": "src/utils/lock.ts"
+          },
+          {
+            "file": "src/persistence/github-adapter.ts",
+            "line": 3,
+            "to": "src/utils/http.ts"
+          },
+          {
+            "file": "src/persistence/github-adapter.ts",
+            "line": 9,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/persistence/jira-adapter.ts",
+            "line": 2,
+            "to": "src/utils/http.ts"
+          },
+          {
+            "file": "src/persistence/jira-adapter.ts",
+            "line": 7,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/watchers/command-runner.ts",
+            "line": 6,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/watchers/daemon.ts",
+            "line": 5,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/watchers/daemon.ts",
+            "line": 6,
+            "to": "src/utils/lock.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 6,
+            "to": "src/utils/diff.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 7,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 13,
+            "to": "src/utils/ignore.ts"
+          },
+          {
+            "file": "src/watchers/fs-watcher.ts",
+            "line": 14,
+            "to": "src/utils/redactor.ts"
+          },
+          {
+            "file": "src/watchers/git-hooks.ts",
+            "line": 7,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/watchers/transcript-ingestor.ts",
+            "line": 4,
+            "to": "src/utils/fs-helpers.ts"
+          },
+          {
+            "file": "src/watchers/transcript-ingestor.ts",
+            "line": 5,
+            "to": "src/utils/redactor.ts"
+          }
+        ],
+        "threshold": {
+          "minFiles": 3
+        }
+      },
+      "supportedFixes": [
+        "add an entry file to src/utils that re-exports what other modules use, and import from it",
+        "if deep imports are the project convention, set rules.coupling.internalLeak.entries or ignore the rule in the analysis config"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts",
+          "src/core/authority-engine.ts",
+          "src/core/replay-engine.ts",
+          "src/core/stream-store.ts",
+          "src/crew/base-officer.ts",
+          "src/crew/bridge-officer.ts",
+          "src/crew/engineering-officer.ts",
+          "src/crew/evolution-engine.ts",
+          "src/crew/llm-provider.ts",
+          "src/crew/security-officer.ts",
+          "src/harness/mcp-server.ts",
+          "src/harness/shims.ts",
+          "src/index.ts",
+          "src/persistence/directory-adapter.ts",
+          "src/persistence/fabric.ts",
+          "src/persistence/github-adapter.ts",
+          "src/persistence/jira-adapter.ts",
+          "src/utils/diff.ts",
+          "src/utils/fs-helpers.ts",
+          "src/utils/http.ts",
+          "src/utils/ignore.ts",
+          "src/utils/lock.ts",
+          "src/utils/redactor.ts",
+          "src/utils/safe-regex.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "sha256": "241a657f7784748e991db422391f67eaef9a04ddfcfeafc18a287063929ac18f"
+      }
+    },
+    {
+      "id": "COUP-bf6a3275659f",
+      "code": "coupling/internal-leak",
+      "dimension": "coupling",
+      "severity": "info",
+      "confidence": 1,
+      "message": "src/watchers has no entry file: 2 modules import 5 of its 5 files directly (12 imports).",
+      "subject": {
+        "module": "src-watchers"
+      },
+      "evidence": {
+        "entries": [],
+        "entrySource": "none",
+        "internalFiles": [
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "moduleFiles": 5,
+        "consumers": [
+          "src",
+          "src-harness"
+        ],
+        "viaEntry": 0,
+        "totalImports": 12,
+        "files": [
+          "src/cli.ts",
+          "src/harness/number-one.ts",
+          "src/index.ts"
+        ],
+        "imports": [
+          {
+            "file": "src/cli.ts",
+            "line": 13,
+            "to": "src/watchers/command-runner.ts"
+          },
+          {
+            "file": "src/cli.ts",
+            "line": 14,
+            "to": "src/watchers/git-hooks.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 36,
+            "to": "src/watchers/command-runner.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 37,
+            "to": "src/watchers/daemon.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 38,
+            "to": "src/watchers/fs-watcher.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 39,
+            "to": "src/watchers/git-hooks.ts"
+          },
+          {
+            "file": "src/harness/number-one.ts",
+            "line": 40,
+            "to": "src/watchers/transcript-ingestor.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 19,
+            "to": "src/watchers/fs-watcher.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 20,
+            "to": "src/watchers/git-hooks.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 21,
+            "to": "src/watchers/command-runner.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 22,
+            "to": "src/watchers/transcript-ingestor.ts"
+          },
+          {
+            "file": "src/index.ts",
+            "line": 23,
+            "to": "src/watchers/daemon.ts"
+          }
+        ],
+        "threshold": {
+          "minFiles": 3
+        }
+      },
+      "supportedFixes": [
+        "add an entry file to src/watchers that re-exports what other modules use, and import from it",
+        "if deep imports are the project convention, set rules.coupling.internalLeak.entries or ignore the rule in the analysis config"
+      ],
+      "evidenceDigest": {
+        "files": [
+          "src/cli.ts",
+          "src/harness/number-one.ts",
+          "src/index.ts",
+          "src/watchers/command-runner.ts",
+          "src/watchers/daemon.ts",
+          "src/watchers/fs-watcher.ts",
+          "src/watchers/git-hooks.ts",
+          "src/watchers/transcript-ingestor.ts"
+        ],
+        "sha256": "c4feb289aee86a039719ca1fbb982b02897421a85e605f246c7aadfd037010a1"
+      }
+    }
+  ]
+}

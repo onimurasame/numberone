@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "diagram_type": "waterfall",
+  "meta": {
+    "title": "End-to-End Governance Pipeline Execution Waterfall",
+    "subtitle": "Illustrative span breakdown (ms) of a full BMAD Party Mode audit, distributed Scrum push, and integrity verification run",
+    "output": "docs/site/archify/party-sync-waterfall.html",
+    "evidence": "illustrative",
+    "unit": "ms",
+    "quality_profile": "showcase"
+  },
+  "spans": [
+    {
+      "id": "pipeline",
+      "name": "n1 party + sync + verify",
+      "service": "NumberOneAgent",
+      "start": 0,
+      "end": 620,
+      "detail": "Complete local governance, distributed sync, and cryptographic verification cycle."
+    },
+    {
+      "id": "replay_state",
+      "name": "getCurrentState (digest check)",
+      "service": "ReplayEngine",
+      "start": 0,
+      "duration": 18,
+      "parent": "pipeline"
+    },
+    {
+      "id": "round1_eng",
+      "name": "Round 1: EngineeringOfficer.assess",
+      "service": "BridgeCrew",
+      "start": 18,
+      "duration": 52,
+      "parent": "pipeline"
+    },
+    {
+      "id": "round1_sec",
+      "name": "Round 1: SecurityOfficer.assess",
+      "service": "BridgeCrew",
+      "start": 70,
+      "duration": 78,
+      "parent": "pipeline"
+    },
+    {
+      "id": "round1_brg",
+      "name": "Round 1: BridgeOfficer.assess",
+      "service": "BridgeCrew",
+      "start": 148,
+      "duration": 46,
+      "parent": "pipeline"
+    },
+    {
+      "id": "round2_3",
+      "name": "Round 2 Challenges + Consensus Append",
+      "service": "PartyModeOrchestrator",
+      "start": 194,
+      "duration": 36,
+      "parent": "pipeline"
+    },
+    {
+      "id": "sync_dir",
+      "name": "syncPush: Directory Scrum Board",
+      "service": "DirectoryAdapter",
+      "start": 230,
+      "duration": 25,
+      "parent": "pipeline"
+    },
+    {
+      "id": "sync_gh",
+      "name": "syncPush: GitHub Issues + Projects v2",
+      "service": "GitHubAdapter",
+      "start": 255,
+      "duration": 295,
+      "parent": "pipeline"
+    },
+    {
+      "id": "verify_all",
+      "name": "verifyDistributedIntegrity (SHA-256 + Blobs)",
+      "service": "StreamStore",
+      "start": 550,
+      "duration": 70,
+      "parent": "pipeline"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": 3,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "KPI-Gated Officer Knowledge Evolution Lifecycle",
+    "subtitle": "Candidate practices become active officer expertise ONLY when proven to increase the officer's main KPI",
+    "parentHref": "system-overview.html",
+    "output": "docs/site/archify/directive-evolution-lifecycle.html",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "mainPath": ["proposed", "regex_gate", "proof_eval", "promoted", "monitored"],
+  "states": [
+    {
+      "id": "proposed",
+      "type": "start",
+      "label": "Proposed",
+      "sublabel": "candidate rule",
+      "tag": "intake",
+      "step": "01",
+      "explanation": "A human or AI submits a candidate KnowledgePractice + VerificationSample[] proof for Engineering, Security, or Bridge Officer.",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 98, "end_line": 145, "label": "proposeUpdate" }
+      ]
+    },
+    {
+      "id": "regex_gate",
+      "type": "decision",
+      "label": "Safety Gate",
+      "sublabel": "Zod + ReDoS",
+      "tag": "guard",
+      "step": "02",
+      "explanation": "Validates KnowledgeUpdateProposalSchema and verifies every regex in practice.matcher passes validateRegexSafety (no nested quantifiers or backreferences).",
+      "sources": [
+        { "path": "src/utils/safe-regex.ts", "line": 24, "end_line": 140, "label": "validateRegexSafety" }
+      ]
+    },
+    {
+      "id": "proof_eval",
+      "type": "decision",
+      "label": "KPI Proof",
+      "sublabel": "delta > 0 check",
+      "tag": "empirical",
+      "step": "03",
+      "explanation": "Runs counterfactual virtual-file replay across compliant and violating samples (or opt-in CLI benchmark) requiring strict KPI delta > 0 and 0 false positives.",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 195, "end_line": 310, "label": "evaluateCounterfactualProof" }
+      ]
+    },
+    {
+      "id": "promoted",
+      "type": "active",
+      "label": "Promoted",
+      "sublabel": "version++",
+      "tag": "updated",
+      "step": "04",
+      "explanation": "Appends officer.knowledge.updated, increments officer knowledgeVersion, and activates the practice in deterministic replay.",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 390, "end_line": 450, "label": "promote practice" }
+      ]
+    },
+    {
+      "id": "monitored",
+      "type": "success",
+      "label": "Live",
+      "sublabel": "KPI tracked",
+      "tag": "healthy",
+      "step": "05",
+      "explanation": "Practice runs in every officer assessment and Party Mode session while kpiHistory is continuously monitored.",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 472, "end_line": 516, "label": "auditLiveRegressions" }
+      ]
+    },
+    {
+      "id": "rejected",
+      "type": "failure",
+      "label": "Rejected",
+      "sublabel": "proposal denied",
+      "tag": "terminal",
+      "explanation": "Proposal rejected due to unsafe regex, false positives, unpermitted MCP benchmark exec, or non-positive KPI delta (delta <= 0).",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 146, "end_line": 194, "label": "rejectProposal" }
+      ]
+    },
+    {
+      "id": "regressed",
+      "type": "waiting",
+      "label": "Regressed",
+      "sublabel": "KPI drop",
+      "tag": "alert",
+      "explanation": "auditLiveRegressions detects a live KPI score drop exceeding threshold across recent kpiHistory measurements.",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 472, "end_line": 516, "label": "auditLiveRegressions" }
+      ]
+    },
+    {
+      "id": "reverted",
+      "type": "neutral",
+      "label": "Reverted",
+      "sublabel": "deactivated",
+      "tag": "rolled back",
+      "explanation": "revertPractice deactivates the regressed practice (active = false) while preserving full cryptographic history.",
+      "sources": [
+        { "path": "src/crew/evolution-engine.ts", "line": 456, "end_line": 471, "label": "revertPractice" }
+      ]
+    }
+  ],
+  "transitions": [
+    { "id": "t1", "from": "proposed", "to": "regex_gate", "label": "check" },
+    { "id": "t2", "from": "regex_gate", "to": "proof_eval", "label": "safe" },
+    { "id": "t3", "from": "regex_gate", "to": "rejected", "label": "unsafe", "variant": "security" },
+    { "id": "t4", "from": "proof_eval", "to": "promoted", "label": "delta > 0", "variant": "emphasis" },
+    { "id": "t5", "from": "proof_eval", "to": "rejected", "label": "delta <= 0", "variant": "security" },
+    { "id": "t6", "from": "promoted", "to": "monitored", "label": "activate" },
+    { "id": "t7", "from": "monitored", "to": "regressed", "label": "KPI drop", "variant": "dashed" },
+    { "id": "t8", "from": "regressed", "to": "reverted", "label": "revert", "variant": "security" },
+    { "id": "t9", "from": "regressed", "to": "monitored", "label": "fixed" }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Zero Hallucinated Self-Updates",
+      "items": [
+        "Officers cannot self-modify based on unverified opinions or prompt instructions",
+        "Every promoted check must prove discrimination between compliant and violating samples"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Reversible by Construction",
+      "items": [
+        "Every evolution step is an immutable stream event",
+        "n1 evolve audit and n1 evolve revert roll back broken rules cleanly"
+      ]
+    }
+  ]
+}

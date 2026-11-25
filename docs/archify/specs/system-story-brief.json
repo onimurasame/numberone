@@ -1,0 +1,99 @@
+{
+  "version": 2,
+  "title": "How Number One Governs Every Workspace Event",
+  "intro": "Follow an event from external AI harnesses into the cryptographic .numberone stream, deterministic replay, Bridge Crew arbitration, and distributed Scrum mirrors.",
+  "outro": "Every decision, crash, dead-end, and lesson stays replayable across contexts, harnesses, people, and time.",
+  "scenes": [
+    {
+      "title": "1. Harness-Agnostic Signal Ingress",
+      "points": [
+        {
+          "anchor": "harnesses",
+          "title": "24+ AI Harnesses and Human Terminals",
+          "text": "Any MCP client, CLI agent, IDE save, or Git operation enters through open POSIX and JSON-RPC boundaries without vendor lock-in.",
+          "caption": "External harnesses emit tool calls, edits, and Git events.",
+          "code": {
+            "node": "harnesses",
+            "source": 0,
+            "fromLine": 80,
+            "toLine": 98
+          }
+        },
+        {
+          "anchor": "ingress",
+          "via": "harness-to-ingress",
+          "action": "trace",
+          "title": "Bounded MCP & Watcher Ingress",
+          "text": "NumberOneMcpServer enforces 2 MB pre-allocation buffer caps and L4 privilege rules while WorkspaceFsWatcher debounces live file diffs.",
+          "caption": "Signals cross the L4 ingress boundary into validated handlers.",
+          "code": {
+            "node": "ingress",
+            "source": 0,
+            "fromLine": 261,
+            "toLine": 280
+          }
+        }
+      ]
+    },
+    {
+      "title": "2. Authoritative Precedence & Cryptographic Stream",
+      "points": [
+        {
+          "anchor": "authority",
+          "via": ["ingress-to-agent", "agent-to-authority"],
+          "action": "trace",
+          "title": "L1-L4 Precedence Arbitration",
+          "text": "AuthorityEngine checks affirmative clauses against blocking directives, verified lessons, and unresolved crashes before risky actions proceed.",
+          "caption": "NumberOneAgent submits plans to AuthorityEngine for L1-L4 arbitration.",
+          "code": {
+            "node": "authority",
+            "source": 0,
+            "fromLine": 210,
+            "toLine": 228
+          }
+        },
+        {
+          "anchor": "stream",
+          "via": "agent-to-stream",
+          "action": "trace",
+          "title": "Immutable SHA-256 Event Log",
+          "text": "StreamStore scrubs secrets in linear time, chains canonical JSON SHA-256 hashes, stores CAS blobs, and fsyncs to .numberone.",
+          "caption": "Sanitized atomic events commit durably to .numberone/stream/events.jsonl.",
+          "code": {
+            "node": "stream",
+            "source": 0,
+            "fromLine": 388,
+            "toLine": 406
+          }
+        }
+      ]
+    },
+    {
+      "title": "3. Deterministic Replay, Bridge Crew & Scrum Sync",
+      "points": [
+        {
+          "anchor": "crew",
+          "via": ["agent-to-crew", "crew-to-stream"],
+          "action": "trace",
+          "title": "BMAD Party Mode & KPI Evolution",
+          "text": "Engineering, Security, and Bridge Officers audit telemetry, cross-verify Round 2 challenges, and evolve only when KPI delta > 0.",
+          "caption": "Bridge Crew officers audit workspace posture and record verified KPIs.",
+          "code": {
+            "node": "crew",
+            "source": 0,
+            "fromLine": 309,
+            "toLine": 328
+          }
+        },
+        {
+          "anchor": "remotes",
+          "via": ["stream-to-fabric", "fabric-to-remotes"],
+          "action": "trace",
+          "title": "Lossless Distributed Scrum Mirrors",
+          "text": "PersistenceFabric synchronizes Directory boards, GitHub Projects v2, and Jira Agile while keeping full fallback blobs in .numberone.",
+          "caption": "PersistenceFabric mirrors SoR artifacts to Directory, GitHub, and Jira."
+        }
+      ]
+    }
+  ]
+}

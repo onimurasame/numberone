@@ -1,0 +1,192 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "BMAD Party Mode — 3-Round Crew Audit & Arbitration Workflow",
+    "subtitle": "Independent telemetry audit, deterministic peer challenge verification, precedent correlation, and binding ruling",
+    "parentHref": "system-overview.html",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "output": "docs/site/archify/bmad-party-workflow.html",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "lanes": [
+    { "id": "lead", "label": "Number One Lead" },
+    { "id": "officers", "label": "Specialist Officers" },
+    { "id": "memory", "label": "SoR Stream & Memory" },
+    { "id": "veto", "label": "Blocking Governance", "variant": "exception" }
+  ],
+  "phases": [
+    { "id": "round1", "label": "Round 1: Telemetry Audit", "fromCol": 0, "toCol": 1 },
+    { "id": "round2", "label": "Round 2: Peer Challenge", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "round3", "label": "Round 3: Ruling & Plan", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "officer_checks", "label": "Eng + Sec + Bridge Checks", "lane": "officers", "fromCol": 1, "toCol": 2, "variant": "emphasis" },
+    { "id": "veto_gate", "label": "Critical Risk Enforcement", "lane": "veto", "fromCol": 4, "toCol": 5, "variant": "security" }
+  ],
+  "mainPath": ["convene", "audit", "challenges", "correlate", "gate", "consensus"],
+  "nodes": [
+    {
+      "id": "convene",
+      "lane": "lead",
+      "col": 0,
+      "type": "frontend",
+      "label": "Convene Crew",
+      "sublabel": "topic + targetPaths",
+      "width": 136,
+      "explanation": "Selects Engineering, Security, and Bridge Officers (roundtable, specialist, or auto-triage mode) and records crew.assembled in the stream.",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 339, "end_line": 395, "label": "selectOfficersForTopic" }
+      ]
+    },
+    {
+      "id": "audit",
+      "lane": "officers",
+      "col": 1,
+      "type": "backend",
+      "label": "Domain Checks",
+      "sublabel": "baseline + evolved",
+      "tag": "0..100 KPI",
+      "width": 136,
+      "explanation": "Each officer evaluates real workspace files and projection state, computing its main KPI score, structured findings, and cross-domain peer challenges.",
+      "sources": [
+        { "path": "src/crew/engineering-officer.ts", "line": 103, "end_line": 165, "label": "EngineeringOfficer.assess" },
+        { "path": "src/crew/security-officer.ts", "line": 279, "end_line": 345, "label": "SecurityOfficer.assess" },
+        { "path": "src/crew/bridge-officer.ts", "line": 92, "end_line": 155, "label": "BridgeOfficer.assess" }
+      ]
+    },
+    {
+      "id": "kpi_log",
+      "lane": "memory",
+      "col": 1,
+      "type": "database",
+      "label": "Record Opinions",
+      "sublabel": "opinion + KPI event",
+      "width": 136,
+      "explanation": "Persists crew.opinion and officer.kpi.measured events into .numberone/stream/events.jsonl.",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 400, "end_line": 455, "label": "record Round 1" }
+      ]
+    },
+    {
+      "id": "challenges",
+      "lane": "officers",
+      "col": 2,
+      "type": "security",
+      "label": "Verify Challenges",
+      "sublabel": "confirm or rebut",
+      "width": 136,
+      "explanation": "resolvePeerChallenges inspects target officer check telemetry to classify each PeerChallenge as CONFIRMED, REBUTTED_BY_EVIDENCE, or ESCALATED.",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 85, "end_line": 205, "label": "resolvePeerChallenges" }
+      ]
+    },
+    {
+      "id": "correlate",
+      "lane": "memory",
+      "col": 3,
+      "type": "database",
+      "label": "Match Precedents",
+      "sublabel": "lessons + dead-ends",
+      "width": 136,
+      "explanation": "Queries LessonEngine for verified institutional lessons and past failed attempts matching affectedPaths and topic.",
+      "sources": [
+        { "path": "src/core/lesson-engine.ts", "line": 80, "end_line": 168, "label": "findRelevantLessons" }
+      ]
+    },
+    {
+      "id": "gate",
+      "lane": "lead",
+      "col": 4,
+      "type": "security",
+      "label": "Critical Veto?",
+      "sublabel": "check criticals",
+      "width": 136,
+      "explanation": "Checks whether any officer raised a critical-severity finding (veto = true).",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 510, "end_line": 595, "label": "veto & ruling synthesis" }
+      ]
+    },
+    {
+      "id": "consensus",
+      "lane": "lead",
+      "col": 5,
+      "type": "backend",
+      "label": "Emit Consensus",
+      "sublabel": "matrix + plan",
+      "width": 136,
+      "explanation": "Emits crew.consensus with the OfficerDecisionRow matrix and ranked P0-P3 RemediationPlan.",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 600, "end_line": 680, "label": "consensus output" }
+      ]
+    },
+    {
+      "id": "issue_veto",
+      "lane": "veto",
+      "col": 4,
+      "type": "security",
+      "label": "Record Veto",
+      "sublabel": "crew.veto event",
+      "width": 136,
+      "explanation": "Logs formal crew.veto naming vetoing officers and blocking findings.",
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 530, "end_line": 575, "label": "crew.veto" }
+      ]
+    },
+    {
+      "id": "directive",
+      "lane": "veto",
+      "col": 5,
+      "type": "security",
+      "label": "L2 Block Directive",
+      "sublabel": "directive.issued",
+      "width": 136,
+      "explanation": "Automatically issues an active blocking L2 DirectiveRecord enforced by AuthorityEngine until remediated.",
+      "sources": [
+        { "path": "src/core/authority-engine.ts", "line": 243, "end_line": 295, "label": "L2 directive gate" }
+      ]
+    }
+  ],
+  "edges": [
+    { "id": "e1", "from": "convene", "to": "audit", "label": "dispatch", "variant": "emphasis" },
+    { "id": "e2", "from": "audit", "to": "kpi_log", "label": "KPI + opinion", "variant": "dashed" },
+    { "id": "e3", "from": "audit", "to": "challenges", "label": "peer challenges", "variant": "emphasis" },
+    { "id": "e4", "from": "challenges", "to": "correlate", "label": "resolutions", "variant": "emphasis" },
+    { "id": "e5", "from": "correlate", "to": "gate", "label": "precedents", "variant": "emphasis" },
+    { "id": "e6", "from": "gate", "to": "consensus", "label": "no criticals", "variant": "emphasis" },
+    { "id": "e7", "from": "gate", "to": "issue_veto", "label": "critical found", "variant": "security", "role": "error" },
+    { "id": "e8", "from": "issue_veto", "to": "directive", "label": "enforce block", "variant": "security", "role": "branch" }
+  ],
+  "semanticChecks": {
+    "allowedRoots": ["convene"],
+    "allowedTerminals": ["kpi_log", "consensus", "directive"],
+    "requiredPaths": [
+      { "from": "convene", "to": "consensus" },
+      { "from": "convene", "to": "directive" }
+    ]
+  },
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Evidence-Backed Challenge Resolution",
+      "items": [
+        "Peer challenges are never decorative prose: Round 2 checks target telemetry",
+        "Outcomes are strictly CONFIRMED, REBUTTED_BY_EVIDENCE, or ESCALATED"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Automatic L2 Veto Enforcement",
+      "items": [
+        "Any critical officer finding triggers crew.veto",
+        "Number One immediately issues a blocking L2 directive on affected paths"
+      ]
+    }
+  ]
+}

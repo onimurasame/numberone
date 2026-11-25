@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Baseline Local-Only Workspace Curator (Pre-Party & Pre-Fabric)",
+    "output": "docs/site/archify/baseline-local.html",
+    "quality_profile": "showcase"
+  },
+  "layout": {
+    "mode": "auto"
+  },
+  "components": [
+    { "id": "harnesses", "type": "external", "label": "AI Harnesses & Humans", "sublabel": "CLI & Shell" },
+    { "id": "ingress", "type": "frontend", "label": "Watcher Ingress", "sublabel": "FS + Git Hooks" },
+    { "id": "agent", "type": "backend", "label": "NumberOneAgent", "sublabel": "Local Curator" },
+    { "id": "stream", "type": "database", "label": "StreamStore (.numberone)", "sublabel": "JSONL Log" },
+    { "id": "replay", "type": "backend", "label": "Replay & Documentary", "sublabel": "State Projection" }
+  ],
+  "connections": [
+    { "id": "harness-to-ingress", "from": "harnesses", "to": "ingress", "label": "CLI / FS" },
+    { "id": "ingress-to-agent", "from": "ingress", "to": "agent", "label": "events" },
+    { "id": "agent-to-stream", "from": "agent", "to": "stream", "label": "append" },
+    { "id": "stream-to-replay", "from": "stream", "to": "replay", "label": "JSONL events" }
+  ]
+}

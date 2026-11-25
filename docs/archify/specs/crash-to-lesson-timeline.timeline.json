@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "diagram_type": "timeline",
+  "meta": {
+    "title": "Cross-Harness Crash-to-Lesson Correlation Timeline",
+    "subtitle": "Illustrative operational scenario: how Number One preserves intermediate failures across a harness switch and auto-captures a verified Lesson",
+    "output": "docs/site/archify/crash-to-lesson-timeline.html",
+    "evidence": "illustrative",
+    "timezone": "UTC",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "session_a", "label": "Harness A (Cursor)" },
+    { "id": "sor", "label": "Number One SoR" },
+    { "id": "session_b", "label": "Harness B (Claude Code)" }
+  ],
+  "events": [
+    {
+      "id": "crash",
+      "at": "2026-11-23T09:00:00Z",
+      "title": "Test Suite Crashes (exit 1)",
+      "detail": "n1 exec -- npm test records exec.failed with signature 'TypeError: headers.get is not a function'.",
+      "lane": "session_a",
+      "kind": "alert"
+    },
+    {
+      "id": "dead_end",
+      "at": "2026-11-23T09:04:00Z",
+      "title": "Dead-End Approach Recorded",
+      "detail": "Agent logs attempt.failed: polyfilling global Headers broke Node undici streaming.",
+      "lane": "sor",
+      "kind": "change"
+    },
+    {
+      "id": "switch",
+      "at": "2026-11-23T09:08:00Z",
+      "title": "Context Compacted & Harness Switched",
+      "detail": "Operator switches to Claude Code; MCP consult_number_one surfaces both the crash and the dead-end.",
+      "lane": "session_b",
+      "kind": "action"
+    },
+    {
+      "id": "fix_edit",
+      "at": "2026-11-23T09:12:00Z",
+      "title": "Targeted Fix Applied",
+      "detail": "WorkspaceFsWatcher records fs.modified on src/utils/http.ts normalizing plain object headers.",
+      "lane": "session_b",
+      "kind": "change"
+    },
+    {
+      "id": "pass_auto_lesson",
+      "at": "2026-11-23T09:15:00Z",
+      "title": "Tests Pass & Auto-Lesson Synthesized",
+      "detail": "exec.completed triggers detectFailureToFixCorrelation, automatically recording lesson.captured with root cause and dead-ends.",
+      "lane": "sor",
+      "kind": "recovery"
+    }
+  ]
+}

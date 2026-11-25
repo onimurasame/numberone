@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "MCP Stdio Consultation, Arbitration & Hash-Chained Commit Sequence",
+    "subtitle": "How any L4 AI coding harness consults institutional memory and receives an authoritative L1-L3 ruling",
+    "parentHref": "system-overview.html",
+    "output": "docs/site/archify/mcp-arbitration-sequence.html",
+    "viewBox": [1080, 620],
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "participants": [
+    {
+      "id": "harness",
+      "type": "external",
+      "label": "AI Harness",
+      "sublabel": "L4 MCP Client",
+      "explanation": "Any MCP-compatible IDE or CLI agent (Claude Code, Cursor, Codex, Windsurf, Antigravity, Copilot, Zed).",
+      "sources": [
+        { "path": "src/harness/shims.ts", "line": 80, "end_line": 148, "label": "Harness Shims" }
+      ]
+    },
+    {
+      "id": "mcp",
+      "type": "frontend",
+      "label": "McpServer",
+      "sublabel": "Stdio JSON-RPC",
+      "explanation": "Validates pre-allocation line length (<= 2 MB), enforces L4 privilege boundaries, and dispatches MCP tools.",
+      "sources": [
+        { "path": "src/harness/mcp-server.ts", "line": 261, "end_line": 360, "label": "NumberOneMcpServer" }
+      ]
+    },
+    {
+      "id": "replay",
+      "type": "backend",
+      "label": "ReplayEngine",
+      "sublabel": "Digest Verified",
+      "explanation": "Loads cached WorkspaceProjection if snapshotDigest matches stream head, or replays events.jsonl from seq #1.",
+      "sources": [
+        { "path": "src/core/replay-engine.ts", "line": 809, "end_line": 880, "label": "ReplayEngine.getCurrentState" }
+      ]
+    },
+    {
+      "id": "authority",
+      "type": "security",
+      "label": "AuthorityEngine",
+      "sublabel": "L1-L4 Precedence",
+      "explanation": "Evaluates affirmative clauses against L2/L3 directives, verified lessons, past dead-ends, and unresolved crashes.",
+      "sources": [
+        { "path": "src/core/authority-engine.ts", "line": 222, "end_line": 340, "label": "AuthorityEngine.arbitrate" }
+      ]
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "StreamStore",
+      "sublabel": "SHA-256 + fsync",
+      "explanation": "Acquires advisory lock, redacts secrets, computes canonical JSON SHA-256 hash chain, and fsyncs to .numberone.",
+      "sources": [
+        { "path": "src/core/stream-store.ts", "line": 388, "end_line": 460, "label": "StreamStore.append" }
+      ]
+    },
+    {
+      "id": "fabric",
+      "type": "messagebus",
+      "label": "PersistenceFabric",
+      "sublabel": "Scrum Mirrors",
+      "explanation": "Synchronizes durable decisions, issues, and lessons to Directory, GitHub Projects v2, and Jira.",
+      "sources": [
+        { "path": "src/persistence/fabric.ts", "line": 81, "end_line": 160, "label": "PersistenceFabric.syncPush" }
+      ]
+    }
+  ],
+  "segments": [
+    { "from": 150, "to": 252, "label": "1. Consult Institutional Memory" },
+    { "from": 266, "to": 424, "label": "2. Authoritative Arbitration & Audit" },
+    { "from": 438, "to": 514, "label": "3. Distributed Scrum Sync" }
+  ],
+  "messages": [
+    {
+      "id": "call-consult",
+      "from": "harness",
+      "to": "mcp",
+      "y": 160,
+      "label": "tools/call consult_number_one",
+      "variant": "emphasis",
+      "payload": {
+        "summary": "L4 harness queries prior lessons and dead-ends before editing files",
+        "contentType": "application/json",
+        "sample": { "intent": "Refactor HTTP client retries", "targetPaths": ["src/utils/http.ts"] }
+      }
+    },
+    { "id": "load-state", "from": "mcp", "to": "replay", "y": 188, "label": "getCurrentState()", "variant": "default" },
+    { "id": "state-ok", "from": "replay", "to": "mcp", "y": 216, "label": "verified WorkspaceProjection", "variant": "return" },
+    { "id": "consult-reply", "from": "mcp", "to": "harness", "y": 244, "label": "lessons + deadEnds + directives", "variant": "return" },
+    {
+      "id": "call-arbitrate",
+      "from": "harness",
+      "to": "mcp",
+      "y": 276,
+      "label": "tools/call arbitrate_action",
+      "variant": "security",
+      "payload": {
+        "summary": "Proposed edit & command submitted for L1-L4 precedence check",
+        "contentType": "application/json",
+        "sample": { "action": "Add custom retry handler", "intent": "Handle HTTP 429", "targetPaths": ["src/utils/http.ts"] }
+      }
+    },
+    { "id": "eval-proposal", "from": "mcp", "to": "authority", "y": 304, "label": "arbitrate(state, proposal)", "variant": "security" },
+    { "id": "audit-append", "from": "authority", "to": "store", "y": 332, "label": "append(arbitration.decided)", "variant": "emphasis" },
+    { "id": "hash-acked", "from": "store", "to": "authority", "y": 360, "label": "StreamEvent { seq, hash }", "variant": "return" },
+    { "id": "verdict-out", "from": "authority", "to": "mcp", "y": 388, "label": "ArbitrationResult (APPROVE/BLOCK)", "variant": "return" },
+    { "id": "arbitrate-reply", "from": "mcp", "to": "harness", "y": 416, "label": "JSON-RPC result + guidance", "variant": "return" },
+    { "id": "call-sync", "from": "harness", "to": "mcp", "y": 448, "label": "tools/call sync_persistence", "variant": "dashed" },
+    { "id": "push-ledger", "from": "mcp", "to": "fabric", "y": 476, "label": "syncPush()", "variant": "dashed" },
+    { "id": "sync-done", "from": "fabric", "to": "harness", "y": 504, "label": "SyncPushReport[]", "variant": "return" }
+  ],
+  "activations": [
+    { "participant": "mcp", "from": 156, "to": 250, "type": "frontend" },
+    { "participant": "replay", "from": 184, "to": 222, "type": "backend" },
+    { "participant": "mcp", "from": 270, "to": 422, "type": "frontend" },
+    { "participant": "authority", "from": 298, "to": 394, "type": "security" },
+    { "participant": "store", "from": 326, "to": 366, "type": "database" },
+    { "participant": "fabric", "from": 470, "to": 510, "type": "messagebus" }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Pre-Allocation DoS Guard",
+      "items": [
+        "McpServer enforces maxLineBytes (2 MB) on raw Buffers before UTF-8 string decoding",
+        "stdin pauses while async tool calls execute for deterministic backpressure"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Strict L4 Privilege Boundary",
+      "items": [
+        "MCP clients cannot forge raw directive.issued(blocking) or officer.knowledge.updated events",
+        "Shell benchmark execution is unconditionally disabled over MCP"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "diagram_type": "tree",
+  "meta": {
+    "title": "Number One (src/) — Repository & Capability Decomposition Tree",
+    "subtitle": "Every module belongs to one strict architectural package with zero circular dependencies",
+    "output": "docs/site/archify/repository-capability-tree.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "nodes": [
+    {
+      "id": "root",
+      "label": "numberone (src/)",
+      "sublabel": "Authoritative Workspace SoR",
+      "sources": [{ "path": "src/index.ts", "line": 1, "end_line": 44, "label": "Public ESM exports" }]
+    },
+    {
+      "id": "core",
+      "label": "src/core",
+      "parent": "root",
+      "sublabel": "Stream, Replay & Authority",
+      "sources": [{ "path": "src/core" }]
+    },
+    {
+      "id": "persistence",
+      "label": "src/persistence",
+      "parent": "root",
+      "sublabel": "Distributed Scrum Fabric",
+      "sources": [{ "path": "src/persistence" }]
+    },
+    {
+      "id": "watchers",
+      "label": "src/watchers",
+      "parent": "root",
+      "sublabel": "Live Workspace Sensors",
+      "sources": [{ "path": "src/watchers" }]
+    },
+    {
+      "id": "crew",
+      "label": "src/crew",
+      "parent": "root",
+      "sublabel": "BMAD Crew & KPI Evolution",
+      "sources": [{ "path": "src/crew" }]
+    },
+    {
+      "id": "harness",
+      "label": "src/harness",
+      "parent": "root",
+      "sublabel": "Agent, Shims & MCP Server",
+      "sources": [{ "path": "src/harness" }]
+    },
+    {
+      "id": "utils",
+      "label": "src/utils",
+      "parent": "root",
+      "sublabel": "Security & POSIX Guards",
+      "sources": [{ "path": "src/utils" }]
+    },
+    {
+      "id": "stream_mod",
+      "label": "stream-store & hash",
+      "parent": "core",
+      "sources": [{ "path": "src/core/stream-store.ts", "line": 106, "end_line": 170 }]
+    },
+    {
+      "id": "replay_mod",
+      "label": "replay & documentary",
+      "parent": "core",
+      "sources": [{ "path": "src/core/replay-engine.ts", "line": 809, "end_line": 880 }]
+    },
+    {
+      "id": "auth_mod",
+      "label": "authority & lesson",
+      "parent": "core",
+      "sources": [{ "path": "src/core/authority-engine.ts", "line": 206, "end_line": 270 }]
+    },
+    {
+      "id": "dir_gh_jira",
+      "label": "directory, github & jira",
+      "parent": "persistence",
+      "sources": [{ "path": "src/persistence/fabric.ts", "line": 33, "end_line": 95 }]
+    },
+    {
+      "id": "fs_git_exec",
+      "label": "fs, git-hooks, exec & ingest",
+      "parent": "watchers",
+      "sources": [{ "path": "src/watchers/fs-watcher.ts", "line": 57, "end_line": 120 }]
+    },
+    {
+      "id": "officers_mod",
+      "label": "party-mode & 3 officers",
+      "parent": "crew",
+      "sources": [{ "path": "src/crew/party-mode.ts", "line": 309, "end_line": 370 }]
+    },
+    {
+      "id": "evolve_mod",
+      "label": "evolution-engine",
+      "parent": "crew",
+      "sources": [{ "path": "src/crew/evolution-engine.ts", "line": 80, "end_line": 145 }]
+    },
+    {
+      "id": "mcp_shims",
+      "label": "number-one, mcp & shims",
+      "parent": "harness",
+      "sources": [{ "path": "src/harness/mcp-server.ts", "line": 261, "end_line": 320 }]
+    },
+    {
+      "id": "sec_utils",
+      "label": "redactor, safe-regex, http, lock",
+      "parent": "utils",
+      "sources": [{ "path": "src/utils/http.ts", "line": 55, "end_line": 120 }]
+    }
+  ]
+}

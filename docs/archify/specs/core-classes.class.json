@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "diagram_type": "class",
+  "meta": {
+    "title": "Number One — Core TypeScript Class & Interface Model",
+    "subtitle": "NumberOneAgent composes StreamStore, ReplayEngine, AuthorityEngine, PartyModeOrchestrator, and PersistenceFabric",
+    "output": "docs/site/archify/core-classes.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
+    }
+  },
+  "layout": {
+    "mode": "grid"
+  },
+  "types": [
+    {
+      "id": "number_one_agent",
+      "label": "NumberOneAgent",
+      "kind": "class",
+      "sublabel": "Workspace curator facade",
+      "row": 0,
+      "col": 1,
+      "sources": [
+        { "path": "src/harness/number-one.ts", "line": 69, "end_line": 158, "label": "NumberOneAgent" }
+      ],
+      "attributes": [
+        { "name": "store", "type": "StreamStore", "visibility": "public" },
+        { "name": "replayEngine", "type": "ReplayEngine", "visibility": "public" },
+        { "name": "authorityEngine", "type": "AuthorityEngine", "visibility": "public" }
+      ],
+      "methods": [
+        { "name": "attach", "parameters": "opts?: AttachOptions", "returns": "AttachResult", "visibility": "public" },
+        { "name": "arbitrate", "parameters": "proposal: ArbitrationProposal", "returns": "ArbitrationResult", "visibility": "public" },
+        { "name": "assembleCrew", "parameters": "opts: PartyModeOptions", "returns": "Promise<PartyModeSessionResult>", "visibility": "public" }
+      ]
+    },
+    {
+      "id": "mcp_server",
+      "label": "NumberOneMcpServer",
+      "kind": "class",
+      "sublabel": "Stdio JSON-RPC 2.0 server",
+      "row": 0,
+      "col": 0,
+      "sources": [
+        { "path": "src/harness/mcp-server.ts", "line": 261, "end_line": 340, "label": "NumberOneMcpServer" }
+      ],
+      "methods": [
+        { "name": "handleRequest", "parameters": "req: JsonRpcRequest", "returns": "Promise<JsonRpcResponse | null>", "visibility": "public" },
+        { "name": "startStdio", "parameters": "maxLineBytes?: number", "returns": "Promise<void>", "visibility": "public" }
+      ]
+    },
+    {
+      "id": "party_orchestrator",
+      "label": "PartyModeOrchestrator",
+      "kind": "class",
+      "sublabel": "3-round BMAD crew engine",
+      "row": 0,
+      "col": 2,
+      "sources": [
+        { "path": "src/crew/party-mode.ts", "line": 309, "end_line": 410, "label": "PartyModeOrchestrator" }
+      ],
+      "methods": [
+        { "name": "convene", "parameters": "opts: PartyModeOptions", "returns": "Promise<PartyModeSessionResult>", "visibility": "public" },
+        { "name": "getOfficer", "parameters": "role: OfficerRole", "returns": "CrewOfficer", "visibility": "public" }
+      ]
+    },
+    {
+      "id": "stream_store",
+      "label": "StreamStore",
+      "kind": "class",
+      "sublabel": "SHA-256 JSONL + CAS blobs",
+      "row": 1,
+      "col": 0,
+      "sources": [
+        { "path": "src/core/stream-store.ts", "line": 106, "end_line": 180, "label": "StreamStore" }
+      ],
+      "methods": [
+        { "name": "append", "parameters": "input: AppendEventInput", "returns": "StreamEvent", "visibility": "public" },
+        { "name": "verifyIntegrity", "returns": "IntegrityCheckResult", "visibility": "public" }
+      ]
+    },
+    {
+      "id": "persistence_fabric",
+      "label": "PersistenceFabric",
+      "kind": "class",
+      "sublabel": "Distributed Scrum sync",
+      "row": 1,
+      "col": 1,
+      "sources": [
+        { "path": "src/persistence/fabric.ts", "line": 33, "end_line": 120, "label": "PersistenceFabric" }
+      ],
+      "methods": [
+        { "name": "syncPush", "returns": "Promise<SyncPushReport[]>", "visibility": "public" },
+        { "name": "syncPull", "returns": "Promise<SyncPullReport[]>", "visibility": "public" }
+      ]
+    },
+    {
+      "id": "base_officer",
+      "label": "BaseBridgeOfficer",
+      "kind": "abstract",
+      "sublabel": "Shared officer contract",
+      "row": 1,
+      "col": 2,
+      "sources": [
+        { "path": "src/crew/base-officer.ts", "line": 172, "end_line": 245, "label": "BaseBridgeOfficer" }
+      ],
+      "methods": [
+        { "name": "getBaselinePractices", "returns": "KnowledgePractice[]", "visibility": "public", "abstract": true },
+        { "name": "assess", "parameters": "root: string, state: WorkspaceProjection", "returns": "OfficerAssessment", "visibility": "public", "abstract": true }
+      ]
+    },
+    {
+      "id": "persistence_adapter",
+      "label": "PersistenceAdapter",
+      "kind": "interface",
+      "sublabel": "Directory / GitHub / Jira",
+      "row": 2,
+      "col": 1,
+      "sources": [
+        { "path": "src/persistence/types.ts", "line": 50, "end_line": 60, "label": "PersistenceAdapter" }
+      ],
+      "methods": [
+        { "name": "pushEvent", "parameters": "ev: StreamEvent, ctx: PushEventContext", "returns": "Promise<PushEventOutcome>", "visibility": "public", "abstract": true },
+        { "name": "pullExternalEvents", "parameters": "since?: string", "returns": "Promise<PulledExternalEvent[]>", "visibility": "public", "abstract": true }
+      ]
+    },
+    {
+      "id": "specialist_officers",
+      "label": "Eng / Sec / Bridge Officers",
+      "kind": "class",
+      "sublabel": "Concrete domain experts",
+      "row": 2,
+      "col": 2,
+      "sources": [
+        { "path": "src/crew/engineering-officer.ts", "line": 39, "end_line": 110, "label": "EngineeringOfficer" },
+        { "path": "src/crew/security-officer.ts", "line": 215, "end_line": 285, "label": "SecurityOfficer" },
+        { "path": "src/crew/bridge-officer.ts", "line": 28, "end_line": 100, "label": "BridgeOfficer" }
+      ],
+      "methods": [
+        { "name": "assess", "parameters": "root: string, state: WorkspaceProjection", "returns": "OfficerAssessment", "visibility": "public" }
+      ]
+    }
+  ],
+  "relationships": [
+    { "id": "mcp_uses_agent", "from": "mcp_server", "to": "number_one_agent", "kind": "association", "label": "dispatches to" },
+    { "id": "agent_owns_store", "from": "number_one_agent", "to": "stream_store", "kind": "composition", "label": "owns" },
+    { "id": "agent_owns_fabric", "from": "number_one_agent", "to": "persistence_fabric", "kind": "composition", "label": "owns" },
+    { "id": "agent_owns_party", "from": "number_one_agent", "to": "party_orchestrator", "kind": "composition", "label": "owns" },
+    { "id": "party_aggregates_officer", "from": "party_orchestrator", "to": "base_officer", "kind": "aggregation", "label": "convenes" },
+    { "id": "fabric_aggregates_adapter", "from": "persistence_fabric", "to": "persistence_adapter", "kind": "aggregation", "label": "syncs via" },
+    { "id": "specialists_inherit_base", "from": "specialist_officers", "to": "base_officer", "kind": "inheritance" }
+  ]
+}

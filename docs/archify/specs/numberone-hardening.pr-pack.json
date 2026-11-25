@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "pr-pack",
+  "title": "Number One v1.0.0 — Authoritative SoR, BMAD Crew & Distributed Scrum",
+  "summary": "Introduces the L1-L4 AuthorityEngine, 3-officer BMAD Party Mode with KPI-gated evolution, stdio MCP server, and distributed Directory/GitHub/Jira Scrum synchronization.",
+  "repository": "onimurasame/numberone",
+  "baseRef": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7",
+  "headRef": "master",
+  "stats": {
+    "filesChanged": 30,
+    "additions": 10840,
+    "deletions": 0
+  },
+  "views": [
+    {
+      "id": "topology",
+      "title": "System of Record & Bridge Crew Topology",
+      "caption": "AuthorityEngine, BMAD Bridge Crew, and PersistenceFabric join the local StreamStore and ReplayEngine.",
+      "type": "architecture",
+      "input": "system-overview.architecture.json"
+    },
+    {
+      "id": "mcp_flow",
+      "title": "MCP Stdio Consultation & Arbitration Sequence",
+      "caption": "L4 harnesses consult institutional memory and pass L1-L4 arbitration before risky edits.",
+      "type": "sequence",
+      "input": "mcp-arbitration-sequence.sequence.json",
+      "collapsed": true
+    },
+    {
+      "id": "schema",
+      "title": "Physical Stream & Ledger Data Model",
+      "caption": "Hash-chained stream_events project lessons, directives, and issues while sync_ledger tracks remote Scrum IDs.",
+      "type": "erd",
+      "input": "sor-data-model-erd.erd.json",
+      "collapsed": true
+    }
+  ],
+  "changes": [
+    { "subject": "Authority & Lesson Engine", "kind": "service", "change": "added", "detail": "Enforces L1-L4 precedence with affirmative-clause parsing", "view": "topology" },
+    { "subject": "BMAD Bridge Crew", "kind": "service", "change": "added", "detail": "3-round Engineering, Security, and Bridge Officer roundtable", "view": "topology" },
+    { "subject": "PersistenceFabric", "kind": "service", "change": "added", "detail": "Directory, GitHub Projects v2, and Jira Agile bidirectional sync", "view": "topology" },
+    { "subject": "tools/call arbitrate_action", "kind": "endpoint", "change": "added", "detail": "Stdio JSON-RPC 2.0 arbitration gate over MCP", "view": "mcp_flow" },
+    { "subject": "stream_events", "kind": "table", "change": "added", "detail": "Append-only ULID + SHA-256 hash-chained JSONL store", "view": "schema" }
+  ]
+}

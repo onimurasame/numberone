@@ -1,0 +1,1564 @@
+{
+  "verdict": "attention",
+  "counts": {
+    "findings": 58,
+    "error": 0,
+    "warning": 30,
+    "info": 28,
+    "accepted": 0,
+    "acceptedErrors": 0,
+    "offDiagram": 0
+  },
+  "review": null,
+  "groups": [
+    {
+      "code": "complexity/function",
+      "severity": "warning",
+      "count": 50,
+      "ids": [
+        "COMP-5268ced97a26",
+        "COMP-2bc9d72d237c",
+        "COMP-0eccba427dbe",
+        "COMP-6b1298585bec",
+        "COMP-444b7358b0aa",
+        "COMP-95de6f1ba627",
+        "COMP-b0066ece9d1b",
+        "COMP-71359b9b97d6",
+        "COMP-350bcee220e8",
+        "COMP-185acb8154e9",
+        "COMP-0d16e777e36d",
+        "COMP-84859beb3a1c",
+        "COMP-468543582cde",
+        "COMP-4acf3ca0b3fb",
+        "COMP-1afb3ef85b48",
+        "COMP-f77034071811",
+        "COMP-246e849f63a6",
+        "COMP-cfdbf47ec69c",
+        "COMP-9fcbe39e47d7",
+        "COMP-460f2d4447ba",
+        "COMP-d3e2136b7298",
+        "COMP-2046e8a1e175",
+        "COMP-34ff8b6359ec",
+        "COMP-4311cb657739",
+        "COMP-d15bc8c28001",
+        "COMP-72002f65963b",
+        "COMP-0f20ce789869",
+        "COMP-773668abc29e",
+        "COMP-83e7eba68c5f",
+        "COMP-52e855de4b7e",
+        "COMP-2298b0a2ed8f",
+        "COMP-5c54eac5387a",
+        "COMP-26ba2a535374",
+        "COMP-9359050b640b",
+        "COMP-48d9843bf1e0",
+        "COMP-75dac33e7d99",
+        "COMP-f89d747f34ba",
+        "COMP-54693cefc75f",
+        "COMP-e153c2039ab6",
+        "COMP-096978ceaeb7",
+        "COMP-db87d8031101",
+        "COMP-490c2a28da7d",
+        "COMP-d58f4ff1ab52",
+        "COMP-6c8edf4a825d",
+        "COMP-9e068a632697",
+        "COMP-02ca4cc379ee",
+        "COMP-b686cf3cfb8c",
+        "COMP-091d4d638e3e",
+        "COMP-1e44c1551e2f",
+        "COMP-7800280afeb5"
+      ]
+    },
+    {
+      "code": "coupling/concentration",
+      "severity": "warning",
+      "count": 2,
+      "ids": [
+        "COUP-ef47d5bb12bf",
+        "COUP-eba13517c3c1"
+      ]
+    },
+    {
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "count": 6,
+      "ids": [
+        "COUP-b290c756353b",
+        "COUP-5a8cbd5368ab",
+        "COUP-ee589dacf7d5",
+        "COUP-33d9bef04336",
+        "COUP-bf6a3275659f",
+        "COUP-435fda841488"
+      ]
+    }
+  ],
+  "priorities": [
+    "COMP-5268ced97a26",
+    "COUP-ef47d5bb12bf",
+    "COMP-2bc9d72d237c"
+  ],
+  "investigation": {
+    "leads": [
+      {
+        "id": "COMP-5268ced97a26",
+        "code": "complexity/function",
+        "severity": "warning",
+        "message": "applyEventToProjection in src/core/replay-engine.ts has cyclomatic complexity 211 (628 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+        "where": "src/core/replay-engine.ts:177",
+        "symbol": "applyEventToProjection",
+        "impact": {
+          "modules": 1,
+          "size": 211,
+          "fanIn": 5,
+          "files": 8
+        }
+      },
+      {
+        "id": "COUP-ef47d5bb12bf",
+        "code": "coupling/concentration",
+        "severity": "warning",
+        "message": "src/core: 5 of the other 6 modules depend on it directly or through other modules (83%). This is a static fact about where the project is concentrated, not proof that the module should be split.",
+        "where": "module src-core",
+        "symbol": null,
+        "impact": {
+          "modules": 1,
+          "size": 0,
+          "fanIn": 5,
+          "files": 8
+        }
+      },
+      {
+        "id": "COMP-2bc9d72d237c",
+        "code": "complexity/function",
+        "severity": "warning",
+        "message": "executeCliCommand in src/cli.ts has cyclomatic complexity 189 (694 lines). More independent paths make it harder to read and to test fully; this is a maintenance signal, not a defect.",
+        "where": "src/cli.ts:346",
+        "symbol": "executeCliCommand",
+        "impact": {
+          "modules": 1,
+          "size": 189,
+          "fanIn": 0,
+          "files": 2
+        }
+      }
+    ],
+    "architecture": {
+      "modules": 7,
+      "edges": 18,
+      "hotspots": [
+        {
+          "id": "src-core",
+          "path": "src/core",
+          "files": 8,
+          "loc": 3117,
+          "fanIn": 5,
+          "fanOut": 1,
+          "instability": 0.167,
+          "entry": [
+            "src/core/types.ts",
+            "src/core/stream-store.ts",
+            "src/core/lesson-engine.ts"
+          ],
+          "readingWeight": 11174.328
+        },
+        {
+          "id": "src-crew",
+          "path": "src/crew",
+          "files": 8,
+          "loc": 3854,
+          "fanIn": 2,
+          "fanOut": 2,
+          "instability": 0.5,
+          "entry": [
+            "src/crew/types.ts",
+            "src/crew/evolution-engine.ts",
+            "src/crew/party-mode.ts"
+          ],
+          "readingWeight": 9962.445
+        },
+        {
+          "id": "src-utils",
+          "path": "src/utils",
+          "files": 7,
+          "loc": 1558,
+          "fanIn": 6,
+          "fanOut": 0,
+          "instability": 0,
+          "entry": [
+            "src/utils/fs-helpers.ts",
+            "src/utils/redactor.ts",
+            "src/utils/lock.ts"
+          ],
+          "readingWeight": 5931.859
+        },
+        {
+          "id": "src-persistence",
+          "path": "src/persistence",
+          "files": 5,
+          "loc": 2140,
+          "fanIn": 2,
+          "fanOut": 2,
+          "instability": 0.5,
+          "entry": [
+            "src/persistence/fabric.ts",
+            "src/persistence/types.ts",
+            "src/persistence/directory-adapter.ts"
+          ],
+          "readingWeight": 5531.82
+        },
+        {
+          "id": "src-watchers",
+          "path": "src/watchers",
+          "files": 5,
+          "loc": 1969,
+          "fanIn": 2,
+          "fanOut": 2,
+          "instability": 0.5,
+          "entry": [
+            "src/watchers/command-runner.ts",
+            "src/watchers/git-hooks.ts",
+            "src/watchers/daemon.ts"
+          ],
+          "readingWeight": 5089.791
+        }
+      ],
+      "hotspotRanking": "Connected modules ordered by loc * (1 + log2(1 + fanIn)), then fanIn, fanOut and id. A bounded reading order, not inferred business importance, defect severity or refactoring advice.",
+      "strongestEdges": [
+        {
+          "from": "src-crew",
+          "to": "src-core",
+          "weight": 14,
+          "sample": "src/crew/base-officer.ts:2"
+        },
+        {
+          "from": "src-crew",
+          "to": "src-utils",
+          "weight": 12,
+          "sample": "src/crew/base-officer.ts:3"
+        },
+        {
+          "from": "src-watchers",
+          "to": "src-core",
+          "weight": 11,
+          "sample": "src/watchers/command-runner.ts:3"
+        },
+        {
+          "from": "src-watchers",
+          "to": "src-utils",
+          "weight": 10,
+          "sample": "src/watchers/command-runner.ts:6"
+        },
+        {
+          "from": "src",
+          "to": "src-core",
+          "weight": 9,
+          "sample": "src/cli.ts:6"
+        }
+      ],
+      "structuralSignals": [
+        {
+          "id": "COUP-b290c756353b",
+          "code": "coupling/internal-leak",
+          "severity": "info",
+          "message": "src/utils has no entry file: 6 modules import 7 of its 7 files directly (44 imports).",
+          "where": "src/cli.ts:11",
+          "impact": {
+            "modules": 1,
+            "size": 0,
+            "fanIn": 6,
+            "files": 7
+          }
+        },
+        {
+          "id": "COUP-eba13517c3c1",
+          "code": "coupling/concentration",
+          "severity": "info",
+          "message": "src/utils: 6 of the other 6 modules depend on it directly or through other modules (100%). It depends on no other module, the usual shape of a shared kernel: keep it small and stable.",
+          "where": "module src-utils",
+          "impact": {
+            "modules": 1,
+            "size": 0,
+            "fanIn": 6,
+            "files": 7
+          }
+        },
+        {
+          "id": "COUP-5a8cbd5368ab",
+          "code": "coupling/internal-leak",
+          "severity": "info",
+          "message": "src/core has no entry file: 5 modules import 8 of its 8 files directly (48 imports).",
+          "where": "src/cli.ts:6",
+          "impact": {
+            "modules": 1,
+            "size": 0,
+            "fanIn": 5,
+            "files": 8
+          }
+        },
+        {
+          "id": "COUP-ee589dacf7d5",
+          "code": "coupling/internal-leak",
+          "severity": "info",
+          "message": "src/crew has no entry file: 2 modules import 8 of its 8 files directly (13 imports).",
+          "where": "src/cli.ts:7",
+          "impact": {
+            "modules": 1,
+            "size": 0,
+            "fanIn": 2,
+            "files": 8
+          }
+        },
+        {
+          "id": "COUP-33d9bef04336",
+          "code": "coupling/internal-leak",
+          "severity": "info",
+          "message": "src/persistence has no entry file: 2 modules import 5 of its 5 files directly (7 imports).",
+          "where": "src/harness/number-one.ts:29",
+          "impact": {
+            "modules": 1,
+            "size": 0,
+            "fanIn": 2,
+            "files": 5
+          }
+        }
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "COMP-5268ced97a26",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 211,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-2bc9d72d237c",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "harnesses"
+      ],
+      "moduleIds": [
+        "src"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 189,
+        "fanIn": 0,
+        "files": 2
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-0eccba427dbe",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "harnesses",
+        "ingress",
+        "agent"
+      ],
+      "moduleIds": [
+        "src-harness"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 75,
+        "fanIn": 1,
+        "files": 3
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-6b1298585bec",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 71,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-444b7358b0aa",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 68,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-95de6f1ba627",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 68,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-b0066ece9d1b",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 67,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-71359b9b97d6",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 53,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-350bcee220e8",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 53,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-185acb8154e9",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 49,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-0d16e777e36d",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 48,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-84859beb3a1c",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 44,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-468543582cde",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 43,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-4acf3ca0b3fb",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 42,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-1afb3ef85b48",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 39,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-f77034071811",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 39,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-246e849f63a6",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 38,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-cfdbf47ec69c",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 34,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-9fcbe39e47d7",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 33,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-460f2d4447ba",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 30,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-d3e2136b7298",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 30,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-2046e8a1e175",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 28,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-34ff8b6359ec",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 27,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-4311cb657739",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 27,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-d15bc8c28001",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 27,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-72002f65963b",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 26,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-0f20ce789869",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 26,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-773668abc29e",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 25,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-83e7eba68c5f",
+      "code": "complexity/function",
+      "severity": "warning",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 20,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-ef47d5bb12bf",
+      "code": "coupling/concentration",
+      "severity": "warning",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-52e855de4b7e",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 23,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-2298b0a2ed8f",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 22,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-5c54eac5387a",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 22,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-26ba2a535374",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 21,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-9359050b640b",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "harnesses",
+        "ingress",
+        "agent"
+      ],
+      "moduleIds": [
+        "src-harness"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 21,
+        "fanIn": 1,
+        "files": 3
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-48d9843bf1e0",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 19,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-75dac33e7d99",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 19,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-f89d747f34ba",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 19,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-54693cefc75f",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 19,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-e153c2039ab6",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 19,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-096978ceaeb7",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 18,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-db87d8031101",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 18,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-490c2a28da7d",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 17,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-d58f4ff1ab52",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 17,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-6c8edf4a825d",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 17,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-9e068a632697",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 17,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-02ca4cc379ee",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "harnesses"
+      ],
+      "moduleIds": [
+        "src"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 17,
+        "fanIn": 0,
+        "files": 2
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-b686cf3cfb8c",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 16,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-091d4d638e3e",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 16,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-1e44c1551e2f",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 15,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COMP-7800280afeb5",
+      "code": "complexity/function",
+      "severity": "info",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 7,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-b290c756353b",
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-eba13517c3c1",
+      "code": "coupling/concentration",
+      "severity": "info",
+      "componentIds": [
+        "stream",
+        "fabric"
+      ],
+      "moduleIds": [
+        "src-utils"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 6,
+        "files": 7
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-5a8cbd5368ab",
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "componentIds": [
+        "authority",
+        "stream",
+        "replay"
+      ],
+      "moduleIds": [
+        "src-core"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 5,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-ee589dacf7d5",
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "componentIds": [
+        "crew"
+      ],
+      "moduleIds": [
+        "src-crew"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 2,
+        "files": 8
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-33d9bef04336",
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "componentIds": [
+        "fabric",
+        "remotes"
+      ],
+      "moduleIds": [
+        "src-persistence"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-bf6a3275659f",
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "componentIds": [
+        "ingress"
+      ],
+      "moduleIds": [
+        "src-watchers"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 2,
+        "files": 5
+      },
+      "relatedIds": [],
+      "status": "open"
+    },
+    {
+      "id": "COUP-435fda841488",
+      "code": "coupling/internal-leak",
+      "severity": "info",
+      "componentIds": [
+        "harnesses",
+        "ingress",
+        "agent"
+      ],
+      "moduleIds": [
+        "src-harness"
+      ],
+      "impact": {
+        "modules": 1,
+        "size": 0,
+        "fanIn": 1,
+        "files": 3
+      },
+      "relatedIds": [],
+      "status": "open"
+    }
+  ],
+  "coverage": {
+    "language": "ts",
+    "adapter": "typescript@5.9.3",
+    "files": {
+      "analyzed": 38,
+      "excludedByRole": 10,
+      "excludedRoles": [
+        "generated",
+        "test"
+      ],
+      "excludePatterns": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/target/**/*.java",
+        "**/coverage/**",
+        "**/*.d.ts",
+        "**/venv/**",
+        "**/venv-*/**",
+        "**/.venv/**",
+        "**/site-packages/**",
+        "**/__pycache__/**",
+        "**/.pytest_cache/**",
+        "**/.git/**",
+        "**/_archive/**"
+      ],
+      "parseErrors": []
+    },
+    "otherLanguages": [],
+    "unresolved": {
+      "external": 94,
+      "outside": 0,
+      "unknown": 0,
+      "opaque": 0
+    },
+    "rules": {
+      "run": [
+        "coupling/import-cycle",
+        "coupling/cycle",
+        "coupling/hub",
+        "coupling/concentration",
+        "coupling/internal-leak",
+        "complexity/function"
+      ],
+      "suppressed": []
+    },
+    "unmappedModules": [],
+    "ambiguousModules": [
+      {
+        "id": "src-core",
+        "components": [
+          "authority",
+          "replay",
+          "stream"
+        ]
+      },
+      {
+        "id": "src-harness",
+        "components": [
+          "agent",
+          "harnesses",
+          "ingress"
+        ]
+      },
+      {
+        "id": "src-persistence",
+        "components": [
+          "fabric",
+          "remotes"
+        ]
+      },
+      {
+        "id": "src-utils",
+        "components": [
+          "fabric",
+          "stream"
+        ]
+      }
+    ],
+    "boundaries": null,
+    "duplicates": null
+  }
+}

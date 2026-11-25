@@ -1,0 +1,798 @@
+{
+  "schema_version": 1,
+  "repository": {
+    "revision": null,
+    "baseRevision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7",
+    "sourceKind": "working-tree",
+    "root": ".",
+    "url": "https://github.com/onimurasame/numberone.git",
+    "language": "ts",
+    "adapter": "typescript@5.9.3",
+    "adapterRevision": 30,
+    "snapshotId": "f56c8468f4b8928828b1bf1ba1229085cdfc31209546d2799ea33ad309a45e7e"
+  },
+  "grouping": {
+    "depth": 2,
+    "packageBoundaries": true,
+    "groups": []
+  },
+  "excluded": {
+    "roles": [
+      "generated",
+      "test"
+    ],
+    "files": 10
+  },
+  "modules": [
+    {
+      "id": "src",
+      "label": "src",
+      "path": "src",
+      "files": 2,
+      "loc": 1109,
+      "fanIn": 0,
+      "fanOut": 6,
+      "instability": 1,
+      "entry": [
+        "src/cli.ts",
+        "src/index.ts"
+      ]
+    },
+    {
+      "id": "src-core",
+      "label": "src/core",
+      "path": "src/core",
+      "files": 8,
+      "loc": 3117,
+      "fanIn": 5,
+      "fanOut": 1,
+      "instability": 0.167,
+      "entry": [
+        "src/core/types.ts",
+        "src/core/stream-store.ts",
+        "src/core/lesson-engine.ts"
+      ]
+    },
+    {
+      "id": "src-crew",
+      "label": "src/crew",
+      "path": "src/crew",
+      "files": 8,
+      "loc": 3854,
+      "fanIn": 2,
+      "fanOut": 2,
+      "instability": 0.5,
+      "entry": [
+        "src/crew/types.ts",
+        "src/crew/evolution-engine.ts",
+        "src/crew/party-mode.ts"
+      ]
+    },
+    {
+      "id": "src-harness",
+      "label": "src/harness",
+      "path": "src/harness",
+      "files": 3,
+      "loc": 1328,
+      "fanIn": 1,
+      "fanOut": 5,
+      "instability": 0.833,
+      "entry": [
+        "src/harness/mcp-server.ts",
+        "src/harness/number-one.ts",
+        "src/harness/shims.ts"
+      ]
+    },
+    {
+      "id": "src-persistence",
+      "label": "src/persistence",
+      "path": "src/persistence",
+      "files": 5,
+      "loc": 2140,
+      "fanIn": 2,
+      "fanOut": 2,
+      "instability": 0.5,
+      "entry": [
+        "src/persistence/fabric.ts",
+        "src/persistence/types.ts",
+        "src/persistence/directory-adapter.ts"
+      ]
+    },
+    {
+      "id": "src-utils",
+      "label": "src/utils",
+      "path": "src/utils",
+      "files": 7,
+      "loc": 1558,
+      "fanIn": 6,
+      "fanOut": 0,
+      "instability": 0,
+      "entry": [
+        "src/utils/fs-helpers.ts",
+        "src/utils/redactor.ts",
+        "src/utils/lock.ts"
+      ]
+    },
+    {
+      "id": "src-watchers",
+      "label": "src/watchers",
+      "path": "src/watchers",
+      "files": 5,
+      "loc": 1969,
+      "fanIn": 2,
+      "fanOut": 2,
+      "instability": 0.5,
+      "entry": [
+        "src/watchers/command-runner.ts",
+        "src/watchers/git-hooks.ts",
+        "src/watchers/daemon.ts"
+      ]
+    }
+  ],
+  "fileModules": {
+    "src/cli.ts": "src",
+    "src/core/authority-engine.ts": "src-core",
+    "src/core/documentary.ts": "src-core",
+    "src/core/hash.ts": "src-core",
+    "src/core/lesson-engine.ts": "src-core",
+    "src/core/replay-engine.ts": "src-core",
+    "src/core/stream-store.ts": "src-core",
+    "src/core/types.ts": "src-core",
+    "src/core/ulid.ts": "src-core",
+    "src/crew/base-officer.ts": "src-crew",
+    "src/crew/bridge-officer.ts": "src-crew",
+    "src/crew/engineering-officer.ts": "src-crew",
+    "src/crew/evolution-engine.ts": "src-crew",
+    "src/crew/llm-provider.ts": "src-crew",
+    "src/crew/party-mode.ts": "src-crew",
+    "src/crew/security-officer.ts": "src-crew",
+    "src/crew/types.ts": "src-crew",
+    "src/harness/mcp-server.ts": "src-harness",
+    "src/harness/number-one.ts": "src-harness",
+    "src/harness/shims.ts": "src-harness",
+    "src/index.ts": "src",
+    "src/persistence/directory-adapter.ts": "src-persistence",
+    "src/persistence/fabric.ts": "src-persistence",
+    "src/persistence/github-adapter.ts": "src-persistence",
+    "src/persistence/jira-adapter.ts": "src-persistence",
+    "src/persistence/types.ts": "src-persistence",
+    "src/utils/diff.ts": "src-utils",
+    "src/utils/fs-helpers.ts": "src-utils",
+    "src/utils/http.ts": "src-utils",
+    "src/utils/ignore.ts": "src-utils",
+    "src/utils/lock.ts": "src-utils",
+    "src/utils/redactor.ts": "src-utils",
+    "src/utils/safe-regex.ts": "src-utils",
+    "src/watchers/command-runner.ts": "src-watchers",
+    "src/watchers/daemon.ts": "src-watchers",
+    "src/watchers/fs-watcher.ts": "src-watchers",
+    "src/watchers/git-hooks.ts": "src-watchers",
+    "src/watchers/transcript-ingestor.ts": "src-watchers"
+  },
+  "edges": [
+    {
+      "from": "src",
+      "to": "src-core",
+      "weight": 9,
+      "kinds": {
+        "eager": 9,
+        "export": 8,
+        "static": 1
+      },
+      "evidence": [
+        {
+          "file": "src/cli.ts",
+          "line": 6,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 2,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 3,
+          "to": "src/core/ulid.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 4,
+          "to": "src/core/hash.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 5,
+          "to": "src/core/stream-store.ts"
+        }
+      ]
+    },
+    {
+      "from": "src",
+      "to": "src-crew",
+      "weight": 9,
+      "kinds": {
+        "eager": 9,
+        "export": 8,
+        "static": 1
+      },
+      "evidence": [
+        {
+          "file": "src/cli.ts",
+          "line": 7,
+          "to": "src/crew/types.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 26,
+          "to": "src/crew/types.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 27,
+          "to": "src/crew/llm-provider.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 28,
+          "to": "src/crew/base-officer.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 29,
+          "to": "src/crew/engineering-officer.ts"
+        }
+      ]
+    },
+    {
+      "from": "src",
+      "to": "src-harness",
+      "weight": 6,
+      "kinds": {
+        "eager": 6,
+        "export": 3,
+        "static": 3
+      },
+      "evidence": [
+        {
+          "file": "src/cli.ts",
+          "line": 8,
+          "to": "src/harness/mcp-server.ts"
+        },
+        {
+          "file": "src/cli.ts",
+          "line": 9,
+          "to": "src/harness/number-one.ts"
+        },
+        {
+          "file": "src/cli.ts",
+          "line": 10,
+          "to": "src/harness/shims.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 36,
+          "to": "src/harness/shims.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 37,
+          "to": "src/harness/number-one.ts"
+        }
+      ]
+    },
+    {
+      "from": "src",
+      "to": "src-persistence",
+      "weight": 5,
+      "kinds": {
+        "eager": 5,
+        "export": 5
+      },
+      "evidence": [
+        {
+          "file": "src/index.ts",
+          "line": 12,
+          "to": "src/persistence/types.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 13,
+          "to": "src/persistence/directory-adapter.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 14,
+          "to": "src/persistence/github-adapter.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 15,
+          "to": "src/persistence/jira-adapter.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 16,
+          "to": "src/persistence/fabric.ts"
+        }
+      ]
+    },
+    {
+      "from": "src",
+      "to": "src-utils",
+      "weight": 6,
+      "kinds": {
+        "eager": 6,
+        "export": 4,
+        "static": 2
+      },
+      "evidence": [
+        {
+          "file": "src/cli.ts",
+          "line": 11,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/cli.ts",
+          "line": 12,
+          "to": "src/utils/redactor.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 41,
+          "to": "src/utils/redactor.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 42,
+          "to": "src/utils/safe-regex.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 43,
+          "to": "src/utils/http.ts"
+        }
+      ]
+    },
+    {
+      "from": "src",
+      "to": "src-watchers",
+      "weight": 7,
+      "kinds": {
+        "eager": 7,
+        "export": 5,
+        "static": 2
+      },
+      "evidence": [
+        {
+          "file": "src/cli.ts",
+          "line": 13,
+          "to": "src/watchers/command-runner.ts"
+        },
+        {
+          "file": "src/cli.ts",
+          "line": 14,
+          "to": "src/watchers/git-hooks.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 19,
+          "to": "src/watchers/fs-watcher.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 20,
+          "to": "src/watchers/git-hooks.ts"
+        },
+        {
+          "file": "src/index.ts",
+          "line": 21,
+          "to": "src/watchers/command-runner.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-core",
+      "to": "src-utils",
+      "weight": 6,
+      "kinds": {
+        "eager": 6,
+        "static": 6
+      },
+      "evidence": [
+        {
+          "file": "src/core/authority-engine.ts",
+          "line": 10,
+          "to": "src/utils/safe-regex.ts"
+        },
+        {
+          "file": "src/core/replay-engine.ts",
+          "line": 15,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/core/replay-engine.ts",
+          "line": 16,
+          "to": "src/utils/redactor.ts"
+        },
+        {
+          "file": "src/core/stream-store.ts",
+          "line": 14,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/core/stream-store.ts",
+          "line": 22,
+          "to": "src/utils/lock.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-crew",
+      "to": "src-core",
+      "weight": 14,
+      "kinds": {
+        "eager": 14,
+        "static": 14
+      },
+      "evidence": [
+        {
+          "file": "src/crew/base-officer.ts",
+          "line": 2,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/crew/bridge-officer.ts",
+          "line": 2,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/crew/engineering-officer.ts",
+          "line": 2,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/crew/evolution-engine.ts",
+          "line": 3,
+          "to": "src/core/replay-engine.ts"
+        },
+        {
+          "file": "src/crew/evolution-engine.ts",
+          "line": 4,
+          "to": "src/core/stream-store.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-crew",
+      "to": "src-utils",
+      "weight": 12,
+      "kinds": {
+        "eager": 12,
+        "static": 12
+      },
+      "evidence": [
+        {
+          "file": "src/crew/base-officer.ts",
+          "line": 3,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/crew/base-officer.ts",
+          "line": 4,
+          "to": "src/utils/ignore.ts"
+        },
+        {
+          "file": "src/crew/base-officer.ts",
+          "line": 5,
+          "to": "src/utils/redactor.ts"
+        },
+        {
+          "file": "src/crew/base-officer.ts",
+          "line": 6,
+          "to": "src/utils/safe-regex.ts"
+        },
+        {
+          "file": "src/crew/bridge-officer.ts",
+          "line": 3,
+          "to": "src/utils/fs-helpers.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-harness",
+      "to": "src-core",
+      "weight": 8,
+      "kinds": {
+        "eager": 8,
+        "static": 8
+      },
+      "evidence": [
+        {
+          "file": "src/harness/mcp-server.ts",
+          "line": 2,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 2,
+          "to": "src/core/authority-engine.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 7,
+          "to": "src/core/documentary.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 8,
+          "to": "src/core/lesson-engine.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 9,
+          "to": "src/core/replay-engine.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-harness",
+      "to": "src-crew",
+      "weight": 4,
+      "kinds": {
+        "eager": 4,
+        "static": 4
+      },
+      "evidence": [
+        {
+          "file": "src/harness/mcp-server.ts",
+          "line": 3,
+          "to": "src/crew/types.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 19,
+          "to": "src/crew/evolution-engine.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 20,
+          "to": "src/crew/party-mode.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 21,
+          "to": "src/crew/types.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-harness",
+      "to": "src-persistence",
+      "weight": 2,
+      "kinds": {
+        "eager": 2,
+        "static": 2
+      },
+      "evidence": [
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 29,
+          "to": "src/persistence/fabric.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 30,
+          "to": "src/persistence/types.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-harness",
+      "to": "src-utils",
+      "weight": 2,
+      "kinds": {
+        "eager": 2,
+        "static": 2
+      },
+      "evidence": [
+        {
+          "file": "src/harness/mcp-server.ts",
+          "line": 4,
+          "to": "src/utils/redactor.ts"
+        },
+        {
+          "file": "src/harness/shims.ts",
+          "line": 4,
+          "to": "src/utils/fs-helpers.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-harness",
+      "to": "src-watchers",
+      "weight": 5,
+      "kinds": {
+        "eager": 5,
+        "static": 5
+      },
+      "evidence": [
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 36,
+          "to": "src/watchers/command-runner.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 37,
+          "to": "src/watchers/daemon.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 38,
+          "to": "src/watchers/fs-watcher.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 39,
+          "to": "src/watchers/git-hooks.ts"
+        },
+        {
+          "file": "src/harness/number-one.ts",
+          "line": 40,
+          "to": "src/watchers/transcript-ingestor.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-persistence",
+      "to": "src-core",
+      "weight": 6,
+      "kinds": {
+        "eager": 6,
+        "static": 6
+      },
+      "evidence": [
+        {
+          "file": "src/persistence/directory-adapter.ts",
+          "line": 3,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/persistence/fabric.ts",
+          "line": 2,
+          "to": "src/core/stream-store.ts"
+        },
+        {
+          "file": "src/persistence/fabric.ts",
+          "line": 3,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/persistence/github-adapter.ts",
+          "line": 2,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/persistence/jira-adapter.ts",
+          "line": 1,
+          "to": "src/core/types.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-persistence",
+      "to": "src-utils",
+      "weight": 8,
+      "kinds": {
+        "eager": 8,
+        "static": 8
+      },
+      "evidence": [
+        {
+          "file": "src/persistence/directory-adapter.ts",
+          "line": 4,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/persistence/directory-adapter.ts",
+          "line": 10,
+          "to": "src/utils/lock.ts"
+        },
+        {
+          "file": "src/persistence/fabric.ts",
+          "line": 4,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/persistence/fabric.ts",
+          "line": 5,
+          "to": "src/utils/lock.ts"
+        },
+        {
+          "file": "src/persistence/github-adapter.ts",
+          "line": 3,
+          "to": "src/utils/http.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-watchers",
+      "to": "src-core",
+      "weight": 11,
+      "kinds": {
+        "eager": 11,
+        "static": 11
+      },
+      "evidence": [
+        {
+          "file": "src/watchers/command-runner.ts",
+          "line": 3,
+          "to": "src/core/lesson-engine.ts"
+        },
+        {
+          "file": "src/watchers/command-runner.ts",
+          "line": 4,
+          "to": "src/core/stream-store.ts"
+        },
+        {
+          "file": "src/watchers/command-runner.ts",
+          "line": 5,
+          "to": "src/core/types.ts"
+        },
+        {
+          "file": "src/watchers/daemon.ts",
+          "line": 4,
+          "to": "src/core/stream-store.ts"
+        },
+        {
+          "file": "src/watchers/fs-watcher.ts",
+          "line": 3,
+          "to": "src/core/hash.ts"
+        }
+      ]
+    },
+    {
+      "from": "src-watchers",
+      "to": "src-utils",
+      "weight": 10,
+      "kinds": {
+        "eager": 10,
+        "static": 10
+      },
+      "evidence": [
+        {
+          "file": "src/watchers/command-runner.ts",
+          "line": 6,
+          "to": "src/utils/redactor.ts"
+        },
+        {
+          "file": "src/watchers/daemon.ts",
+          "line": 5,
+          "to": "src/utils/fs-helpers.ts"
+        },
+        {
+          "file": "src/watchers/daemon.ts",
+          "line": 6,
+          "to": "src/utils/lock.ts"
+        },
+        {
+          "file": "src/watchers/fs-watcher.ts",
+          "line": 6,
+          "to": "src/utils/diff.ts"
+        },
+        {
+          "file": "src/watchers/fs-watcher.ts",
+          "line": 7,
+          "to": "src/utils/fs-helpers.ts"
+        }
+      ]
+    }
+  ],
+  "unresolved": {
+    "external": 94,
+    "outside": 0,
+    "unknown": 0,
+    "opaque": 0
+  }
+}
