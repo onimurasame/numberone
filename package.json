@@ -44,6 +44,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run typecheck && npm run build && npm test",
+    "verify:workflows": "node scripts/verify-workflows.mjs",
+    "pr:triage": "node scripts/pr-automation.mjs sweep --dry-run --verify-remote-tags",
+    "pr:merge": "node scripts/pr-automation.mjs sweep --apply --verify-remote-tags",
     "clean": "rm -rf dist"
   },
   "keywords": [

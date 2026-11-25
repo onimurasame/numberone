@@ -38,6 +38,9 @@ npm test
 
 # Audit dependencies
 npm audit --audit-level=high
+
+# Verify GitHub Actions SHA pinning, CodeQL lockstep, Dependabot groups & Pages bundle
+npm run verify:workflows
 ```
 
 ## Pull Request Process
