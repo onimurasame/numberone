@@ -39,7 +39,7 @@ npm test
 # 2. Create self-contained offline bundle (includes compiled dist/ and production node_modules/zod)
 OFFLINE_STAGE="$(mktemp -d)"
 npm pack --pack-destination "$OFFLINE_STAGE"
-cp -R dist package.json package-lock.json LICENSE README.md SECURITY.md "$OFFLINE_STAGE/"
+cp -R dist package.json package-lock.json LICENSE NOTICE README.md SECURITY.md "$OFFLINE_STAGE/"
 npm --prefix "$OFFLINE_STAGE" ci --omit=dev --ignore-scripts
 
 # 3. Package tarball + cryptographic checksum for air-gap transfer

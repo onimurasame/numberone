@@ -25,4 +25,4 @@ jobs:
         uses: actions/dependency-review-action@bbc44d14a204704ccc493733616cd1e93a0321ec # v5.0.1
         with:
           fail-on-severity: moderate
-          deny-licenses: GPL-2.0, GPL-3.0, AGPL-3.0
+          deny-licenses: GPL-2.0-only, LGPL-2.0-only, SSPL-1.0, BUSL-1.1, Elastic-2.0

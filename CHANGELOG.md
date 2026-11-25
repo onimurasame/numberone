@@ -4,6 +4,11 @@ All notable changes to **Number One (`n1`)** are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **License (`AGPL-3.0-or-later`)**: Transitioned Number One from MIT to the **GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`)** to ensure the software, derivative works, and modified network/cloud deployments remain permanently free and open source (OSI- and FSF-approved). Added [`NOTICE`](./NOTICE) documenting copyright, workspace scope clarification, historical MIT transition provenance, and third-party attributions; updated `package.json`, `package-lock.json`, `Dockerfile` OCI metadata/runtime image, `README.md`, `CONTRIBUTING.md`, `docs/site/index.html`, `docs/ONPREM.md`, `docs/GLOSSARY.md`, and `.github/workflows/dependency-review.yml` license policy.
+
 ## [1.0.0] - 2026-11-23
 
 ### Added

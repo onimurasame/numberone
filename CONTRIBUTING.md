@@ -45,3 +45,7 @@ npm audit --audit-level=high
 1. Create a focused feature branch from `master` / `main`.
 2. Ensure all tests, typechecks, container smoke checks, and Bridge Crew KPI audits pass at `100/100`.
 3. Open a Pull Request using `.github/PULL_REQUEST_TEMPLATE.md`. For structural changes, Archify PR packs (`archify-pr`) follow `[archify pr: ask, target=comment]`.
+
+## Licensing & Contributions
+
+Number One is licensed under the **GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`)** (see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE)). By submitting a pull request or other contribution to this repository, you agree that your contribution is licensed under the same `AGPL-3.0-or-later` terms so Number One and all derivative works remain free and open source.
