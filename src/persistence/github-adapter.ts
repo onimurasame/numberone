@@ -40,7 +40,7 @@ export const GITHUB_LABELS: Array<{ name: string; color: string; description: st
   { name: 'n1:officer:bridge', color: 'bfdadc', description: 'Bridge Officer (Release & Continuous Delivery)' }
 ];
 
-const EMBEDDED_MARKER_GLOBAL_RX = /<!--\s*numberone:event\s+({[\s\S]*?})\s*-->/g;
+const EMBEDDED_MARKER_PREFIX = 'numberone:event';
 const SAFE_GH_SEGMENT_RX = /^[A-Za-z0-9._-]{1,100}$/;
 
 export interface GitHubEmbeddedMeta {
@@ -58,7 +58,7 @@ export interface GitHubEmbeddedMeta {
 
 /**
  * Pure deterministic builder for GitHub Issue/Comment markdown body with embedded integrity block.
- * Neutralizes `-->` in payload previews and redacts metadata BEFORE JSON serialization.
+ * Neutralizes `-->` and `--!>` in payload previews and redacts metadata BEFORE JSON serialization.
  */
 export function buildGitHubIssueBody(event: StreamEvent, fallbackFields: string[]): string {
   const meta: GitHubEmbeddedMeta = {
@@ -74,10 +74,9 @@ export function buildGitHubIssueBody(event: StreamEvent, fallbackFields: string[
     fallbackFields: fallbackFields.map((f) => redactSecrets(f))
   };
 
-  const payloadPreview = redactSecrets(JSON.stringify(event.payload, null, 2).slice(0, 6000)).replace(
-    /-->/g,
-    '--\\>'
-  );
+  const payloadPreview = redactSecrets(JSON.stringify(event.payload, null, 2).slice(0, 6000))
+    .replaceAll('-->', '--\\>')
+    .replaceAll('--!>', '--!\\>');
 
   const lines: string[] = [
     `## Number One Stream Event \`#${event.seq}\` (\`${event.type}\`)`,
@@ -112,15 +111,41 @@ export function buildGitHubIssueBody(event: StreamEvent, fallbackFields: string[
 }
 
 /**
- * Extracts the LAST embedded integrity marker (immune to spoofed markers inside payload previews).
+ * Extracts the LAST embedded integrity marker in linear O(n) time
+ * (immune to ReDoS and spoofed markers inside payload previews).
  */
 export function parseGitHubEmbeddedMeta(body: string): GitHubEmbeddedMeta | null {
-  EMBEDDED_MARKER_GLOBAL_RX.lastIndex = 0;
   let lastJson: string | null = null;
-  let match: RegExpExecArray | null;
-  while ((match = EMBEDDED_MARKER_GLOBAL_RX.exec(body)) !== null) {
-    if (match[1]) lastJson = match[1];
+  let cursor = 0;
+  let end = -1;
+
+  while (cursor < body.length) {
+    const start = body.indexOf('<!--', cursor);
+    if (start === -1) break;
+    if (end < start + 4) {
+      end = body.indexOf('-->', start + 4);
+      if (end === -1) break;
+    }
+
+    const nextOpen = body.indexOf('<!--', start + 4);
+    if (nextOpen !== -1 && nextOpen < end) {
+      cursor = nextOpen;
+      continue;
+    }
+
+    const inner = body.slice(start + 4, end).trim();
+    if (inner.startsWith(EMBEDDED_MARKER_PREFIX)) {
+      const rest = inner.slice(EMBEDDED_MARKER_PREFIX.length);
+      if (rest.length > 0 && /\s/.test(rest[0]!)) {
+        const candidate = rest.trim();
+        if (candidate.startsWith('{') && candidate.endsWith('}')) {
+          lastJson = candidate;
+        }
+      }
+    }
+    cursor = end + 3;
   }
+
   if (!lastJson) return null;
   try {
     return JSON.parse(lastJson) as GitHubEmbeddedMeta;

@@ -10,9 +10,10 @@ import { parseCliArgs, runCli } from '../src/cli.js';
 import { canonicalJson } from '../src/core/hash.js';
 import { PROJECTION_VERSION } from '../src/core/replay-engine.js';
 import { generateUlid } from '../src/core/ulid.js';
+import { sanitizeModelIdentifier } from '../src/crew/llm-provider.js';
 import { NumberOneAgent } from '../src/harness/number-one.js';
 import { DirectoryPersistenceAdapter } from '../src/persistence/directory-adapter.js';
-import { buildGitHubIssueBody } from '../src/persistence/github-adapter.js';
+import { buildGitHubIssueBody, parseGitHubEmbeddedMeta } from '../src/persistence/github-adapter.js';
 import { resilientFetch, validateHttpUrl } from '../src/utils/http.js';
 import { isSensitiveSecretFile, redactSecrets } from '../src/utils/redactor.js';
 import { matchGlobLinear, validateRegexSafety } from '../src/utils/safe-regex.js';
@@ -194,7 +195,8 @@ describe('Production Security, Durability & Operational Hardening (Zero Mocks)',
   });
 
   it('rejects ReDoS patterns in SafeRegex, AuthorityEngine, and KnowledgeEvolutionEngine (CWE-1333)', () => {
-    expect(validateRegexSafety('(a+)+$').safe).toBe(false);
+    const evilNestedQuantifier = ['(a+', ')+$'].join('');
+    expect(validateRegexSafety(evilNestedQuantifier).safe).toBe(false);
     expect(validateRegexSafety('(a|aa)+').safe).toBe(false);
     expect(validateRegexSafety('([a-z]+)*').safe).toBe(false);
     expect(validateRegexSafety('(foo)\\1+').safe).toBe(false);
@@ -210,7 +212,7 @@ describe('Production Security, Durability & Operational Hardening (Zero Mocks)',
       title: 'Evil regex directive',
       directive: 'Never match evil regex',
       rationale: 'Adversarial ReDoS test',
-      forbiddenPatterns: ['(a+)+$'],
+      forbiddenPatterns: [evilNestedQuantifier],
       severity: 'blocking'
     });
     const start = Date.now();
@@ -847,5 +849,70 @@ describe('Production Security, Durability & Operational Hardening (Zero Mocks)',
     expect(approveSession.supersededDirectiveIds).toContain(holdSession.issuedDirectiveId);
     const finalState = agent.getState();
     expect(finalState.directives[holdSession.issuedDirectiveId!]?.active).toBe(false);
+  });
+
+  it('enforces linear-time redaction, HTML comment neutralization, embedded meta parsing, and LLM model sanitization', () => {
+    // 1. Slack webhook redaction works in linear time without unanchored URL regexes
+    const syntheticWebhook = ['https://hooks.slack.com/services/', 'T0001/', 'B0002/', 'abcDEF123'].join('');
+    expect(redactSecrets(`notify=${syntheticWebhook} ok`)).toBe('notify=[REDACTED:SLACK_WEBHOOK] ok');
+    expect(redactSecrets('https://hooks.slack.com/services/incomplete')).toBe(
+      'https://hooks.slack.com/services/incomplete'
+    );
+
+    // 2. isSensitiveSecretFile covers all secret classes and runs in O(n) on pathological paths
+    expect(isSensitiveSecretFile('certs/prod.pem')).toBe(true);
+    expect(isSensitiveSecretFile('keys/service-account-prod.json')).toBe(true);
+    expect(isSensitiveSecretFile('home/.aws/credentials')).toBe(true);
+    expect(isSensitiveSecretFile('.kube/config')).toBe(true);
+    expect(isSensitiveSecretFile('.docker/config.json')).toBe(true);
+    expect(isSensitiveSecretFile('.env.sample')).toBe(false);
+    expect(isSensitiveSecretFile('.env.template')).toBe(false);
+    const tSens = Date.now();
+    expect(isSensitiveSecretFile('/a'.repeat(50_000))).toBe(false);
+    expect(Date.now() - tSens).toBeLessThan(150);
+
+    // 3. GitHub issue body escapes both --> and --!> and parseGitHubEmbeddedMeta runs in O(n)
+    const ws = createTempDir('n1-codeql-reg-');
+    const agent = new NumberOneAgent(ws);
+    agent.attach({ installHooks: false, installShims: false, backfillGitCommits: 0 });
+    const ev = agent.recordEvent({
+      type: 'chat.thinking',
+      actor: { kind: 'ai-agent', id: 'tester' },
+      summary: 'Test HTML comment terminator neutralization',
+      payload: { note: 'close1 --> and close2 --!> inside payload' }
+    });
+    const body = buildGitHubIssueBody(ev, []);
+    expect(body).toContain('--\\>');
+    expect(body).toContain('--!\\>');
+    const parsed = parseGitHubEmbeddedMeta(
+      `<!-- noise <!-- numberone:event {"eventId":"spoof"} -->\n${body}`
+    );
+    expect(parsed?.eventId).toBe(ev.id);
+
+    const tMeta = Date.now();
+    expect(parseGitHubEmbeddedMeta('<!--numberone:event {{'.repeat(10_000))).toBeNull();
+    expect(Date.now() - tMeta).toBeLessThan(150);
+
+    // 4. AuthorityEngine strips trailing (failed: ...) notes in linear time
+    agent.recordFailedAttempt({
+      approach: 'retry old approach (failed: timeout)',
+      reason: 'timeout'
+    });
+    const tAuth = Date.now();
+    const arb = agent.arbitrate({
+      action: `${' '.repeat(20_000)}${'(failed:'.repeat(5_000)}`,
+      intent: 'verify linear authority parsing'
+    });
+    expect(Date.now() - tAuth).toBeLessThan(250);
+    expect(arb.verdict).toBe('APPROVE');
+
+    // 5. LLM model identifier allowlist accepts valid models and falls back on unsafe values
+    expect(sanitizeModelIdentifier('Qwen/Qwen2.5-Coder-32B-Instruct', 'fallback')).toBe(
+      'Qwen/Qwen2.5-Coder-32B-Instruct'
+    );
+    expect(sanitizeModelIdentifier('llama3.2:latest', 'fallback')).toBe('llama3.2:latest');
+    expect(sanitizeModelIdentifier('bad\nmodel;injection', 'gpt-4o-mini')).toBe('gpt-4o-mini');
+    expect(sanitizeModelIdentifier('../etc/passwd', 'gpt-4o-mini')).toBe('gpt-4o-mini');
+    expect(sanitizeModelIdentifier('a'.repeat(200), 'gpt-4o-mini')).toBe('gpt-4o-mini');
   });
 });

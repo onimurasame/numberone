@@ -191,13 +191,17 @@ export abstract class BaseBridgeOfficer implements CrewOfficer {
   protected prioritizeTargetPaths(files: string[], targetPaths?: string[]): string[] {
     if (!targetPaths || targetPaths.length === 0) return files;
     const normalizedTargets = new Set(targetPaths.map((p) => p.replace(/\\/g, '/').replace(/^\.\//, '')));
+    const targetPrefixes = Array.from(normalizedTargets, (t) => {
+      let end = t.length;
+      while (end > 0 && t.charCodeAt(end - 1) === 47 /* '/' */) {
+        end -= 1;
+      }
+      return `${end === t.length ? t : t.slice(0, end)}/`;
+    });
     const priority: string[] = [];
     const rest: string[] = [];
     for (const f of files) {
-      if (
-        normalizedTargets.has(f) ||
-        Array.from(normalizedTargets).some((t) => f.startsWith(`${t.replace(/\/+$/, '')}/`))
-      ) {
+      if (normalizedTargets.has(f) || targetPrefixes.some((prefix) => f.startsWith(prefix))) {
         priority.push(f);
       } else {
         rest.push(f);

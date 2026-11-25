@@ -230,13 +230,11 @@ export class JiraPersistenceAdapter implements PersistenceAdapter {
 
   public async ensureTaxonomy(): Promise<void> {
     if (this.taxonomyReady) return;
-    let projectDiscovered = false;
 
     try {
       const proj = await this.request<{
         issueTypes?: Array<{ name: string; subtask?: boolean }>;
       }>('GET', `/rest/api/3/project/${encodeURIComponent(this.config.projectKey)}`);
-      projectDiscovered = true;
       for (const it of proj.issueTypes ?? []) {
         if (!it.subtask && it.name) this.availableIssueTypes.add(it.name);
       }
@@ -277,7 +275,7 @@ export class JiraPersistenceAdapter implements PersistenceAdapter {
       // Non-admin user: omit component refs
     }
 
-    if (projectDiscovered) this.taxonomyReady = true;
+    this.taxonomyReady = true;
   }
 
   private async getActiveSprintId(): Promise<number | null> {
