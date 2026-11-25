@@ -158,8 +158,15 @@ const STOP_WORDS = new Set([
 
 const SHORT_TECH_TOKENS = new Set(['db', 'rm', 'ci', 'cd', 'ip', 'ca', 'go', 'js', 'ts', 'py', 'sh']);
 
+function stripTrailingFailedNote(phrase: string): string {
+  if (!phrase.endsWith(')')) return phrase;
+  const idx = phrase.toLowerCase().indexOf('(failed:');
+  if (idx === -1) return phrase;
+  return phrase.slice(0, idx).trimEnd();
+}
+
 function extractSignificantTokens(phrase: string): string[] {
-  const cleaned = phrase.replace(/\s*\(failed:[\s\S]*\)$/i, '');
+  const cleaned = stripTrailingFailedNote(phrase);
   const raw = cleaned.toLowerCase().match(/[a-z0-9_.-]{2,}/g) ?? [];
   return raw.filter((w) => {
     if (STOP_WORDS.has(w)) return false;
@@ -172,7 +179,7 @@ function extractSignificantTokens(phrase: string): string[] {
  * historically failed approach.
  */
 function affirmativelyRepeatsApproach(proposalText: string, failedApproach: string): boolean {
-  const cleanedFailed = failedApproach.replace(/\s*\(failed:[\s\S]*\)$/i, '').trim();
+  const cleanedFailed = stripTrailingFailedNote(failedApproach).trim();
   const targetTokens = extractSignificantTokens(cleanedFailed);
   if (targetTokens.length === 0) return false;
 

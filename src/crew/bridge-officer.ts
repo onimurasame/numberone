@@ -201,9 +201,9 @@ export class BridgeOfficer extends BaseBridgeOfficer {
     }
 
     // 2. Automated Test Suite
-    const testFiles = files.filter((f) =>
-      /(^|\/)(tests?|__tests__|spec|e2e)\/|\.(test|spec)\.(ts|tsx|js|jsx|py|go|rs)$/i.test(f)
-    );
+    const testDirRx = /(?:^|\/)(?:tests?|__tests__|spec|e2e)\//i;
+    const testFileSuffixRx = /\.(?:test|spec)\.(?:ts|tsx|js|jsx|py|go|rs)$/i;
+    const testFiles = files.filter((f) => testDirRx.test(f) || testFileSuffixRx.test(f));
     const hasE2eOrIntegration = testFiles.some((f) => /(e2e|integration)/i.test(f));
     const hasTestScript = (() => {
       const pkgText = readTextFileSafe(path.join(workspaceRoot, 'package.json'), 512_000, workspaceRoot);

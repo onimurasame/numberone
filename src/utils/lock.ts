@@ -58,21 +58,35 @@ export function readProcStartTicks(pid: number): string | null {
 }
 
 function isLockStale(lockPath: string, staleAfterMs: number): { stale: boolean; dev: number; ino: number } {
+  const openFlags = fs.constants.O_RDONLY | (fs.constants.O_NOFOLLOW ?? 0);
+  let fd: number | null = null;
   let st: fs.Stats;
-  try {
-    st = fs.lstatSync(lockPath);
-  } catch {
-    return { stale: false, dev: 0, ino: 0 };
-  }
-
   let parsed: Partial<LockMetadata> | null = null;
+
   try {
-    const raw = fs.readFileSync(lockPath, 'utf8');
-    if (raw.trim().length > 0) {
-      parsed = JSON.parse(raw) as Partial<LockMetadata>;
+    fd = fs.openSync(lockPath, openFlags);
+    st = fs.fstatSync(fd);
+    if (!st.isFile()) {
+      return { stale: false, dev: 0, ino: 0 };
+    }
+    try {
+      const raw = fs.readFileSync(fd, 'utf8');
+      if (raw.trim().length > 0) {
+        parsed = JSON.parse(raw) as Partial<LockMetadata>;
+      }
+    } catch {
+      parsed = null;
     }
   } catch {
-    parsed = null;
+    return { stale: false, dev: 0, ino: 0 };
+  } finally {
+    if (fd !== null) {
+      try {
+        fs.closeSync(fd);
+      } catch {
+        // ignore close errors
+      }
+    }
   }
 
   const mtimeAge = Date.now() - st.mtimeMs;

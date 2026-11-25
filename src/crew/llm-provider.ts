@@ -17,33 +17,72 @@ export interface LlmProvider {
   complete(messages: LlmMessage[], maxTokens?: number): Promise<string | null>;
 }
 
+const SAFE_MODEL_ALPHABET =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._:/-';
+const SAFE_MODEL_ID_RX = /^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$/;
+
+function normalizeLlmProvider(
+  raw: unknown
+): NonNullable<NumberOneConfig['llm']>['provider'] {
+  if (raw === 'openai-compatible') return 'openai-compatible';
+  if (raw === 'anthropic') return 'anthropic';
+  if (raw === 'gemini') return 'gemini';
+  return 'none';
+}
+
+export function sanitizeModelIdentifier(raw: unknown, fallback: string): string {
+  if (typeof raw !== 'string') return fallback;
+  const trimmed = raw.trim();
+  if (!SAFE_MODEL_ID_RX.test(trimmed)) return fallback;
+  let clean = '';
+  for (let i = 0; i < trimmed.length; i += 1) {
+    const idx = SAFE_MODEL_ALPHABET.indexOf(trimmed[i]!);
+    if (idx === -1) return fallback;
+    clean += SAFE_MODEL_ALPHABET[idx]!;
+  }
+  return clean;
+}
+
 /**
  * Harness-agnostic pluggable LLM provider.
  * Uses resilientFetch with strict timeouts, redirect:error, SSRF guards, provider-scoped
  * env-var resolution, header-only auth, bounded JSON body reading, and egress secret redaction.
  */
 export class PluggableLlmProvider implements LlmProvider {
-  private readonly cfg: NonNullable<NumberOneConfig['llm']>;
+  private readonly provider: NonNullable<NumberOneConfig['llm']>['provider'];
+  private readonly baseUrl?: string;
+  private readonly model?: string;
+  private readonly apiKeyEnvVar?: string;
 
   constructor(config?: NumberOneConfig['llm']) {
-    this.cfg = config ?? { provider: 'none' };
+    this.provider = normalizeLlmProvider(config?.provider);
+    this.baseUrl =
+      typeof config?.baseUrl === 'string' && config.baseUrl.trim().length > 0
+        ? config.baseUrl.trim()
+        : undefined;
+    const sanitizedModel = sanitizeModelIdentifier(config?.model, '');
+    this.model = sanitizedModel.length > 0 ? sanitizedModel : undefined;
+    this.apiKeyEnvVar =
+      typeof config?.apiKeyEnvVar === 'string' && config.apiKeyEnvVar.trim().length > 0
+        ? config.apiKeyEnvVar.trim()
+        : undefined;
   }
 
   public get providerName(): string {
-    return this.cfg.provider;
+    return this.provider;
   }
 
   private resolveApiKey(): string | null {
-    if (this.cfg.provider === 'none') return null;
-    if (this.cfg.provider === 'openai-compatible') {
-      return resolveScopedEnvVar(this.cfg.apiKeyEnvVar, ['OPENAI_', 'LLM_'], ['OPENAI_API_KEY']);
+    if (this.provider === 'none') return null;
+    if (this.provider === 'openai-compatible') {
+      return resolveScopedEnvVar(this.apiKeyEnvVar, ['OPENAI_', 'LLM_'], ['OPENAI_API_KEY']);
     }
-    if (this.cfg.provider === 'anthropic') {
-      return resolveScopedEnvVar(this.cfg.apiKeyEnvVar, ['ANTHROPIC_', 'LLM_'], ['ANTHROPIC_API_KEY']);
+    if (this.provider === 'anthropic') {
+      return resolveScopedEnvVar(this.apiKeyEnvVar, ['ANTHROPIC_', 'LLM_'], ['ANTHROPIC_API_KEY']);
     }
-    if (this.cfg.provider === 'gemini') {
+    if (this.provider === 'gemini') {
       return resolveScopedEnvVar(
-        this.cfg.apiKeyEnvVar,
+        this.apiKeyEnvVar,
         ['GEMINI_', 'GOOGLE_', 'LLM_'],
         ['GEMINI_API_KEY']
       );
@@ -52,12 +91,12 @@ export class PluggableLlmProvider implements LlmProvider {
   }
 
   public get isAvailable(): boolean {
-    return this.cfg.provider !== 'none' && Boolean(this.resolveApiKey());
+    return this.provider !== 'none' && Boolean(this.resolveApiKey());
   }
 
   public async complete(messages: LlmMessage[], maxTokens = 600): Promise<string | null> {
     const apiKey = this.resolveApiKey();
-    if (!apiKey || this.cfg.provider === 'none') return null;
+    if (!apiKey || this.provider === 'none') return null;
 
     const redactedMessages = messages.map((m) => ({
       role: m.role,
@@ -65,8 +104,9 @@ export class PluggableLlmProvider implements LlmProvider {
     }));
 
     try {
-      if (this.cfg.provider === 'openai-compatible') {
-        const base = (this.cfg.baseUrl ?? 'https://api.openai.com/v1').replace(/\/$/, '');
+      if (this.provider === 'openai-compatible') {
+        const base = (this.baseUrl ?? 'https://api.openai.com/v1').replace(/\/$/, '');
+        const model = this.model ?? 'gpt-4o-mini';
         const res = await resilientFetch(`${base}/chat/completions`, {
           method: 'POST',
           timeoutMs: 20_000,
@@ -76,7 +116,7 @@ export class PluggableLlmProvider implements LlmProvider {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            model: this.cfg.model ?? 'gpt-4o-mini',
+            model,
             messages: redactedMessages,
             max_tokens: maxTokens,
             temperature: 0.2
@@ -89,7 +129,7 @@ export class PluggableLlmProvider implements LlmProvider {
         return json.choices?.[0]?.message?.content?.trim() ?? null;
       }
 
-      if (this.cfg.provider === 'anthropic') {
+      if (this.provider === 'anthropic') {
         const system = redactedMessages
           .filter((m) => m.role === 'system')
           .map((m) => m.content)
@@ -97,7 +137,8 @@ export class PluggableLlmProvider implements LlmProvider {
         const userMsgs = redactedMessages
           .filter((m) => m.role !== 'system')
           .map((m) => ({ role: m.role, content: m.content }));
-        const base = (this.cfg.baseUrl ?? 'https://api.anthropic.com').replace(/\/$/, '');
+        const base = (this.baseUrl ?? 'https://api.anthropic.com').replace(/\/$/, '');
+        const model = this.model ?? 'claude-3-5-sonnet-latest';
         const res = await resilientFetch(`${base}/v1/messages`, {
           method: 'POST',
           timeoutMs: 20_000,
@@ -108,7 +149,7 @@ export class PluggableLlmProvider implements LlmProvider {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            model: this.cfg.model ?? 'claude-3-5-sonnet-latest',
+            model,
             max_tokens: maxTokens,
             system,
             messages: userMsgs
@@ -121,9 +162,9 @@ export class PluggableLlmProvider implements LlmProvider {
         return json.content?.find((c) => c.type === 'text')?.text?.trim() ?? null;
       }
 
-      if (this.cfg.provider === 'gemini') {
-        const model = this.cfg.model ?? 'gemini-2.5-flash';
-        const base = (this.cfg.baseUrl ?? 'https://generativelanguage.googleapis.com/v1beta').replace(/\/$/, '');
+      if (this.provider === 'gemini') {
+        const model = this.model ?? 'gemini-2.5-flash';
+        const base = (this.baseUrl ?? 'https://generativelanguage.googleapis.com/v1beta').replace(/\/$/, '');
         const combined = redactedMessages.map((m) => `[${m.role.toUpperCase()}]\n${m.content}`).join('\n\n');
         // Pass API key via x-goog-api-key header (never in URL query string!)
         const res = await resilientFetch(`${base}/models/${encodeURIComponent(model)}:generateContent`, {
