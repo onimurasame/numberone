@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Airplane Science Fair Flight Lab — 3D Three.js Visualization | Number One</title>
+  <meta name="description" content="Interactive Three.js 3D Science Fair paper airplane flight lab powered by real Number One (n1) hash-chained stream events, dead-end tracking, lessons learned, and time-travel replay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../example-viewer.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="badge badge-kids">Kids &amp; School · 3D Lab</span>
+        <h1>Paper Airplane Science Fair Flight Lab (Three.js)</h1>
+      </div>
+      <nav class="topbar-actions" aria-label="Sample links and controls">
+        <a href="../../archify/examples/kids-science-fair-glider-timeline.html" class="btn" target="_blank" rel="noopener noreferrer">Archify Timeline</a>
+        <a href="../../archify/examples/kids-science-fair-glider-explainer.html" class="btn" target="_blank" rel="noopener noreferrer">Archify Explainer</a>
+        <a href="https://github.com/onimurasame/numberone/tree/master/examples/kids-science-fair-glider" class="btn" target="_blank" rel="noopener noreferrer">Runnable Code</a>
+        <button type="button" class="btn" id="theme-toggle-btn">Light Theme</button>
+        <a href="../../index.html#samples-3d" class="btn">Back to Docs</a>
+      </nav>
+    </header>
+
+    <main class="workspace-grid">
+      <section class="stage-wrap" aria-label="Interactive Three.js 3D flight runway">
+        <canvas id="three-canvas" class="stage-canvas"></canvas>
+
+        <div class="hud-top-left" id="trial-controls" role="group" aria-label="Focus flight trial"></div>
+
+        <div class="hud-bottom-bar">
+          <div class="scrubber-group">
+            <label for="seq-scrubber" class="scrubber-label" id="seq-label">Time-Travel: seq #9</label>
+            <input type="range" id="seq-scrubber" class="scrubber-range" min="1" max="9" value="9">
+          </div>
+          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+            <button type="button" class="btn active" id="play-toggle-btn">Pause Flights</button>
+            <button type="button" class="btn" id="reset-cam-btn">Reset Camera</button>
+          </div>
+          <span class="hint-text">Drag to orbit · Scroll to zoom · Click any glider or arc to inspect</span>
+        </div>
+      </section>
+
+      <aside class="inspector-panel" aria-label="Live Number One Science Fair notebook inspector">
+        <div class="panel-card" id="selected-card">
+          <span class="kicker">3D Selection Inspector</span>
+          <h2>Click a Paper Airplane or Flight Arc</h2>
+          <p>Every 3D trajectory in this gym runway comes directly from real <code>NumberOneAgent</code> stream events logged in <code>examples/kids-science-fair-glider/run.mjs</code>.</p>
+        </div>
+
+        <div class="panel-card" id="checkpoint-card">
+          <span class="kicker">Deterministic Replay Checkpoint</span>
+          <h2 id="checkpoint-title">Loading notebook...</h2>
+          <div id="checkpoint-body"></div>
+        </div>
+
+        <div class="panel-card" id="consult-card">
+          <span class="kicker">Dead-End Shield (agent.consult)</span>
+          <h2>What Happens If a Classmate Retries Tail Weights?</h2>
+          <div id="consult-body"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="../../vendor/three.min.js"></script>
+  <script src="../three-shell.js"></script>
+  <script src="./scene.js"></script>
+</body>
+</html>

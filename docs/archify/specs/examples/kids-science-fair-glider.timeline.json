@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "diagram_type": "timeline",
+  "meta": {
+    "title": "Kids Science Fair Sample — Paper Airplane Flight Lab Timeline",
+    "subtitle": "How Number One records hypotheses, stalled dead-end trials, verified balance lessons, and final winning flight data for the Three.js 3D runway",
+    "output": "docs/site/archify/examples/kids-science-fair-glider-timeline.html",
+    "evidence": "illustrative",
+    "timezone": "UTC",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "student", "label": "Student Scientist" },
+    { "id": "sor", "label": "Number One Notebook" },
+    { "id": "viz3d", "label": "Three.js 3D Runway" }
+  ],
+  "events": [
+    {
+      "id": "hypothesis",
+      "at": "2026-11-25T14:00:00Z",
+      "title": "Attach & Log Starting Hypothesis",
+      "detail": "agent.attach() initializes .numberone/ and agent.recordThinking() saves the nose-balance & wingtip hypothesis.",
+      "lane": "student",
+      "kind": "action"
+    },
+    {
+      "id": "trial_stall",
+      "at": "2026-11-25T14:06:00Z",
+      "title": "Trial #2 Tail-Weight Stall (Dead End)",
+      "detail": "agent.recordFailedAttempt() logs tail pennies stalling at 1.4m so no classmate repeats the failed experiment.",
+      "lane": "sor",
+      "kind": "alert"
+    },
+    {
+      "id": "lesson_balance",
+      "at": "2026-11-25T14:12:00Z",
+      "title": "Verified Balance & Wingtip Lessons",
+      "detail": "agent.captureLesson() records nose paperclip balance (9.4m) and 1cm symmetrical wingtips (10.6m).",
+      "lane": "sor",
+      "kind": "recovery"
+    },
+    {
+      "id": "final_adr",
+      "at": "2026-11-25T14:18:00Z",
+      "title": "Winning Design Decision & Seal",
+      "detail": "agent.recordDecision() preserves rationale & rejected folds; verifyIntegrity(false) confirms all 9 SHA-256 links.",
+      "lane": "student",
+      "kind": "change"
+    },
+    {
+      "id": "render_3d",
+      "at": "2026-11-25T14:22:00Z",
+      "title": "3D Flight Replay & Printable Report",
+      "detail": "run.mjs exports data.json to Three.js (4 parabolic flight trajectories + time-travel scrubber) and builds a 9-chapter Science Fair Documentary.",
+      "lane": "viz3d",
+      "kind": "recovery"
+    }
+  ]
+}

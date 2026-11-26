@@ -27,16 +27,30 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
-      - name: Verify Documentation & Archify Bundle Completeness
+      - name: Verify Documentation, Three.js 3D Samples & Archify Bundle Completeness
         run: |
           set -euo pipefail
           test -f docs/site/index.html
           test -f docs/site/styles.css
           test -f docs/site/app.js
+          test -f docs/site/vendor/three.min.js
+          test -f docs/site/examples/three-shell.js
+          test -f docs/site/examples/kids-science-fair-glider/index.html
+          test -f docs/site/examples/kids-robotics-arena/index.html
+          test -f docs/site/examples/advanced-hash-chain-time-travel/index.html
+          test -f docs/site/examples/advanced-bmad-crew-evolution/index.html
           test -f docs/site/archify/system-overview.html
           test -f docs/site/archify/how-numberone-works-explainer.html
           test -f docs/site/archify/choreography-stage.html
           test -f docs/site/archify/code-analysis/repo.analysis.html
+          test -f docs/site/archify/examples/kids-science-fair-glider-timeline.html
+          test -f docs/site/archify/examples/kids-science-fair-glider-explainer.html
+          test -f docs/site/archify/examples/kids-robotics-arena-sequence.html
+          test -f docs/site/archify/examples/kids-robotics-arena-explainer.html
+          test -f docs/site/archify/examples/advanced-hash-chain-time-travel-dataflow.html
+          test -f docs/site/archify/examples/advanced-hash-chain-time-travel-explainer.html
+          test -f docs/site/archify/examples/advanced-bmad-crew-evolution-workflow.html
+          test -f docs/site/archify/examples/advanced-bmad-crew-evolution-explainer.html
           touch docs/site/.nojekyll
 
       - name: Upload GitHub Pages artifact

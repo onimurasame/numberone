@@ -2,7 +2,7 @@
 
 Number One leverages **100% of [Archify](https://github.com/tt-a1i/archify) v3.3.0's capabilities** to document, verify, animate, and diagnose every layer of the codebase against real committed repository evidence (`--repo-root`).
 
-Every interactive HTML deliverable is self-contained (zero external runtime or CDN dependencies, light/dark themes, keyboard navigation, Semantic Passports, and offline SVG/PNG/WebM/MP4 export) and hosted live on **GitHub Pages** (`https://onimurasame.github.io/numberone/`). Every dual-theme SVG (`-light.svg` / `-dark.svg`) in [`docs/assets/archify/`](./assets/archify/) is validated **GitHub Camo-safe** for `<picture>` rendering in [`README.md`](../README.md).
+Every interactive HTML deliverable is self-contained (zero external runtime or CDN dependencies, light/dark themes, keyboard navigation, Semantic Passports, and offline SVG/PNG/WebM/MP4 export) and hosted live on **GitHub Pages** (`https://onimurasame.github.io/numberone/`). Every dual-theme SVG (`-light.svg` / `-dark.svg`) in [`docs/assets/archify/`](./assets/archify/) is validated **GitHub Camo-safe** for `<picture>` rendering in [`docs/TECHNICAL_GUIDE.md`](./TECHNICAL_GUIDE.md).
 
 ---
 
@@ -33,6 +33,17 @@ Every interactive HTML deliverable is self-contained (zero external runtime or C
 | **Architecture Before/After Comparison** | `architecture-comparison.html` | Compiled via `archify compare architecture`; contrasts a local-only curator baseline against Number One's full authoritative Bridge Crew + distributed Scrum fabric |
 | **Code Analysis & Diagnosis Workbench** | `code-analysis/repo.analysis.html` | Compiled via `archify code-analysis prepare --ir system-overview.architecture.json --language ts`; provides source-backed module dependency graphs, radial star map, rotatable 3D dependency Atlas, coupling/hotspot metrics, and copyable AI refactoring tasks |
 | **Pull Request Walkthrough Pack (`archify-pr`)** | `pr-pack/` + `[archify pr: ask, target=comment]` in `CONTRIBUTING.md` | Compiled via `archify pr validate` & `archify pr build`; produces GitHub-ready PR visual review pack tracking `added`/`modified` services, endpoints, and tables |
+
+### C. Sample-Specific Archify Deliverables (`docs/site/archify/examples/` — 8 Additional Compiled Artifacts, 24 Total)
+
+Each runnable Kids and Advanced Technical Three.js sample in [`examples/`](../examples/README.md) ships with its own Archify v3.3.2 interactive diagram, dual-theme Camo-safe SVGs (`docs/assets/archify/examples/`), and 4-style One-Page Explainer pinned to exact committed sample source lines:
+
+| Sample | Interactive Diagram (`docs/site/archify/examples/`) | 4-Style One-Page Explainer | Dual-Theme SVGs (`docs/assets/archify/examples/`) | Live Three.js 3D View |
+|---|---|---|---|---|
+| **Kids 1: Science Fair Flight Lab** | `kids-science-fair-glider-timeline.html` (`timeline`) | `kids-science-fair-glider-explainer.html` | `kids-science-fair-glider-timeline-{light,dark}.svg` | [`examples/kids-science-fair-glider/`](https://onimurasame.github.io/numberone/examples/kids-science-fair-glider/) |
+| **Kids 2: RoboHawks Safety Arena** | `kids-robotics-arena-sequence.html` (`sequence`) | `kids-robotics-arena-explainer.html` | `kids-robotics-arena-sequence-{light,dark}.svg` | [`examples/kids-robotics-arena/`](https://onimurasame.github.io/numberone/examples/kids-robotics-arena/) |
+| **Adv 1: Hash-Chain Helix Observatory** | `advanced-hash-chain-time-travel-dataflow.html` (`dataflow`) | `advanced-hash-chain-time-travel-explainer.html` | `advanced-hash-chain-time-travel-dataflow-{light,dark}.svg` | [`examples/advanced-hash-chain-time-travel/`](https://onimurasame.github.io/numberone/examples/advanced-hash-chain-time-travel/) |
+| **Adv 2: BMAD Crew & KPI Bridge** | `advanced-bmad-crew-evolution-workflow.html` (`workflow` v2) | `advanced-bmad-crew-evolution-explainer.html` | `advanced-bmad-crew-evolution-workflow-{light,dark}.svg` | [`examples/advanced-bmad-crew-evolution/`](https://onimurasame.github.io/numberone/examples/advanced-bmad-crew-evolution/) |
 
 ---
 

@@ -1,0 +1,177 @@
+{
+  "sampleId": "advanced-bmad-crew-evolution",
+  "title": "BMAD Bridge Crew, KPI Evolution & Distributed Scrum Command Bridge",
+  "audience": "advanced",
+  "phases": {
+    "phase1Veto": {
+      "partySessionId": "party-01M8APHF1H5P7ME0TTNFRMJGF5",
+      "topic": "Phase 1: Pre-hardening baseline production readiness audit",
+      "consensusReached": false,
+      "vetoed": true,
+      "vetoDirectiveEventId": null,
+      "officers": [
+        {
+          "role": "engineering",
+          "title": "Engineering Officer (Infrastructure & Target Runtime)",
+          "kpiName": "runtime_readiness_score",
+          "kpiScore": 53.3,
+          "checksPassed": 2,
+          "checksApplicable": 5,
+          "blockingCount": 0,
+          "gate": "PASS"
+        },
+        {
+          "role": "security",
+          "title": "Security Officer (AppSec, InfraSec, Supply Chain & Code Quality)",
+          "kpiName": "security_posture_score",
+          "kpiScore": 40,
+          "checksPassed": 2,
+          "checksApplicable": 6,
+          "blockingCount": 1,
+          "gate": "BLOCK"
+        },
+        {
+          "role": "bridge",
+          "title": "Bridge Officer (Release & Continuous Delivery)",
+          "kpiName": "continuous_delivery_score",
+          "kpiScore": 0,
+          "checksPassed": 0,
+          "checksApplicable": 4,
+          "blockingCount": 1,
+          "gate": "BLOCK"
+        }
+      ],
+      "peerChallenges": [
+        {
+          "from": "security",
+          "to": "bridge",
+          "status": "CONFIRMED"
+        }
+      ],
+      "topRemediations": [
+        {
+          "rank": 1,
+          "officer": "bridge",
+          "severity": "critical",
+          "blocksRelease": true,
+          "title": "No executable automated test suite detected",
+          "action": "Add automated unit and integration/E2E tests wired to `npm test`."
+        },
+        {
+          "rank": 2,
+          "officer": "security",
+          "severity": "high",
+          "blocksRelease": true,
+          "title": "Container runs as root in Dockerfile",
+          "action": "Switch to an unprivileged non-zero USER in the final stage prior to ENTRYPOINT/CMD. | Pin container base image to explicit version and digest."
+        },
+        {
+          "rank": 3,
+          "officer": "security",
+          "severity": "high",
+          "blocksRelease": false,
+          "title": "Missing dependency lockfile",
+          "action": "Pin exact runtime version constraints in package.json#engines or .tool-versions. | Commit package-lock.json, pnpm-lock.yaml, poetry.lock, Cargo.lock, or go.sum."
+        },
+        {
+          "rank": 4,
+          "officer": "bridge",
+          "severity": "high",
+          "blocksRelease": false,
+          "title": "No CI/CD pipeline configuration found",
+          "action": "Configure a trunk-based CI workflow running build, test, and security audits on push and PR."
+        },
+        {
+          "rank": 5,
+          "officer": "engineering",
+          "severity": "medium",
+          "blocksRelease": false,
+          "title": "Missing access and credential specification",
+          "action": "Document required tokens/permissions or provide IAM/RBAC definitions."
+        },
+        {
+          "rank": 6,
+          "officer": "security",
+          "severity": "medium",
+          "blocksRelease": false,
+          "title": "Missing automated SCA / SAST security check in CI",
+          "action": "Add automated SCA (`npm audit`/Trivy/OSV-Scanner) and SAST/secret scanning in CI."
+        }
+      ]
+    },
+    "phase2Evolution": {
+      "rejected": {
+        "practiceId": "sec-overbroad-exec-word",
+        "accepted": false,
+        "delta": 100,
+        "falsePositivesAfter": 1,
+        "reasons": [
+          "Candidate matcher produced false positive on clean negativeSamples: Forbidden pattern /exec/ matched in src/health.ts."
+        ]
+      },
+      "promoted": {
+        "practiceId": "sec-forbid-interpolated-execsync",
+        "accepted": true,
+        "delta": 100,
+        "truePositivesBefore": 0,
+        "truePositivesAfter": 1,
+        "falsePositivesAfter": 0,
+        "reasons": [
+          "Verified via counterfactual_replay: measured gain +100 with 0 false positives."
+        ]
+      }
+    },
+    "phase3Consensus": {
+      "partySessionId": "party-01M8APHG2SPRJYEC1TY677648T",
+      "topic": "Phase 3: Post-remediation production & CD release gate",
+      "consensusReached": true,
+      "vetoed": false,
+      "vetoDirectiveEventId": null,
+      "officers": [
+        {
+          "role": "engineering",
+          "title": "Engineering Officer (Infrastructure & Target Runtime)",
+          "kpiName": "runtime_readiness_score",
+          "kpiScore": 100,
+          "checksPassed": 6,
+          "checksApplicable": 6,
+          "blockingCount": 0,
+          "gate": "PASS"
+        },
+        {
+          "role": "security",
+          "title": "Security Officer (AppSec, InfraSec, Supply Chain & Code Quality)",
+          "kpiName": "security_posture_score",
+          "kpiScore": 100,
+          "checksPassed": 7,
+          "checksApplicable": 7,
+          "blockingCount": 0,
+          "gate": "PASS"
+        },
+        {
+          "role": "bridge",
+          "title": "Bridge Officer (Release & Continuous Delivery)",
+          "kpiName": "continuous_delivery_score",
+          "kpiScore": 86.4,
+          "checksPassed": 5,
+          "checksApplicable": 6,
+          "blockingCount": 0,
+          "gate": "PASS"
+        }
+      ],
+      "peerChallenges": [],
+      "topRemediations": []
+    },
+    "phase4Sync": {
+      "adapter": "directory:/tmp/n1-adv-scrum-GN16iO",
+      "pushedCount": 29,
+      "fallbackOnlyCount": 1,
+      "syncedUpToSeq": 30,
+      "distributedValid": true,
+      "totalEvents": 31,
+      "verifiedBlobs": 1,
+      "remoteChecked": 29,
+      "remoteValid": 29
+    }
+  }
+}

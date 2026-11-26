@@ -1,0 +1,212 @@
+{
+  "sampleId": "advanced-hash-chain-time-travel",
+  "title": "Cryptographic Event Stream, CAS Blob & Replay Observatory",
+  "audience": "advanced",
+  "genesisHash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "cleanIntegrity": {
+    "valid": true,
+    "totalEvents": 8,
+    "verifiedBlobs": 1,
+    "fallbackCoverageValid": true
+  },
+  "redactionProof": {
+    "eventSeq": 3,
+    "redactedSummary": "Thinking: Investigated CI auth leak using token [REDACTED:GITHUB_TOKEN] and key [REDACTED:AWS_ACCESS_KEY] — must scrub before logging.",
+    "leakedRawGitHubToken": false,
+    "leakedRawAwsKey": false
+  },
+  "arbitrationProof": {
+    "compliantNegation": {
+      "verdict": "APPROVE_WITH_CONDITIONS",
+      "conflicts": 0
+    },
+    "affirmativeViolation": {
+      "verdict": "BLOCK",
+      "conflicts": 1,
+      "level": "L2_NUMBER_ONE_DIRECTIVE"
+    }
+  },
+  "tamperProof": {
+    "tamperedSeq": 4,
+    "tamperedFile": "00000004-01M8APG97ACBWCPNABHEB6MHQG.json",
+    "detectedInvalid": true,
+    "errorCount": 1,
+    "firstError": "Tampered event detected at seq 4 (01M8APG97ACBWCPNABHEB6MHQG): hash mismatch"
+  },
+  "deadEndSeq": 5,
+  "chainNodes": [
+    {
+      "seq": 1,
+      "id": "01M8APG92CFJ8F7TT232183BHR",
+      "type": "workspace.attached",
+      "harness": "claude-code",
+      "actorKind": "numberone",
+      "summary": "Number One attached as authoritative System of Record for Zero-Trust Auth Gateway",
+      "prevHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "dffb92392c56220a5cf608fb46ddbe8794266e82a1c3540f9fa46c957e3ec582",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 1,
+        "snapshotDigest": "86bed44e98b1665292ccd383a25425060ac80323aec7599d5cfdc77a1274710c",
+        "filesTracked": 0,
+        "lessonsCount": 0,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 0,
+        "deadEndsCount": 0
+      }
+    },
+    {
+      "seq": 2,
+      "id": "01M8APG94X868X4WJXAJF3M64B",
+      "type": "workspace.snapshot",
+      "harness": "claude-code",
+      "actorKind": "watcher",
+      "summary": "Indexed workspace baseline (2 files)",
+      "prevHash": "dffb92392c56220a5cf608fb46ddbe8794266e82a1c3540f9fa46c957e3ec582",
+      "hash": "4f529943d8292f03481a047f2dc07533cec311d7b0009834f802eb8bdb305c41",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 2,
+        "snapshotDigest": "07bf53ca3a7d259f6c4e1a50d4b83d67a415b66400c9a4f8ca197d66767c917f",
+        "filesTracked": 2,
+        "lessonsCount": 0,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 0,
+        "deadEndsCount": 0
+      }
+    },
+    {
+      "seq": 3,
+      "id": "01M8APG96BRZ65KSWKR08D98WN",
+      "type": "chat.thinking",
+      "harness": "claude-code",
+      "actorKind": "ai-agent",
+      "summary": "Thinking: Investigated CI auth leak using token [REDACTED:GITHUB_TOKEN] and key [REDACTED:AWS_ACCESS_KEY] — must scrub before logging.",
+      "prevHash": "4f529943d8292f03481a047f2dc07533cec311d7b0009834f802eb8bdb305c41",
+      "hash": "426f53a0edc78dab7ec194f576579f8558ed8a96afd929988560e33b7b5b9f79",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 3,
+        "snapshotDigest": "14eba820b231cfc23ecac3b896624228ed50d5fec702e1998ebbde2cb3869e8c",
+        "filesTracked": 2,
+        "lessonsCount": 0,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 0,
+        "deadEndsCount": 0
+      }
+    },
+    {
+      "seq": 4,
+      "id": "01M8APG97ACBWCPNABHEB6MHQG",
+      "type": "exec.crashed",
+      "harness": "cli",
+      "actorKind": "watcher",
+      "summary": "Auth header parser crashed under adversarial input (CWE-1333)",
+      "prevHash": "426f53a0edc78dab7ec194f576579f8558ed8a96afd929988560e33b7b5b9f79",
+      "hash": "b927b3d9b06258886e75a6aefb4a1ab4cc10264d0e4997a7d984ac20100e44cc",
+      "blobCount": 1,
+      "blobRefs": [
+        {
+          "sha256": "d387332c9460c8558053ae9eaab870f8e70f2a75787185492705082443142d70",
+          "contentType": "text/plain"
+        }
+      ],
+      "projectionCheckpoint": {
+        "lastSeq": 4,
+        "snapshotDigest": "35cec82899642ef4e4ade25f543318978b93e7587c7f5a1a2de17861b462aa39",
+        "filesTracked": 2,
+        "lessonsCount": 0,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 1,
+        "deadEndsCount": 0
+      }
+    },
+    {
+      "seq": 5,
+      "id": "01M8APG98MBJMCKC93970TXTKD",
+      "type": "attempt.failed",
+      "harness": "claude-code",
+      "actorKind": "human",
+      "summary": "Dead-end recorded: Added nested quantifier regex (a+)+ to strip whitespace from Bearer header (Triggered catastrophic backtracking (CWE-1333 ReDoS) on 40-char malformed header)",
+      "prevHash": "b927b3d9b06258886e75a6aefb4a1ab4cc10264d0e4997a7d984ac20100e44cc",
+      "hash": "0fcd8979d86a23f060191b2337eab3ad5b231f7b8376b352266c5217c1e53518",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 5,
+        "snapshotDigest": "fd8d4688a3d2062373d658f6af5107307e74c108b2914450ba7dd0c3557c6010",
+        "filesTracked": 2,
+        "lessonsCount": 0,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 1,
+        "deadEndsCount": 1
+      }
+    },
+    {
+      "seq": 6,
+      "id": "01M8APG99GHMWMSF6RG5XKR1AM",
+      "type": "lesson.captured",
+      "harness": "codex-cli",
+      "actorKind": "numberone",
+      "summary": "Lesson: Use linear-time string slicing for Authorization header parsing",
+      "prevHash": "0fcd8979d86a23f060191b2337eab3ad5b231f7b8376b352266c5217c1e53518",
+      "hash": "1a24b068386425df7995a6441dec0d4e8f3a0ad429729bc83c506c85e5cfb8af",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 6,
+        "snapshotDigest": "67ac24798f2cb407c4743659193ff1c1a9692d66884089c2e65ec677915899a5",
+        "filesTracked": 2,
+        "lessonsCount": 1,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 1,
+        "deadEndsCount": 1
+      }
+    },
+    {
+      "seq": 7,
+      "id": "01M8APG9AFAQGGNXZAW8KCA79P",
+      "type": "exec.completed",
+      "harness": "codex-cli",
+      "actorKind": "watcher",
+      "summary": "npm test passed after switching to linear-time header parser",
+      "prevHash": "1a24b068386425df7995a6441dec0d4e8f3a0ad429729bc83c506c85e5cfb8af",
+      "hash": "ddd86d2f1e78dcb09a43754524f320086fe3f6906a14ee3e0ddb31c3acbf9e3e",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 7,
+        "snapshotDigest": "b16c7e8d0e5c68366897e9357000afb267990df37427979530a0212a502d42e9",
+        "filesTracked": 2,
+        "lessonsCount": 1,
+        "activeDirectives": 0,
+        "unresolvedCrashes": 0,
+        "deadEndsCount": 1
+      }
+    },
+    {
+      "seq": 8,
+      "id": "01M8APG9BDXBQCGAXJ58ZQ230H",
+      "type": "directive.issued",
+      "harness": "codex-cli",
+      "actorKind": "numberone",
+      "summary": "Directive [BLOCKING]: Forbid dynamic code execution and unvalidated nested regexes in src/auth.ts",
+      "prevHash": "ddd86d2f1e78dcb09a43754524f320086fe3f6906a14ee3e0ddb31c3acbf9e3e",
+      "hash": "945a893f6cd587c974031173a65eb0273d6a3af6c6b0645d4236efb8fb0c54b7",
+      "blobCount": 0,
+      "blobRefs": [],
+      "projectionCheckpoint": {
+        "lastSeq": 8,
+        "snapshotDigest": "e2deda4d601b36cfd6fec67825d6e553f6d2e1349332d881bee754f04a33fb2a",
+        "filesTracked": 2,
+        "lessonsCount": 1,
+        "activeDirectives": 1,
+        "unresolvedCrashes": 0,
+        "deadEndsCount": 1
+      }
+    }
+  ]
+}
