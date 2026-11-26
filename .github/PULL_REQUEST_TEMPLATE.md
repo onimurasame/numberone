@@ -14,7 +14,7 @@
 - [ ] `npm audit --audit-level=high` reports 0 vulnerabilities.
 - [ ] Bridge Crew self-audit (`EngineeringOfficer`, `SecurityOfficer`, `BridgeOfficer`) maintains 100/100 KPI scores without regressions (`security_posture_score`, `runtime_readiness_score`, `continuous_delivery_score`).
 - [ ] Every added or updated GitHub Action is pinned to an immutable 40-character commit SHA with explicit minimal `permissions:`.
-- [ ] Documentation (`README.md`, `docs/CODE_REFERENCE.md`, `docs/GLOSSARY.md`, `docs/INSTALLATION.md`, `docs/ONPREM.md`, and Archify visual artifacts if topology/schema changed) has been updated.
+- [ ] Documentation (`README.md`, `docs/KIDS_AND_SCHOOL_PROJECTS.md`, `docs/TECHNICAL_GUIDE.md`, `docs/site/`, `docs/CODE_REFERENCE.md`, `docs/GLOSSARY.md`, `docs/INSTALLATION.md`, `docs/ONPREM.md`, and Archify visual artifacts if topology/schema changed) has been updated.
 
 ## Archify PR Walkthrough (Optional)
 

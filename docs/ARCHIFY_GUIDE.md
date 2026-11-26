@@ -2,7 +2,7 @@
 
 Number One leverages **100% of [Archify](https://github.com/tt-a1i/archify) v3.3.0's capabilities** to document, verify, animate, and diagnose every layer of the codebase against real committed repository evidence (`--repo-root`).
 
-Every interactive HTML deliverable is self-contained (zero external runtime or CDN dependencies, light/dark themes, keyboard navigation, Semantic Passports, and offline SVG/PNG/WebM/MP4 export) and hosted live on **GitHub Pages** (`https://onimurasame.github.io/numberone/`). Every dual-theme SVG (`-light.svg` / `-dark.svg`) in [`docs/assets/archify/`](./assets/archify/) is validated **GitHub Camo-safe** for `<picture>` rendering in [`README.md`](../README.md).
+Every interactive HTML deliverable is self-contained (zero external runtime or CDN dependencies, light/dark themes, keyboard navigation, Semantic Passports, and offline SVG/PNG/WebM/MP4 export) and hosted live on **GitHub Pages** (`https://onimurasame.github.io/numberone/`). Every dual-theme SVG (`-light.svg` / `-dark.svg`) in [`docs/assets/archify/`](./assets/archify/) is validated **GitHub Camo-safe** for `<picture>` rendering in [`docs/TECHNICAL_GUIDE.md`](./TECHNICAL_GUIDE.md).
 
 ---
 

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Number One (n1) — Authoritative System of Record, Bridge Crew &amp; Archify Portal</title>
-  <meta name="description" content="Complete technical documentation, 16-artifact interactive Archify visual architecture suite, 24-harness &amp; air-gapped on-premises installation configurator, API code reference, and searchable technical glossary for Number One (n1).">
+  <title>Number One (n1) — Plain-English Guide, Kids School Projects &amp; Full Technical Documentation</title>
+  <meta name="description" content="The project memory notebook that never forgets. Start with our plain-English guide and hands-on kids &amp; school project examples, then explore the complete technical architecture, 16 interactive Archify visual diagrams, 24+ AI harness configurator, CLI &amp; MCP reference, codebase explorer, and searchable glossary.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -18,65 +18,628 @@
         <span class="brand-cli">n1 v1.0.0</span>
       </a>
       <nav class="primary-nav" aria-label="Primary documentation sections">
-        <a href="#archify-suite" class="nav-link" id="nav-archify">Archify Suite (16)</a>
-        <a href="#how-it-works" class="nav-link" id="nav-how">How Everything Works</a>
-        <a href="#installation" class="nav-link" id="nav-install">24 Harnesses &amp; On-Prem</a>
-        <a href="#code-reference" class="nav-link" id="nav-code">Code Reference</a>
+        <a href="#plain-english" class="nav-link" id="nav-plain">Plain English</a>
+        <a href="#kids-lab" class="nav-link" id="nav-kids">Kids &amp; School Lab</a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a href="#how-it-works" class="nav-link" id="nav-how">Technical Specs</a>
+        <a href="#archify-suite" class="nav-link" id="nav-archify">Visual Suite (16)</a>
+        <a href="#installation" class="nav-link" id="nav-install">24+ Harnesses</a>
+        <a href="#code-reference" class="nav-link" id="nav-code">CLI, MCP &amp; Code</a>
         <a href="#glossary" class="nav-link" id="nav-glossary">Glossary</a>
       </nav>
       <div class="header-actions">
         <button type="button" class="btn" id="theme-toggle-btn" aria-label="Toggle light and dark theme">Light Theme</button>
-        <a href="https://github.com/onimurasame/numberone" class="btn btn-primary" id="github-repo-btn" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <a href="https://github.com/onimurasame/numberone" class="btn btn-primary" id="github-repo-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <!-- ================================================================
+         1. WELCOMING NON-TECHNICAL HERO (THE FACE OF THE DOCUMENTATION)
+         ================================================================ -->
+    <section class="hero" aria-label="Introduction to Number One">
       <div class="container">
-        <p class="hero-eyebrow">Harness-Agnostic Event-Sourced Workspace Curator &amp; Bridge Crew</p>
-        <h1>One replayable System of Record across every AI harness, engineer, and context compaction.</h1>
+        <p class="hero-eyebrow">The Project Memory Notebook That Never Forgets</p>
+        <h1>Keep your project's story, rules, and hard-won lessons safe across every day and every AI helper.</h1>
         <p class="hero-lead">
-          Number One (<code>n1</code>) attaches to any project workspace and records every file diff, Git transition, crash signature, intermediate thought, dead-end experiment, Scrum ticket, and Bridge Crew ruling in a SHA-256 hash-chained <code>.numberone/</code> event stream — enforcing <code>L1–L4</code> precedence over ephemeral chat prompts while syncing losslessly with Directory, GitHub Projects v2, and Jira.
+          Working on a science fair experiment, a school coding club game, a team presentation, or a production software system?
+          <strong>Number One</strong> sits quietly inside your project folder like a smart, un-erasable notebook paired with three built-in project checkers — remembering what you tried, protecting your rules when an AI chat resets, and turning your journey into a clear story anytime.
         </p>
+
         <div class="hero-cta-row">
-          <a href="#archify-suite" class="btn btn-primary" id="cta-explore-archify">Explore Interactive Archify Suite</a>
-          <a href="#installation" class="btn" id="cta-install-harnesses">Configure Your AI Harness</a>
-          <a href="./archify/how-numberone-works-explainer.html" class="btn" id="cta-open-explainer">Open 4-Style Explainer</a>
-          <a href="./archify/code-analysis/repo.analysis.html" class="btn" id="cta-open-diagnosis">Open 3D Code Diagnosis</a>
+          <a href="#plain-english" class="btn btn-primary" id="cta-plain-guide">Read the 3-Minute Plain-English Guide</a>
+          <a href="#kids-lab" class="btn btn-emerald" id="cta-kids-lab">Explore Kids &amp; School Projects</a>
+          <a href="#how-it-works" class="btn" id="cta-technical-jump">Jump to Full Technical Docs</a>
+          <a href="#archify-suite" class="btn" id="cta-explore-archify">Interactive Visual Maps (16)</a>
         </div>
-        <div class="stat-strip" role="region" aria-label="Verified system telemetry">
+
+        <div class="path-grid" role="navigation" aria-label="Choose your documentation path">
+          <a href="#plain-english" class="path-card" id="path-everyone">
+            <div>
+              <span class="path-tag">1 · Plain English</span>
+              <h2>New to Number One?</h2>
+              <p>Zero jargon. Understand the everyday problem Number One solves, walk through a real day step-by-step, and meet the three built-in helpers.</p>
+            </div>
+            <span class="path-link-hint">Start the plain-English story -&gt;</span>
+          </a>
+
+          <a href="#kids-lab" class="path-card path-card-kids" id="path-kids">
+            <div>
+              <span class="path-tag path-tag-kids">2 · Students, Kids &amp; Teachers</span>
+              <h2>Building a School Project?</h2>
+              <p>Try 5 ready-to-run projects — from a Science Fair Lab Notebook to JavaScript library apps like a Smart Study Buddy and Robotics Safety Guard.</p>
+            </div>
+            <span class="path-link-hint">Open the Kids &amp; School Lab -&gt;</span>
+          </a>
+
+          <a href="#technical-bridge" class="path-card path-card-tech" id="path-engineers">
+            <div>
+              <span class="path-tag path-tag-tech">3 · Full Engineering Reference</span>
+              <h2>Ready for Under the Hood?</h2>
+              <p>Dive into all 11 deep technical specs, 16 interactive Archify diagrams, 24+ AI harness &amp; air-gap configs, 24 CLI commands, 12 MCP tools, and 30+ modules.</p>
+            </div>
+            <span class="path-link-hint">Jump to technical reference -&gt;</span>
+          </a>
+        </div>
+
+        <div class="stat-strip" role="region" aria-label="At a glance highlights">
           <div class="stat-cell">
-            <span class="stat-value">47</span>
-            <span class="stat-label">Typed SHA-256 Stream Event Schemas</span>
+            <span class="stat-value">100% Local</span>
+            <span class="stat-label">Runs privately on your own computer — no account needed</span>
           </div>
           <div class="stat-cell">
-            <span class="stat-value">24+</span>
-            <span class="stat-label">Supported Market Harnesses + Air-Gap</span>
+            <span class="stat-value">5 School Projects</span>
+            <span class="stat-label">Hands-on terminal &amp; JavaScript library guides for kids</span>
           </div>
           <div class="stat-cell">
-            <span class="stat-value">100 / 100</span>
-            <span class="stat-label">Eng, Sec &amp; Bridge Officer KPI Scores</span>
+            <span class="stat-value">24+ AI Tools</span>
+            <span class="stat-label">Works with every major AI assistant — or zero AI at all</span>
           </div>
           <div class="stat-cell">
-            <span class="stat-value">16</span>
-            <span class="stat-label">Compiled Archify Interactive Deliverables</span>
+            <span class="stat-value">3 Built-In Checkers</span>
+            <span class="stat-label">Builder, Safety &amp; Launch helpers with 0–100 scorecards</span>
           </div>
           <div class="stat-cell">
-            <span class="stat-value">1</span>
-            <span class="stat-label">Runtime Dependency (<code>zod</code> · 0 CVEs)</span>
+            <span class="stat-value">16 Visual Maps</span>
+            <span class="stat-label">Interactive diagrams, narrated walkthrough &amp; 3D code map</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ================================================================
+         2. EXPANDED NON-TECHNICAL GUIDE (PLAIN ENGLISH FACE)
+         ================================================================ -->
+    <section class="section" id="plain-english">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker section-kicker-emerald">Part 1 · Plain-English Guide (Zero Jargon Required)</span>
+          <h2>How Number One Works, in Everyday Words</h2>
+          <p>
+            Whether you are a student, parent, teacher, writer, designer, or engineer, here is the complete picture of what Number One does for your project folder — without needing a computer science degree.
+          </p>
+        </div>
+
+        <!-- A. The Everyday Problem: Before vs After -->
+        <div class="compare-grid" aria-label="Before and after Number One comparison">
+          <article class="compare-panel">
+            <h3>
+              <span class="compare-badge compare-badge-before">Before</span>
+              The "Goldfish Memory" Problem
+            </h3>
+            <ul class="compare-list">
+              <li><strong>Chats reset and forget:</strong> You spend an hour explaining your project rules to an AI helper, and tomorrow a fresh chat starts completely blank.</li>
+              <li><strong>Broken ideas come back:</strong> A teammate or new AI window suggests the exact same thing that already failed yesterday.</li>
+              <li><strong>Only the final files survive:</strong> Looking at a finished project never tells you <em>why</em> you chose one design over another.</li>
+              <li><strong>Accidental mistakes slip through:</strong> It is easy to accidentally leave a password in a note or forget to double-check your work before sharing.</li>
+              <li><strong>Writing the final report is painful:</strong> At the end of a project, you have to dig through messy folders trying to remember everything you did.</li>
+            </ul>
+          </article>
+
+          <article class="compare-panel">
+            <h3>
+              <span class="compare-badge compare-badge-after">With Number One</span>
+              One Calm, Un-Erasable Project Memory
+            </h3>
+            <ul class="compare-list">
+              <li><strong>Every tool shares the same notebook:</strong> Switch computers, open a brand-new AI chat, or hand off to a teammate — Number One briefs them in seconds.</li>
+              <li><strong>Failed tries stay remembered:</strong> Dead-ends and past fixes are saved clearly so nobody wastes time repeating old mistakes.</li>
+              <li><strong>Your rules always stay in charge:</strong> Important project ground rules override forgetful chat guesses automatically.</li>
+              <li><strong>Built-in safety nets:</strong> Passwords and secret keys are automatically hidden before notes hit disk, and three helpers inspect your work on demand.</li>
+              <li><strong>Instant project story &amp; time machine:</strong> Generate a clean chapter-by-chapter project documentary or rewind to see any earlier moment.</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- B. Five Everyday Superpowers -->
+        <div class="superpower-grid" aria-label="Five everyday superpowers of Number One">
+          <article class="superpower-card">
+            <span class="superpower-num">SUPERPOWER 01</span>
+            <h3>The Self-Writing Project Diary</h3>
+            <p>
+              Just like a scientist's bound lab notebook where pages are never torn out, Number One quietly logs your file edits, ideas, choices, and test results in a tidy hidden folder (<code>.numberone/</code>) with a tamper-evident seal on every entry.
+            </p>
+          </article>
+
+          <article class="superpower-card">
+            <span class="superpower-num">SUPERPOWER 02</span>
+            <h3>The "Don't Repeat That" Shield</h3>
+            <p>
+              Every time you try something that flops — or fix a tricky problem — Number One saves the lesson. Next time you (or an AI assistant) work on that same area, Number One immediately surfaces what went wrong before and how you fixed it.
+            </p>
+          </article>
+
+          <article class="superpower-card">
+            <span class="superpower-num">SUPERPOWER 03</span>
+            <h3>Rules That Outlast Chat Resets</h3>
+            <p>
+              Write down a simple rule once (like <em>"keep keyboard controls working"</em> or <em>"never put passwords in files"</em>). Even if an AI chat forgets your conversation, Number One steps in and stops conflicting plans before they happen.
+            </p>
+          </article>
+
+          <article class="superpower-card">
+            <span class="superpower-num">SUPERPOWER 04</span>
+            <h3>The Automatic Secret Hider</h3>
+            <p>
+              Before writing any note, log, or file snapshot, Number One automatically scans for things that look like passwords, access tokens, or private keys and masks them out — keeping private secrets out of your project history.
+            </p>
+          </article>
+
+          <article class="superpower-card">
+            <span class="superpower-num">SUPERPOWER 05</span>
+            <h3>A Time Machine &amp; Storyteller</h3>
+            <p>
+              Curious what your project looked like at step #5? Number One can replay history to any exact moment. Ready to share or hand in your work? One command turns raw notes into a neat, chapter-by-chapter <strong>Project Documentary</strong>.
+            </p>
+          </article>
+        </div>
+
+        <!-- C. Interactive "Walk Through a Real Day" Stepper -->
+        <div class="story-shell" aria-label="Interactive walkthrough of a day using Number One">
+          <div class="story-header">
+            <div>
+              <span class="section-kicker" style="margin-bottom:0.2rem;">Interactive Walkthrough</span>
+              <h3>Walk Through a Real Day With Number One</h3>
+            </div>
+            <button type="button" class="btn" id="story-toggle-cmd-btn" aria-pressed="false">Show Behind-the-Scenes Command</button>
+          </div>
+          <div class="story-steps-bar" id="story-step-tabs" role="tablist" aria-label="Five steps of a day with Number One"></div>
+          <div class="story-body" id="story-stage" role="region" aria-live="polite"></div>
+        </div>
+
+        <!-- D. How Rules Win Over Confusion + Meet Your Three Helpers -->
+        <div class="split-two-col">
+          <article class="ladder-card">
+            <span class="section-kicker" style="margin-bottom:0.25rem;">Why Rules Never Get Ignored</span>
+            <h3>The 4-Step Rulebook Ladder</h3>
+            <p>
+              Whenever a brand-new AI chat says one thing, but your project history says another, Number One settles the tie using four simple levels — highest level always wins:
+            </p>
+            <ol class="ladder-list">
+              <li class="ladder-item">
+                <span class="ladder-rank">LEVEL 1</span>
+                <div>
+                  <strong>What Actually Happened (Real Facts)</strong>
+                  <span>Unfixed crashes and verified facts in your project diary always come first — nobody can pretend a broken test passed. <em>(Technical name: <code>L1</code>)</em></span>
+                </div>
+              </li>
+              <li class="ladder-item">
+                <span class="ladder-rank">LEVEL 2</span>
+                <div>
+                  <strong>Your Project's Ground Rules</strong>
+                  <span>Important "must-follow" or "never-do" rules you or the helpers set for your folder. <em>(Technical name: <code>L2</code>)</em></span>
+                </div>
+              </li>
+              <li class="ladder-item">
+                <span class="ladder-rank">LEVEL 3</span>
+                <div>
+                  <strong>Lessons &amp; Decisions You Already Made</strong>
+                  <span>Past discoveries, saved fixes, and group decisions explaining why the project is built this way. <em>(Technical name: <code>L3</code>)</em></span>
+                </div>
+              </li>
+              <li class="ladder-item">
+                <span class="ladder-rank ladder-rank-4">LEVEL 4</span>
+                <div>
+                  <strong>Today's Chat Guess</strong>
+                  <span>Suggestions from a fresh AI chat window — helpful, but always checked against Levels 1–3 first! <em>(Technical name: <code>L4</code>)</em></span>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <article class="helpers-card">
+            <span class="section-kicker section-kicker-emerald" style="margin-bottom:0.25rem;">Your Built-In Checkup Team</span>
+            <h3>Meet Your Three Friendly Project Helpers</h3>
+            <p>
+              Anytime you want to check if your project is solid, safe, and ready to share, Number One gathers three specialists who inspect your real files, double-check each other's claims against real evidence, and give you clear <code>0–100</code> scores:
+            </p>
+            <div class="helper-rows">
+              <div class="helper-row">
+                <div class="helper-row-top">
+                  <span class="helper-name">1. The Builder Helper</span>
+                  <span class="helper-tech-name">Engineering Officer · runtime_readiness_score</span>
+                </div>
+                <p>Checks that your project has clear instructions, won't crash unexpectedly, lists what settings it needs, and will run cleanly on someone else's computer.</p>
+              </div>
+              <div class="helper-row">
+                <div class="helper-row-top">
+                  <span class="helper-name">2. The Safety Helper</span>
+                  <span class="helper-tech-name">Security Officer · security_posture_score</span>
+                </div>
+                <p>Scans for accidentally pasted passwords, unsafe shortcuts in code, and risky settings — making sure your project protects you and anyone who runs it.</p>
+              </div>
+              <div class="helper-row">
+                <div class="helper-row-top">
+                  <span class="helper-name">3. The Launch Helper</span>
+                  <span class="helper-tech-name">Bridge Officer · continuous_delivery_score</span>
+                </div>
+                <p>Checks that your tests pass, automatic quality checks are in place, and you have a safe backup plan before publishing or presenting your project.</p>
+              </div>
+            </div>
+            <p style="margin:1rem 0 0;font-size:0.86rem;color:var(--text-muted);">
+              <strong>Honest self-improvement:</strong> Want to teach a helper a new rule? Number One only accepts new rules after proving on test examples that the rule catches real problems with zero false alarms!
+            </p>
+          </article>
+        </div>
+
+        <div class="reassurance-strip" role="note" aria-label="Privacy and compatibility summary">
+          <span><strong>Works Offline &amp; Privately:</strong> Everything stays in your own folder — zero cloud lock-in, zero sign-up required.</span>
+          <span><strong>Works With Any AI (or None!):</strong> Use with 24+ AI tools, plain terminal commands, or inside your own JavaScript code.</span>
+          <span><strong>Syncs When You're Ready:</strong> Optionally mirrors tasks to shared folders, GitHub Projects, or Jira without losing local details.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         3. INTERACTIVE KIDS & SCHOOL PROJECTS LAB
+         ================================================================ -->
+    <section class="section section-warm" id="kids-lab">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker section-kicker-emerald">Part 2 · Hands-On Examples for Kids, Students &amp; Clubs</span>
+          <h2>Kids &amp; School Projects Lab</h2>
+          <p>
+            Use Number One for science fairs, coding clubs, robotics teams, study apps, or group class projects! Pick a school project below to see step-by-step instructions — including both <strong>no-code commands</strong> and real runnable <strong>JavaScript library code</strong> (<code>import { NumberOneAgent } from 'numberone'</code>).
+          </p>
+        </div>
+
+        <div class="kids-layout">
+          <aside class="kids-sidebar" aria-label="School project examples">
+            <div class="kids-filter-row" id="kids-filter-pills" role="group" aria-label="Filter school projects by style"></div>
+            <div id="kids-project-list"></div>
+          </aside>
+          <div class="kids-detail" id="kids-project-detail" role="region" aria-live="polite"></div>
+        </div>
+
+        <!-- Parents & Teachers Safety Bar -->
+        <div class="parents-grid" aria-label="Quick guide for parents and teachers">
+          <div class="parent-item">
+            <strong>For Parents: 100% Local &amp; Account-Free</strong>
+            <p>Number One saves everything inside a folder on the student's computer. No logins, no ads, no tracking, and no homework sent to outside servers.</p>
+          </div>
+          <div class="parent-item">
+            <strong>For Teachers: Built-In Process Journals</strong>
+            <p>Ask students to run <code>n1 documentary --out my-report.md</code> to turn in a neat, chaptered log of their hypotheses, dead ends, fixes, and teamwork!</p>
+          </div>
+          <div class="parent-item">
+            <strong>For Coding Clubs: Real JS Library</strong>
+            <p>Students learning JavaScript can run <code>npm install numberone</code> and build working study tools, safety checkers, or game loggers in ~35 lines of code.</p>
+          </div>
+          <div class="parent-item">
+            <strong>Full Printable Guide</strong>
+            <p>Want all 5 projects and the Kid-Friendly Mini Dictionary in one Markdown document? Read <a href="https://github.com/onimurasame/numberone/blob/master/docs/KIDS_AND_SCHOOL_PROJECTS.md" target="_blank" rel="noopener noreferrer"><code>docs/KIDS_AND_SCHOOL_PROJECTS.md</code></a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         BRIDGE BANNER: TRANSITION TO FULL TECHNICAL DOCUMENTATION
+         ================================================================ -->
+    <div class="tech-bridge" id="technical-bridge">
+      <div class="container tech-bridge-inner">
+        <div>
+          <span class="section-kicker section-kicker-sky">Part 3 · Full Engineering &amp; Architecture Documentation</span>
+          <h2>Under the Hood: Complete Technical Specification &amp; Interactive Portal</h2>
+          <p>
+            Everything below combines the complete unabridged technical specification (formerly in <code>README.md</code>) with the full interactive GitHub Pages architecture portal — 11 deep architectural specifications, 16 compiled Archify viewers, 24+ AI harness &amp; air-gapped configs, all 24 CLI commands, 12 MCP tools, 30+ modules, governance automation, and searchable glossary.
+          </p>
+        </div>
+        <div class="tech-jump-pills">
+          <a href="#how-it-works" class="btn">11 Deep Specs</a>
+          <a href="#archify-suite" class="btn">16 Archify Views</a>
+          <a href="#installation" class="btn">24+ Harnesses</a>
+          <a href="#code-reference" class="btn">CLI, MCP &amp; Code</a>
+          <a href="#glossary" class="btn">Glossary</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================
+         4. DEEP ARCHITECTURAL SPECIFICATION (ALL 11 SUBSECTIONS + QUICK START)
+         ================================================================ -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Complete System Specification (Sections 3.1 – 3.11)</span>
+          <h2>How Everything in Number One Works</h2>
+          <p>
+            Every subsystem in <code>numberone</code> is built on real cryptographic primitives, strict POSIX file confinement, pure functional replay, and deterministic verification — zero mocks, zero cloud lock-in, and zero prompt theatrics.
+          </p>
+        </div>
+
+        <!-- 60-Second Quick Start + Generic + Hardened Docker -->
+        <div class="quickstart-grid">
+          <article class="quickstart-card">
+            <h3>60-Second Engineering Quick Start</h3>
+            <p>Install globally on Node.js <code>&gt;= 22.0.0</code>, attach to any workspace, watch live changes, and run a 3-officer BMAD Party Mode audit.</p>
+            <div class="code-panel">
+              <div class="code-panel-header">
+                <span>bash · quick-start</span>
+                <button type="button" class="copy-btn" data-copy-target="qs-cli-code">Copy</button>
+              </div>
+              <pre><code id="qs-cli-code">npm install -g numberone
+cd /path/to/your/workspace
+n1 attach .
+n1 watch
+n1 brief
+n1 party --topic "Production, security &amp; continuous delivery readiness"</code></pre>
+            </div>
+          </article>
+
+          <article class="quickstart-card">
+            <h3>Generic Harness-Agnostic Mode (Zero MCP)</h3>
+            <p>Works with any CLI tool, web chat copy-paste workflow, custom agent, or human-only terminal without requiring MCP.</p>
+            <div class="code-panel">
+              <div class="code-panel-header">
+                <span>bash · zero-mcp</span>
+                <button type="button" class="copy-btn" data-copy-target="qs-generic-code">Copy</button>
+              </div>
+              <pre><code id="qs-generic-code">n1 attach .
+n1 watch
+eval "$(n1 shell-hook bash)"
+n1 exec -- npm test
+n1 ingest ./chat-export.jsonl</code></pre>
+            </div>
+          </article>
+
+          <article class="quickstart-card">
+            <h3>On-Premises &amp; Air-Gapped Container Mode</h3>
+            <p>100% zero-egress core (1 runtime dependency: <code>zod</code>), read-only rootfs, zero Linux capabilities, and PID-1 <code>tini</code>.</p>
+            <div class="code-panel">
+              <div class="code-panel-header">
+                <span>bash · hardened-docker</span>
+                <button type="button" class="copy-btn" data-copy-target="qs-docker-code">Copy</button>
+              </div>
+              <pre><code id="qs-docker-code">docker build -t numberone:1.0.0 .
+docker run --rm --network=none --user "$(id -u):$(id -g)" \
+  --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m \
+  --cap-drop=ALL --security-opt=no-new-privileges \
+  -v "$(pwd):/workspace" numberone:1.0.0 party --workspace /workspace --topic "Air-gap audit"</code></pre>
+            </div>
+          </article>
+        </div>
+
+        <!-- Full 11 Technical Subsections -->
+        <div class="spec-grid">
+          <article class="spec-block spec-block-wide">
+            <h3>3.1 Physical <code>.numberone/</code> Layout, POSIX Confinement &amp; Advisory Locking</h3>
+            <p>
+              When <code>n1 attach .</code> runs, <code>StreamStore.init()</code> initializes a confined <code>.numberone/</code> hierarchy at the workspace root with owner-only permissions (<code>0o700</code> / <code>0o600</code>):
+            </p>
+            <div class="code-panel">
+              <div class="code-panel-header">
+                <span>.numberone/ physical directory layout</span>
+                <button type="button" class="copy-btn" data-copy-target="layout-tree-code">Copy</button>
+              </div>
+              <pre><code id="layout-tree-code">.numberone/                       # Mode 0o700 (owner rwx only)
+├── config.json                   # Mode 0o600 — NumberOneConfig (mode, watcher, persistence, crew, llm)
+├── daemon.pid                    # Detached watcher PID + Linux /proc/&lt;pid&gt;/stat field-22 startTicks
+├── daemon.log                    # Background watcher operational log (gitignored)
+├── stream/
+│   ├── .stream.lock              # Cross-process advisory lockfile serializing stream appends
+│   ├── head.json                 # Mode 0o600 — Atomic StreamHead { lastSeq, lastEventId, lastHash, updatedAt }
+│   ├── events/
+│   │   ├── 00000001-&lt;ULID&gt;.json  # Mode 0o600 — Immutable SHA-256 hash-chained StreamEvent files
+│   │   └── 00000002-&lt;ULID&gt;.json
+│   └── blobs/
+│       └── &lt;sha256&gt;              # Mode 0o600 — Content-addressed snapshots, full diffs &amp; crash logs (n1://fallback/&lt;sha256&gt;)
+├── projections/
+│   └── state.json                # Cached WorkspaceProjection guarded by canonical snapshotDigest (gitignored)
+└── sync/
+    ├── .sync.lock                # Cross-process advisory lockfile serializing persistence pushes
+    └── ledger.json               # Mode 0o600 — Bidirectional mapping between event ULIDs and remote IDs</code></pre>
+            </div>
+            <ul class="spec-list">
+              <li><strong>Symlink Escape Prevention (<code>src/utils/fs-helpers.ts</code>)</strong>: Every read and write verifies <code>isPathConfinedToRoot</code> / <code>isWritablePathConfinedToRoot</code> via <code>fs.realpathSync</code> and opens descriptors with <code>fs.constants.O_NOFOLLOW</code> where supported, neutralizing symlink-swap TOCTOU (CWE-59/CWE-367) attacks.</li>
+              <li><strong>Crash-Safe Atomic Writes (<code>atomicWriteFileSync</code>)</strong>: Writes to a unique sibling temporary file (<code>O_CREAT | O_EXCL</code>), flushes kernel page buffers via <code>fs.fsyncSync(fd)</code>, applies <code>0o600</code> mode bits, and atomically replaces the target via <code>fs.renameSync</code>.</li>
+              <li><strong>PID-Reuse-Safe Advisory Locks (<code>src/utils/lock.ts</code>)</strong>: Concurrent writers (<code>n1 watch</code>, IDE <code>n1 mcp</code>, <code>post-commit</code> hooks) serialize via atomic <code>fs.linkSync</code> (with <code>wx</code> fallback), zero-CPU <code>Atomics.wait</code> sleep, and single-FD <code>O_RDONLY | O_NOFOLLOW</code> stale-lock checks against <code>process.kill(pid, 0)</code> and field 22 (<code>starttime</code> ticks) of <code>/proc/&lt;pid&gt;/stat</code>.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.2 Cryptographic Append-Only Event Stream (<code>StreamStore</code>)</h3>
+            <p>
+              Every workspace occurrence is recorded as one of <strong>47 typed <code>StreamEvent</code>s</strong> (<code>src/core/types.ts</code>).
+            </p>
+            <ul class="spec-list">
+              <li><strong>Monotonic ULID Assignment (<code>generateUlid</code>)</strong>: 26-char Crockford Base32 ULID combining a 48-bit millisecond timestamp with 80 bits of <code>crypto.randomBytes</code> entropy; increments monotonically within the same millisecond.</li>
+              <li><strong>Fail-Closed Tip Verification (<code>getHead</code>)</strong>: Cross-checks <code>stream/head.json</code> against the tail event in <code>stream/events/</code>. Self-heals only when a crash wrote the exact next valid chained event; fails closed with <code>Stream integrity violation</code> on corruption or tampering.</li>
+              <li><strong>Canonical SHA-256 Hash Chaining</strong>: Event <code>#1</code> sets <code>prevHash = "0".repeat(64)</code> (<code>GENESIS_HASH</code>); event <code>#k</code> links <code>prevHash = event[k-1].hash</code> using recursively sorted <code>canonicalJson</code> (blocking <code>__proto__</code>, <code>constructor</code>, <code>prototype</code>). Remote sync refs live in <code>sync/ledger.json</code> so pushing later never mutates event hashes.</li>
+              <li><strong>Full Chain Verification (<code>n1 verify</code>)</strong>: Validates Zod schemas, contiguous <code>seq = 1..N</code>, unbroken <code>prevHash -&gt; hash</code> links, <code>head.json</code> parity, and every referenced blob digest.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.3 Linear-Time Secret Redaction &amp; CAS Fallback Blobs</h3>
+            <p>
+              Before any <code>StreamEvent</code> or text <code>BlobRef</code> touches disk, <code>redactSecrets</code> and <code>redactObjectDeep</code> (<code>src/utils/redactor.ts</code>) scrub credentials in guaranteed <code>O(n)</code> linear time.
+            </p>
+            <ul class="spec-list">
+              <li><strong>Scrubbed Token Classes</strong>: AWS keys (<code>AKIA*</code>, <code>ASIA*</code>), GitHub PATs (<code>ghp_*</code>, <code>github_pat_*</code>, <code>gho_*</code>, <code>ghs_*</code>, <code>ghu_*</code>), Slack tokens (<code>xox[baprs]-*</code>) &amp; webhooks, Anthropic (<code>sk-ant-*</code>), OpenAI (<code>sk-*</code>), Google (<code>AIza*</code>), Stripe live/restricted keys, 3-part JWTs, PEM private keys, HTTP <code>Authorization</code> headers, URL userinfo, generic password/token KV pairs, and Azure SAS signatures.</li>
+              <li><strong>Sensitive Filename Suppression (<code>isSensitiveSecretFile</code>)</strong>: <code>.env*</code> (except <code>.env.example</code>/<code>.sample</code>/<code>.template</code>), <code>*.pem</code>, <code>*.key</code>, <code>*.p12</code>, <code>*.pfx</code>, <code>id_rsa*</code>, <code>id_ed25519*</code>, <code>.npmrc</code>, <code>.pypirc</code>, <code>.netrc</code>, and <code>.aws/credentials</code> are metadata-tracked without snapshotting raw contents.</li>
+              <li><strong>Content-Addressed Storage (<code>storeBlob</code>)</strong>: Large command logs, diffs exceeding <code>maxInlineDiffBytes</code> (<code>16 KB</code>), and snapshots store once at <code>.numberone/stream/blobs/&lt;sha256&gt;</code> addressed via <code>n1://fallback/&lt;sha256&gt;</code>.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.4 Deterministic Replay, Snapshot Digests &amp; Time-Travel (<code>ReplayEngine</code>)</h3>
+            <p>
+              <code>ReplayEngine</code> (<code>src/core/replay-engine.ts</code>) implements pure functional event sourcing with zero external side effects.
+            </p>
+            <ul class="spec-list">
+              <li><strong>Pure Reducer (<code>applyEventToProjection</code>)</strong>: Deterministically folds all 47 event types without reading wall-clock time, randomness, or live disk state.</li>
+              <li><strong>Tamper-Evident Cache Guard (<code>computeProjectionDigest</code>)</strong>: <code>projections/state.json</code> embeds <code>projectionVersion: 3</code> and canonical SHA-256 <code>snapshotDigest</code>. <code>getCurrentState()</code> uses the <code>O(1)</code> cache only when <code>lastSeq</code>, <code>lastEventHash</code>, and recomputed <code>snapshotDigest</code> all match; any drift triggers full replay from <code>seq #1</code>.</li>
+              <li><strong>Forensic Time-Travel</strong>: Run <code>n1 replay --until-seq 25</code> or <code>n1 replay --until-time 2026-11-23T09:05:00Z</code> to inspect exact workspace state at any historical point without mutating current state.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.5 Authoritative Precedence (<code>L1–L4</code>) &amp; Affirmative Arbitration (<code>AuthorityEngine</code>)</h3>
+            <p>
+              Resolves conflicts between ephemeral chat assumptions and institutional truth via strict four-tier precedence (<code>src/core/authority-engine.ts</code>):
+            </p>
+            <ul class="spec-list">
+              <li><strong>Precedence Ladder</strong>: <code>L1_SOR_INVARIANT</code> (immutable stream facts &amp; unresolved critical crashes) &gt; <code>L2_NUMBER_ONE_DIRECTIVE</code> (active <code>blocking</code>/<code>mandatory</code>/<code>advisory</code> directives &amp; Party Mode vetoes) &gt; <code>L3_OFFICER_GATE</code> (officer directives, verified <code>high</code>/<code>critical</code> lessons &amp; active ADRs) &gt; <code>L4_SESSION_CONTEXT</code> (ephemeral AI prompts).</li>
+              <li><strong>Affirmative Clause Analysis</strong>: <code>extractAffirmativeClauses</code> strips pure negated compliance clauses (<em>"never call eval("</em>) while catching mixed affirmative clauses (<em>"instead call eval(input)"</em>).</li>
+              <li><strong>ReDoS Immunity (<code>validateRegexSafety</code>)</strong>: Rejects nested quantifiers, overlapping alternations, backreferences, and lookbehinds so patterns execute in linear time.</li>
+              <li><strong>Verdicts</strong>: <code>APPROVE</code> (exit <code>0</code>), <code>APPROVE_WITH_CONDITIONS</code> (exit <code>0</code>), <code>OVERRIDE</code> (authoritative guidance override), and <code>BLOCK</code> (exit <code>2</code>).</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.6 Institutional Memory &amp; Crash-to-Fix Lesson Synthesis (<code>LessonEngine</code>)</h3>
+            <p>
+              <code>LessonEngine</code> (<code>src/core/lesson-engine.ts</code>) stops teams and AI harnesses from repeating solved failures.
+            </p>
+            <ul class="spec-list">
+              <li><strong>Multi-Signal Lesson Scoring (<code>findRelevantLessons</code>)</strong>: Exact path match (<code>+6</code>), directory prefix (<code>+3</code>), error-signature substring (<code>+8</code>), tag overlap (<code>+4</code>), normalized keyword overlap (<code>+1..+5</code>), verification bonus (<code>+2</code>), and severity weighting.</li>
+              <li><strong>Dead-End Shield (<code>findRelevantFailedAttempts</code>)</strong>: Surfaces prior <code>attempt.failed</code> records touching the same files or problem space before work begins.</li>
+              <li><strong>Automatic Failure-to-Fix Correlation</strong>: When <code>n1 exec</code> transitions from <code>exec.failed</code>/<code>exec.crashed</code> to <code>exec.completed</code> (<code>exitCode === 0</code>), scans the causal window for edited paths and dead ends, resolves the crash, and auto-synthesizes a <code>lesson.captured</code> event.</li>
+              <li><strong>Workspace Documentary (<code>n1 documentary</code>)</strong>: Compiles chronological session chapters across harnesses, people, crashes, and rulings.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.7 Live Workspace Sensors: Watcher, Daemon, Git Hooks, <code>n1 exec</code> &amp; Transcripts</h3>
+            <p>
+              Captures manual IDE saves, Git operations, terminal crashes, and offline AI chats continuously.
+            </p>
+            <ul class="spec-list">
+              <li><strong><code>WorkspaceFsWatcher</code></strong>: Honors <code>.gitignore</code> + <code>.numberone</code> via linear-time <code>WorkspaceIgnore</code>, coalesces burst writes (<code>debounceMs: 250</code>), computes bounded unified diffs, snapshots text into CAS blobs, and supports <code>n1 reconcile</code> for offline edits.</li>
+              <li><strong><code>WatcherDaemonManager</code></strong>: Detached background <code>n1 watch</code> daemon binding <code>daemon.pid</code> to Linux <code>/proc/&lt;pid&gt;/stat</code> start ticks and flushing cleanly on <code>SIGTERM</code>/<code>SIGINT</code>.</li>
+              <li><strong>Chained Git Hooks</strong>: Uses <code>git rev-parse --git-path hooks</code> (worktree &amp; custom <code>core.hooksPath</code> safe) and chains <code>post-commit</code>, <code>post-checkout</code>, <code>post-merge</code>, <code>post-rewrite</code>, and <code>pre-push</code> without overwriting Husky/Lefthook.</li>
+              <li><strong><code>runWatchedCommand</code> &amp; <code>ingestTranscriptFile</code></strong>: Strips secrets from child envs (<code>buildSanitizedChildEnv</code>), captures UTF-8-safe bounded ring buffers, escalates timeouts (<code>SIGTERM -&gt; SIGKILL</code>), installs <code>bash</code>/<code>zsh</code> crash hooks, and imports Claude/Codex JSONL, JSON, and Markdown transcripts.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.8 Model Context Protocol (<code>stdio</code> MCP) &amp; <code>L4</code> Privilege Boundary</h3>
+            <p>
+              <code>NumberOneMcpServer</code> (<code>src/harness/mcp-server.ts</code>) implements <strong>MCP <code>2024-11-05</code></strong> over <code>stdio</code> JSON-RPC 2.0 with zero external SDK dependencies.
+            </p>
+            <ul class="spec-list">
+              <li><strong>Memory &amp; Pipe Hardening</strong>: Enforces <code>maxLineBytes = 2,000,000</code> on raw <code>Buffer</code> chunks prior to UTF-8 decoding, pauses <code>stdin</code> for async backpressure, and traps <code>stdout</code> <code>EPIPE</code> cleanly on IDE disconnect.</li>
+              <li><strong>Strict <code>L4</code> Privilege Boundary</strong>:
+                (1) <code>record_stream_event</code> allows only non-privileged telemetry types (<code>chat.turn</code>, <code>chat.thinking</code>, <code>attempt.failed</code>, <code>issue.opened</code>, <code>issue.updated</code>, <code>decision.recorded</code>);
+                (2) <code>issue_directive</code> over MCP is capped at <code>severity: 'advisory'</code>;
+                (3) <code>propose_officer_evolution</code> unconditionally locks <code>allowBenchmarkExec: false</code>.
+              </li>
+            </ul>
+          </article>
+
+          <article class="spec-block spec-block-wide">
+            <h3>3.9 BMAD Party Mode Bridge Crew (<code>Engineering</code>, <code>Security</code> &amp; <code>Bridge</code> Officers)</h3>
+            <p>
+              When <code>n1 party --topic "..."</code> (or MCP <code>assemble_crew</code>) runs, <code>PartyModeOrchestrator</code> (<code>src/crew/party-mode.ts</code>) convenes three domain specialists in a deterministic 3-round audit:
+            </p>
+            <div class="table-scroll" style="margin-bottom:1rem;">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:20%">Officer</th>
+                    <th style="width:22%">Main KPI (0..100)</th>
+                    <th>Audited Controls &amp; Methodologies</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Engineering Officer</strong><br><code>EngineeringOfficer</code></td>
+                    <td><code>runtime_readiness_score</code></td>
+                    <td>Runtime/engine version pinning (<code>engines</code>, <code>.nvmrc</code>, <code>rust-toolchain</code>, <code>go.mod</code>, <code>.python-version</code>), lockfile determinism, hardened multi-stage <code>Dockerfile</code> (<code>USER</code>, digest/tag pin, <code>.dockerignore</code>), <code>.env.example</code> config contract, graceful <code>SIGTERM</code>/<code>SIGINT</code>/<code>tini</code> handling, operational runbooks, and zero unresolved crash debt.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Security Officer</strong><br><code>SecurityOfficer</code></td>
+                    <td><code>security_posture_score</code></td>
+                    <td>Hardcoded credential scanning (cleanly skipping test fixtures &amp; shell echoes), <code>.gitignore</code> secret hygiene, lockfile integrity, dangerous code sinks (<code>eval</code>, <code>new Function</code>), GitHub Actions <strong>40-char commit SHA pinning</strong> &amp; least-privilege <code>permissions:</code>, non-root containers, <code>SECURITY.md</code>, and Dependabot/Renovate (OWASP ASVS, SLSA, NIST SSDF).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bridge Officer</strong><br><code>BridgeOfficer</code></td>
+                    <td><code>continuous_delivery_score</code></td>
+                    <td>Automated test suite &amp; runner config, recent stream test pass rate, CI workflow triggered on <code>push</code>/<code>pull_request</code> executing real tests, release workflow or <code>CHANGELOG.md</code>, static typecheck/lint gates, executable rollback runbook/script (<code>scripts/rollback.sh</code>), and zero open release-blocking issues (DORA / Continuous Delivery).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="spec-list">
+              <li><strong>Round 1 — Independent Telemetry Assessment</strong>: Inspects real workspace files &amp; <code>WorkspaceProjection</code>, producing weighted checks, concrete <code>OfficerFinding[]</code>, and cross-officer <code>PeerChallenge[]</code> (persisted as <code>crew.opinion</code> + <code>officer.kpi.measured</code>).</li>
+              <li><strong>Round 2 — Deterministic Peer Challenge Verification (<code>resolvePeerChallenges</code>)</strong>: Adjudicates every challenge against real telemetry as <code>CONFIRMED</code>, <code>REBUTTED_BY_EVIDENCE</code>, or <code>ESCALATED</code>.</li>
+              <li><strong>Round 3 — Precedent Correlation, Matrix &amp; Veto Ruling</strong>: Correlates findings with historical lessons &amp; dead ends, emits <code>OfficerDecisionRow[]</code> + prioritized <code>P0</code>–<code>P3</code> <code>RemediationItem[]</code>, and emits <code>crew.consensus</code> (exit <code>0</code>) or <code>crew.veto</code> (exit <code>2</code>) with an automatic active <code>L2</code> <code>blocking</code> directive on critical defects.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.10 Empirically Verified KPI-Gated Continuous Evolution (<code>KnowledgeEvolutionEngine</code>)</h3>
+            <p>
+              Officers upgrade their rulebooks without hallucination or prompt drift via <code>src/crew/evolution-engine.ts</code>:
+            </p>
+            <ul class="spec-list">
+              <li><strong>Safety Gate</strong>: Candidate practices must pass <code>KnowledgeUpdateProposalSchema</code> and linear-time <code>validateRegexSafety</code>.</li>
+              <li><strong>Counterfactual Virtual-File Proof (<code>counterfactual_replay</code>)</strong>: Evaluates labeled compliant (<code>expectedViolation: false</code>) and violating (<code>expectedViolation: true</code>) virtual file maps via <code>evaluatePracticeMatcherOnVirtualFiles</code>. Promotes <strong>if and only if</strong> 100% of compliant samples pass (<code>0</code> false positives) and KPI discrimination strictly improves (<code>delta &gt; 0</code>).</li>
+              <li><strong>Live Regression Auditing &amp; Rollback</strong>: <code>n1 evolve audit &lt;role&gt;</code> flags live KPI drops (<code>&gt;= threshold</code>), and <code>n1 evolve revert &lt;role&gt; &lt;practiceId&gt;</code> deactivates regressed practices via <code>officer.knowledge.reverted</code>.</li>
+            </ul>
+          </article>
+
+          <article class="spec-block">
+            <h3>3.11 Distributed Scrum Persistence Fabric</h3>
+            <p>
+              <code>PersistenceFabric</code> (<code>src/persistence/fabric.ts</code>) synchronizes work items bidirectionally while keeping <code>.numberone/</code> always integral:
+            </p>
+            <ul class="spec-list">
+              <li><strong><code>.numberone/</code> Primary Fallback</strong>: Oversized crash logs, thinking arrays, and binary blobs remain local and link via <code>n1://fallback/&lt;sha256&gt;</code>.</li>
+              <li><strong>Directory / Worktree / NFS Adapter</strong>: Zero-network JSON + Markdown Kanban across <code>backlog/</code>, <code>in-progress/</code>, <code>blocked/</code>, <code>done/</code>, <code>lessons/</code>, <code>directives/</code>, <code>decisions/</code>, and <code>board.md</code>.</li>
+              <li><strong>GitHub Issues + Projects v2 (and GHES)</strong>: Auto-provisions 14 <code>n1:*</code> labels, embeds lossless HTML5-safe <code>&lt;!-- n1-meta:{...} --&gt;</code> footers, syncs Projects v2 GraphQL Single-Select <code>Status</code> columns, and supports custom <code>apiBaseUrl</code>.</li>
+              <li><strong>Jira Cloud &amp; Data Center</strong>: Formats descriptions in Atlassian Document Format (<code>ADF</code>), tags officer components (<code>n1-engineering</code>, <code>n1-security</code>, <code>n1-bridge</code>), binds to Agile Sprints, and pulls edits via JQL.</li>
+              <li><strong>Hardened HTTP Transport (<code>resilientFetch</code>)</strong>: Blocks SSRF against RFC 1918, loopback, CGNAT, and cloud metadata (<code>169.254.169.254</code>), binds tokens strictly to HTTPS origin (<code>resolveScopedEnvVar</code>), caps response payloads, and retries <code>429</code>/<code>502</code>/<code>503</code>/<code>504</code> with <code>Retry-After</code> + jittered backoff.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="doc-links-bar" aria-label="Standalone technical Markdown guides on GitHub">
+          <span style="font-size:0.9rem;color:var(--text-secondary);"><strong>Standalone Markdown Manuals (GitHub):</strong></span>
+          <div class="pill-group">
+            <a class="btn" href="https://github.com/onimurasame/numberone/blob/master/docs/TECHNICAL_GUIDE.md" target="_blank" rel="noopener noreferrer">TECHNICAL_GUIDE.md</a>
+            <a class="btn" href="https://github.com/onimurasame/numberone/blob/master/docs/INSTALLATION.md" target="_blank" rel="noopener noreferrer">INSTALLATION.md</a>
+            <a class="btn" href="https://github.com/onimurasame/numberone/blob/master/docs/ONPREM.md" target="_blank" rel="noopener noreferrer">ONPREM.md</a>
+            <a class="btn" href="https://github.com/onimurasame/numberone/blob/master/docs/CODE_REFERENCE.md" target="_blank" rel="noopener noreferrer">CODE_REFERENCE.md</a>
+            <a class="btn" href="https://github.com/onimurasame/numberone/blob/master/docs/GLOSSARY.md" target="_blank" rel="noopener noreferrer">GLOSSARY.md</a>
+            <a class="btn" href="https://github.com/onimurasame/numberone/blob/master/docs/ARCHIFY_GUIDE.md" target="_blank" rel="noopener noreferrer">ARCHIFY_GUIDE.md</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         5. INTERACTIVE ARCHIFY VISUAL SUITE (ALL 16 COMPILED ARTIFACTS)
+         ================================================================ -->
     <section class="section" id="archify-suite">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">100% Archify v3.3.0 Coverage</span>
+          <span class="section-kicker">100% Archify v3.3.0 Coverage · 16 Interactive Deliverables</span>
           <h2>Interactive Visual Architecture, Walkthroughs &amp; Code Diagnosis</h2>
           <p>
-            Select any artifact below to inspect it live in the embedded Viewer — including all 10 native diagram types, the 4-style One-Page Explainer, Narrated Story Walkthrough (with 1080p60 WebM/MP4 export), Multi-View Component Choreography, Before/After Architecture Diff, and Source-Backed 3D Code Analysis Workbench.
+            Select any artifact below to inspect it live in the embedded viewer — including all 10 native diagram types, the 4-style One-Page Explainer, Narrated Story Walkthrough (with 1080p60 WebM/MP4 export), Multi-View Component Choreography, Before/After Architecture Diff, Source-Backed 3D Code Analysis Workbench, and PR Walkthrough Pack.
           </p>
         </div>
 
@@ -95,107 +658,26 @@
           </div>
           <div class="theater-caption">
             <span id="archify-stage-caption">Master System of Record topology with 19 pinned src/ citations, Semantic Passports, and cross-diagram drilldowns.</span>
-            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-              <a href="./archify/pr-pack/views/topology.html" class="btn" id="archify-open-prpack" target="_blank" rel="noopener">View PR Pack Topology</a>
-              <a href="./archify/system-overview.html" class="btn btn-primary" id="archify-open-full" target="_blank" rel="noopener">Open Fullscreen Viewer</a>
+            <div class="theater-caption-actions">
+              <a href="./archify/how-numberone-works-explainer.html" class="btn" id="archify-open-explainer" target="_blank" rel="noopener noreferrer">4-Style Explainer</a>
+              <a href="./archify/pr-pack/views/topology.html" class="btn" id="archify-open-prpack" target="_blank" rel="noopener noreferrer">View PR Pack Topology</a>
+              <a href="./archify/system-overview.html" class="btn btn-primary" id="archify-open-full" target="_blank" rel="noopener noreferrer">Open Fullscreen Viewer</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="how-it-works">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">Deep System Specification</span>
-          <h2>How Everything in Number One Works</h2>
-          <p>
-            Every subsystem in <code>numberone</code> is built on real cryptographic primitives, strict POSIX file confinement, pure functional replay, and deterministic verification — zero mocks, zero cloud lock-in, and zero prompt theatrics.
-          </p>
-        </div>
-
-        <div class="spec-grid">
-          <article class="spec-block">
-            <h3>1. Cryptographic Stream &amp; CAS Blobs (<code>StreamStore</code>)</h3>
-            <p>
-              All workspace occurrences append to <code>.numberone/stream/events.jsonl</code> (mode <code>0o600</code> inside <code>0o700</code> <code>.numberone/</code>) serialized under PID-tick-verified advisory locks (<code>linkSync</code> + <code>/proc/&lt;pid&gt;/stat</code>).
-            </p>
-            <ul class="spec-list">
-              <li><strong>Monotonic ULIDs</strong>: 48-bit ms timestamp + 80-bit CSPRNG entropy with within-ms monotonic increment.</li>
-              <li><strong>Canonical SHA-256 Chain</strong>: Sorted-key <code>canonicalJson</code> links <code>prevHash -&gt; hash</code> from <code>GENESIS_HASH</code> and flushes via <code>fsyncSync</code>.</li>
-              <li><strong>Linear-Time Secret Scrubbing</strong>: AWS, GitHub, Slack, Anthropic, OpenAI, Google, Stripe, JWT, PEM, Bearer/Basic, URL userinfo, and SAS tokens are redacted before disk write.</li>
-              <li><strong>Content-Addressed Blobs</strong>: Large diffs, snapshots, and crash logs are stored once at <code>.numberone/fallback/blobs/&lt;sha256&gt;.blob</code>.</li>
-            </ul>
-          </article>
-
-          <article class="spec-block">
-            <h3>2. Deterministic Replay &amp; Digest Guard (<code>ReplayEngine</code>)</h3>
-            <p>
-              Current state (<code>WorkspaceProjection</code>, version <code>3</code>) is a pure mathematical fold (<code>applyEventToProjection</code>) over the atomic event stream.
-            </p>
-            <ul class="spec-list">
-              <li><strong><code>O(1)</code> Verified Cache</strong>: <code>projections/state.json</code> embeds a canonical SHA-256 <code>snapshotDigest</code> verified against <code>stream/head.json</code> on every read.</li>
-              <li><strong>Time-Travel Forensics</strong>: Replay exact state at any historical moment via <code>n1 replay --until-seq N</code> or <code>--until-timestamp ISO</code>.</li>
-              <li><strong>Workspace Documentary</strong>: <code>n1 documentary</code> compiles raw events into narrative session chapters across harnesses and people.</li>
-            </ul>
-          </article>
-
-          <article class="spec-block">
-            <h3>3. <code>L1–L4</code> Authority &amp; Memory (<code>AuthorityEngine</code>)</h3>
-            <p>
-              Number One supersedes ephemeral chat prompts whenever session context conflicts with verified institutional history.
-            </p>
-            <ul class="spec-list">
-              <li><strong>Precedence</strong>: <code>L1</code> SoR Stream &amp; Crashes &gt; <code>L2</code> Number One Directives &gt; <code>L3</code> Officer Gates &amp; Verified Lessons &gt; <code>L4</code> Session Context.</li>
-              <li><strong>Affirmative Clause Parsing</strong>: Strips negated compliance clauses (<em>"do not use eval"</em>) to eliminate false-positive blocks while catching real violations.</li>
-              <li><strong>Auto-Lesson Correlation</strong>: <code>n1 exec</code> automatically links prior crashes and edited files to synthesize <code>lesson.captured</code> when tests turn green.</li>
-            </ul>
-          </article>
-
-          <article class="spec-block">
-            <h3>4. BMAD Party Mode &amp; KPI Evolution (<code>src/crew/</code>)</h3>
-            <p>
-              Three specialist officers audit live workspace files and evolve their rulebooks strictly through empirical proof.
-            </p>
-            <ul class="spec-list">
-              <li><strong>Engineering, Security &amp; Bridge Officers</strong>: Measure <code>runtime_readiness_score</code>, <code>security_posture_score</code>, and <code>continuous_delivery_score</code> (<code>0..100</code>).</li>
-              <li><strong>Round 2 Challenge Verification</strong>: Peer challenges are adjudicated against check telemetry as <code>CONFIRMED</code>, <code>REBUTTED_BY_EVIDENCE</code>, or <code>ESCALATED</code>.</li>
-              <li><strong>KPI-Proven Self-Evolution</strong>: Candidate practices promote <strong>if and only if</strong> counterfactual virtual-file replay proves <code>delta &gt; 0</code> and <code>0</code> false positives.</li>
-            </ul>
-          </article>
-
-          <article class="spec-block">
-            <h3>5. Hardened <code>stdio</code> MCP &amp; Live Sensors</h3>
-            <p>
-              Connects natively to any MCP client while capturing manual terminal and IDE activity in the background.
-            </p>
-            <ul class="spec-list">
-              <li><strong><code>NumberOneMcpServer</code></strong>: Exposes 12 tools &amp; 4 <code>numberone://</code> resources with 2 MB pre-decode line limits, stdin backpressure, and strict <code>L4</code> privilege guards.</li>
-              <li><strong>Universal Sensors</strong>: <code>WorkspaceFsWatcher</code>, chained worktree-safe Git hooks, <code>bash</code>/<code>zsh</code> crash hooks, and JSONL/Markdown transcript ingestion.</li>
-            </ul>
-          </article>
-
-          <article class="spec-block">
-            <h3>6. Distributed Scrum Persistence Fabric</h3>
-            <p>
-              Mirrors issues, lessons, directives, ADRs, crashes, and rulings across Scrum platforms while keeping <code>.numberone/</code> whole at all times.
-            </p>
-            <ul class="spec-list">
-              <li><strong>Adapters</strong>: Zero-SaaS Directory/Worktree Kanban, GitHub Issues + Projects v2 GraphQL (including GHES), and Jira REST v3 + ADF + Agile Sprints.</li>
-              <li><strong>SSRF &amp; Credential Origin Guard</strong>: <code>resilientFetch</code> blocks RFC 1918, loopback, CGNAT, and <code>169.254.169.254</code> metadata IPs and binds env tokens strictly to origin.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
+    <!-- ================================================================
+         6. ALL 24 AI HARNESSES, GENERIC & ON-PREMISES CONFIGURATOR
+         ================================================================ -->
     <section class="section" id="installation">
       <div class="container">
         <div class="section-header">
           <span class="section-kicker">Universal Deployment Matrix</span>
           <h2>All 24 AI Harnesses, Generic Mode &amp; On-Premises / Air-Gapped Configurator</h2>
           <p>
-            Select your AI coding harness or enterprise deployment target below to inspect its exact configuration file, rule shim, and copy-paste setup snippet.
+            Every <code>n1 attach .</code> run automatically installs universal instruction shims (<code>AGENTS.md</code>, <code>CLAUDE.md</code>, <code>.cursor/rules/numberone.mdc</code>, <code>.github/copilot-instructions.md</code>, <code>.mcp.json</code>). Select your AI coding harness or enterprise deployment target below for exact copy-paste setup.
           </p>
         </div>
 
@@ -209,49 +691,206 @@
       </div>
     </section>
 
+    <!-- ================================================================
+         7. UNIFIED CLI, MCP, CODEBASE & GOVERNANCE REFERENCE HUB
+         ================================================================ -->
     <section class="section" id="code-reference">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">API &amp; Module Architecture</span>
-          <h2>Complete Production Codebase Reference (<code>src/</code>)</h2>
+          <span class="section-kicker">Complete Technical Reference Hub</span>
+          <h2>CLI Commands, MCP Protocol, Codebase Modules &amp; Governance</h2>
           <p>
-            Filter by architectural package or search any file path, TypeScript class, exported function, or domain responsibility across all 30 production modules.
+            Switch tabs to browse all 24 <code>n1</code> CLI commands, all 12 MCP tools &amp; 4 <code>numberone://</code> resources, all 30+ production TypeScript modules in <code>src/</code>, and GitHub platform security governance &amp; licensing.
           </p>
         </div>
 
-        <div class="filter-bar">
-          <input type="search" id="code-ref-search" class="search-input" placeholder="Search file path, class, method, or capability..." aria-label="Search code reference">
-          <div class="pill-group" id="code-ref-pills" role="group" aria-label="Filter by package"></div>
+        <div class="ref-tab-bar" role="tablist" aria-label="Technical reference categories">
+          <button type="button" class="ref-tab-btn active" id="ref-tab-cli" role="tab" aria-selected="true" data-ref-panel="panel-cli">CLI Commands</button>
+          <button type="button" class="ref-tab-btn" id="ref-tab-mcp" role="tab" aria-selected="false" data-ref-panel="panel-mcp">MCP Protocol (12 Tools / 4 Resources)</button>
+          <button type="button" class="ref-tab-btn" id="ref-tab-code" role="tab" aria-selected="false" data-ref-panel="panel-code">Codebase Reference (src/)</button>
+          <button type="button" class="ref-tab-btn" id="ref-tab-gov" role="tab" aria-selected="false" data-ref-panel="panel-gov">GitHub Governance &amp; License</button>
         </div>
 
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:24%">Module Path</th>
-                <th style="width:28%">Primary Exports</th>
-                <th>Architectural Responsibility</th>
-              </tr>
-            </thead>
-            <tbody id="code-ref-tbody"></tbody>
-          </table>
+        <!-- TAB 1: CLI COMMANDS -->
+        <div class="ref-panel" id="panel-cli" role="tabpanel" aria-labelledby="ref-tab-cli">
+          <div class="filter-bar">
+            <input type="search" id="cli-search" class="search-input" placeholder="Search CLI command, flag, or purpose..." aria-label="Search CLI commands">
+            <div class="pill-group" id="cli-pills" role="group" aria-label="Filter CLI commands by category"></div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:20%">Category</th>
+                  <th style="width:30%">Command</th>
+                  <th>Purpose &amp; Exit Codes</th>
+                </tr>
+              </thead>
+              <tbody id="cli-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: MCP PROTOCOL -->
+        <div class="ref-panel" id="panel-mcp" role="tabpanel" aria-labelledby="ref-tab-mcp" hidden>
+          <h3 style="margin:0 0 0.75rem;font-size:1.08rem;">12 MCP Tools (<code>n1 mcp</code> · JSON-RPC 2.0 over <code>stdio</code> · MCP <code>2024-11-05</code>)</h3>
+          <div class="mcp-grid" id="mcp-tools-grid"></div>
+          <h3 style="margin:1.5rem 0 0.75rem;font-size:1.08rem;">4 Read-Only MCP Resources</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:28%">Resource URI</th>
+                  <th style="width:20%">MIME Type</th>
+                  <th>Returned Payload</th>
+                </tr>
+              </thead>
+              <tbody id="mcp-resources-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: PRODUCTION CODEBASE REFERENCE -->
+        <div class="ref-panel" id="panel-code" role="tabpanel" aria-labelledby="ref-tab-code" hidden>
+          <div class="filter-bar">
+            <input type="search" id="code-ref-search" class="search-input" placeholder="Search file path, class, method, or capability..." aria-label="Search code reference">
+            <div class="pill-group" id="code-ref-pills" role="group" aria-label="Filter by package"></div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:24%">Module Path</th>
+                  <th style="width:28%">Primary Exports</th>
+                  <th>Architectural Responsibility</th>
+                </tr>
+              </thead>
+              <tbody id="code-ref-tbody"></tbody>
+            </table>
+          </div>
+
+          <details class="code-tree-details">
+            <summary>Expand Complete <code>src/</code> Directory Map Tree</summary>
+            <div class="code-panel" style="margin-top:0.85rem;margin-bottom:0;">
+              <div class="code-panel-header">
+                <span>src/ repository map</span>
+                <button type="button" class="copy-btn" data-copy-target="src-map-tree">Copy</button>
+              </div>
+              <pre><code id="src-map-tree">src/
+├── index.ts                        # Public TypeScript ESM library exports
+├── cli.ts                          # 24-command POSIX CLI parser &amp; runner (n1 / numberone)
+├── core/
+│   ├── types.ts                    # 47 EventTypes, Zod schemas, WorkspaceProjection &amp; config types
+│   ├── ulid.ts                     # Monotonic 128-bit Crockford Base32 ULID generator
+│   ├── hash.ts                     # Canonical JSON serializer &amp; SHA-256 primitives
+│   ├── stream-store.ts             # Append-only SHA-256 event store, CAS blobs &amp; chain verifier
+│   ├── replay-engine.ts            # Pure deterministic fold engine &amp; snapshotDigest cache guard
+│   ├── lesson-engine.ts            # Relevance scorer, dead-end matcher &amp; crash-to-fix correlator
+│   ├── authority-engine.ts         # L1-L4 precedence gate &amp; affirmative-clause arbitrator
+│   └── documentary.ts              # Chronological chaptered Workspace Documentary compiler
+├── persistence/
+│   ├── types.ts                    # PersistenceAdapter, SyncLedger &amp; integrity contracts
+│   ├── fabric.ts                   # Bidirectional push/pull coordinator &amp; fallback manager
+│   ├── directory-adapter.ts        # Zero-network local / Git-worktree / NFS Kanban Scrum adapter
+│   ├── github-adapter.ts           # GitHub Issues + Projects v2 GraphQL + GHES adapter
+│   └── jira-adapter.ts             # Jira REST v3 + ADF + Agile Sprints + JQL adapter
+├── watchers/
+│   ├── fs-watcher.ts               # Real-time debounced FS sensor, unified diffs &amp; offline reconcile
+│   ├── daemon.ts                   # Detached daemon manager with /proc/&lt;pid&gt;/stat tick verification
+│   ├── git-hooks.ts                # Non-clobbering chained Git lifecycle hooks &amp; history importer
+│   ├── command-runner.ts           # Sanitized child runner, UTF-8 ring buffers &amp; shell crash hooks
+│   └── transcript-ingestor.ts      # Claude/Codex/JSONL/Markdown session transcript parser
+├── crew/
+│   ├── types.ts                    # Officer, PeerChallenge, ChallengeResolution &amp; Proof contracts
+│   ├── base-officer.ts             # Abstract officer base, virtual-file matcher &amp; KPI scorer
+│   ├── engineering-officer.ts      # Runtime, lockfile, container &amp; shutdown readiness expert
+│   ├── security-officer.ts         # Secrets, SHA-pinned CI, permissions, sinks &amp; container AppSec expert
+│   ├── bridge-officer.ts           # Tests, CI stability, release automation &amp; rollback CD expert
+│   ├── party-mode.ts               # 3-round BMAD Party Mode orchestrator &amp; challenge verifier
+│   ├── evolution-engine.ts         # Counterfactual/empirical KPI-gated officer evolution engine
+│   └── llm-provider.ts             # Optional OpenAI-compatible / Anthropic / Gemini / vLLM adapter
+├── harness/
+│   ├── number-one.ts               # High-level NumberOneAgent orchestrator facade
+│   ├── mcp-server.ts               # Hardened stdio JSON-RPC 2.0 MCP server (12 tools, 4 resources)
+│   └── shims.ts                    # Idempotent AGENTS.md, CLAUDE.md, Cursor, Copilot &amp; .mcp.json shims
+└── utils/
+    ├── redactor.ts                 # Linear-time secret scrubber &amp; child env sanitizer
+    ├── safe-regex.ts               # ReDoS validator &amp; O(N*M) linear-time glob matcher
+    ├── http.ts                     # SSRF IP guard, origin-scoped env vars &amp; retry/jitter fetch
+    ├── lock.ts                     # Atomic linkSync/O_EXCL locks with /proc start-tick validation
+    ├── fs-helpers.ts               # Atomic temp+fsync+rename writes, realpath &amp; O_NOFOLLOW confinement
+    ├── diff.ts                     # Bounded line-level unified diff engine
+    └── ignore.ts                   # .gitignore + .numberone path filter</code></pre>
+            </div>
+          </details>
+        </div>
+
+        <!-- TAB 4: GITHUB GOVERNANCE & LICENSE -->
+        <div class="ref-panel" id="panel-gov" role="tabpanel" aria-labelledby="ref-tab-gov" hidden>
+          <div class="spec-grid">
+            <article class="spec-block">
+              <h3>GitHub Platform Governance &amp; Security Automation</h3>
+              <p>Complete GitHub security, supply-chain verification, and Pages publishing automation ships out of the box:</p>
+              <ul class="spec-list">
+                <li><strong>CI &amp; Hardened Container Verification</strong>: <code>.github/workflows/ci.yml</code></li>
+                <li><strong>GitHub Pages Interactive Docs + Archify Deployment</strong>: <code>.github/workflows/pages.yml</code></li>
+                <li><strong>CodeQL SAST Analysis</strong>: <code>.github/workflows/codeql.yml</code> + <code>.github/codeql/codeql-config.yml</code> (0 alerts across first-party TS/JS/HTML)</li>
+                <li><strong>Supply-Chain Dependency &amp; License Review</strong>: <code>.github/workflows/dependency-review.yml</code> &amp; <code>.github/dependabot.yml</code></li>
+                <li><strong>Dependabot PR Triage, Provenance &amp; Batch Merge</strong>: <code>.github/workflows/dependabot-triage.yml</code>, <code>scripts/verify-workflows.mjs</code> &amp; <code>scripts/pr-automation.mjs</code> validate 40-char SHA pins, <code>github/codeql-action/*</code> lockstep, commit signatures, upstream tag-to-SHA provenance, and Pages bundle completeness.</li>
+                <li><strong>Signed Provenance Releases</strong>: <code>.github/workflows/release.yml</code></li>
+                <li><strong>Automated Repository Provisioner</strong>: <code>scripts/configure-github.sh</code> provisions Pages, Issues, Discussions, Projects v2 board, 21 labels, milestones, Dependabot/Secret Scanning, and Branch Rulesets.</li>
+              </ul>
+              <div class="code-panel">
+                <div class="code-panel-header">
+                  <span>bash · governance &amp; provisioning commands</span>
+                  <button type="button" class="copy-btn" data-copy-target="gov-cmds-code">Copy</button>
+                </div>
+                <pre><code id="gov-cmds-code"># Preview or apply GitHub API provisioning
+./scripts/configure-github.sh --repo onimurasame/numberone --dry-run
+./scripts/configure-github.sh --repo onimurasame/numberone
+
+# Verify workflow SHA pins, CodeQL lockstep &amp; Pages bundle locally
+npm run verify:workflows
+
+# Dry-run Dependabot PR policy triage, or approve &amp; squash-merge eligible green PRs
+npm run pr:triage
+npm run pr:merge</code></pre>
+              </div>
+            </article>
+
+            <article class="spec-block">
+              <h3>License — GNU AGPL-3.0-or-later</h3>
+              <p>
+                Copyright (C) 2026 Raul Astudillo and Number One Contributors. Released under the <a href="https://github.com/onimurasame/numberone/blob/master/LICENSE" target="_blank" rel="noopener noreferrer"><strong>GNU Affero General Public License v3.0 or later (<code>AGPL-3.0-or-later</code>)</strong></a>.
+              </p>
+              <ul class="spec-list">
+                <li><strong>Strong Copyleft &amp; Network Protection</strong>: Number One is genuinely Free and Open Source Software (OSI- and FSF-approved). Any distributed derivative work <strong>and</strong> any modified version offered to users over a network — including cloud coding platforms, hosted MCP services, or SaaS deployments (Section 13) — must remain free and open source under <code>AGPL-3.0-or-later</code> with complete corresponding source code, explicit patent grants (Section 11), and anti-Tivoization protections (Section 6).</li>
+                <li><strong>Your Workspace Stays Yours</strong>: Running <code>n1</code> as a CLI, watcher daemon, container, CI check, JavaScript library in schoolwork, or MCP server against your own repository does <strong>not</strong> relicense your workspace, source code, or <code>.numberone/</code> logs.</li>
+                <li><strong>Historical Transition</strong>: Commits prior to the AGPL-3.0-or-later transition remain available under their original MIT License terms; see <a href="https://github.com/onimurasame/numberone/blob/master/NOTICE" target="_blank" rel="noopener noreferrer"><code>NOTICE</code></a>.</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ================================================================
+         8. SEARCHABLE PLAIN-ENGLISH & TECHNICAL GLOSSARY
+         ================================================================ -->
     <section class="section" id="glossary">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Complete Terminology</span>
-          <h2>Searchable Technical &amp; Domain Glossary</h2>
+          <span class="section-kicker">Complete Dictionary — Everyday &amp; Technical Terms</span>
+          <h2>Searchable Plain-English &amp; Technical Glossary</h2>
           <p>
-            Every cryptographic primitive, POSIX flag, security CWE, Scrum concept, Archify artifact mode, and Number One architectural term explained clearly.
+            Start with <strong>Plain English</strong> terms if you're new or working on a school project, or filter across every cryptographic primitive, POSIX flag, security CWE, Scrum concept, Archify artifact mode, and Number One architectural term.
           </p>
         </div>
 
         <div class="filter-bar">
-          <input type="search" id="glossary-search" class="search-input" placeholder="Search any term, acronym (ULID, SSRF, ReDoS, ADF, MCP, BMAD)..." aria-label="Search glossary">
-          <span id="glossary-count" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);"></span>
+          <input type="search" id="glossary-search" class="search-input" placeholder="Search any term (Workspace, Diary, ULID, SSRF, ReDoS, MCP, BMAD)..." aria-label="Search glossary">
+          <div class="pill-group" id="glossary-pills" role="group" aria-label="Filter glossary by category"></div>
+          <span id="glossary-count" class="count-label"></span>
         </div>
 
         <div class="glossary-list" id="glossary-grid"></div>
@@ -261,7 +900,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span><strong>Number One (<code>n1</code>)</strong> · Authoritative Event-Sourced Workspace System of Record · <a href="https://github.com/onimurasame/numberone/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">GNU AGPL-3.0-or-later</a></span>
+      <span><strong>Number One (<code>n1</code>)</strong> · Plain-English Project Memory &amp; Authoritative System of Record · <a href="https://github.com/onimurasame/numberone/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">GNU AGPL-3.0-or-later</a></span>
       <span>Visualized &amp; diagnosed with <a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener noreferrer">Archify v3.3.0</a> · Hosted on GitHub Pages</span>
     </div>
   </footer>
