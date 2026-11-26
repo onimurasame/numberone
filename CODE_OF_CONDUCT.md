@@ -2,18 +2,18 @@
 
 ## Our Pledge
 
-We as members, contributors, and maintainers pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+We as members, contributors, and maintainers pledge to make participation in our community an experience for everyone.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community focused on rigorous, evidence-based software engineering.
+We pledge to act and interact in ways that contribute to an open discussion and all around continuous improvement.
 
 ## Standards
 
 Examples of behavior that contributes to a positive environment include:
 
-- Demonstrating empathy and kindness toward other people
+- Demonstrating intellectual honesty by speaking clearly and objectively
 - Focusing on empirical evidence, reproducible facts, and constructive technical critique
-- Giving and gracefully accepting adversarial code review feedback
-- Accepting responsibility, apologizing to those affected by mistakes, and capturing durable institutional lessons
+- Giving and contributing through adversarial code review feedback
+- Accepting responsibility and capturing durable institutional lessons
 
 Examples of unacceptable behavior include:
 
