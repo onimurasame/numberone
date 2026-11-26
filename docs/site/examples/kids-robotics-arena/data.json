@@ -1,0 +1,165 @@
+{
+  "sampleId": "kids-robotics-arena",
+  "title": "RoboHawks Safety Arena & Time-Travel Inspector",
+  "audience": "kids",
+  "workspaceName": "RoboHawks Line-Follower Arena",
+  "safetyDirectiveSeq": 6,
+  "integrity": {
+    "valid": true,
+    "totalEvents": 9,
+    "verifiedBlobs": 0
+  },
+  "documentaryChapters": 9,
+  "plans": [
+    {
+      "id": "unsafe-100",
+      "label": "Plan A: setSpeed(100) Full Throttle",
+      "requestedSpeedPct": 100,
+      "verdict": "BLOCK",
+      "supersedesSession": true,
+      "blocked": true,
+      "color": "#ef4444",
+      "conflicts": [
+        {
+          "level": "L2_NUMBER_ONE_DIRECTIVE",
+          "severity": "blocking",
+          "message": "Proposal violates active directive \"Indoor motor power safety cap (<= 80%)\" (matched forbidden pattern: setSpeed\\(100\\)).",
+          "guidance": "Keep motor power at or below 80% during indoor classroom table tests."
+        }
+      ],
+      "summary": "Verdict: BLOCK\nPrecedence: L1_SOR_INVARIANT > L2_NUMBER_ONE_DIRECTIVE > L3_OFFICER_GATE > L4_SESSION_CONTEXT\n\nConflicts (Session Context Superseded):\n- [L2_NUMBER_ONE_DIRECTIVE | blocking] Proposal violates active directive \"Indoor motor power safety cap (<= 80%)\" (matched forbidden pattern: setSpeed\\(100\\)).\n  Guidance: Keep motor power at or below 80% during indoor classroom table tests. (event: 01M8APFMHSREC9MTTE9WR1DF83)\n\nActive Directives in Scope:\n- [blocking] Indoor motor power safety cap (<= 80%): Keep motor power at or below 80% during indoor classroom table tests."
+    },
+    {
+      "id": "safe-75",
+      "label": "Plan B: setSpeed(75) Smooth Cornering",
+      "requestedSpeedPct": 75,
+      "verdict": "APPROVE_WITH_CONDITIONS",
+      "supersedesSession": false,
+      "blocked": false,
+      "color": "#22c55e",
+      "conflicts": [],
+      "summary": "Verdict: APPROVE_WITH_CONDITIONS\nPrecedence: L1_SOR_INVARIANT > L2_NUMBER_ONE_DIRECTIVE > L3_OFFICER_GATE > L4_SESSION_CONTEXT\n\nActive Directives in Scope:\n- [blocking] Indoor motor power safety cap (<= 80%): Keep motor power at or below 80% during indoor classroom table tests."
+    },
+    {
+      "id": "precision-68",
+      "label": "Plan C: Negation-Aware Safe Plan (68%)",
+      "requestedSpeedPct": 68,
+      "verdict": "APPROVE_WITH_CONDITIONS",
+      "supersedesSession": false,
+      "blocked": false,
+      "color": "#38bdf8",
+      "conflicts": [],
+      "summary": "Verdict: APPROVE_WITH_CONDITIONS\nPrecedence: L1_SOR_INVARIANT > L2_NUMBER_ONE_DIRECTIVE > L3_OFFICER_GATE > L4_SESSION_CONTEXT\n\nActive Directives in Scope:\n- [blocking] Indoor motor power safety cap (<= 80%): Keep motor power at or below 80% during indoor classroom table tests."
+    }
+  ],
+  "snapshots": [
+    {
+      "seq": 1,
+      "id": "01M8APFMB6SSDRBRVXZPBY4JTS",
+      "type": "workspace.attached",
+      "summary": "Number One attached as authoritative System of Record for RoboHawks Line-Follower Arena",
+      "hashShort": "f8973357ac0f",
+      "openIssues": 0,
+      "resolvedIssues": 0,
+      "activeDirectives": 0,
+      "lessonsCount": 0,
+      "deadEndsCount": 0
+    },
+    {
+      "seq": 2,
+      "id": "01M8APFMD6E9W584SBPHPSCTQJ",
+      "type": "workspace.snapshot",
+      "summary": "Indexed workspace baseline (0 files)",
+      "hashShort": "7befd3a6c021",
+      "openIssues": 0,
+      "resolvedIssues": 0,
+      "activeDirectives": 0,
+      "lessonsCount": 0,
+      "deadEndsCount": 0
+    },
+    {
+      "seq": 3,
+      "id": "01M8APFMEN0WSM0ZMG9CEPQX48",
+      "type": "issue.opened",
+      "summary": "Issue [task]: Calibrate line-following light sensor for gym overhead lamps",
+      "hashShort": "0b92e73d3fcd",
+      "openIssues": 1,
+      "resolvedIssues": 0,
+      "activeDirectives": 0,
+      "lessonsCount": 0,
+      "deadEndsCount": 0
+    },
+    {
+      "seq": 4,
+      "id": "01M8APFMFJBQ72DBRPEH93GA51",
+      "type": "issue.opened",
+      "summary": "Issue [task]: Attach foam bumper rails around test table",
+      "hashShort": "0c2bbbb96166",
+      "openIssues": 2,
+      "resolvedIssues": 0,
+      "activeDirectives": 0,
+      "lessonsCount": 0,
+      "deadEndsCount": 0
+    },
+    {
+      "seq": 5,
+      "id": "01M8APFMGNGGWQWW2HDWF2Z73V",
+      "type": "attempt.failed",
+      "summary": "Dead-end recorded: Ran motors at setSpeed(100) on smooth classroom table (Rear wheels spun out at Turn 2 and the rover slid toward the table edge!)",
+      "hashShort": "cf52625c4f23",
+      "openIssues": 2,
+      "resolvedIssues": 0,
+      "activeDirectives": 0,
+      "lessonsCount": 0,
+      "deadEndsCount": 1
+    },
+    {
+      "seq": 6,
+      "id": "01M8APFMHSREC9MTTE9WR1DF83",
+      "type": "directive.issued",
+      "summary": "Directive [BLOCKING]: Indoor motor power safety cap (<= 80%)",
+      "hashShort": "100610680514",
+      "openIssues": 2,
+      "resolvedIssues": 0,
+      "activeDirectives": 1,
+      "lessonsCount": 0,
+      "deadEndsCount": 1
+    },
+    {
+      "seq": 7,
+      "id": "01M8APFMKD1S9EDJ7J9KKQ44CD",
+      "type": "lesson.captured",
+      "summary": "Lesson: Re-calibrate light sensor whenever gym lights change",
+      "hashShort": "659753dc4d79",
+      "openIssues": 2,
+      "resolvedIssues": 0,
+      "activeDirectives": 1,
+      "lessonsCount": 1,
+      "deadEndsCount": 1
+    },
+    {
+      "seq": 8,
+      "id": "01M8APFMMBFB5F91BESPZBFFMY",
+      "type": "issue.resolved",
+      "summary": "Resolved issue iss-01M8APFMEE1GVPG11FQXKMW156: Auto-calibration threshold locked at 420!",
+      "hashShort": "c6e5a6daca20",
+      "openIssues": 1,
+      "resolvedIssues": 1,
+      "activeDirectives": 1,
+      "lessonsCount": 1,
+      "deadEndsCount": 1
+    },
+    {
+      "seq": 9,
+      "id": "01M8APFMN55T258DG1751RF26V",
+      "type": "issue.resolved",
+      "summary": "Resolved issue iss-01M8APFMF9KFHGQPY9X4VNZ34P: Foam guardrails mounted around all 4 table edges!",
+      "hashShort": "2b7bcf2c6022",
+      "openIssues": 0,
+      "resolvedIssues": 2,
+      "activeDirectives": 1,
+      "lessonsCount": 1,
+      "deadEndsCount": 1
+    }
+  ]
+}

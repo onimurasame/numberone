@@ -1,8 +1,11 @@
 name: "Number One CodeQL Config"
 
 paths-ignore:
-  # Generated self-contained third-party Archify v3.3.0 HTML bundles (see docs/ARCHIFY_GUIDE.md).
-  # All first-party TypeScript, scripts, tests, and portal assets (docs/site/app.js, docs/site/index.html)
-  # remain fully scanned under security-extended and security-and-quality.
+  # Generated self-contained third-party Archify HTML bundles (see docs/ARCHIFY_GUIDE.md)
+  # and unmodified MIT-licensed Three.js r128 minified library bundle (docs/site/vendor/).
+  # All first-party TypeScript, runnable examples (examples/**), scripts, tests, and portal /
+  # Three.js visualization code (docs/site/app.js, docs/site/examples/**) remain fully scanned.
   - docs/site/archify
   - docs/site/archify/**
+  - docs/site/vendor
+  - docs/site/vendor/**

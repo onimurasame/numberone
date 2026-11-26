@@ -1,0 +1,249 @@
+{
+  "sampleId": "kids-science-fair-glider",
+  "title": "Paper Airplane Science Fair Flight Lab",
+  "audience": "kids",
+  "workspaceName": "Paper Airplane Science Fair Flight Lab",
+  "hypothesisEventSeq": 3,
+  "integrity": {
+    "valid": true,
+    "totalEvents": 9,
+    "verifiedBlobs": 0
+  },
+  "consultationPreview": {
+    "query": "test tail weight on paper airplane flight",
+    "matchedLessons": [
+      {
+        "title": "Weight belongs near the nose, never the tail",
+        "preventionRule": "Always test balance point near the front third of the wing before throwing!",
+        "score": 83
+      },
+      {
+        "title": "1cm upturned wingtips stop side-to-side wobble",
+        "preventionRule": "Measure both winglets with a ruler so left and right folds match symmetrically.",
+        "score": 26
+      }
+    ],
+    "surfacedDeadEnds": [
+      {
+        "approach": "Taped two pennies near the tail fin hoping it would glide upward",
+        "reason": "Stalled immediately! Nose pitched up at 1.1m and dropped backward at 1.4m."
+      }
+    ]
+  },
+  "documentaryChapters": 9,
+  "lessonsCaptured": [
+    {
+      "seq": 6,
+      "title": "Weight belongs near the nose, never the tail"
+    },
+    {
+      "seq": 8,
+      "title": "1cm upturned wingtips stop side-to-side wobble"
+    }
+  ],
+  "trials": [
+    {
+      "id": "trial-1",
+      "name": "Trial #1: Baseline Classic Fold",
+      "status": "baseline",
+      "distanceMeters": 5.8,
+      "peakHeightMeters": 2,
+      "lateralDriftMeters": -0.9,
+      "color": "#eab308",
+      "eventSeq": 4,
+      "eventId": "01M8APFKSSBNTZTCED8KXYXJAE",
+      "eventHash": "e04c353268ed3b07",
+      "note": "Flew 5.8m with a gentle left drift because the wings lacked upturned winglets."
+    },
+    {
+      "id": "trial-2",
+      "name": "Trial #2: Tail-Weighted Pennies (DEAD END)",
+      "status": "dead-end",
+      "distanceMeters": 1.4,
+      "peakHeightMeters": 2.35,
+      "lateralDriftMeters": 0.25,
+      "stalled": true,
+      "color": "#ef4444",
+      "eventSeq": 5,
+      "eventId": "01M8APFKTXCS7TK9SSG7EZVKXG",
+      "eventHash": "28b72ce9e4d7d940",
+      "note": "Recorded via recordFailedAttempt(): nose pitched straight up, stalled, and dropped at 1.4m!"
+    },
+    {
+      "id": "trial-3",
+      "name": "Trial #3: 1 Paperclip on Nose (Breakthrough)",
+      "status": "breakthrough",
+      "distanceMeters": 9.4,
+      "peakHeightMeters": 2.5,
+      "lateralDriftMeters": 0.35,
+      "color": "#38bdf8",
+      "eventSeq": 7,
+      "eventId": "01M8APFKX170X831DBP41YV40A",
+      "eventHash": "751db5aebe97a7ab",
+      "note": "Applied Lesson #1 (nose balance): straight, steady glide to 9.4 meters!"
+    },
+    {
+      "id": "trial-4",
+      "name": "Trial #4: Nose Paperclip + 1cm Wingtips (WINNER)",
+      "status": "winner",
+      "distanceMeters": 10.6,
+      "peakHeightMeters": 2.75,
+      "lateralDriftMeters": 0.05,
+      "color": "#22c55e",
+      "eventSeq": 9,
+      "eventId": "01M8APFKZ4YG4T4X7DX7XGS74Q",
+      "eventHash": "bb3518eb500cd5a2",
+      "note": "Winner chosen in ADR Decision: laser-straight flight to 10.6 meters with zero roll!"
+    }
+  ],
+  "timelineSteps": [
+    {
+      "seq": 1,
+      "id": "01M8APFKNS8S869D3NKTQE91R5",
+      "type": "workspace.attached",
+      "summary": "Number One attached as authoritative System of Record for Paper Airplane Science Fair Flight Lab",
+      "hashShort": "e38ea3fdac5c",
+      "prevHashShort": "000000000000",
+      "lessonsCount": 0,
+      "deadEndsCount": 0,
+      "decisionsCount": 0,
+      "tags": [
+        "attach",
+        "lifecycle"
+      ]
+    },
+    {
+      "seq": 2,
+      "id": "01M8APFKQBKF3FREHFSNMAYNR9",
+      "type": "workspace.snapshot",
+      "summary": "Indexed workspace baseline (0 files)",
+      "hashShort": "83d7677ea2e3",
+      "prevHashShort": "e38ea3fdac5c",
+      "lessonsCount": 0,
+      "deadEndsCount": 0,
+      "decisionsCount": 0,
+      "tags": [
+        "baseline",
+        "snapshot"
+      ]
+    },
+    {
+      "seq": 3,
+      "id": "01M8APFKRTBW5EEV9QAZ145F67",
+      "type": "chat.thinking",
+      "summary": "Thinking: Hypothesis: Shifting balance slightly toward the nose and folding 1cm upturned wingtips will keep a dart glider flying straight and past 9 m",
+      "hashShort": "f0808adaf723",
+      "prevHashShort": "83d7677ea2e3",
+      "lessonsCount": 0,
+      "deadEndsCount": 0,
+      "decisionsCount": 0,
+      "tags": [
+        "aerodynamics",
+        "hypothesis",
+        "science-fair",
+        "thinking"
+      ]
+    },
+    {
+      "seq": 4,
+      "id": "01M8APFKSSBNTZTCED8KXYXJAE",
+      "type": "chat.thinking",
+      "summary": "Thinking: Trial #1 (Baseline Classic Fold): Flew 5.8 meters, drifted left at 3.2m because wings were uneven.",
+      "hashShort": "e04c353268ed",
+      "prevHashShort": "f0808adaf723",
+      "lessonsCount": 0,
+      "deadEndsCount": 0,
+      "decisionsCount": 0,
+      "tags": [
+        "flight-test",
+        "thinking",
+        "trial-1"
+      ]
+    },
+    {
+      "seq": 5,
+      "id": "01M8APFKTXCS7TK9SSG7EZVKXG",
+      "type": "attempt.failed",
+      "summary": "Dead-end recorded: Taped two pennies near the tail fin hoping it would glide upward (Stalled immediately! Nose pitched up at 1.1m and dropped backward at 1.4m.)",
+      "hashShort": "28b72ce9e4d7",
+      "prevHashShort": "e04c353268ed",
+      "lessonsCount": 0,
+      "deadEndsCount": 1,
+      "decisionsCount": 0,
+      "tags": [
+        "dead-end",
+        "failed-attempt",
+        "flight-test",
+        "trial-2"
+      ]
+    },
+    {
+      "seq": 6,
+      "id": "01M8APFKVYKS71WWN6RQ5TZ4M1",
+      "type": "lesson.captured",
+      "summary": "Lesson: Weight belongs near the nose, never the tail",
+      "hashShort": "3792ccd7b13b",
+      "prevHashShort": "28b72ce9e4d7",
+      "lessonsCount": 1,
+      "deadEndsCount": 1,
+      "decisionsCount": 0,
+      "tags": [
+        "aerodynamics",
+        "balance",
+        "flight-test",
+        "lesson"
+      ]
+    },
+    {
+      "seq": 7,
+      "id": "01M8APFKX170X831DBP41YV40A",
+      "type": "chat.thinking",
+      "summary": "Thinking: Trial #3 (1 Paperclip on Nose): Smooth, straight glide all the way to 9.4 meters!",
+      "hashShort": "751db5aebe97",
+      "prevHashShort": "3792ccd7b13b",
+      "lessonsCount": 1,
+      "deadEndsCount": 1,
+      "decisionsCount": 0,
+      "tags": [
+        "breakthrough",
+        "flight-test",
+        "thinking",
+        "trial-3"
+      ]
+    },
+    {
+      "seq": 8,
+      "id": "01M8APFKY2GJ2XBB7YW9DET8B3",
+      "type": "lesson.captured",
+      "summary": "Lesson: 1cm upturned wingtips stop side-to-side wobble",
+      "hashShort": "3a0f78cbe3ed",
+      "prevHashShort": "751db5aebe97",
+      "lessonsCount": 2,
+      "deadEndsCount": 1,
+      "decisionsCount": 0,
+      "tags": [
+        "flight-test",
+        "lesson",
+        "trial-4",
+        "winglets"
+      ]
+    },
+    {
+      "seq": 9,
+      "id": "01M8APFKZ4YG4T4X7DX7XGS74Q",
+      "type": "decision.recorded",
+      "summary": "Decision: Submit the Nose-Balanced Wingtip Dart for Science Fair Finals",
+      "hashShort": "bb3518eb500c",
+      "prevHashShort": "3a0f78cbe3ed",
+      "lessonsCount": 2,
+      "deadEndsCount": 1,
+      "decisionsCount": 1,
+      "tags": [
+        "adr",
+        "decision",
+        "finals",
+        "science-fair"
+      ]
+    }
+  ]
+}

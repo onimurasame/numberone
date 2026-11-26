@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMAD Bridge Crew, KPI Self-Evolution &amp; Scrum Fabric — 3D Three.js Command Bridge | Number One</title>
+  <meta name="description" content="Interactive Three.js 3D BMAD Party Mode Command Bridge visualizing real Engineering, Security, and Bridge Officer KPI towers, Round 2 peer challenge arcs, KPI-gated counterfactual evolution, and distributed Scrum persistence sync.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../example-viewer.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="badge badge-advanced">Advanced DevSecOps · 3D Command Bridge</span>
+        <h1>BMAD Bridge Crew, KPI Evolution &amp; Scrum Sync (Three.js)</h1>
+      </div>
+      <nav class="topbar-actions" aria-label="Sample links and controls">
+        <a href="../../archify/examples/advanced-bmad-crew-evolution-workflow.html" class="btn" target="_blank" rel="noopener noreferrer">Archify Workflow</a>
+        <a href="../../archify/examples/advanced-bmad-crew-evolution-explainer.html" class="btn" target="_blank" rel="noopener noreferrer">Archify Explainer</a>
+        <a href="https://github.com/onimurasame/numberone/tree/master/examples/advanced-bmad-crew-evolution" class="btn" target="_blank" rel="noopener noreferrer">Runnable Code</a>
+        <button type="button" class="btn" id="theme-toggle-btn">Light Theme</button>
+        <a href="../../index.html#samples-3d" class="btn">Back to Docs</a>
+      </nav>
+    </header>
+
+    <main class="workspace-grid">
+      <section class="stage-wrap" aria-label="Interactive Three.js 3D BMAD Command Bridge">
+        <canvas id="three-canvas" class="stage-canvas"></canvas>
+
+        <div class="hud-top-left" role="group" aria-label="Governance pipeline phases">
+          <button type="button" class="btn btn-danger active" id="phase-1-btn">Phase 1: Unhardened (VETO)</button>
+          <button type="button" class="btn" id="phase-2-btn">Phase 2: KPI Evolution Proof</button>
+          <button type="button" class="btn btn-emerald" id="phase-3-btn">Phase 3: Consensus + Sync</button>
+        </div>
+
+        <div class="hud-bottom-bar">
+          <div style="display:flex;gap:0.45rem;flex-wrap:wrap;">
+            <button type="button" class="btn" id="orbit-toggle-btn">Auto-Orbit: ON</button>
+            <button type="button" class="btn" id="reset-cam-btn">Reset Camera</button>
+          </div>
+          <span class="hint-text">Drag to orbit · Scroll to zoom · Click any Officer Tower, Ruling Core, Evolution Gate, or Scrum Sync Node</span>
+        </div>
+      </section>
+
+      <aside class="inspector-panel" aria-label="BMAD Party Mode, KPI Evolution, and Sync telemetry">
+        <div class="panel-card" id="phase-card">
+          <span class="kicker">Live Pipeline Phase</span>
+          <h2 id="phase-title">Loading Command Bridge...</h2>
+          <div id="phase-body"></div>
+        </div>
+
+        <div class="panel-card" id="selection-card">
+          <span class="kicker">3D Node Telemetry Inspector</span>
+          <h2 id="selection-title">Click a 3D Officer Tower or Gate</h2>
+          <div id="selection-body"></div>
+        </div>
+
+        <div class="panel-card" id="sync-card">
+          <span class="kicker">Distributed Scrum Fabric (PersistenceFabric)</span>
+          <h2>Air-Gapped Directory Kanban Parity</h2>
+          <div id="sync-body"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="../../vendor/three.min.js"></script>
+  <script src="../three-shell.js"></script>
+  <script src="./scene.js"></script>
+</body>
+</html>
