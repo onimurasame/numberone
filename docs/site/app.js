@@ -266,6 +266,120 @@
       label: 'Code Diagnosis & 3D Atlas',
       path: './archify/code-analysis/repo.analysis.html',
       caption: 'Source-backed TypeScript repository diagnosis workbench with coupling metrics, radial star map, 3D dependency Atlas, and AI tasks.'
+    },
+    {
+      id: 'sample-glider-timeline',
+      badge: 'kids sample · timeline',
+      label: 'Kids: Science Fair Timeline',
+      path: './archify/examples/kids-science-fair-glider-timeline.html',
+      caption: 'Kids Sample 1 (Archify Timeline): Hypothesis -> Tail-Weight Dead-End -> Balance Lesson -> Winning Wingtip Dart -> Three.js 3D Runway.'
+    },
+    {
+      id: 'sample-glider-explainer',
+      badge: 'kids sample · explainer',
+      label: 'Kids: Science Fair Explainer',
+      path: './archify/examples/kids-science-fair-glider-explainer.html',
+      caption: 'Kids Sample 1 (4-Style Explainer): Pinned to examples/kids-science-fair-glider/run.mjs with distance bar chart and verification checklist.'
+    },
+    {
+      id: 'sample-robotics-sequence',
+      badge: 'kids sample · sequence',
+      label: 'Kids: Robotics Safety Sequence',
+      path: './archify/examples/kids-robotics-arena-sequence.html',
+      caption: 'Kids Sample 2 (Archify Sequence): L2 blocking motor speed cap (<= 80%), arbitrate() BLOCK vs APPROVE, and Three.js laser gate sync.'
+    },
+    {
+      id: 'sample-robotics-explainer',
+      badge: 'kids sample · explainer',
+      label: 'Kids: Robotics Explainer',
+      path: './archify/examples/kids-robotics-arena-explainer.html',
+      caption: 'Kids Sample 2 (4-Style Explainer): Pinned to examples/kids-robotics-arena/run.mjs showing negation-aware arbitration & time-travel.'
+    },
+    {
+      id: 'sample-hashchain-dataflow',
+      badge: 'adv sample · dataflow',
+      label: 'Adv: Hash-Chain Dataflow',
+      path: './archify/examples/advanced-hash-chain-time-travel-dataflow.html',
+      caption: 'Advanced Sample 1 (Archify Dataflow): O(n) secret redaction -> SHA-256 event files -> CAS blobs -> ReplayEngine -> 1-byte fail-closed tamper proof.'
+    },
+    {
+      id: 'sample-hashchain-explainer',
+      badge: 'adv sample · explainer',
+      label: 'Adv: Hash-Chain Explainer',
+      path: './archify/examples/advanced-hash-chain-time-travel-explainer.html',
+      caption: 'Advanced Sample 1 (4-Style Explainer): Pinned to examples/advanced-hash-chain-time-travel/run.mjs with invariant proof matrix.'
+    },
+    {
+      id: 'sample-bmad-workflow',
+      badge: 'adv sample · workflow',
+      label: 'Adv: BMAD Evolution Workflow',
+      path: './archify/examples/advanced-bmad-crew-evolution-workflow.html',
+      caption: 'Advanced Sample 2 (Archify Workflow v2): Phase 1 Veto -> Phase 2 Counterfactual KPI Evolution -> Phase 3 Consensus -> Air-Gapped Scrum Sync.'
+    },
+    {
+      id: 'sample-bmad-explainer',
+      badge: 'adv sample · explainer',
+      label: 'Adv: BMAD Evolution Explainer',
+      path: './archify/examples/advanced-bmad-crew-evolution-explainer.html',
+      caption: 'Advanced Sample 2 (4-Style Explainer): Pinned to examples/advanced-bmad-crew-evolution/run.mjs with KPI progression bar chart.'
+    }
+  ];
+
+  // =========================================================================
+  // 3B. INTERACTIVE THREE.JS + ARCHIFY 3D SAMPLES GALLERY CATALOG
+  // =========================================================================
+  const THREE_SAMPLES = [
+    {
+      id: 'kids-science-fair-glider',
+      audience: 'kids',
+      badge: 'Kids · Grades 5–12',
+      title: 'Paper Airplane Science Fair Flight Lab',
+      subtitle: '3D gym runway with 4 animated paper airplanes, stalled dead-end arc, balance lessons & time-travel scrubber.',
+      threePath: './examples/kids-science-fair-glider/index.html',
+      diagramPath: './archify/examples/kids-science-fair-glider-timeline.html',
+      diagramLabel: 'Archify Timeline',
+      explainerPath: './archify/examples/kids-science-fair-glider-explainer.html',
+      sourceUrl: 'https://github.com/onimurasame/numberone/tree/master/examples/kids-science-fair-glider',
+      caption: 'Kids Sample 1: Interactive Three.js 3D Paper Airplane Flight Lab powered by real NumberOneAgent stream events, dead-end tracking, and 9-chapter documentary.'
+    },
+    {
+      id: 'kids-robotics-arena',
+      audience: 'kids',
+      badge: 'Kids · Robotics Club',
+      title: 'RoboHawks Safety Arena & Time Machine',
+      subtitle: '3D rover bot, oval black-tape track, crimson L2 laser barrier blocking 100% throttle & historical replay.',
+      threePath: './examples/kids-robotics-arena/index.html',
+      diagramPath: './archify/examples/kids-robotics-arena-sequence.html',
+      diagramLabel: 'Archify Sequence',
+      explainerPath: './archify/examples/kids-robotics-arena-explainer.html',
+      sourceUrl: 'https://github.com/onimurasame/numberone/tree/master/examples/kids-robotics-arena',
+      caption: 'Kids Sample 2: Interactive Three.js 3D Robotics Safety Arena demonstrating L2 blocking directives, affirmative arbitration, and time-travel replay.'
+    },
+    {
+      id: 'advanced-hash-chain-time-travel',
+      audience: 'advanced',
+      badge: 'Advanced · Cryptography',
+      title: 'SHA-256 Hash-Chain Helix & Tamper Observatory',
+      subtitle: '3D helical event prisms, CAS blob satellite, snapshotDigest Projection Core & live 1-byte tamper cascade.',
+      threePath: './examples/advanced-hash-chain-time-travel/index.html',
+      diagramPath: './archify/examples/advanced-hash-chain-time-travel-dataflow.html',
+      diagramLabel: 'Archify Dataflow',
+      explainerPath: './archify/examples/advanced-hash-chain-time-travel-explainer.html',
+      sourceUrl: 'https://github.com/onimurasame/numberone/tree/master/examples/advanced-hash-chain-time-travel',
+      caption: 'Advanced Sample 1: Interactive Three.js 3D Hash-Chain Helix with O(n) redaction proof, CAS fallback blob, --until-seq replay, and fail-closed tamper simulation.'
+    },
+    {
+      id: 'advanced-bmad-crew-evolution',
+      audience: 'advanced',
+      badge: 'Advanced · DevSecOps',
+      title: 'BMAD Bridge Crew & KPI Evolution Bridge',
+      subtitle: '3D dynamic 0-100 KPI towers, Veto -> Consensus core, counterfactual evolution gates & 29/29 Scrum sync.',
+      threePath: './examples/advanced-bmad-crew-evolution/index.html',
+      diagramPath: './archify/examples/advanced-bmad-crew-evolution-workflow.html',
+      diagramLabel: 'Archify Workflow',
+      explainerPath: './archify/examples/advanced-bmad-crew-evolution-explainer.html',
+      sourceUrl: 'https://github.com/onimurasame/numberone/tree/master/examples/advanced-bmad-crew-evolution',
+      caption: 'Advanced Sample 2: Interactive Three.js 3D Command Bridge animating Phase 1 Veto, Phase 2 Counterfactual KPI Evolution, Phase 3 Consensus & Air-Gapped Scrum Sync.'
     }
   ];
 
@@ -952,7 +1066,132 @@
   renderKidsDetail(selectedKidsProject);
 
   // =========================================================================
-  // MODULE D: ARCHIFY INTERACTIVE THEATER (16 COMPILED ARTIFACTS)
+  // MODULE C2: INTERACTIVE 3D SAMPLES GALLERY (THREE.JS + ARCHIFY)
+  // =========================================================================
+  const samples3dFilterEl = document.getElementById('samples-3d-filter');
+  const samples3dCardsEl = document.getElementById('samples-3d-cards');
+  const samples3dFrame = document.getElementById('samples-3d-frame');
+  const samples3dCaption = document.getElementById('samples-3d-caption');
+  const samples3dOpenThree = document.getElementById('samples-3d-open-three');
+  const samples3dOpenDiagram = document.getElementById('samples-3d-open-diagram');
+  const samples3dOpenExplainer = document.getElementById('samples-3d-open-explainer');
+  const samples3dOpenSource = document.getElementById('samples-3d-open-source');
+  const viewModeBtns = Array.from(document.querySelectorAll('[data-viewmode]'));
+
+  let active3dAudience = 'all';
+  let active3dSample = THREE_SAMPLES[0];
+  let active3dViewMode = 'three';
+
+  function sync3dStage() {
+    if (!active3dSample) return;
+    let targetSrc = active3dSample.threePath;
+    if (active3dViewMode === 'diagram') targetSrc = active3dSample.diagramPath;
+    else if (active3dViewMode === 'explainer') targetSrc = active3dSample.explainerPath;
+
+    if (samples3dFrame) samples3dFrame.setAttribute('src', targetSrc);
+    if (samples3dCaption) samples3dCaption.textContent = active3dSample.caption;
+    if (samples3dOpenThree) samples3dOpenThree.setAttribute('href', active3dSample.threePath);
+    if (samples3dOpenDiagram) {
+      samples3dOpenDiagram.setAttribute('href', active3dSample.diagramPath);
+      samples3dOpenDiagram.textContent = 'Open ' + active3dSample.diagramLabel;
+    }
+    if (samples3dOpenExplainer) samples3dOpenExplainer.setAttribute('href', active3dSample.explainerPath);
+    if (samples3dOpenSource) samples3dOpenSource.setAttribute('href', active3dSample.sourceUrl);
+
+    viewModeBtns.forEach(function (b) {
+      const active = b.getAttribute('data-viewmode') === active3dViewMode;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+
+  function render3dSampleCards() {
+    if (!samples3dCardsEl) return;
+    samples3dCardsEl.textContent = '';
+
+    const visible = THREE_SAMPLES.filter(function (s) {
+      return active3dAudience === 'all' || s.audience === active3dAudience;
+    });
+    if (visible.length > 0 && visible.indexOf(active3dSample) === -1) {
+      active3dSample = visible[0];
+    }
+
+    visible.forEach(function (sample) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'sample-3d-card-' + sample.id;
+      btn.setAttribute('role', 'tab');
+      const isSelected = sample.id === active3dSample.id;
+      btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      btn.className =
+        'sample-3d-card' +
+        (sample.audience === 'kids' ? ' sample-kids' : '') +
+        (isSelected ? ' active' : '');
+
+      const badge = document.createElement('span');
+      badge.className = 'sample-3d-badge';
+      badge.textContent = sample.badge;
+
+      const title = document.createElement('span');
+      title.className = 'sample-3d-title';
+      title.textContent = sample.title;
+
+      const sub = document.createElement('span');
+      sub.className = 'sample-3d-sub';
+      sub.textContent = sample.subtitle;
+
+      btn.appendChild(badge);
+      btn.appendChild(title);
+      btn.appendChild(sub);
+
+      btn.addEventListener('click', function () {
+        active3dSample = sample;
+        render3dSampleCards();
+        sync3dStage();
+      });
+      samples3dCardsEl.appendChild(btn);
+    });
+  }
+
+  if (samples3dFilterEl) {
+    const audDefs = [
+      { id: 'all', label: 'All 3D Samples (4)' },
+      { id: 'kids', label: 'Kids & School (2)' },
+      { id: 'advanced', label: 'Advanced Technical (2)' }
+    ];
+    audDefs.forEach(function (a) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'samples-3d-aud-' + a.id;
+      btn.className = 'filter-pill' + (a.id === active3dAudience ? ' active' : '');
+      btn.textContent = a.label;
+      btn.addEventListener('click', function () {
+        active3dAudience = a.id;
+        Array.from(samples3dFilterEl.children).forEach(function (c) {
+          c.classList.toggle('active', c.id === 'samples-3d-aud-' + a.id);
+        });
+        render3dSampleCards();
+        sync3dStage();
+      });
+      samples3dFilterEl.appendChild(btn);
+    });
+  }
+
+  viewModeBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const mode = btn.getAttribute('data-viewmode');
+      if (mode === 'three' || mode === 'diagram' || mode === 'explainer') {
+        active3dViewMode = mode;
+        sync3dStage();
+      }
+    });
+  });
+
+  render3dSampleCards();
+  sync3dStage();
+
+  // =========================================================================
+  // MODULE D: ARCHIFY INTERACTIVE THEATER (24 COMPILED ARTIFACTS)
   // =========================================================================
   const tabsContainer = document.getElementById('archify-tabs');
   const stageFrame = document.getElementById('archify-stage-frame');

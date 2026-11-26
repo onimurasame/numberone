@@ -1498,6 +1498,80 @@ tr:last-child td {
   color: var(--text-muted);
 }
 
+/* Interactive 3D Samples Gallery Cards */
+.samples-3d-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+@media (max-width: 1020px) {
+  .samples-3d-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .samples-3d-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sample-3d-card {
+  text-align: left;
+  padding: 1rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.sample-3d-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+}
+
+.sample-3d-card.active {
+  background: var(--accent-sky-soft);
+  border-color: var(--accent-sky);
+}
+
+.sample-3d-card.active.sample-kids {
+  background: var(--accent-emerald-soft);
+  border-color: var(--accent-emerald);
+}
+
+.sample-3d-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-sky);
+}
+
+.sample-kids .sample-3d-badge {
+  color: var(--accent-emerald);
+}
+
+.sample-3d-title {
+  font-weight: 700;
+  font-size: 0.94rem;
+  line-height: 1.3;
+}
+
+.sample-3d-sub {
+  font-size: 0.81rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
 /* Footer */
 .site-footer {
   padding: 2.75rem 0 3.75rem;

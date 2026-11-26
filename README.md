@@ -86,8 +86,8 @@ const tips = buddy.consult({ intent: 'adding fractions quiz', tags: ['math', 'fr
 console.log('Remember:', tips.lessons[0].lesson.preventionRule);
 ```
 
-> **Want more school project ideas?**  
-> Check out our full **[Kids & School Projects Guide (`docs/KIDS_AND_SCHOOL_PROJECTS.md`)](./docs/KIDS_AND_SCHOOL_PROJECTS.md)** — or try the interactive **[Kids & School Projects Lab](https://onimurasame.github.io/numberone/#kids-lab)** on our website — for **5 complete step-by-step projects** (Science Fair Notebook, Coding Club Video Game, Smart Study Buddy App, Robotics Club Safety Guard & Time Machine, and Group History/Presentation Tracker), plus a **Kid-Friendly Mini Dictionary** and a **Parents & Teachers Privacy Note**!
+> **Want more school project ideas — including interactive 3D visualizations?**  
+> Try our **[Interactive 3D Samples Gallery (Three.js + Archify)](https://onimurasame.github.io/numberone/#samples-3d)** (fly 3D paper airplanes on a Science Fair runway or drive a 3D rover through an `L2` safety laser gate!), browse all runnable samples in **[`examples/README.md`](./examples/README.md)**, or read the full **[Kids & School Projects Guide (`docs/KIDS_AND_SCHOOL_PROJECTS.md`)](./docs/KIDS_AND_SCHOOL_PROJECTS.md)**!
 
 ---
 
@@ -116,17 +116,18 @@ n1 documentary --out my-project-story.md
 
 ## Where to Go Next
 
-Whether you want a friendly walkthrough, school project recipes, or every deep engineering detail, pick the guide that fits you best:
+Whether you want a friendly walkthrough, 3D interactive school projects, or every deep engineering detail, pick the guide that fits you best:
 
 | Guide | Best For |
 |---|---|
-| **[Main Documentation Website (GitHub Pages)](https://onimurasame.github.io/numberone/)** | **Best starting place!** Opens with the expanded plain-English walkthrough and interactive Kids & School Projects Lab, followed by the full technical specs, 16 interactive visual diagrams, 24+ AI tool setup helper, code explorer, and searchable dictionary. |
+| **[Main Documentation Website (GitHub Pages)](https://onimurasame.github.io/numberone/)** | **Best starting place!** Opens with the expanded plain-English walkthrough, Kids & School Projects Lab, and **4 live Three.js 3D samples**, followed by full technical specs, 24 interactive Archify visual diagrams, 24+ AI tool setup helper, code explorer, and searchable dictionary. |
+| **[Interactive 3D Samples (`examples/README.md`)](./examples/README.md)** | Hands-on runnable samples with **Three.js 3D visualizations** & **Archify** diagrams — 2 for kids & school projects (Paper Airplane Flight Lab, RoboHawks Safety Arena) + 2 for advanced engineers (SHA-256 Hash-Chain Helix, BMAD Command Bridge). |
 | **[Kids & School Projects Guide](./docs/KIDS_AND_SCHOOL_PROJECTS.md)** | Students, kids, coding clubs, parents, and teachers looking for fun, runnable terminal & JavaScript library projects. |
 | **[Full Technical Architecture Guide](./docs/TECHNICAL_GUIDE.md)** | Software engineers and architects who want the complete deep-dive technical specification, commands, codebase map, and governance details in Markdown. |
 | **[Setup for 24+ AI Tools](./docs/INSTALLATION.md)** | Connecting Number One to Claude Code, Codex, Cursor, Windsurf, Antigravity, Gemini CLI, Copilot, Cline, Zed, Aider, and more — or using it with no AI at all. |
 | **[Offline, Private & Company Server Guide](./docs/ONPREM.md)** | Running Number One completely offline, in containers, or with self-hosted company tools. |
 | **[Complete Code & API Reference](./docs/CODE_REFERENCE.md)** | Developers reading exact modules, classes, library methods, and command options. |
-| **[Interactive Visual Diagrams Guide](./docs/ARCHIFY_GUIDE.md)** | Exploring all 16 visual maps, narrated story videos, and 3D codebase analysis. |
+| **[Interactive Visual Diagrams Guide](./docs/ARCHIFY_GUIDE.md)** | Exploring all 24 compiled Archify visual maps, sample explainers, narrated story videos, and 3D codebase analysis. |
 | **[A–Z Dictionary / Glossary](./docs/GLOSSARY.md)** | Looking up any technical word or project term in plain, clear definitions. |
 
 ---

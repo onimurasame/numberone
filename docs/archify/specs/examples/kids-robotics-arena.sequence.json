@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Kids Robotics Arena — L2 Safety Gate & Time-Travel Sequence",
+    "subtitle": "How Number One blocks an unsafe 100% speed command, approves safe 75% cornering, and feeds deterministic replay snapshots to Three.js",
+    "output": "docs/site/archify/examples/kids-robotics-arena-sequence.html",
+    "viewBox": [1080, 620],
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "fc10c03081e1eb7b0c75c8828ec1be77b7de8e14"
+    }
+  },
+  "participants": [
+    {
+      "id": "driver",
+      "type": "external",
+      "label": "Student Driver",
+      "sublabel": "RoboHawks Club",
+      "explanation": "Proposes robot motor speeds and calibrates the line-following light sensor in examples/kids-robotics-arena/run.mjs.",
+      "sources": [
+        { "path": "examples/kids-robotics-arena/run.mjs", "line": 81, "end_line": 100, "label": "Arbitrate Driver Plans" }
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "NumberOneAgent",
+      "sublabel": "Robotics Notebook",
+      "explanation": "Coordinates build tasks (openIssue/resolveIssue), blocking safety rules (issueDirective), and replay snapshots.",
+      "sources": [
+        { "path": "examples/kids-robotics-arena/run.mjs", "line": 34, "end_line": 79, "label": "Attach & Safety Directive" }
+      ]
+    },
+    {
+      "id": "authority",
+      "type": "security",
+      "label": "AuthorityEngine",
+      "sublabel": "L2 Safety Gate",
+      "explanation": "Enforces the blocking L2 motor speed cap (<= 80%) using affirmative-clause extraction and ReDoS-safe pattern checks.",
+      "sources": [
+        { "path": "src/core/authority-engine.ts", "line": 222, "end_line": 310, "label": "AuthorityEngine.arbitrate" }
+      ]
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "StreamStore",
+      "sublabel": "SHA-256 Chain",
+      "explanation": "Appends immutable tasks, safety rules, calibration lessons, and resolution entries sealed with SHA-256 hashes.",
+      "sources": [
+        { "path": "examples/kids-robotics-arena/run.mjs", "line": 118, "end_line": 141, "label": "Replay & Verify Seal" }
+      ]
+    },
+    {
+      "id": "arena3d",
+      "type": "frontend",
+      "label": "Three.js 3D Arena",
+      "sublabel": "Rover + Laser Gate",
+      "explanation": "Renders the 3D wheeled rover, oval track, dynamic foam rails, and animated crimson/emerald L2 laser barrier from data.json.",
+      "sources": [
+        { "path": "docs/site/examples/kids-robotics-arena/scene.js", "line": 55, "end_line": 115, "label": "3D Gate & Snapshot Sync" }
+      ]
+    }
+  ],
+  "segments": [
+    { "from": 150, "to": 252, "label": "1. Set Club Safety Rule (L2 Blocking)" },
+    { "from": 266, "to": 416, "label": "2. Arbitrate Unsafe vs Safe Speed Plans" },
+    { "from": 430, "to": 524, "label": "3. Deterministic Time-Travel & 3D Arena" }
+  ],
+  "messages": [
+    {
+      "id": "set-rule",
+      "from": "driver",
+      "to": "agent",
+      "y": 162,
+      "label": "issueDirective(cap <= 80%, blocking)",
+      "variant": "security",
+      "payload": {
+        "summary": "Club safety rule forbidding setSpeed(100) on indoor test tables",
+        "contentType": "application/json",
+        "sample": { "severity": "blocking", "forbiddenPatterns": ["MOTOR_POWER=100", "setSpeed\\(100\\)"] }
+      }
+    },
+    { "id": "persist-rule", "from": "agent", "to": "store", "y": 196, "label": "append(directive.issued)", "variant": "emphasis" },
+    { "id": "rule-acked", "from": "store", "to": "agent", "y": 230, "label": "seq #5 + SHA-256 hash", "variant": "return" },
+    {
+      "id": "plan-unsafe",
+      "from": "driver",
+      "to": "authority",
+      "y": 278,
+      "label": "arbitrate('setSpeed(100)')",
+      "variant": "security",
+      "payload": {
+        "summary": "Full throttle test violates active L2 safety directive",
+        "contentType": "application/json",
+        "sample": { "action": "Run lap trials using setSpeed(100)", "verdict": "BLOCK" }
+      }
+    },
+    { "id": "block-reply", "from": "authority", "to": "driver", "y": 312, "label": "BLOCK (L2 conflict)", "variant": "return" },
+    { "id": "plan-safe", "from": "driver", "to": "authority", "y": 350, "label": "arbitrate('setSpeed(75)')", "variant": "emphasis" },
+    { "id": "approve-reply", "from": "authority", "to": "driver", "y": 384, "label": "APPROVE_WITH_CONDITIONS", "variant": "return" },
+    { "id": "replay-loop", "from": "agent", "to": "store", "y": 442, "label": "replay({ untilSeq: 1..9 }) + verifyIntegrity()", "variant": "emphasis" },
+    { "id": "export-3d", "from": "agent", "to": "arena3d", "y": 484, "label": "data.json (plans + snapshots + seal)", "variant": "emphasis" },
+    { "id": "gate-anim", "from": "arena3d", "to": "driver", "y": 516, "label": "Interactive 3D Rover + Laser Gate + Scrubber", "variant": "return" }
+  ]
+}

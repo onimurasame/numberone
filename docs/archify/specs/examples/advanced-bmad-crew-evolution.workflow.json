@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Advanced BMAD Crew, KPI Evolution & Distributed Scrum Sample Workflow",
+    "subtitle": "End-to-end 4-phase lifecycle: Pre-hardening Veto -> Counterfactual KPI Evolution (Reject vs Promote) -> Remediated Consensus -> Air-Gapped Scrum Sync",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "output": "docs/site/archify/examples/advanced-bmad-crew-evolution-workflow.html",
+    "repository": {
+      "url": "https://github.com/onimurasame/numberone.git",
+      "provider": "github",
+      "revision": "fc10c03081e1eb7b0c75c8828ec1be77b7de8e14"
+    }
+  },
+  "lanes": [
+    { "id": "pipeline", "label": "Hardening Pipeline" },
+    { "id": "crew", "label": "BMAD Bridge Crew" },
+    { "id": "evolution", "label": "KPI Evolution Gate" },
+    { "id": "fabric", "label": "Scrum Fabric & 3D Bridge" }
+  ],
+  "phases": [
+    { "id": "p1", "label": "Phase 1: Veto", "fromCol": 0, "toCol": 1 },
+    { "id": "p2", "label": "Phase 2: KPI Proof", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "p3", "label": "Phase 3-4: Consensus & Sync", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "evo_proof", "label": "Counterfactual Virtual Replay", "lane": "evolution", "fromCol": 2, "toCol": 3, "variant": "security" }
+  ],
+  "mainPath": ["seed_unhardened", "phase1_veto", "evo_promote", "remediate", "phase3_consensus", "sync_3d"],
+  "nodes": [
+    {
+      "id": "seed_unhardened",
+      "lane": "pipeline",
+      "col": 0,
+      "type": "frontend",
+      "label": "Unhardened Service",
+      "sublabel": "USER root + no CI",
+      "width": 140,
+      "explanation": "Creates a realistic Payments API workspace missing non-root Dockerfile user, lockfile, tests, CI, and rollback script.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 74, "end_line": 104, "label": "Seed Unhardened Workspace" }
+      ]
+    },
+    {
+      "id": "phase1_veto",
+      "lane": "crew",
+      "col": 1,
+      "type": "security",
+      "label": "Phase 1: VETO",
+      "sublabel": "Eng 53 · Sec 40 · Br 0",
+      "tag": "L2 Block",
+      "width": 140,
+      "explanation": "PartyModeOrchestrator runs Round 1 telemetry audit + Round 2 peer challenge verification (CONFIRMED) and issues crew.veto + L2 blocking directive.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 106, "end_line": 112, "label": "Phase 1 Party Mode" }
+      ]
+    },
+    {
+      "id": "evo_reject",
+      "lane": "evolution",
+      "col": 2,
+      "type": "security",
+      "label": "Reject False Positive",
+      "sublabel": "overbroad 'exec' -> fp=1",
+      "width": 140,
+      "explanation": "KnowledgeEvolutionEngine rejects the overbroad candidate rule because it falsely flags executeHealthCheck() on clean negativeSamples.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 131, "end_line": 156, "label": "Rejected Evolution Proposal" }
+      ]
+    },
+    {
+      "id": "evo_promote",
+      "lane": "evolution",
+      "col": 3,
+      "type": "backend",
+      "label": "Promote CWE-78 Rule",
+      "sublabel": "delta=+100 · fp=0",
+      "tag": "Promoted",
+      "width": 140,
+      "explanation": "Counterfactual virtual-file replay proves 0% -> 100% recall on the incident blob with 0 false positives, upgrading Security Officer knowledgeVersion.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 158, "end_line": 183, "label": "Promoted Evolution Proposal" }
+      ]
+    },
+    {
+      "id": "remediate",
+      "lane": "pipeline",
+      "col": 4,
+      "type": "backend",
+      "label": "Apply Hardening",
+      "sublabel": "USER node + CI + tests",
+      "width": 140,
+      "explanation": "Applies multi-stage non-root Dockerfile, lockfile, SHA-pinned CI & Release workflows, tests, Dependabot, SECURITY.md, and rollback.sh.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 188, "end_line": 301, "label": "Apply Hardening Controls" }
+      ]
+    },
+    {
+      "id": "phase3_consensus",
+      "lane": "crew",
+      "col": 5,
+      "type": "backend",
+      "label": "Phase 3: CONSENSUS",
+      "sublabel": "Eng 100 · Sec 100 · Br 86",
+      "tag": "Cleared",
+      "width": 140,
+      "explanation": "Re-runs BMAD Party Mode across hardened files + newly promoted CWE-78 rule, reaching crew.consensus and auto-superseding L2 remediation gates.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 303, "end_line": 308, "label": "Phase 3 Consensus" }
+      ]
+    },
+    {
+      "id": "sync_3d",
+      "lane": "fabric",
+      "col": 5,
+      "type": "database",
+      "label": "Scrum Sync + 3D",
+      "sublabel": "29/29 valid + Three.js",
+      "tag": "Air-Gap",
+      "width": 146,
+      "explanation": "Pushes all 29 events to DirectoryPersistenceAdapter, verifies 29/29 remote records via verifyIntegrity(true), and renders the 3D Command Bridge.",
+      "sources": [
+        { "path": "examples/advanced-bmad-crew-evolution/run.mjs", "line": 312, "end_line": 314, "label": "Sync & Distributed Integrity" },
+        { "path": "docs/site/examples/advanced-bmad-crew-evolution/scene.js", "line": 117, "end_line": 175, "label": "3D KPI Towers & Phase Switch" }
+      ]
+    }
+  ],
+  "edges": [
+    { "id": "e1", "from": "seed_unhardened", "to": "phase1_veto", "label": "assembleCrew()", "variant": "emphasis" },
+    { "id": "e2", "from": "phase1_veto", "to": "evo_reject", "label": "overbroad rule", "variant": "security", "role": "error" },
+    { "id": "e3", "from": "phase1_veto", "to": "evo_promote", "label": "CWE-78 proposal", "variant": "emphasis" },
+    { "id": "e4", "from": "evo_promote", "to": "remediate", "label": "rule active", "variant": "emphasis" },
+    { "id": "e5", "from": "remediate", "to": "phase3_consensus", "label": "re-audit", "variant": "emphasis" },
+    { "id": "e6", "from": "phase3_consensus", "to": "sync_3d", "label": "syncPush + verify", "variant": "emphasis" }
+  ],
+  "semanticChecks": {
+    "allowedRoots": ["seed_unhardened"],
+    "allowedTerminals": ["evo_reject", "sync_3d"],
+    "requiredPaths": [
+      { "from": "seed_unhardened", "to": "evo_reject" },
+      { "from": "seed_unhardened", "to": "sync_3d" }
+    ]
+  },
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Zero-Hallucination Officer Evolution",
+      "items": [
+        "False-positive candidate rule rejected automatically (fp=1)",
+        "CWE-78 rule promoted strictly on empirical counterfactual proof (delta=+100, fp=0)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Lossless Air-Gapped Scrum Parity",
+      "items": [
+        "DirectoryPersistenceAdapter mirrors 29/29 verified events with zero external SaaS",
+        "Interactive Three.js Command Bridge animates KPI towers across all 3 phases"
+      ]
+    }
+  ]
+}

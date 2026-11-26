@@ -20,9 +20,10 @@
       <nav class="primary-nav" aria-label="Primary documentation sections">
         <a href="#plain-english" class="nav-link" id="nav-plain">Plain English</a>
         <a href="#kids-lab" class="nav-link" id="nav-kids">Kids &amp; School Lab</a>
+        <a href="#samples-3d" class="nav-link" id="nav-samples-3d">3D Samples (4)</a>
         <span class="nav-divider" aria-hidden="true"></span>
         <a href="#how-it-works" class="nav-link" id="nav-how">Technical Specs</a>
-        <a href="#archify-suite" class="nav-link" id="nav-archify">Visual Suite (16)</a>
+        <a href="#archify-suite" class="nav-link" id="nav-archify">Visual Suite (24)</a>
         <a href="#installation" class="nav-link" id="nav-install">24+ Harnesses</a>
         <a href="#code-reference" class="nav-link" id="nav-code">CLI, MCP &amp; Code</a>
         <a href="#glossary" class="nav-link" id="nav-glossary">Glossary</a>
@@ -50,8 +51,8 @@
         <div class="hero-cta-row">
           <a href="#plain-english" class="btn btn-primary" id="cta-plain-guide">Read the 3-Minute Plain-English Guide</a>
           <a href="#kids-lab" class="btn btn-emerald" id="cta-kids-lab">Explore Kids &amp; School Projects</a>
+          <a href="#samples-3d" class="btn" id="cta-samples-3d">Launch 3D Three.js Samples (4)</a>
           <a href="#how-it-works" class="btn" id="cta-technical-jump">Jump to Full Technical Docs</a>
-          <a href="#archify-suite" class="btn" id="cta-explore-archify">Interactive Visual Maps (16)</a>
         </div>
 
         <div class="path-grid" role="navigation" aria-label="Choose your documentation path">
@@ -68,16 +69,16 @@
             <div>
               <span class="path-tag path-tag-kids">2 · Students, Kids &amp; Teachers</span>
               <h2>Building a School Project?</h2>
-              <p>Try 5 ready-to-run projects — from a Science Fair Lab Notebook to JavaScript library apps like a Smart Study Buddy and Robotics Safety Guard.</p>
+              <p>Try 5 ready-to-run school guides plus interactive Three.js 3D labs (Science Fair Flight Runway &amp; RoboHawks Safety Arena) documented with Archify.</p>
             </div>
-            <span class="path-link-hint">Open the Kids &amp; School Lab -&gt;</span>
+            <span class="path-link-hint">Open Kids &amp; 3D School Labs -&gt;</span>
           </a>
 
           <a href="#technical-bridge" class="path-card path-card-tech" id="path-engineers">
             <div>
               <span class="path-tag path-tag-tech">3 · Full Engineering Reference</span>
               <h2>Ready for Under the Hood?</h2>
-              <p>Dive into all 11 deep technical specs, 16 interactive Archify diagrams, 24+ AI harness &amp; air-gap configs, 24 CLI commands, 12 MCP tools, and 30+ modules.</p>
+              <p>Dive into all 11 deep technical specs, 2 advanced Three.js 3D observatories, 24 interactive Archify deliverables, 24+ AI harnesses, CLI, MCP &amp; API.</p>
             </div>
             <span class="path-link-hint">Jump to technical reference -&gt;</span>
           </a>
@@ -89,8 +90,8 @@
             <span class="stat-label">Runs privately on your own computer — no account needed</span>
           </div>
           <div class="stat-cell">
-            <span class="stat-value">5 School Projects</span>
-            <span class="stat-label">Hands-on terminal &amp; JavaScript library guides for kids</span>
+            <span class="stat-value">4 Three.js 3D Labs</span>
+            <span class="stat-label">Interactive 3D samples for kids &amp; advanced engineers</span>
           </div>
           <div class="stat-cell">
             <span class="stat-value">24+ AI Tools</span>
@@ -101,8 +102,8 @@
             <span class="stat-label">Builder, Safety &amp; Launch helpers with 0–100 scorecards</span>
           </div>
           <div class="stat-cell">
-            <span class="stat-value">16 Visual Maps</span>
-            <span class="stat-label">Interactive diagrams, narrated walkthrough &amp; 3D code map</span>
+            <span class="stat-value">24 Archify Views</span>
+            <span class="stat-label">System diagrams, sample explainers, story video &amp; 3D code map</span>
           </div>
         </div>
       </div>
@@ -335,6 +336,53 @@
     </section>
 
     <!-- ================================================================
+         3B. INTERACTIVE 3D SAMPLES GALLERY (THREE.JS + ARCHIFY)
+         ================================================================ -->
+    <section class="section" id="samples-3d">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker section-kicker-sky">Interactive Three.js 3D Scenes + Archify v3.3.2 Specs</span>
+          <h2>Live 3D Samples Gallery — For Kids &amp; Advanced Engineers</h2>
+          <p>
+            Every sample below executes real, zero-mock <code>numberone</code> code in <code>examples/</code>, renders its live telemetry inside an interactive <strong>Three.js 3D visualization</strong>, and is thoroughly documented with compiled <strong>Archify interactive diagrams &amp; 4-style Explainers</strong> pinned to exact source lines.
+          </p>
+        </div>
+
+        <div class="filter-bar">
+          <div class="pill-group" id="samples-3d-filter" role="group" aria-label="Filter 3D samples by audience"></div>
+          <div class="pill-group" id="samples-3d-viewmode" role="tablist" aria-label="Switch active stage view mode">
+            <button type="button" class="filter-pill active" id="viewmode-three" role="tab" aria-selected="true" data-viewmode="three">Live Three.js 3D View</button>
+            <button type="button" class="filter-pill" id="viewmode-diagram" role="tab" aria-selected="false" data-viewmode="diagram">Archify Interactive Diagram</button>
+            <button type="button" class="filter-pill" id="viewmode-explainer" role="tab" aria-selected="false" data-viewmode="explainer">Archify 4-Style Explainer</button>
+          </div>
+        </div>
+
+        <div class="samples-3d-cards" id="samples-3d-cards" role="tablist" aria-label="Choose a 3D interactive sample"></div>
+
+        <div class="archify-theater" style="margin-top:1.35rem;">
+          <div class="theater-frame-wrap" style="height:640px;">
+            <iframe
+              id="samples-3d-frame"
+              class="theater-frame"
+              title="Interactive Three.js 3D Sample and Archify Documentation Stage"
+              src="./examples/kids-science-fair-glider/index.html"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="theater-caption">
+            <span id="samples-3d-caption">Kids Sample 1: Interactive Three.js 3D Paper Airplane Flight Lab powered by real NumberOneAgent stream events, dead-end tracking, and time-travel replay.</span>
+            <div class="theater-caption-actions">
+              <a href="./examples/kids-science-fair-glider/index.html" class="btn btn-primary" id="samples-3d-open-three" target="_blank" rel="noopener noreferrer">Open 3D Fullscreen</a>
+              <a href="./archify/examples/kids-science-fair-glider-timeline.html" class="btn" id="samples-3d-open-diagram" target="_blank" rel="noopener noreferrer">Open Archify Diagram</a>
+              <a href="./archify/examples/kids-science-fair-glider-explainer.html" class="btn" id="samples-3d-open-explainer" target="_blank" rel="noopener noreferrer">Open Archify Explainer</a>
+              <a href="https://github.com/onimurasame/numberone/tree/master/examples/kids-science-fair-glider" class="btn" id="samples-3d-open-source" target="_blank" rel="noopener noreferrer">Runnable Source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
          BRIDGE BANNER: TRANSITION TO FULL TECHNICAL DOCUMENTATION
          ================================================================ -->
     <div class="tech-bridge" id="technical-bridge">
@@ -343,12 +391,13 @@
           <span class="section-kicker section-kicker-sky">Part 3 · Full Engineering &amp; Architecture Documentation</span>
           <h2>Under the Hood: Complete Technical Specification &amp; Interactive Portal</h2>
           <p>
-            Everything below combines the complete unabridged technical specification (formerly in <code>README.md</code>) with the full interactive GitHub Pages architecture portal — 11 deep architectural specifications, 16 compiled Archify viewers, 24+ AI harness &amp; air-gapped configs, all 24 CLI commands, 12 MCP tools, 30+ modules, governance automation, and searchable glossary.
+            Everything below combines the complete unabridged technical specification (formerly in <code>README.md</code>) with the full interactive GitHub Pages architecture portal — 11 deep architectural specifications, 24 compiled Archify viewers (16 core + 8 sample deliverables), 24+ AI harness &amp; air-gapped configs, all CLI commands, 12 MCP tools, 38 modules, governance automation, and searchable glossary.
           </p>
         </div>
         <div class="tech-jump-pills">
+          <a href="#samples-3d" class="btn">3D Samples (4)</a>
           <a href="#how-it-works" class="btn">11 Deep Specs</a>
-          <a href="#archify-suite" class="btn">16 Archify Views</a>
+          <a href="#archify-suite" class="btn">24 Archify Views</a>
           <a href="#installation" class="btn">24+ Harnesses</a>
           <a href="#code-reference" class="btn">CLI, MCP &amp; Code</a>
           <a href="#glossary" class="btn">Glossary</a>
@@ -636,10 +685,10 @@ docker run --rm --network=none --user "$(id -u):$(id -g)" \
     <section class="section" id="archify-suite">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">100% Archify v3.3.0 Coverage · 16 Interactive Deliverables</span>
-          <h2>Interactive Visual Architecture, Walkthroughs &amp; Code Diagnosis</h2>
+          <span class="section-kicker">100% Archify v3.3.2 Coverage · 24 Interactive Deliverables (16 Core + 8 Sample Docs)</span>
+          <h2>Interactive Visual Architecture, Walkthroughs, Sample Docs &amp; Code Diagnosis</h2>
           <p>
-            Select any artifact below to inspect it live in the embedded viewer — including all 10 native diagram types, the 4-style One-Page Explainer, Narrated Story Walkthrough (with 1080p60 WebM/MP4 export), Multi-View Component Choreography, Before/After Architecture Diff, Source-Backed 3D Code Analysis Workbench, and PR Walkthrough Pack.
+            Select any artifact below to inspect it live in the embedded viewer — including all 10 native diagram types, the 4-style One-Page Explainers, Narrated Story Walkthrough (with 1080p60 WebM/MP4 export), Multi-View Component Choreography, Architecture Diff, 3D Code Analysis Workbench, PR Pack, and all 8 interactive Archify diagrams &amp; explainers documenting our Kids and Advanced Three.js samples.
           </p>
         </div>
 

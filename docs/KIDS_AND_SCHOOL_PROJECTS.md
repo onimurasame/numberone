@@ -13,6 +13,15 @@ Have you ever worked on a cool school project — like a science fair experiment
 1. **Simple Commands (No coding needed!)** — Type short commands like `n1 think`, `n1 dead-end`, `n1 lesson`, and `n1 documentary` in your terminal to track any school project.
 2. **As a JavaScript Library in Your Own Code** — Import `numberone` in a Node.js school coding project (`import { NumberOneAgent } from 'numberone'`) to build smart notebooks, quiz coaches, safety checkers, or robotics logs!
 
+### Interactive 3D Playgrounds (Three.js + Archify Visual Guides)
+
+Want to see Number One come alive in **3D** right inside your browser? Try our two runnable kids samples — complete with interactive Three.js 3D worlds and Archify step-by-step diagrams:
+
+| 3D School Lab | Live Three.js 3D Scene | Archify Visual Docs | Runnable Code |
+|---|---|---|---|
+| **Paper Airplane Science Fair Flight Lab** (Grades 5–12) | [Launch 3D Flight Runway](https://onimurasame.github.io/numberone/examples/kids-science-fair-glider/) | [Interactive Timeline](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [4-Style Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html) | [`examples/kids-science-fair-glider/`](../examples/kids-science-fair-glider/README.md) |
+| **RoboHawks Safety Arena & Time Machine** (Grades 6–12) | [Launch 3D Robotics Arena](https://onimurasame.github.io/numberone/examples/kids-robotics-arena/) | [Interactive Sequence](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [4-Style Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html) | [`examples/kids-robotics-arena/`](../examples/kids-robotics-arena/README.md) |
+
 ---
 
 ## Before You Start (2-Minute Setup)
