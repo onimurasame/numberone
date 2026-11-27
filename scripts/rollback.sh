@@ -12,7 +12,7 @@ GOOD_VERSION=""
 BAD_VERSION=""
 REASON="Rolled back due to production regression"
 DRY_RUN=0
-PACKAGE_NAME="numberone"
+PACKAGE_NAME="@onimurasame/numberone"
 
 while [ "$#" -gt 0 ]; do
   case "$1" in

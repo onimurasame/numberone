@@ -2,6 +2,7 @@
 
 **The project memory notebook that never forgets — for kids, students, creators, teams, and AI helpers.**
 
+[![npm version](https://img.shields.io/npm/v/%40onimurasame%2Fnumberone.svg?color=cb3837)](https://www.npmjs.com/package/@onimurasame/numberone)
 [![CI](https://github.com/onimurasame/numberone/actions/workflows/ci.yml/badge.svg)](https://github.com/onimurasame/numberone/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/onimurasame/numberone/actions/workflows/codeql.yml/badge.svg)](https://github.com/onimurasame/numberone/actions/workflows/codeql.yml)
 [![Documentation Website](https://github.com/onimurasame/numberone/actions/workflows/pages.yml/badge.svg)](https://onimurasame.github.io/numberone/)
@@ -61,12 +62,12 @@ n1 lesson --title "Put weight near the nose" --resolution "One paperclip on the 
 n1 documentary --out my-science-fair-report.md
 ```
 
-### Idea 2: Build a "Smart Study Buddy" in JavaScript (Using the `numberone` Library!)
+### Idea 2: Build a "Smart Study Buddy" in JavaScript (Using the `@onimurasame/numberone` Library!)
 
 Learning JavaScript in school or coding club? You can `import` Number One right into your own `.mjs` file to build a Study Buddy that remembers tricky quiz mistakes and reminds you before test day:
 
 ```javascript
-import { NumberOneAgent } from 'numberone';
+import { NumberOneAgent } from '@onimurasame/numberone';
 
 const buddy = new NumberOneAgent('./my-study-notebook');
 buddy.attach({ workspaceName: 'Math Study Buddy', installHooks: false, installShims: false });
@@ -97,7 +98,7 @@ All you need is [Node.js](https://nodejs.org/) (version 22 or newer) installed o
 
 ```bash
 # 1. Install Number One once on your computer
-npm install -g numberone
+npm install -g @onimurasame/numberone
 
 # 2. Go into any project folder and turn Number One on
 cd my-project

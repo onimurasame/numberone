@@ -49,7 +49,7 @@ This document provides the exhaustive module-by-module, class-by-class, interfac
 
 ## 1. Package & Entrypoint Architecture
 
-- **ESM Library Entrypoint**: `src/index.ts` -> compiled to `dist/index.js` + `dist/index.d.ts` (`import { NumberOneAgent, StreamStore, ReplayEngine, ... } from 'numberone'`).
+- **ESM Library Entrypoint**: `src/index.ts` -> compiled to `dist/index.js` + `dist/index.d.ts` (`import { NumberOneAgent, StreamStore, ReplayEngine, ... } from '@onimurasame/numberone'`).
 - **CLI Entrypoint**: `src/cli.ts` -> compiled to `dist/cli.js` (`0o755`), exposed as both `n1` and `numberone` in `package.json#bin`.
 - **Runtime Dependency Surface**: Exactly **1** production dependency (`zod`), minimizing supply-chain attack surface while guaranteeing strict runtime schema validation at every trust boundary.
 

@@ -4,19 +4,46 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Validate, build, test, and run npm publish --dry-run without publishing to npm or creating a GitHub Release'
+        type: boolean
+        required: false
+        default: true
+      npm_tag:
+        description: "npm dist-tag ('auto' uses 'latest' for stable semver and 'next' for prereleases)"
+        type: choice
+        required: false
+        default: auto
+        options:
+          - auto
+          - latest
+          - next
+          - beta
+          - rc
 
 concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
-  contents: write
-  id-token: write
+  contents: read
 
 jobs:
-  release:
+  verify:
+    name: Verify Release Artifacts
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      package_name: ${{ steps.meta.outputs.package_name }}
+      version: ${{ steps.meta.outputs.version }}
+      release_tag: ${{ steps.meta.outputs.release_tag }}
+      npm_tag: ${{ steps.meta.outputs.npm_tag }}
+      is_prerelease: ${{ steps.meta.outputs.is_prerelease }}
+      dry_run: ${{ steps.meta.outputs.dry_run }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -25,49 +52,249 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22.22.x'
-          cache: npm
-          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
 
-      - name: Verify Tag Matches package.json Version
+      - name: Resolve & Validate Release Metadata
+        id: meta
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+          FULL_REF: ${{ github.ref }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_NPM_TAG: ${{ inputs.npm_tag }}
         run: |
           set -euo pipefail
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_NAME="$(node -p "JSON.parse(require('node:fs').readFileSync('package.json','utf8')).name")"
           PKG_VERSION="$(node -p "JSON.parse(require('node:fs').readFileSync('package.json','utf8')).version")"
-          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
-            echo "Tag v$TAG_VERSION does not match package.json version $PKG_VERSION" >&2
+
+          if ! printf '%s' "$PKG_VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$'; then
+            echo "Invalid semver in package.json: $PKG_VERSION" >&2
             exit 1
           fi
 
-      - name: Install, Typecheck, Build, Test & Audit
+          RELEASE_TAG="v${PKG_VERSION}"
+          IS_PRERELEASE="false"
+          if printf '%s' "$PKG_VERSION" | grep -q '-'; then
+            IS_PRERELEASE="true"
+          fi
+
+          DRY_RUN="false"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "${INPUT_DRY_RUN:-true}" = "true" ]; then
+            DRY_RUN="true"
+          fi
+
+          NPM_TAG="${INPUT_NPM_TAG:-auto}"
+          if [ -z "$NPM_TAG" ] || [ "$NPM_TAG" = "auto" ]; then
+            if [ "$IS_PRERELEASE" = "true" ]; then
+              NPM_TAG="next"
+            else
+              NPM_TAG="latest"
+            fi
+          fi
+
+          if [ "$REF_TYPE" = "tag" ]; then
+            TAG_VERSION="${REF_NAME#v}"
+            if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+              echo "Tag ${REF_NAME} does not match package.json version ${PKG_VERSION}" >&2
+              exit 1
+            fi
+          elif [ "$DRY_RUN" != "true" ]; then
+            case "$FULL_REF" in
+              refs/heads/master|refs/heads/main|"refs/tags/${RELEASE_TAG}")
+                ;;
+              *)
+                echo "Live workflow_dispatch releases are only allowed from master, main, or tag ${RELEASE_TAG} (got ${FULL_REF}). Run with dry_run=true on feature branches." >&2
+                exit 1
+                ;;
+            esac
+          fi
+
+          {
+            echo "package_name=${PKG_NAME}"
+            echo "version=${PKG_VERSION}"
+            echo "release_tag=${RELEASE_TAG}"
+            echo "npm_tag=${NPM_TAG}"
+            echo "is_prerelease=${IS_PRERELEASE}"
+            echo "dry_run=${DRY_RUN}"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "Release metadata: package=${PKG_NAME} version=${PKG_VERSION} tag=${RELEASE_TAG} npm_tag=${NPM_TAG} prerelease=${IS_PRERELEASE} dry_run=${DRY_RUN}"
+
+      - name: Install, Typecheck, Build, Test, Audit & Verify Workflows
         run: |
+          set -euo pipefail
           npm ci
           npm run typecheck
           npm run build
           npm test
           npm audit --audit-level=high
+          npm run verify:workflows
 
-      - name: Pack Release Artifact & SHA-256 Checksums
+      - name: Tarball Install Smoke Test & npm Publish Dry Run
+        env:
+          PKG_NAME: ${{ steps.meta.outputs.package_name }}
+          PKG_VERSION: ${{ steps.meta.outputs.version }}
+          NPM_TAG: ${{ steps.meta.outputs.npm_tag }}
         run: |
           set -euo pipefail
+          PACK_DIR="$(mktemp -d)"
+          SMOKE_DIR="$(mktemp -d)"
+          trap 'rm -rf "$PACK_DIR" "$SMOKE_DIR"' EXIT
+          TGZ="$(npm pack --pack-destination "$PACK_DIR" | tail -n 1)"
+          (cd "$PACK_DIR" && sha256sum "$TGZ" > SHA256SUMS.txt)
+          npm --prefix "$SMOKE_DIR" install --omit=dev --ignore-scripts "$PACK_DIR/$TGZ"
+          test "$("$SMOKE_DIR/node_modules/.bin/n1" --version)" = "$PKG_VERSION"
+          test "$("$SMOKE_DIR/node_modules/.bin/numberone" --version)" = "$PKG_VERSION"
+          "$SMOKE_DIR/node_modules/.bin/n1" --help >/dev/null
+          PKG_ENTRY="$SMOKE_DIR/node_modules/$PKG_NAME/dist/index.js" node -e "import(process.env.PKG_ENTRY).then(m => { if (!m.NumberOneAgent) process.exit(1); })"
+          npm publish --dry-run --access public --tag "$NPM_TAG" --ignore-scripts
+
+  publish-npm:
+    name: Publish to npm
+    needs: verify
+    if: ${{ needs.verify.outputs.dry_run != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/${{ needs.verify.outputs.package_name }}/v/${{ needs.verify.outputs.version }}
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Node 24 ships npm >= 11.5.1 required for OIDC Trusted Publishing.
+      # Intentionally omit `registry-url` so setup-node does not write an empty
+      # `_authToken=${NODE_AUTH_TOKEN}` entry in `.npmrc` that can block OIDC.
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Verify npm CLI Supports OIDC Trusted Publishing (>= 11.5.1)
+        run: |
+          set -euo pipefail
+          echo "Runtime: Node $(node -v) / npm $(npm -v)"
+          node -e '
+            const v = require("node:child_process").execFileSync("npm", ["--version"], { encoding: "utf8" }).trim();
+            const [maj, min, pat] = v.split(".").map((n) => parseInt(n, 10) || 0);
+            const ok = maj > 11 || (maj === 11 && (min > 5 || (min === 5 && pat >= 1)));
+            if (!ok) {
+              console.error(`npm >= 11.5.1 is required for OIDC Trusted Publishing (found ${v})`);
+              process.exit(1);
+            }
+          '
+
+      - name: Clean Install & Build
+        run: |
+          set -euo pipefail
+          npm ci --ignore-scripts
+          npm run build
+
+      - name: Publish to npm with SLSA Provenance (OIDC Trusted Publishing or NPM_TOKEN Bootstrap)
+        env:
+          NPM_BOOTSTRAP_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PKG_NAME: ${{ needs.verify.outputs.package_name }}
+          PKG_VERSION: ${{ needs.verify.outputs.version }}
+          NPM_TAG: ${{ needs.verify.outputs.npm_tag }}
+        run: |
+          set -euo pipefail
+          if npm view "${PKG_NAME}@${PKG_VERSION}" version --registry https://registry.npmjs.org >/dev/null 2>&1; then
+            echo "::notice::${PKG_NAME}@${PKG_VERSION} is already published on npm; skipping duplicate publish."
+            exit 0
+          fi
+
+          if [ -n "${NPM_BOOTSTRAP_TOKEN:-}" ]; then
+            echo "Authenticating with NPM_TOKEN secret (bootstrap/token mode) and publishing with SLSA provenance."
+            TMP_NPMRC="$(mktemp)"
+            trap 'rm -f "$TMP_NPMRC"' EXIT
+            chmod 600 "$TMP_NPMRC"
+            printf '//registry.npmjs.org/:_authToken=%s\nregistry=https://registry.npmjs.org/\n' "${NPM_BOOTSTRAP_TOKEN}" > "$TMP_NPMRC"
+            NPM_CONFIG_USERCONFIG="$TMP_NPMRC" npm publish --provenance --access public --tag "${NPM_TAG}" --ignore-scripts
+          else
+            echo "NPM_TOKEN not set; authenticating via npm OIDC Trusted Publishing with SLSA provenance."
+            unset NODE_AUTH_TOKEN NPM_TOKEN
+            npm publish --provenance --access public --tag "${NPM_TAG}" --ignore-scripts
+          fi
+
+      - name: Verify Package Live on npm Registry
+        env:
+          PKG_NAME: ${{ needs.verify.outputs.package_name }}
+          PKG_VERSION: ${{ needs.verify.outputs.version }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5 6; do
+            if LIVE_VER="$(npm view "${PKG_NAME}@${PKG_VERSION}" version --registry https://registry.npmjs.org 2>/dev/null)" && [ "$LIVE_VER" = "$PKG_VERSION" ]; then
+              echo "Verified ${PKG_NAME}@${LIVE_VER} is live on https://www.npmjs.com/package/${PKG_NAME}/v/${LIVE_VER}"
+              npm view "${PKG_NAME}@${PKG_VERSION}" dist.tarball dist.attestations.url --registry https://registry.npmjs.org || true
+              exit 0
+            fi
+            echo "Waiting for npm registry propagation (attempt ${attempt}/6)..."
+            sleep 5
+          done
+          echo "Published version ${PKG_NAME}@${PKG_VERSION} did not become visible on npm registry within timeout." >&2
+          exit 1
+
+  github-release:
+    name: Publish GitHub Release
+    needs: [verify, publish-npm]
+    if: ${{ needs.verify.outputs.dry_run != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22.22.x'
+          package-manager-cache: false
+
+      - name: Build, Pack Release Tarball & SHA-256 Checksums
+        run: |
+          set -euo pipefail
+          npm ci --ignore-scripts
+          npm run build
           mkdir -p release-artifacts
           TGZ="$(npm pack --pack-destination release-artifacts | tail -n 1)"
           (cd release-artifacts && sha256sum "$TGZ" > SHA256SUMS.txt)
 
-      - name: Publish GitHub Release
+      - name: Create or Update GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PKG_NAME: ${{ needs.verify.outputs.package_name }}
+          PKG_VERSION: ${{ needs.verify.outputs.version }}
+          RELEASE_TAG: ${{ needs.verify.outputs.release_tag }}
+          IS_PRERELEASE: ${{ needs.verify.outputs.is_prerelease }}
+          REF_TYPE: ${{ github.ref_type }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" release-artifacts/* \
-            --title "Number One ${GITHUB_REF_NAME}" \
-            --generate-notes \
-            --verify-tag
-
-      - name: Publish to npm with Provenance (when NPM_TOKEN is configured)
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -n "${NODE_AUTH_TOKEN:-}" ]; then
-            npm publish --provenance --access public
-          else
-            echo "NPM_TOKEN not configured; skipping npm registry publish (GitHub Release created)."
+          set -euo pipefail
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            echo "::notice::GitHub Release ${RELEASE_TAG} already exists; uploading verified artifacts."
+            gh release upload "${RELEASE_TAG}" release-artifacts/* --clobber
+            exit 0
           fi
+
+          NOTES="$(printf 'Install from npm:\n\n```bash\nnpm install -g %s@%s\n```\n\nnpm package: https://www.npmjs.com/package/%s/v/%s' "$PKG_NAME" "$PKG_VERSION" "$PKG_NAME" "$PKG_VERSION")"
+          ARGS=(
+            --title "Number One ${RELEASE_TAG}"
+            --notes "$NOTES"
+            --generate-notes
+          )
+          if [ "$IS_PRERELEASE" = "true" ]; then
+            ARGS+=(--prerelease)
+          fi
+          if [ "$REF_TYPE" = "tag" ]; then
+            ARGS+=(--verify-tag)
+          else
+            ARGS+=(--target "${GITHUB_SHA}")
+          fi
+
+          gh release create "${RELEASE_TAG}" release-artifacts/* "${ARGS[@]}"

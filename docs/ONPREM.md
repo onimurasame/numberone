@@ -89,7 +89,7 @@ npm publish "$TGZ" \
 Developers inside the enclave install normally using their `.npmrc` internal registry:
 
 ```bash
-npm install -g numberone --registry https://npm.internal.corp.example/repository/npm-internal/
+npm install -g @onimurasame/numberone --registry https://npm.internal.corp.example/repository/npm-internal/
 ```
 
 ---

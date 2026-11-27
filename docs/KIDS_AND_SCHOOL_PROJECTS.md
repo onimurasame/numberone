@@ -11,7 +11,7 @@ Have you ever worked on a cool school project — like a science fair experiment
 
 **Number One (`n1`)** is like a **magic, un-erasable project notebook** that lives right inside your project folder. You can use it in two super easy ways:
 1. **Simple Commands (No coding needed!)** — Type short commands like `n1 think`, `n1 dead-end`, `n1 lesson`, and `n1 documentary` in your terminal to track any school project.
-2. **As a JavaScript Library in Your Own Code** — Import `numberone` in a Node.js school coding project (`import { NumberOneAgent } from 'numberone'`) to build smart notebooks, quiz coaches, safety checkers, or robotics logs!
+2. **As a JavaScript Library in Your Own Code** — Import `@onimurasame/numberone` in a Node.js school coding project (`import { NumberOneAgent } from '@onimurasame/numberone'`) to build smart notebooks, quiz coaches, safety checkers, or robotics logs!
 
 ### Interactive 3D Playgrounds (Three.js + Archify Visual Guides)
 
@@ -30,15 +30,15 @@ Ask a parent, teacher, or mentor to help you check that **Node.js (version 22 or
 
 - **To use the simple commands (`n1`) in any project folder:**
   ```bash
-  npm install -g numberone
+  npm install -g @onimurasame/numberone
   ```
-- **To use `numberone` as a JavaScript library inside a school coding project:**
+- **To use `@onimurasame/numberone` as a JavaScript library inside a school coding project:**
   ```bash
   mkdir my-school-project
   cd my-school-project
   npm init -y
   npm pkg set type=module
-  npm install numberone
+  npm install @onimurasame/numberone
   ```
 
 > **Good to know:** Number One runs **100% on your own computer**. You do **not** need to create an online account, pay anything, or upload your homework to the internet!
@@ -134,17 +134,17 @@ n1 watch stop
 
 ---
 
-## Example 3: Build a "Smart Study Buddy" App (Using the `numberone` Library in JavaScript!)
+## Example 3: Build a "Smart Study Buddy" App (Using the `@onimurasame/numberone` Library in JavaScript!)
 
 **Great for:** Grades 7–12 · Computer Science Class, JavaScript Projects, Personal Study Tool  
-**What you'll build:** Your very own JavaScript program that imports `NumberOneAgent` from `numberone`, remembers mistakes from past homework, warns you away from old traps before a quiz, and writes a printable study guide!
+**What you'll build:** Your very own JavaScript program that imports `NumberOneAgent` from `@onimurasame/numberone`, remembers mistakes from past homework, warns you away from old traps before a quiz, and writes a printable study guide!
 
-Save this file as **`study-buddy.mjs`** inside your project folder (after running `npm install numberone`):
+Save this file as **`study-buddy.mjs`** inside your project folder (after running `npm install @onimurasame/numberone`):
 
 ```javascript
-import { NumberOneAgent } from 'numberone';
+import { NumberOneAgent } from '@onimurasame/numberone';
 
-// 1. Create a study notebook in a folder called "my-study-notebook"
+// 1. Create a study notebook folder called "my-study-notebook"
 const buddy = new NumberOneAgent('./my-study-notebook');
 buddy.attach({
   workspaceName: '7th Grade Math & Science Study Buddy',
@@ -212,12 +212,12 @@ node study-buddy.mjs
 ## Example 4: Robotics & Maker Club Safety Guard + Time Machine (JavaScript Library!)
 
 **Great for:** Grades 7–12 · Robotics Club (FIRST / VEX / Arduino / Raspberry Pi), Maker Faires, CS Projects  
-**What you'll build:** A JavaScript program that uses `numberone` to track robot build jobs, **automatically block unsafe test plans**, travel back in time to inspect earlier build steps, and verify that nobody accidentally changed your engineering notebook!
+**What you'll build:** A JavaScript program that uses `@onimurasame/numberone` to track robot build jobs, **automatically block unsafe test plans**, travel back in time to inspect earlier build steps, and verify that nobody accidentally changed your engineering notebook!
 
 Save this file as **`robot-journal.mjs`**:
 
 ```javascript
-import { NumberOneAgent } from 'numberone';
+import { NumberOneAgent } from '@onimurasame/numberone';
 
 // 1. Start an engineering notebook for your robotics team
 const robot = new NumberOneAgent('./robotics-notebook');

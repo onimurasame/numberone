@@ -10,8 +10,8 @@
  * Run locally from the repo root (after `npm run build`):
  *   node examples/kids-science-fair-glider/run.mjs
  *
- * In your own school project after `npm install numberone`, replace the import
- * below with:  import { NumberOneAgent } from 'numberone';
+ * In your own school project after `npm install @onimurasame/numberone`, replace the import
+ * below with:  import { NumberOneAgent } from '@onimurasame/numberone';
  */
 
 import fs from 'node:fs';
