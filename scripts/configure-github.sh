@@ -147,6 +147,15 @@ else
   fi
 fi
 
+# 5b. Provision `npm` GitHub Deployment Environment for OIDC Trusted Publishing
+log "Ensuring 'npm' deployment environment exists for CI/CD releases..."
+if [[ "$DRY_RUN" -eq 1 ]]; then
+  log "[dry-run] PUT repos/${TARGET_REPO}/environments/npm"
+else
+  gh api -X PUT "repos/${TARGET_REPO}/environments/npm" >/dev/null || \
+    log "Note: Could not create 'npm' environment via API; GitHub Actions will auto-create it on first release run."
+fi
+
 # 6. Synchronize Number One Distributed SoR Labels (+ Template Repo Labels when readable)
 log "Synchronizing Number One & Bridge Crew label taxonomy..."
 LABELS=(

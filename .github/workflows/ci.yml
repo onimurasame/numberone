@@ -42,11 +42,14 @@ jobs:
           PACK_DIR="$(mktemp -d)"
           SMOKE_DIR="$(mktemp -d)"
           trap 'rm -rf "$PACK_DIR" "$SMOKE_DIR"' EXIT
+          PKG_NAME="$(node -p "JSON.parse(require('node:fs').readFileSync('package.json','utf8')).name")"
+          PKG_VERSION="$(node -p "JSON.parse(require('node:fs').readFileSync('package.json','utf8')).version")"
           TGZ="$(npm pack --pack-destination "$PACK_DIR" | tail -n 1)"
           npm --prefix "$SMOKE_DIR" install --omit=dev --ignore-scripts "$PACK_DIR/$TGZ"
-          "$SMOKE_DIR/node_modules/.bin/n1" --version
+          test "$("$SMOKE_DIR/node_modules/.bin/n1" --version)" = "$PKG_VERSION"
+          test "$("$SMOKE_DIR/node_modules/.bin/numberone" --version)" = "$PKG_VERSION"
           "$SMOKE_DIR/node_modules/.bin/n1" --help >/dev/null
-          node -e "import('$SMOKE_DIR/node_modules/numberone/dist/index.js').then(m => { if (!m.NumberOneAgent) process.exit(1); })"
+          PKG_ENTRY="$SMOKE_DIR/node_modules/$PKG_NAME/dist/index.js" node -e "import(process.env.PKG_ENTRY).then(m => { if (!m.NumberOneAgent) process.exit(1); })"
       - name: Hardened Container Build & Runtime Smoke Test
         run: |
           set -euo pipefail

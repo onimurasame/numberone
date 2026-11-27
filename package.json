@@ -1,5 +1,5 @@
 {
-  "name": "numberone",
+  "name": "@onimurasame/numberone",
   "version": "1.0.0",
   "description": "Harness-agnostic, event-sourced authoritative workspace curator and System of Record (SoR) with BMAD Party Mode bridge crew and KPI-proven continuous self-evolution.",
   "type": "module",
@@ -33,8 +33,7 @@
     "url": "https://github.com/onimurasame/numberone/issues"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && node -e \"import('node:fs').then(fs => fs.chmodSync('dist/cli.js', 0o755))\"",

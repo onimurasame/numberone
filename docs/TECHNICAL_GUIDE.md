@@ -348,7 +348,7 @@ Every diagram below is generated from real committed TypeScript source in `docs/
 
 ```bash
 # 1. Install globally (Node.js >= 22.0.0)
-npm install -g numberone
+npm install -g @onimurasame/numberone
 
 # 2. Attach Number One to any project workspace
 cd /path/to/your/workspace
@@ -535,8 +535,8 @@ This repository includes complete GitHub governance, security automation, and **
 - **CodeQL SAST Analysis**: [`.github/workflows/codeql.yml`](../.github/workflows/codeql.yml)
 - **Supply-Chain Dependency & License Review**: [`.github/workflows/dependency-review.yml`](../.github/workflows/dependency-review.yml) & [`.github/dependabot.yml`](../.github/dependabot.yml)
 - **Dependabot PR Triage, Provenance & Batch Merge Automation**: [`.github/workflows/dependabot-triage.yml`](../.github/workflows/dependabot-triage.yml), [`scripts/verify-workflows.mjs`](../scripts/verify-workflows.mjs), and [`scripts/pr-automation.mjs`](../scripts/pr-automation.mjs) automatically verify SHA pins, `github/codeql-action/*` lockstep, commit signatures, upstream tag-to-SHA provenance, and Pages bundle integrity while keeping final CODEOWNERS approval manual (`npm run verify:workflows`, `npm run pr:triage`, `npm run pr:merge`).
-- **Signed Provenance Releases**: [`.github/workflows/release.yml`](../.github/workflows/release.yml)
-- **Automated Repository Provisioner**: [`scripts/configure-github.sh`](../scripts/configure-github.sh) configures public visibility, GitHub Pages (`build_type: workflow`), Issues, Discussions, Projects v2 Scrum board, 21 labels, milestones, Dependabot/Secret Scanning, and Default Branch Rulesets:
+- **Signed Provenance Releases to npm (`@onimurasame/numberone`) & GitHub Releases**: [`.github/workflows/release.yml`](../.github/workflows/release.yml) runs a 3-job least-privilege release pipeline (`verify` -> `publish-npm` -> `github-release`) on `v*.*.*` tag pushes and manual `workflow_dispatch` (with `dry_run` enabled by default).
+- **Automated Repository Provisioner**: [`scripts/configure-github.sh`](../scripts/configure-github.sh) configures public visibility, GitHub Pages (`build_type: workflow`), the `npm` deployment environment, Issues, Discussions, Projects v2 Scrum board, 21 labels, milestones, Dependabot/Secret Scanning, and Default Branch Rulesets:
 
 ```bash
 # Preview all GitHub API provisioning operations
@@ -552,6 +552,23 @@ npm run verify:workflows
 npm run pr:triage
 npm run pr:merge
 ```
+
+### Automated npm Release & OIDC Trusted Publishing (`@onimurasame/numberone`)
+
+1. **Initial `v1.0.0` Package Bootstrap** *(required once because npm Trusted Publishing binds to an existing package on npmjs.org)*:
+   - **Option A (Recommended — CI Bootstrap)**: Temporarily add a short-lived npm granular access token with write access for `@onimurasame/numberone` as repository secret `NPM_TOKEN`, then push tag `v1.0.0` (or run **Actions → Release → `dry_run: false`** from `master`). The `publish-npm` job publishes `@onimurasame/numberone@1.0.0` with SLSA provenance and creates the `v1.0.0` GitHub Release.
+   - **Option B (Local Bootstrap)**: Run `npm login && npm run build && npm publish --access public` once locally, then push tag `v1.0.0` (the workflow detects `1.0.0` is already live on npm and completes the GitHub Release cleanly).
+2. **Switch to Zero-Secret OIDC Trusted Publishing (for all subsequent releases)**:
+   - On `npmjs.com` → `@onimurasame/numberone` → **Settings → Trusted Publisher → GitHub Actions**, configure:
+     - **Organization or user**: `onimurasame`
+     - **Repository**: `numberone`
+     - **Workflow filename**: `release.yml`
+     - **Environment name**: `npm`
+     - **Allowed actions**: allow `npm publish`
+   - Under **Publishing access**, select **Require two-factor authentication and disallow tokens**, and delete any temporary `NPM_TOKEN` secret from GitHub Actions.
+3. **Cutting Future Releases & Rollbacks**:
+   - Bump `version` in `package.json` + `package-lock.json`, update `CHANGELOG.md`, merge to `master`, and push tag `vX.Y.Z` (or dispatch `release.yml` with `dry_run: true` first to preview).
+   - To roll back a regressed version, run `./scripts/rollback.sh --good-version 1.0.0 --bad-version 1.0.1 --reason "..." [--dry-run]`.
 
 ---
 

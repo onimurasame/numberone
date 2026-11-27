@@ -422,3 +422,69 @@ describe('Bridge Crew Self-Audit on Live Repository', () => {
     expect(bridge.kpiScore).toBe(100);
   });
 });
+
+describe('npm Release Pipeline & Package Publishability', () => {
+  it('configures package.json and package-lock.json for scoped public npm publishing with matching provenance repo URL', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'package.json'), 'utf8'));
+    const lock = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'package-lock.json'), 'utf8'));
+
+    expect(pkg.name).toBe('@onimurasame/numberone');
+    expect(lock.name).toBe('@onimurasame/numberone');
+    expect(lock.packages?.['']?.name).toBe('@onimurasame/numberone');
+    expect(pkg.version).toMatch(/^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$/);
+    expect(pkg.publishConfig).toEqual({ access: 'public' });
+    expect(pkg.repository?.url).toBe('git+https://github.com/onimurasame/numberone.git');
+    expect(pkg.bin).toEqual({
+      numberone: 'dist/cli.js',
+      n1: 'dist/cli.js'
+    });
+    expect(pkg.files).toEqual(expect.arrayContaining(['dist', 'README.md', 'LICENSE', 'NOTICE']));
+  });
+
+  it('hardens .github/workflows/release.yml for OIDC Trusted Publishing, NPM_TOKEN bootstrap, dry-run dispatch, and zero script injection', () => {
+    const wf = fs.readFileSync(path.join(REPO_ROOT, '.github/workflows/release.yml'), 'utf8');
+
+    expect(wf).toContain("tags:\n      - 'v*.*.*'");
+    expect(wf).toContain('workflow_dispatch:');
+    expect(wf).toContain('dry_run:');
+    expect(wf).toContain('id-token: write');
+    expect(wf).toContain('name: npm');
+    expect(wf).toContain("node-version: '24'");
+    expect(wf).toContain('package-manager-cache: false');
+    expect(wf).toContain('npm ci --ignore-scripts');
+    expect(wf).toContain('npm publish --provenance --access public');
+    expect(wf).toContain('npm publish --dry-run --access public');
+    expect(wf).toContain('gh release create');
+    expect(wf).not.toMatch(/registry-url\s*:/);
+
+    // Ensure no direct ${{ inputs.* }} interpolation inside shell `run:` commands
+    const runBlocks = wf.split(/^\s*run:\s*\|$/m).slice(1);
+    for (const block of runBlocks) {
+      for (const line of block.split(/\r?\n/)) {
+        if (/^\s{0,6}[a-z_-]+:/i.test(line)) break;
+        expect(line).not.toMatch(/\$\{\{\s*inputs\./);
+      }
+    }
+  });
+
+  it('executes scripts/rollback.sh --dry-run targeting @onimurasame/numberone', () => {
+    const out = execFileSync(
+      'bash',
+      [
+        path.resolve(REPO_ROOT, 'scripts/rollback.sh'),
+        '--good-version',
+        '1.0.0',
+        '--bad-version',
+        '1.0.1',
+        '--reason',
+        'Verification dry-run',
+        '--dry-run'
+      ],
+      { cwd: REPO_ROOT, encoding: 'utf8' }
+    );
+    expect(out).toContain('Rolling back @onimurasame/numberone: 1.0.1 -> 1.0.0');
+    expect(out).toContain('@onimurasame/numberone@1.0.0');
+    expect(out).toContain('@onimurasame/numberone@1.0.1');
+  });
+});
+
