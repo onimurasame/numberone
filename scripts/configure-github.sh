@@ -13,7 +13,7 @@ set -euo pipefail
 #   ./scripts/configure-github.sh [--repo owner/repo] [--template-repo owner/repo] [--dry-run]
 # ==============================================================================
 
-TARGET_REPO="onimurasame/numberone"
+TARGET_REPO="Shadow-Software-Platform/numberone"
 TEMPLATE_REPO=""
 DRY_RUN=0
 
@@ -44,7 +44,8 @@ done
 
 OWNER="${TARGET_REPO%%/*}"
 REPO="${TARGET_REPO#*/}"
-PAGES_URL="https://${OWNER}.github.io/${REPO}/"
+OWNER_LOWER="$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')"
+PAGES_URL="https://${OWNER_LOWER}.github.io/${REPO}/"
 DESCRIPTION="Harness-agnostic, event-sourced authoritative workspace curator & System of Record (SoR) with BMAD Party Mode Bridge Crew and KPI-proven continuous evolution."
 
 log() {

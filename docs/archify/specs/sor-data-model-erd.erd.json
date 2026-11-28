@@ -7,7 +7,7 @@
     "output": "docs/site/archify/sor-data-model-erd.html",
     "quality_profile": "showcase",
     "repository": {
-      "url": "https://github.com/onimurasame/numberone.git",
+      "url": "https://github.com/Shadow-Software-Platform/numberone.git",
       "provider": "github",
       "revision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7"
     }

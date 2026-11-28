@@ -99,7 +99,7 @@ Every technical term, architectural concept, cryptographic primitive, operating-
 
 - **Genesis Hash (`GENESIS_HASH`)**: The 64-zero-character string `'0000000000000000000000000000000000000000000000000000000000000000'` used as `prevHash` for sequence event `#1` (`workspace.attached`).
 - **GHES (GitHub Enterprise Server)**: Self-hosted on-premises deployment of GitHub supported by `GitHubPersistenceAdapter` via `apiBaseUrl`.
-- **GitHub Pages**: Static web hosting service integrated via `.github/workflows/pages.yml` (`actions/deploy-pages`) to publish Number One's documentation portal and interactive Archify suite at `https://onimurasame.github.io/numberone/`.
+- **GitHub Pages**: Static web hosting service integrated via `.github/workflows/pages.yml` (`actions/deploy-pages`) to publish Number One's documentation portal and interactive Archify suite at `https://shadow-software-platform.github.io/numberone/`.
 - **GitHub Projects v2**: GitHub's GraphQL-powered Scrum/Kanban planning engine integrated by `GitHubPersistenceAdapter` (`createProjectV2`, `addProjectV2ItemById`, `updateProjectV2ItemFieldValue`).
 - **Glob (`matchGlobLinear`)**: Wildcard path pattern (`*`, `**`, `?`) evaluated in guaranteed `O(N * M)` linear time without regex conversion in `src/utils/safe-regex.ts`.
 - **GraphQL**: Typed query and mutation API protocol used by `GitHubPersistenceAdapter` to inspect and mutate GitHub Projects v2 boards and status columns.

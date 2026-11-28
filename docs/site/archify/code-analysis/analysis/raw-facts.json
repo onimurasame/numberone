@@ -5,7 +5,7 @@
     "baseRevision": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7",
     "sourceKind": "working-tree",
     "root": ".",
-    "url": "https://github.com/onimurasame/numberone.git",
+    "url": "https://github.com/Shadow-Software-Platform/numberone.git",
     "language": "ts",
     "adapter": "typescript@5.9.3",
     "adapterRevision": 30,

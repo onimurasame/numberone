@@ -14,7 +14,7 @@ n1 verify --local-only
 
 ## Documentation Resources
 
-- **Interactive Portal & Archify Visual Suite**: `https://onimurasame.github.io/numberone/`
+- **Interactive Portal & Archify Visual Suite**: `https://shadow-software-platform.github.io/numberone/`
 - **Comprehensive System Manual**: [`README.md`](./README.md)
 - **All-Harness & Generic Installation Guide**: [`docs/INSTALLATION.md`](./docs/INSTALLATION.md)
 - **On-Premises & Air-Gapped Enterprise Guide**: [`docs/ONPREM.md`](./docs/ONPREM.md)
@@ -23,6 +23,6 @@ n1 verify --local-only
 
 ## Community & Bug Reports
 
-- **Questions, Harness Configurations & Architecture Discussions**: Use [GitHub Discussions](https://github.com/onimurasame/numberone/discussions).
-- **Deterministic Bugs & Feature Proposals**: Open a structured [GitHub Issue](https://github.com/onimurasame/numberone/issues/new/choose).
-- **Security Vulnerabilities**: Follow [`SECURITY.md`](./SECURITY.md) and use [Private Vulnerability Reporting](https://github.com/onimurasame/numberone/security/advisories/new).
+- **Questions, Harness Configurations & Architecture Discussions**: Use [GitHub Discussions](https://github.com/Shadow-Software-Platform/numberone/discussions).
+- **Deterministic Bugs & Feature Proposals**: Open a structured [GitHub Issue](https://github.com/Shadow-Software-Platform/numberone/issues/new/choose).
+- **Security Vulnerabilities**: Follow [`SECURITY.md`](./SECURITY.md) and use [Private Vulnerability Reporting](https://github.com/Shadow-Software-Platform/numberone/security/advisories/new).

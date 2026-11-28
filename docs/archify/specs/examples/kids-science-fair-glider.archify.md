@@ -8,7 +8,7 @@ Every hypothesis, stalled dead-end flight, balance discovery, and final wingtip 
 - `scene.js` renders all 4 parabolic flight curves and paper airplanes in Three.js with a live time-travel scrubber.[](source:three_glider)
 
 @answer scope="Kids & School Project Sample · Grades 5–12 · Zero Cloud Account Required"
-@meta locale=en style=product repo_url=https://github.com/onimurasame/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
+@meta locale=en style=product repo_url=https://github.com/Shadow-Software-Platform/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
 @source dead_end_log title="Log Tail-Weight Stall Dead End" path=examples/kids-science-fair-glider/run.mjs lines=56:64
 @source lesson_log title="Capture Verified Aerodynamics Lesson" path=examples/kids-science-fair-glider/run.mjs lines=65:80
 @source consult_call title="Consult Notebook Before Retrying" path=examples/kids-science-fair-glider/run.mjs lines=109:117

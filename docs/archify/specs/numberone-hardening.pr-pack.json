@@ -3,7 +3,7 @@
   "kind": "pr-pack",
   "title": "Number One v1.0.0 — Authoritative SoR, BMAD Crew & Distributed Scrum",
   "summary": "Introduces the L1-L4 AuthorityEngine, 3-officer BMAD Party Mode with KPI-gated evolution, stdio MCP server, and distributed Directory/GitHub/Jira Scrum synchronization.",
-  "repository": "onimurasame/numberone",
+  "repository": "Shadow-Software-Platform/numberone",
   "baseRef": "260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7",
   "headRef": "master",
   "stats": {

@@ -29,7 +29,7 @@ On an internet-connected build workstation (bastion / DMZ staging builder), buil
 
 ```bash
 # 1. Clone and verify clean build + test suite on staging builder
-git clone https://github.com/onimurasame/numberone.git
+git clone https://github.com/Shadow-Software-Platform/numberone.git
 cd numberone
 npm ci
 npm run typecheck
@@ -89,7 +89,7 @@ npm publish "$TGZ" \
 Developers inside the enclave install normally using their `.npmrc` internal registry:
 
 ```bash
-npm install -g @onimurasame/numberone --registry https://npm.internal.corp.example/repository/npm-internal/
+npm install -g @shadow-software-platform/numberone --registry https://npm.internal.corp.example/repository/npm-internal/
 ```
 
 ---

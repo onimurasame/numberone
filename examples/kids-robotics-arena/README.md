@@ -1,8 +1,8 @@
 # Kids Sample 2: RoboHawks Safety Arena & Time Machine (Three.js + Archify)
 
 > **Audience:** Kids, Coding Clubs & Robotics Teams (Grades 6–12)  
-> **Live 3D Visualization (Three.js):** [Open RoboHawks 3D Safety Arena](https://onimurasame.github.io/numberone/examples/kids-robotics-arena/)  
-> **Interactive Archify Docs:** [Interactive Sequence Diagram](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [4-Style One-Page Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html)
+> **Live 3D Visualization (Three.js):** [Open RoboHawks 3D Safety Arena](https://shadow-software-platform.github.io/numberone/examples/kids-robotics-arena/)  
+> **Interactive Archify Docs:** [Interactive Sequence Diagram](https://shadow-software-platform.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [4-Style One-Page Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html)
 
 ## What This Sample Teaches
 

@@ -1,6 +1,6 @@
 {
-  "name": "@onimurasame/numberone",
-  "version": "1.0.0",
+  "name": "@shadow-software-platform/numberone",
+  "version": "1.0.1",
   "description": "Harness-agnostic, event-sourced authoritative workspace curator and System of Record (SoR) with BMAD Party Mode bridge crew and KPI-proven continuous self-evolution.",
   "type": "module",
   "main": "dist/index.js",
@@ -26,11 +26,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onimurasame/numberone.git"
+    "url": "git+https://github.com/Shadow-Software-Platform/numberone.git"
   },
-  "homepage": "https://onimurasame.github.io/numberone/",
+  "homepage": "https://shadow-software-platform.github.io/numberone/",
   "bugs": {
-    "url": "https://github.com/onimurasame/numberone/issues"
+    "url": "https://github.com/Shadow-Software-Platform/numberone/issues"
   },
   "publishConfig": {
     "access": "public"

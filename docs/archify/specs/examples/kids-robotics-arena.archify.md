@@ -8,7 +8,7 @@
 - `scene.js` drops a glowing crimson Three.js laser barrier whenever a plan is `BLOCK`ed.[](source:three_gate)
 
 @answer scope="Kids & Robotics Club Sample · Grades 6–12 · Live Three.js Laser Gate + Time Machine"
-@meta locale=en style=product repo_url=https://github.com/onimurasame/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
+@meta locale=en style=product repo_url=https://github.com/Shadow-Software-Platform/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
 @source safety_rule title="Issue L2 Blocking Motor Speed Cap" path=examples/kids-robotics-arena/run.mjs lines=70:80
 @source arbitrate_plans title="Arbitrate Unsafe vs Safe Driver Plans" path=examples/kids-robotics-arena/run.mjs lines=81:101
 @source replay_loop title="Time-Travel Replay Loop" path=examples/kids-robotics-arena/run.mjs lines=117:138

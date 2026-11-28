@@ -8,7 +8,7 @@ Number One attaches a hash-chained event stream to `.numberone/` so every edit, 
 - `PartyModeOrchestrator` runs three specialist officers and promotes new checks only when KPI delta exceeds zero.[](source:evolution_gate)
 
 @answer scope="Number One v1.0.0 · Node >= 22 · all MCP and CLI harnesses"
-@meta locale=en style=editorial repo_url=https://github.com/onimurasame/numberone.git repo_revision=260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7
+@meta locale=en style=editorial repo_url=https://github.com/Shadow-Software-Platform/numberone.git repo_revision=260ded9b532edcc9ccfe015cbf4af35bd2c5ecf7
 @source stream_append title="StreamStore.append (SHA-256 + fsync)" path=src/core/stream-store.ts lines=388:407
 @source authority_gate title="AuthorityEngine.PRECEDENCE (L1-L4)" path=src/core/authority-engine.ts lines=210:226
 @source party_round2 title="resolvePeerChallenges (BMAD Round 2)" path=src/crew/party-mode.ts lines=85:104

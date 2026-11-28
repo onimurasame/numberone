@@ -1,8 +1,8 @@
 # Advanced Sample 2: BMAD Bridge Crew, KPI Self-Evolution & Distributed Scrum Command Bridge (Three.js + Archify)
 
 > **Audience:** DevSecOps Leads, Platform Engineers & Staff/Principal Architects  
-> **Live 3D Visualization (Three.js):** [Open 3D BMAD Command Bridge](https://onimurasame.github.io/numberone/examples/advanced-bmad-crew-evolution/)  
-> **Interactive Archify Docs:** [Interactive Workflow v2 Diagram](https://onimurasame.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-workflow.html) · [4-Style One-Page Explainer](https://onimurasame.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-explainer.html)
+> **Live 3D Visualization (Three.js):** [Open 3D BMAD Command Bridge](https://shadow-software-platform.github.io/numberone/examples/advanced-bmad-crew-evolution/)  
+> **Interactive Archify Docs:** [Interactive Workflow v2 Diagram](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-workflow.html) · [4-Style One-Page Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-explainer.html)
 
 ## Four-Phase Governance Pipeline Exercised
 

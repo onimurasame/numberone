@@ -11,8 +11,8 @@
  * Run locally from the repo root (after `npm run build`):
  *   node examples/kids-robotics-arena/run.mjs
  *
- * In your own project after `npm install @onimurasame/numberone`, replace the import below
- * with:  import { NumberOneAgent } from '@onimurasame/numberone';
+ * In your own project after `npm install @shadow-software-platform/numberone`, replace the import below
+ * with:  import { NumberOneAgent } from '@shadow-software-platform/numberone';
  */
 
 import fs from 'node:fs';
