@@ -1,8 +1,8 @@
 # Advanced Sample 1: SHA-256 Hash-Chain Helix, CAS Blobs & Replay Observatory (Three.js + Archify)
 
 > **Audience:** Systems Engineers, Security Architects & Event-Sourcing Developers  
-> **Live 3D Visualization (Three.js):** [Open 3D Hash-Chain Observatory](https://onimurasame.github.io/numberone/examples/advanced-hash-chain-time-travel/)  
-> **Interactive Archify Docs:** [Interactive Dataflow Diagram](https://onimurasame.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-dataflow.html) · [4-Style One-Page Explainer](https://onimurasame.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-explainer.html)
+> **Live 3D Visualization (Three.js):** [Open 3D Hash-Chain Observatory](https://shadow-software-platform.github.io/numberone/examples/advanced-hash-chain-time-travel/)  
+> **Interactive Archify Docs:** [Interactive Dataflow Diagram](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-dataflow.html) · [4-Style One-Page Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-explainer.html)
 
 ## Architectural Invariants Exercised
 

@@ -1,7 +1,7 @@
 # Number One for Kids & School Projects
 
 > **Welcome, young builders, students, coding clubs, parents, and teachers!**  
-> You can also explore these school project examples interactively on our **[Main Documentation Website](https://onimurasame.github.io/numberone/#kids-lab)**.
+> You can also explore these school project examples interactively on our **[Main Documentation Website](https://shadow-software-platform.github.io/numberone/#kids-lab)**.
 
 Have you ever worked on a cool school project — like a science fair experiment, a video game in coding club, a robot, or a group presentation — and then realized:
 - *"Wait, what did I try yesterday that broke it?"*
@@ -11,7 +11,7 @@ Have you ever worked on a cool school project — like a science fair experiment
 
 **Number One (`n1`)** is like a **magic, un-erasable project notebook** that lives right inside your project folder. You can use it in two super easy ways:
 1. **Simple Commands (No coding needed!)** — Type short commands like `n1 think`, `n1 dead-end`, `n1 lesson`, and `n1 documentary` in your terminal to track any school project.
-2. **As a JavaScript Library in Your Own Code** — Import `@onimurasame/numberone` in a Node.js school coding project (`import { NumberOneAgent } from '@onimurasame/numberone'`) to build smart notebooks, quiz coaches, safety checkers, or robotics logs!
+2. **As a JavaScript Library in Your Own Code** — Import `@shadow-software-platform/numberone` in a Node.js school coding project (`import { NumberOneAgent } from '@shadow-software-platform/numberone'`) to build smart notebooks, quiz coaches, safety checkers, or robotics logs!
 
 ### Interactive 3D Playgrounds (Three.js + Archify Visual Guides)
 
@@ -19,8 +19,8 @@ Want to see Number One come alive in **3D** right inside your browser? Try our t
 
 | 3D School Lab | Live Three.js 3D Scene | Archify Visual Docs | Runnable Code |
 |---|---|---|---|
-| **Paper Airplane Science Fair Flight Lab** (Grades 5–12) | [Launch 3D Flight Runway](https://onimurasame.github.io/numberone/examples/kids-science-fair-glider/) | [Interactive Timeline](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [4-Style Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html) | [`examples/kids-science-fair-glider/`](../examples/kids-science-fair-glider/README.md) |
-| **RoboHawks Safety Arena & Time Machine** (Grades 6–12) | [Launch 3D Robotics Arena](https://onimurasame.github.io/numberone/examples/kids-robotics-arena/) | [Interactive Sequence](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [4-Style Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html) | [`examples/kids-robotics-arena/`](../examples/kids-robotics-arena/README.md) |
+| **Paper Airplane Science Fair Flight Lab** (Grades 5–12) | [Launch 3D Flight Runway](https://shadow-software-platform.github.io/numberone/examples/kids-science-fair-glider/) | [Interactive Timeline](https://shadow-software-platform.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [4-Style Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html) | [`examples/kids-science-fair-glider/`](../examples/kids-science-fair-glider/README.md) |
+| **RoboHawks Safety Arena & Time Machine** (Grades 6–12) | [Launch 3D Robotics Arena](https://shadow-software-platform.github.io/numberone/examples/kids-robotics-arena/) | [Interactive Sequence](https://shadow-software-platform.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [4-Style Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html) | [`examples/kids-robotics-arena/`](../examples/kids-robotics-arena/README.md) |
 
 ---
 
@@ -30,15 +30,15 @@ Ask a parent, teacher, or mentor to help you check that **Node.js (version 22 or
 
 - **To use the simple commands (`n1`) in any project folder:**
   ```bash
-  npm install -g @onimurasame/numberone
+  npm install -g @shadow-software-platform/numberone
   ```
-- **To use `@onimurasame/numberone` as a JavaScript library inside a school coding project:**
+- **To use `@shadow-software-platform/numberone` as a JavaScript library inside a school coding project:**
   ```bash
   mkdir my-school-project
   cd my-school-project
   npm init -y
   npm pkg set type=module
-  npm install @onimurasame/numberone
+  npm install @shadow-software-platform/numberone
   ```
 
 > **Good to know:** Number One runs **100% on your own computer**. You do **not** need to create an online account, pay anything, or upload your homework to the internet!
@@ -134,15 +134,15 @@ n1 watch stop
 
 ---
 
-## Example 3: Build a "Smart Study Buddy" App (Using the `@onimurasame/numberone` Library in JavaScript!)
+## Example 3: Build a "Smart Study Buddy" App (Using the `@shadow-software-platform/numberone` Library in JavaScript!)
 
 **Great for:** Grades 7–12 · Computer Science Class, JavaScript Projects, Personal Study Tool  
-**What you'll build:** Your very own JavaScript program that imports `NumberOneAgent` from `@onimurasame/numberone`, remembers mistakes from past homework, warns you away from old traps before a quiz, and writes a printable study guide!
+**What you'll build:** Your very own JavaScript program that imports `NumberOneAgent` from `@shadow-software-platform/numberone`, remembers mistakes from past homework, warns you away from old traps before a quiz, and writes a printable study guide!
 
-Save this file as **`study-buddy.mjs`** inside your project folder (after running `npm install @onimurasame/numberone`):
+Save this file as **`study-buddy.mjs`** inside your project folder (after running `npm install @shadow-software-platform/numberone`):
 
 ```javascript
-import { NumberOneAgent } from '@onimurasame/numberone';
+import { NumberOneAgent } from '@shadow-software-platform/numberone';
 
 // 1. Create a study notebook folder called "my-study-notebook"
 const buddy = new NumberOneAgent('./my-study-notebook');
@@ -212,12 +212,12 @@ node study-buddy.mjs
 ## Example 4: Robotics & Maker Club Safety Guard + Time Machine (JavaScript Library!)
 
 **Great for:** Grades 7–12 · Robotics Club (FIRST / VEX / Arduino / Raspberry Pi), Maker Faires, CS Projects  
-**What you'll build:** A JavaScript program that uses `@onimurasame/numberone` to track robot build jobs, **automatically block unsafe test plans**, travel back in time to inspect earlier build steps, and verify that nobody accidentally changed your engineering notebook!
+**What you'll build:** A JavaScript program that uses `@shadow-software-platform/numberone` to track robot build jobs, **automatically block unsafe test plans**, travel back in time to inspect earlier build steps, and verify that nobody accidentally changed your engineering notebook!
 
 Save this file as **`robot-journal.mjs`**:
 
 ```javascript
-import { NumberOneAgent } from '@onimurasame/numberone';
+import { NumberOneAgent } from '@shadow-software-platform/numberone';
 
 // 1. Start an engineering notebook for your robotics team
 const robot = new NumberOneAgent('./robotics-notebook');
@@ -352,5 +352,5 @@ If you explore the main technical docs, you might bump into fancy words. Here is
 ## Want to Explore More?
 
 - **[Back to the Friendly README](../README.md)**
-- **[Interactive Documentation Website (with live Kids & School Lab!)](https://onimurasame.github.io/numberone/)**
+- **[Interactive Documentation Website (with live Kids & School Lab!)](https://shadow-software-platform.github.io/numberone/)**
 - **[Ready to Level Up? Full Technical Guide](./TECHNICAL_GUIDE.md)**

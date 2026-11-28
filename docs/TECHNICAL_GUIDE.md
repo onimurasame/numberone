@@ -1,7 +1,7 @@
 # Number One (`n1`) — Full Technical Architecture & Engineering Guide
 
 > **Looking for the plain-English introduction or kid-friendly school project examples?**  
-> Start at the **[friendly README](../README.md)**, the **[Kids & School Projects Guide](./KIDS_AND_SCHOOL_PROJECTS.md)**, or the **[Interactive Documentation Portal (GitHub Pages)](https://onimurasame.github.io/numberone/)**.
+> Start at the **[friendly README](../README.md)**, the **[Kids & School Projects Guide](./KIDS_AND_SCHOOL_PROJECTS.md)**, or the **[Interactive Documentation Portal (GitHub Pages)](https://shadow-software-platform.github.io/numberone/)**.
 
 **Harness-Agnostic, Event-Sourced Authoritative Workspace Curator, System of Record (SoR) & BMAD Party Mode Bridge Crew**
 
@@ -11,7 +11,7 @@
 
 | Document | Scope |
 |---|---|
-| **[Interactive GitHub Pages Portal](https://onimurasame.github.io/numberone/)** | Hosted main documentation (plain-English face + kids school project lab + full technical specs + embedded 16-artifact Archify viewers, harness configurator, CLI/MCP/API browser & live searchable glossary) |
+| **[Interactive GitHub Pages Portal](https://shadow-software-platform.github.io/numberone/)** | Hosted main documentation (plain-English face + kids school project lab + full technical specs + embedded 16-artifact Archify viewers, harness configurator, CLI/MCP/API browser & live searchable glossary) |
 | **[Friendly Non-Technical Overview (`README.md`)](../README.md)** | Plain-English explanation of Number One for non-technical readers, students, parents, teachers, and newcomers |
 | **[Interactive 3D Samples — Three.js + Archify (`examples/README.md`)](../examples/README.md)** | 4 runnable samples with live Three.js 3D visualizations & compiled Archify diagrams/explainers: [Hash-Chain Helix Observatory](../examples/advanced-hash-chain-time-travel/README.md), [BMAD Crew & KPI Evolution Bridge](../examples/advanced-bmad-crew-evolution/README.md), [Science Fair Flight Lab](../examples/kids-science-fair-glider/README.md) & [RoboHawks Safety Arena](../examples/kids-robotics-arena/README.md) |
 | **[Kids & School Projects Guide (`docs/KIDS_AND_SCHOOL_PROJECTS.md`)](./KIDS_AND_SCHOOL_PROJECTS.md)** | Step-by-step terminal and JavaScript library examples for science fairs, coding clubs, robotics logs, and group projects |
@@ -76,7 +76,7 @@ Modern software engineering spans dozens of ephemeral AI chat windows, context c
 </picture>
 
 > **Interactive Explorers**:  
-> [Open Interactive Architecture Viewer](https://onimurasame.github.io/numberone/archify/system-overview.html) · [Open 4-Style One-Page Explainer](https://onimurasame.github.io/numberone/archify/how-numberone-works-explainer.html) · [Open Narrated Story + Video Exporter](https://onimurasame.github.io/numberone/archify/system-overview-story.html) · [Open Multi-View Choreography Stage](https://onimurasame.github.io/numberone/archify/choreography-stage.html) · [Open Source-Backed Code Analysis](https://onimurasame.github.io/numberone/archify/code-analysis/repo.analysis.html)
+> [Open Interactive Architecture Viewer](https://shadow-software-platform.github.io/numberone/archify/system-overview.html) · [Open 4-Style One-Page Explainer](https://shadow-software-platform.github.io/numberone/archify/how-numberone-works-explainer.html) · [Open Narrated Story + Video Exporter](https://shadow-software-platform.github.io/numberone/archify/system-overview-story.html) · [Open Multi-View Choreography Stage](https://shadow-software-platform.github.io/numberone/archify/choreography-stage.html) · [Open Source-Backed Code Analysis](https://shadow-software-platform.github.io/numberone/archify/code-analysis/repo.analysis.html)
 
 ---
 
@@ -310,35 +310,35 @@ Every diagram below is generated from real committed TypeScript source in `docs/
   <img alt="Number One Multi-View Story Choreography" src="./assets/archify/choreography-light.svg" width="100%">
 </picture>
 
-### Interactive Archify Portal Index (`https://onimurasame.github.io/numberone/`)
+### Interactive Archify Portal Index (`https://shadow-software-platform.github.io/numberone/`)
 
 | Archify Feature | Interactive Artifact | Highlights |
 |---|---|---|
-| **1. Architecture (`architecture`)** | [`system-overview.html`](https://onimurasame.github.io/numberone/archify/system-overview.html) | Trust boundaries, 19 source pins, Semantic Passports & cross-diagram drilldowns |
-| **2. Workflow (`workflow` v2)** | [`bmad-party-workflow.html`](https://onimurasame.github.io/numberone/archify/bmad-party-workflow.html) | 3-Round BMAD Party Mode + `semanticChecks` reachability proof |
-| **3. Sequence (`sequence`)** | [`mcp-arbitration-sequence.html`](https://onimurasame.github.io/numberone/archify/mcp-arbitration-sequence.html) | MCP `stdio` JSON-RPC consultation, arbitration & sample payloads |
-| **4. Data Flow (`dataflow`)** | [`stream-sync-dataflow.html`](https://onimurasame.github.io/numberone/archify/stream-sync-dataflow.html) | `O(n)` redaction -> SHA-256 stream -> CAS blobs -> Scrum mirrors |
-| **5. Lifecycle (`lifecycle` v3)** | [`directive-evolution-lifecycle.html`](https://onimurasame.github.io/numberone/archify/directive-evolution-lifecycle.html) | KPI-gated practice promotion, regression detection & rollback |
-| **6. Data Model (`erd`)** | [`sor-data-model-erd.html`](https://onimurasame.github.io/numberone/archify/sor-data-model-erd.html) | `stream_events`, `fallback_blobs`, `lessons`, `directives`, `issues`, `sync_ledger` |
-| **7. Class Model (`class`)** | [`core-classes.html`](https://onimurasame.github.io/numberone/archify/core-classes.html) | `NumberOneAgent` composition & `BaseBridgeOfficer` / `PersistenceAdapter` contracts |
-| **8. Capability Tree (`tree`)** | [`repository-capability-tree.html`](https://onimurasame.github.io/numberone/archify/repository-capability-tree.html) | 6-package `src/` containment hierarchy |
-| **9. Incident Timeline (`timeline`)** | [`crash-to-lesson-timeline.html`](https://onimurasame.github.io/numberone/archify/crash-to-lesson-timeline.html) | Cross-harness crash -> dead-end -> fix -> auto-lesson timeline |
-| **10. Span Waterfall (`waterfall`)** | [`party-sync-waterfall.html`](https://onimurasame.github.io/numberone/archify/party-sync-waterfall.html) | `n1 party` + `n1 sync` + `n1 verify` span timing breakdown |
-| **11. 4-Style Explainer (`explainer`)** | [`how-numberone-works-explainer.html`](https://onimurasame.github.io/numberone/archify/how-numberone-works-explainer.html) | Live `clean` / `editorial` / `product` / `swiss` switcher, `@code` tour & checklist |
-| **12. Guided Story + Video (`story attach`)** | [`system-overview-story.html`](https://onimurasame.github.io/numberone/archify/system-overview-story.html) | Narrated 3-scene walkthrough + 1080p60 WebM/MP4 video export |
-| **13. Choreography Stage (`story stage`)** | [`choreography-stage.html`](https://onimurasame.github.io/numberone/archify/choreography-stage.html) | Cross-diagram morphing (`architecture` -> `workflow` -> `dataflow`) + KPI deltas |
-| **14. Architecture Diff (`compare`)** | [`architecture-comparison.html`](https://onimurasame.github.io/numberone/archify/architecture-comparison.html) | Before/after diff vs. local-only baseline curator |
-| **15. Code Analysis (`code-analysis`)** | [`code-analysis/repo.analysis.html`](https://onimurasame.github.io/numberone/archify/code-analysis/repo.analysis.html) | Source-backed TypeScript coupling, radial star map, 3D Atlas & AI tasks |
-| **16. PR Walkthrough Pack (`archify-pr`)** | [`pr-pack/views/topology.html`](https://onimurasame.github.io/numberone/archify/pr-pack/views/topology.html) | Change-marked PR architecture, sequence & schema review pack |
+| **1. Architecture (`architecture`)** | [`system-overview.html`](https://shadow-software-platform.github.io/numberone/archify/system-overview.html) | Trust boundaries, 19 source pins, Semantic Passports & cross-diagram drilldowns |
+| **2. Workflow (`workflow` v2)** | [`bmad-party-workflow.html`](https://shadow-software-platform.github.io/numberone/archify/bmad-party-workflow.html) | 3-Round BMAD Party Mode + `semanticChecks` reachability proof |
+| **3. Sequence (`sequence`)** | [`mcp-arbitration-sequence.html`](https://shadow-software-platform.github.io/numberone/archify/mcp-arbitration-sequence.html) | MCP `stdio` JSON-RPC consultation, arbitration & sample payloads |
+| **4. Data Flow (`dataflow`)** | [`stream-sync-dataflow.html`](https://shadow-software-platform.github.io/numberone/archify/stream-sync-dataflow.html) | `O(n)` redaction -> SHA-256 stream -> CAS blobs -> Scrum mirrors |
+| **5. Lifecycle (`lifecycle` v3)** | [`directive-evolution-lifecycle.html`](https://shadow-software-platform.github.io/numberone/archify/directive-evolution-lifecycle.html) | KPI-gated practice promotion, regression detection & rollback |
+| **6. Data Model (`erd`)** | [`sor-data-model-erd.html`](https://shadow-software-platform.github.io/numberone/archify/sor-data-model-erd.html) | `stream_events`, `fallback_blobs`, `lessons`, `directives`, `issues`, `sync_ledger` |
+| **7. Class Model (`class`)** | [`core-classes.html`](https://shadow-software-platform.github.io/numberone/archify/core-classes.html) | `NumberOneAgent` composition & `BaseBridgeOfficer` / `PersistenceAdapter` contracts |
+| **8. Capability Tree (`tree`)** | [`repository-capability-tree.html`](https://shadow-software-platform.github.io/numberone/archify/repository-capability-tree.html) | 6-package `src/` containment hierarchy |
+| **9. Incident Timeline (`timeline`)** | [`crash-to-lesson-timeline.html`](https://shadow-software-platform.github.io/numberone/archify/crash-to-lesson-timeline.html) | Cross-harness crash -> dead-end -> fix -> auto-lesson timeline |
+| **10. Span Waterfall (`waterfall`)** | [`party-sync-waterfall.html`](https://shadow-software-platform.github.io/numberone/archify/party-sync-waterfall.html) | `n1 party` + `n1 sync` + `n1 verify` span timing breakdown |
+| **11. 4-Style Explainer (`explainer`)** | [`how-numberone-works-explainer.html`](https://shadow-software-platform.github.io/numberone/archify/how-numberone-works-explainer.html) | Live `clean` / `editorial` / `product` / `swiss` switcher, `@code` tour & checklist |
+| **12. Guided Story + Video (`story attach`)** | [`system-overview-story.html`](https://shadow-software-platform.github.io/numberone/archify/system-overview-story.html) | Narrated 3-scene walkthrough + 1080p60 WebM/MP4 video export |
+| **13. Choreography Stage (`story stage`)** | [`choreography-stage.html`](https://shadow-software-platform.github.io/numberone/archify/choreography-stage.html) | Cross-diagram morphing (`architecture` -> `workflow` -> `dataflow`) + KPI deltas |
+| **14. Architecture Diff (`compare`)** | [`architecture-comparison.html`](https://shadow-software-platform.github.io/numberone/archify/architecture-comparison.html) | Before/after diff vs. local-only baseline curator |
+| **15. Code Analysis (`code-analysis`)** | [`code-analysis/repo.analysis.html`](https://shadow-software-platform.github.io/numberone/archify/code-analysis/repo.analysis.html) | Source-backed TypeScript coupling, radial star map, 3D Atlas & AI tasks |
+| **16. PR Walkthrough Pack (`archify-pr`)** | [`pr-pack/views/topology.html`](https://shadow-software-platform.github.io/numberone/archify/pr-pack/views/topology.html) | Change-marked PR architecture, sequence & schema review pack |
 
 ### Runnable Interactive 3D Samples (Three.js + Archify — [`examples/README.md`](../examples/README.md))
 
 | Sample | Audience | Live Three.js 3D Visualization | Archify Sample Docs | Runnable Source |
 |---|---|---|---|---|
-| **SHA-256 Hash-Chain Helix, CAS Blobs & Replay Observatory** | Advanced Technical | [Open 3D Helix](https://onimurasame.github.io/numberone/examples/advanced-hash-chain-time-travel/) | [Dataflow](https://onimurasame.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-dataflow.html) · [Explainer](https://onimurasame.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-explainer.html) | [`examples/advanced-hash-chain-time-travel/`](../examples/advanced-hash-chain-time-travel/README.md) |
-| **BMAD Bridge Crew, KPI Evolution & Scrum Command Bridge** | Advanced Technical | [Open 3D Bridge](https://onimurasame.github.io/numberone/examples/advanced-bmad-crew-evolution/) | [Workflow v2](https://onimurasame.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-workflow.html) · [Explainer](https://onimurasame.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-explainer.html) | [`examples/advanced-bmad-crew-evolution/`](../examples/advanced-bmad-crew-evolution/README.md) |
-| **Paper Airplane Science Fair Flight Lab** | Kids & School (Grades 5–12) | [Open 3D Flight Lab](https://onimurasame.github.io/numberone/examples/kids-science-fair-glider/) | [Timeline](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html) | [`examples/kids-science-fair-glider/`](../examples/kids-science-fair-glider/README.md) |
-| **RoboHawks Safety Arena & Time Machine** | Kids & Robotics (Grades 6–12) | [Open 3D Arena](https://onimurasame.github.io/numberone/examples/kids-robotics-arena/) | [Sequence](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html) | [`examples/kids-robotics-arena/`](../examples/kids-robotics-arena/README.md) |
+| **SHA-256 Hash-Chain Helix, CAS Blobs & Replay Observatory** | Advanced Technical | [Open 3D Helix](https://shadow-software-platform.github.io/numberone/examples/advanced-hash-chain-time-travel/) | [Dataflow](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-dataflow.html) · [Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-hash-chain-time-travel-explainer.html) | [`examples/advanced-hash-chain-time-travel/`](../examples/advanced-hash-chain-time-travel/README.md) |
+| **BMAD Bridge Crew, KPI Evolution & Scrum Command Bridge** | Advanced Technical | [Open 3D Bridge](https://shadow-software-platform.github.io/numberone/examples/advanced-bmad-crew-evolution/) | [Workflow v2](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-workflow.html) · [Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/advanced-bmad-crew-evolution-explainer.html) | [`examples/advanced-bmad-crew-evolution/`](../examples/advanced-bmad-crew-evolution/README.md) |
+| **Paper Airplane Science Fair Flight Lab** | Kids & School (Grades 5–12) | [Open 3D Flight Lab](https://shadow-software-platform.github.io/numberone/examples/kids-science-fair-glider/) | [Timeline](https://shadow-software-platform.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html) | [`examples/kids-science-fair-glider/`](../examples/kids-science-fair-glider/README.md) |
+| **RoboHawks Safety Arena & Time Machine** | Kids & Robotics (Grades 6–12) | [Open 3D Arena](https://shadow-software-platform.github.io/numberone/examples/kids-robotics-arena/) | [Sequence](https://shadow-software-platform.github.io/numberone/archify/examples/kids-robotics-arena-sequence.html) · [Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/kids-robotics-arena-explainer.html) | [`examples/kids-robotics-arena/`](../examples/kids-robotics-arena/README.md) |
 
 ---
 
@@ -348,7 +348,7 @@ Every diagram below is generated from real committed TypeScript source in `docs/
 
 ```bash
 # 1. Install globally (Node.js >= 22.0.0)
-npm install -g @onimurasame/numberone
+npm install -g @shadow-software-platform/numberone
 
 # 2. Attach Number One to any project workspace
 cd /path/to/your/workspace
@@ -535,15 +535,15 @@ This repository includes complete GitHub governance, security automation, and **
 - **CodeQL SAST Analysis**: [`.github/workflows/codeql.yml`](../.github/workflows/codeql.yml)
 - **Supply-Chain Dependency & License Review**: [`.github/workflows/dependency-review.yml`](../.github/workflows/dependency-review.yml) & [`.github/dependabot.yml`](../.github/dependabot.yml)
 - **Dependabot PR Triage, Provenance & Batch Merge Automation**: [`.github/workflows/dependabot-triage.yml`](../.github/workflows/dependabot-triage.yml), [`scripts/verify-workflows.mjs`](../scripts/verify-workflows.mjs), and [`scripts/pr-automation.mjs`](../scripts/pr-automation.mjs) automatically verify SHA pins, `github/codeql-action/*` lockstep, commit signatures, upstream tag-to-SHA provenance, and Pages bundle integrity while keeping final CODEOWNERS approval manual (`npm run verify:workflows`, `npm run pr:triage`, `npm run pr:merge`).
-- **Signed Provenance Releases to npm (`@onimurasame/numberone`) & GitHub Releases**: [`.github/workflows/release.yml`](../.github/workflows/release.yml) runs a 3-job least-privilege release pipeline (`verify` -> `publish-npm` -> `github-release`) on `v*.*.*` tag pushes and manual `workflow_dispatch` (with `dry_run` enabled by default).
+- **Signed Provenance Releases to npm (`@shadow-software-platform/numberone`) & GitHub Releases**: [`.github/workflows/release.yml`](../.github/workflows/release.yml) runs a 3-job least-privilege release pipeline (`verify` -> `publish-npm` -> `github-release`) on `v*.*.*` tag pushes and manual `workflow_dispatch` (with `dry_run` enabled by default).
 - **Automated Repository Provisioner**: [`scripts/configure-github.sh`](../scripts/configure-github.sh) configures public visibility, GitHub Pages (`build_type: workflow`), the `npm` deployment environment, Issues, Discussions, Projects v2 Scrum board, 21 labels, milestones, Dependabot/Secret Scanning, and Default Branch Rulesets:
 
 ```bash
 # Preview all GitHub API provisioning operations
-./scripts/configure-github.sh --repo onimurasame/numberone --dry-run
+./scripts/configure-github.sh --repo Shadow-Software-Platform/numberone --dry-run
 
 # Apply live once repository is created/pushed
-./scripts/configure-github.sh --repo onimurasame/numberone
+./scripts/configure-github.sh --repo Shadow-Software-Platform/numberone
 
 # Verify workflow SHA pins, CodeQL lockstep & Pages bundle locally
 npm run verify:workflows
@@ -553,14 +553,14 @@ npm run pr:triage
 npm run pr:merge
 ```
 
-### Automated npm Release & OIDC Trusted Publishing (`@onimurasame/numberone`)
+### Automated npm Release & OIDC Trusted Publishing (`@shadow-software-platform/numberone`)
 
 1. **Initial `v1.0.0` Package Bootstrap** *(required once because npm Trusted Publishing binds to an existing package on npmjs.org)*:
-   - **Option A (Recommended — CI Bootstrap)**: Temporarily add a short-lived npm granular access token with write access for `@onimurasame/numberone` as repository secret `NPM_TOKEN`, then push tag `v1.0.0` (or run **Actions → Release → `dry_run: false`** from `master`). The `publish-npm` job publishes `@onimurasame/numberone@1.0.0` with SLSA provenance and creates the `v1.0.0` GitHub Release.
+   - **Option A (Recommended — CI Bootstrap)**: Temporarily add a short-lived npm granular access token with write access for `@shadow-software-platform/numberone` as repository secret `NPM_TOKEN`, then push tag `v1.0.0` (or run **Actions → Release → `dry_run: false`** from `master`). The `publish-npm` job publishes `@shadow-software-platform/numberone@1.0.0` with SLSA provenance and creates the `v1.0.0` GitHub Release.
    - **Option B (Local Bootstrap)**: Run `npm login && npm run build && npm publish --access public` once locally, then push tag `v1.0.0` (the workflow detects `1.0.0` is already live on npm and completes the GitHub Release cleanly).
 2. **Switch to Zero-Secret OIDC Trusted Publishing (for all subsequent releases)**:
-   - On `npmjs.com` → `@onimurasame/numberone` → **Settings → Trusted Publisher → GitHub Actions**, configure:
-     - **Organization or user**: `onimurasame`
+   - On `npmjs.com` → `@shadow-software-platform/numberone` → **Settings → Trusted Publisher → GitHub Actions**, configure:
+     - **Organization or user**: `Shadow-Software-Platform`
      - **Repository**: `numberone`
      - **Workflow filename**: `release.yml`
      - **Environment name**: `npm`

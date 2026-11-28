@@ -10,7 +10,7 @@
     "animation": "trace",
     "quality_profile": "showcase",
     "repository": {
-      "url": "https://github.com/onimurasame/numberone.git",
+      "url": "https://github.com/Shadow-Software-Platform/numberone.git",
       "provider": "github",
       "revision": "fc10c03081e1eb7b0c75c8828ec1be77b7de8e14"
     }

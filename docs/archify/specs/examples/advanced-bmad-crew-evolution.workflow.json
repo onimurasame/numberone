@@ -9,7 +9,7 @@
     "quality_profile": "showcase",
     "output": "docs/site/archify/examples/advanced-bmad-crew-evolution-workflow.html",
     "repository": {
-      "url": "https://github.com/onimurasame/numberone.git",
+      "url": "https://github.com/Shadow-Software-Platform/numberone.git",
       "provider": "github",
       "revision": "fc10c03081e1eb7b0c75c8828ec1be77b7de8e14"
     }

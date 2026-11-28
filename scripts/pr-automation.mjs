@@ -45,7 +45,7 @@ import {
 
 export const TRIAGE_COMMENT_MARKER = '<!-- n1-dependabot-triage -->';
 export const REQUIRED_CHECK_NAMES = ['verify', 'Analyze (javascript-typescript)', 'dependency-review'];
-export const DEFAULT_REPO = 'onimurasame/numberone';
+export const DEFAULT_REPO = 'Shadow-Software-Platform/numberone';
 
 const DEPENDABOT_LOGINS = new Set(['dependabot[bot]', 'app/dependabot', 'dependabot']);
 const ALLOWED_GHA_FILE_RX = /^\.github\/(?:workflows\/[^/]+\.ya?ml|actions\/.+|dependabot\.ya?ml)$/;

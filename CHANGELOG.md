@@ -6,6 +6,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-27
+
+### Changed
+- **Organization & npm Scope Migration (`Shadow-Software-Platform`)**: Migrated repository metadata, GitHub Pages portal (`https://shadow-software-platform.github.io/numberone/`), Archify source links, governance scripts (`scripts/configure-github.sh`, `scripts/pr-automation.mjs`, `scripts/rollback.sh`), documentation, and npm package scope from `onimurasame/numberone` (`@onimurasame/numberone`) to **`Shadow-Software-Platform/numberone`** (**`@shadow-software-platform/numberone`**), keeping SLSA provenance `repository.url` and OIDC Trusted Publishing aligned with the organization repository.
+
 ## [1.0.0] - 2026-11-27
 
 ### Added

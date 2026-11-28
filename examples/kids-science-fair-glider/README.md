@@ -1,8 +1,8 @@
 # Kids Sample 1: Paper Airplane Science Fair Flight Lab (Three.js + Archify)
 
 > **Audience:** Kids, Students & Teachers (Grades 5–12)  
-> **Live 3D Visualization (Three.js):** [Open Paper Airplane 3D Flight Lab](https://onimurasame.github.io/numberone/examples/kids-science-fair-glider/)  
-> **Interactive Archify Docs:** [Interactive Timeline](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [4-Style One-Page Explainer](https://onimurasame.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html)
+> **Live 3D Visualization (Three.js):** [Open Paper Airplane 3D Flight Lab](https://shadow-software-platform.github.io/numberone/examples/kids-science-fair-glider/)  
+> **Interactive Archify Docs:** [Interactive Timeline](https://shadow-software-platform.github.io/numberone/archify/examples/kids-science-fair-glider-timeline.html) · [4-Style One-Page Explainer](https://shadow-software-platform.github.io/numberone/archify/examples/kids-science-fair-glider-explainer.html)
 
 ## What This Sample Teaches
 

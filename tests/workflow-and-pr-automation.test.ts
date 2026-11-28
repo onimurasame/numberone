@@ -428,12 +428,12 @@ describe('npm Release Pipeline & Package Publishability', () => {
     const pkg = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'package.json'), 'utf8'));
     const lock = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'package-lock.json'), 'utf8'));
 
-    expect(pkg.name).toBe('@onimurasame/numberone');
-    expect(lock.name).toBe('@onimurasame/numberone');
-    expect(lock.packages?.['']?.name).toBe('@onimurasame/numberone');
+    expect(pkg.name).toBe('@shadow-software-platform/numberone');
+    expect(lock.name).toBe('@shadow-software-platform/numberone');
+    expect(lock.packages?.['']?.name).toBe('@shadow-software-platform/numberone');
     expect(pkg.version).toMatch(/^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$/);
     expect(pkg.publishConfig).toEqual({ access: 'public' });
-    expect(pkg.repository?.url).toBe('git+https://github.com/onimurasame/numberone.git');
+    expect(pkg.repository?.url).toBe('git+https://github.com/Shadow-Software-Platform/numberone.git');
     expect(pkg.bin).toEqual({
       numberone: 'dist/cli.js',
       n1: 'dist/cli.js'
@@ -467,7 +467,7 @@ describe('npm Release Pipeline & Package Publishability', () => {
     }
   });
 
-  it('executes scripts/rollback.sh --dry-run targeting @onimurasame/numberone', () => {
+  it('executes scripts/rollback.sh --dry-run targeting @shadow-software-platform/numberone', () => {
     const out = execFileSync(
       'bash',
       [
@@ -482,9 +482,9 @@ describe('npm Release Pipeline & Package Publishability', () => {
       ],
       { cwd: REPO_ROOT, encoding: 'utf8' }
     );
-    expect(out).toContain('Rolling back @onimurasame/numberone: 1.0.1 -> 1.0.0');
-    expect(out).toContain('@onimurasame/numberone@1.0.0');
-    expect(out).toContain('@onimurasame/numberone@1.0.1');
+    expect(out).toContain('Rolling back @shadow-software-platform/numberone: 1.0.1 -> 1.0.0');
+    expect(out).toContain('@shadow-software-platform/numberone@1.0.0');
+    expect(out).toContain('@shadow-software-platform/numberone@1.0.1');
   });
 });
 

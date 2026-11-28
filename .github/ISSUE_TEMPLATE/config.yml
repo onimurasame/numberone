@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Interactive Documentation & Archify Architecture Portal
-    url: https://onimurasame.github.io/numberone/
+    url: https://shadow-software-platform.github.io/numberone/
     about: Browse full documentation, harness installation guides, interactive Archify diagrams, code reference, and technical glossary.
   - name: GitHub Discussions (Architecture, Q&A & Ideas)
-    url: https://github.com/onimurasame/numberone/discussions
+    url: https://github.com/Shadow-Software-Platform/numberone/discussions
     about: Ask questions, share harness setups, and discuss Bridge Crew strategies.
   - name: Private Security Vulnerability Reporting
-    url: https://github.com/onimurasame/numberone/security/advisories/new
+    url: https://github.com/Shadow-Software-Platform/numberone/security/advisories/new
     about: Report security vulnerabilities privately per SECURITY.md — never open public issues for unpatched vulnerabilities.

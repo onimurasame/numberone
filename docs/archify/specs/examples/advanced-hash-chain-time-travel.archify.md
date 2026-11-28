@@ -8,7 +8,7 @@
 - Cloning `.numberone/` and mutating 1 byte at `seq #4` immediately fails `StreamStore.verifyIntegrity()` (fail-closed).[](source:tamper_proof)
 
 @answer scope="Advanced Systems Sample · Cryptography, POSIX Durability, ReplayEngine & Three.js Observatory"
-@meta locale=en style=editorial repo_url=https://github.com/onimurasame/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
+@meta locale=en style=editorial repo_url=https://github.com/Shadow-Software-Platform/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
 @source redaction_proof title="Synthetic Linear-Time Secret Redaction Proof" path=examples/advanced-hash-chain-time-travel/run.mjs lines=56:66
 @source cas_blob title="Content-Addressed Crash Fallback Blob" path=examples/advanced-hash-chain-time-travel/run.mjs lines=68:89
 @source arb_proof title="Affirmative-Clause L1-L4 Arbitration Proof" path=examples/advanced-hash-chain-time-travel/run.mjs lines=138:152

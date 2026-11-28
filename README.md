@@ -2,14 +2,14 @@
 
 **The project memory notebook that never forgets — for kids, students, creators, teams, and AI helpers.**
 
-[![npm version](https://img.shields.io/npm/v/%40onimurasame%2Fnumberone.svg?color=cb3837)](https://www.npmjs.com/package/@onimurasame/numberone)
-[![CI](https://github.com/onimurasame/numberone/actions/workflows/ci.yml/badge.svg)](https://github.com/onimurasame/numberone/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/onimurasame/numberone/actions/workflows/codeql.yml/badge.svg)](https://github.com/onimurasame/numberone/actions/workflows/codeql.yml)
-[![Documentation Website](https://github.com/onimurasame/numberone/actions/workflows/pages.yml/badge.svg)](https://onimurasame.github.io/numberone/)
+[![npm version](https://img.shields.io/npm/v/%40shadow-software-platform%2Fnumberone.svg?color=cb3837)](https://www.npmjs.com/package/@shadow-software-platform/numberone)
+[![CI](https://github.com/Shadow-Software-Platform/numberone/actions/workflows/ci.yml/badge.svg)](https://github.com/Shadow-Software-Platform/numberone/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Shadow-Software-Platform/numberone/actions/workflows/codeql.yml/badge.svg)](https://github.com/Shadow-Software-Platform/numberone/actions/workflows/codeql.yml)
+[![Documentation Website](https://github.com/Shadow-Software-Platform/numberone/actions/workflows/pages.yml/badge.svg)](https://shadow-software-platform.github.io/numberone/)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-059669.svg)](./LICENSE)
 
 > **Visit the Main Documentation Website:**  
-> **[https://onimurasame.github.io/numberone/](https://onimurasame.github.io/numberone/)**  
+> **[https://shadow-software-platform.github.io/numberone/](https://shadow-software-platform.github.io/numberone/)**  
 > Starts with an expanded plain-English guide and an interactive **Kids & School Projects Lab**, then opens into the complete technical reference, 16 interactive visual architecture maps, copy-paste setup for 24+ AI tools, code explorer, and searchable dictionary.
 
 ---
@@ -62,12 +62,12 @@ n1 lesson --title "Put weight near the nose" --resolution "One paperclip on the 
 n1 documentary --out my-science-fair-report.md
 ```
 
-### Idea 2: Build a "Smart Study Buddy" in JavaScript (Using the `@onimurasame/numberone` Library!)
+### Idea 2: Build a "Smart Study Buddy" in JavaScript (Using the `@shadow-software-platform/numberone` Library!)
 
 Learning JavaScript in school or coding club? You can `import` Number One right into your own `.mjs` file to build a Study Buddy that remembers tricky quiz mistakes and reminds you before test day:
 
 ```javascript
-import { NumberOneAgent } from '@onimurasame/numberone';
+import { NumberOneAgent } from '@shadow-software-platform/numberone';
 
 const buddy = new NumberOneAgent('./my-study-notebook');
 buddy.attach({ workspaceName: 'Math Study Buddy', installHooks: false, installShims: false });
@@ -88,7 +88,7 @@ console.log('Remember:', tips.lessons[0].lesson.preventionRule);
 ```
 
 > **Want more school project ideas — including interactive 3D visualizations?**  
-> Try our **[Interactive 3D Samples Gallery (Three.js + Archify)](https://onimurasame.github.io/numberone/#samples-3d)** (fly 3D paper airplanes on a Science Fair runway or drive a 3D rover through an `L2` safety laser gate!), browse all runnable samples in **[`examples/README.md`](./examples/README.md)**, or read the full **[Kids & School Projects Guide (`docs/KIDS_AND_SCHOOL_PROJECTS.md`)](./docs/KIDS_AND_SCHOOL_PROJECTS.md)**!
+> Try our **[Interactive 3D Samples Gallery (Three.js + Archify)](https://shadow-software-platform.github.io/numberone/#samples-3d)** (fly 3D paper airplanes on a Science Fair runway or drive a 3D rover through an `L2` safety laser gate!), browse all runnable samples in **[`examples/README.md`](./examples/README.md)**, or read the full **[Kids & School Projects Guide (`docs/KIDS_AND_SCHOOL_PROJECTS.md`)](./docs/KIDS_AND_SCHOOL_PROJECTS.md)**!
 
 ---
 
@@ -98,7 +98,7 @@ All you need is [Node.js](https://nodejs.org/) (version 22 or newer) installed o
 
 ```bash
 # 1. Install Number One once on your computer
-npm install -g @onimurasame/numberone
+npm install -g @shadow-software-platform/numberone
 
 # 2. Go into any project folder and turn Number One on
 cd my-project
@@ -111,7 +111,7 @@ n1 documentary --out my-project-story.md
 ```
 
 > **Using an AI coding assistant?**  
-> Running `n1 attach .` automatically drops friendly instruction files into your folder so popular AI tools know to check Number One first. See the **[Interactive Setup Helper](https://onimurasame.github.io/numberone/#installation)** or **[All-Tool Setup Guide](./docs/INSTALLATION.md)** for copy-paste instructions covering 24+ AI tools.
+> Running `n1 attach .` automatically drops friendly instruction files into your folder so popular AI tools know to check Number One first. See the **[Interactive Setup Helper](https://shadow-software-platform.github.io/numberone/#installation)** or **[All-Tool Setup Guide](./docs/INSTALLATION.md)** for copy-paste instructions covering 24+ AI tools.
 
 ---
 
@@ -121,7 +121,7 @@ Whether you want a friendly walkthrough, 3D interactive school projects, or ever
 
 | Guide | Best For |
 |---|---|
-| **[Main Documentation Website (GitHub Pages)](https://onimurasame.github.io/numberone/)** | **Best starting place!** Opens with the expanded plain-English walkthrough, Kids & School Projects Lab, and **4 live Three.js 3D samples**, followed by full technical specs, 24 interactive Archify visual diagrams, 24+ AI tool setup helper, code explorer, and searchable dictionary. |
+| **[Main Documentation Website (GitHub Pages)](https://shadow-software-platform.github.io/numberone/)** | **Best starting place!** Opens with the expanded plain-English walkthrough, Kids & School Projects Lab, and **4 live Three.js 3D samples**, followed by full technical specs, 24 interactive Archify visual diagrams, 24+ AI tool setup helper, code explorer, and searchable dictionary. |
 | **[Interactive 3D Samples (`examples/README.md`)](./examples/README.md)** | Hands-on runnable samples with **Three.js 3D visualizations** & **Archify** diagrams — 2 for kids & school projects (Paper Airplane Flight Lab, RoboHawks Safety Arena) + 2 for advanced engineers (SHA-256 Hash-Chain Helix, BMAD Command Bridge). |
 | **[Kids & School Projects Guide](./docs/KIDS_AND_SCHOOL_PROJECTS.md)** | Students, kids, coding clubs, parents, and teachers looking for fun, runnable terminal & JavaScript library projects. |
 | **[Full Technical Architecture Guide](./docs/TECHNICAL_GUIDE.md)** | Software engineers and architects who want the complete deep-dive technical specification, commands, codebase map, and governance details in Markdown. |

@@ -49,14 +49,14 @@
 ### Option A — Global npm Installation (Recommended)
 
 ```bash
-npm install -g @onimurasame/numberone
+npm install -g @shadow-software-platform/numberone
 n1 --version
 ```
 
 ### Option B — Build from Source & Link Globally
 
 ```bash
-git clone https://github.com/onimurasame/numberone.git
+git clone https://github.com/Shadow-Software-Platform/numberone.git
 cd numberone
 npm ci
 npm run build
@@ -67,8 +67,8 @@ n1 --version
 ### Option C — Zero-Install Workspace Execution (`npx`)
 
 ```bash
-npx -y @onimurasame/numberone attach .
-npx -y @onimurasame/numberone status
+npx -y @shadow-software-platform/numberone attach .
+npx -y @shadow-software-platform/numberone status
 ```
 
 > **Enterprise / Air-Gapped Environments**: For offline tarball installation, rootless Docker/Podman, `systemd`, Kubernetes, GitHub Enterprise Server, and Jira Data Center, see [`docs/ONPREM.md`](./ONPREM.md).
@@ -339,7 +339,7 @@ Gemini CLI reads `~/.gemini/settings.json` (or workspace `.gemini/settings.json`
          - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
            with:
              node-version: '22.22.x'
-         - run: npm install -g @onimurasame/numberone
+         - run: npm install -g @shadow-software-platform/numberone
    ```
 
 ---

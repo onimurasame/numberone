@@ -8,7 +8,7 @@
 - **Phase 4 (`syncPush` + `verifyIntegrity`)**: Mirrors `29/29` verified events to an air-gapped `DirectoryPersistenceAdapter` Kanban board.[](source:scrum_sync)
 
 @answer scope="Advanced DevSecOps Sample · BMAD Party Mode, KPI Evolution, Air-Gapped Scrum & Three.js Bridge"
-@meta locale=en style=swiss repo_url=https://github.com/onimurasame/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
+@meta locale=en style=swiss repo_url=https://github.com/Shadow-Software-Platform/numberone.git repo_revision=fc10c03081e1eb7b0c75c8828ec1be77b7de8e14
 @source phase1_veto title="Phase 1 Pre-Hardening Party Mode Veto" path=examples/advanced-bmad-crew-evolution/run.mjs lines=105:113
 @source evo_promote title="Promote Counterfactual CWE-78 Security Practice" path=examples/advanced-bmad-crew-evolution/run.mjs lines=157:184
 @source phase3_consensus title="Phase 3 Post-Remediation Consensus" path=examples/advanced-bmad-crew-evolution/run.mjs lines=302:309
